@@ -5,6 +5,7 @@ import 'package:changshengh5/app/SPClassApplicaion.dart';
 import 'package:changshengh5/model/SPClassBaseModelEntity.dart';
 import 'package:changshengh5/model/SPClassSystemMsg.dart';
 import 'package:changshengh5/pages/common/SPClassNoDataView.dart';
+import 'package:changshengh5/pages/news/SPClassWebPageState.dart';
 import 'package:changshengh5/untils/SPClassCommonMethods.dart';
 import 'package:changshengh5/untils/SPClassImageUtil.dart';
 import 'package:changshengh5/untils/SPClassNavigatorUtils.dart';
@@ -140,8 +141,7 @@ class SPClassSystemMsgPageState extends State<SPClassSystemMsgPage>{
                     if(spProMsgList[i].spProPageUrl!.isEmpty){
                       SPClassNavigatorUtils.spFunPushRoute(context,  SPClassSysMsgDetailPage(spProMsgList[i]));
                     }else{
-                      //标记H5没有web
-                      // SPClassNavigatorUtils.spFunPushRoute(context,  SPClassWebPage(spProMsgList[i].spProPageUrl,spProMsgList[i].title));
+                      SPClassNavigatorUtils.spFunPushRoute(context,  SPClassWebPage(spProMsgList[i].spProPageUrl!,spProMsgList[i].title!));
                     }
 
                   },

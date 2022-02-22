@@ -332,7 +332,8 @@ class SPClassBallFooterWidgetState extends State<SPClassBallFooterWidget>
           right: isVertical ? 0.0 : isReverse ? 0.0 : null,
           child: Container(
             alignment:
-            // widget.spProBallFooter?.alignment ??标记
+             widget.spProBallFooter?.alignment!=null?
+             widget.spProBallFooter?.alignment:
                 isVertical
                 ? !isReverse ? Alignment.topCenter : Alignment.bottomCenter
                 : isReverse ? Alignment.centerRight : Alignment.centerLeft,

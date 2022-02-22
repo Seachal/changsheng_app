@@ -375,8 +375,7 @@ class SPClassBallHeaderWidgetState extends State<SPClassBallHeaderWidget>
                 : null,
             child: Container(
               alignment:
-              // widget.spProBallHeader.alignment ?? 标记
-
+              widget.spProBallHeader?.alignment!=null ?widget.spProBallHeader?.alignment:
                   isVertical
                   ? isReverse ? Alignment.topCenter : Alignment.bottomCenter
                   : !isReverse ? Alignment.centerRight : Alignment.centerLeft,
