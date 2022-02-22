@@ -168,7 +168,7 @@ class SPClassSchemeItemView extends StatelessWidget {
                                           "中" +
                                           "${item.expert!.spProLast10CorrectNum}",
                                       style: TextStyle(
-                                          fontSize: sp(12),
+                                          fontSize: sp(9),
                                           color: Color(0xFFF7F7F7),
                                           letterSpacing: 1),
                                     ),
@@ -202,7 +202,7 @@ class SPClassSchemeItemView extends StatelessWidget {
                                     child: Text(
                                       "${item.expert!.spProCurrentRedNum!}连红",
                                       style: TextStyle(
-                                          fontSize: sp(12),
+                                          fontSize: sp(9),
                                           color: Color(0xFFF7F7F7),
                                           letterSpacing: 1),
                                     ),
