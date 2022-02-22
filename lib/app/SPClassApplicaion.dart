@@ -9,7 +9,9 @@ import 'package:changshengh5/model/SPClassLogInfoEntity.dart';
 import 'package:changshengh5/model/SPClassShowPListEntity.dart';
 import 'package:changshengh5/model/SPClassUserInfo.dart';
 import 'package:changshengh5/model/SPClassUserLoginInfo.dart';
+import 'package:changshengh5/pages/dialogs/SPClassNewRegisterDialog.dart';
 import 'package:changshengh5/pages/login/SPClassVideoLoginPage.dart';
+import 'package:changshengh5/untils/SPClassDateUtils.dart';
 import 'package:changshengh5/untils/SPClassNavigatorUtils.dart';
 import 'package:changshengh5/untils/SPClassSharedPreferencesKeys.dart';
 import 'package:flutter/material.dart';
@@ -123,6 +125,36 @@ class SPClassApplicaion
     ));
   }
 
+  static Future<void> spFunShowUserDialog(BuildContext context ) async {
+    if(!SPClassApplicaion.spProShowMenuList.contains("pay")){
+      return;
+    }
+    var dialogShowTime;
+    if(spFunIsLogin()){
+      dialogShowTime = await  SharedPreferences.getInstance().then((sp){
+        return sp.getString("dialog_turn${SPClassApplicaion.spProUserLoginInfo?.spProUserId.toString()}");
+      }); //
+    }
+
+    if( !spFunIsLogin()||(dialogShowTime==null||dialogShowTime!=SPClassDateUtils.dateFormatByDate(DateTime.now(), "yyyy-MM-dd")))
+    {
+      if(spFunIsLogin()){
+        SharedPreferences.getInstance().then((sp){
+          sp.setString("dialog_turn${SPClassApplicaion.spProUserLoginInfo?.spProUserId.toString()}", SPClassDateUtils.dateFormatByDate(DateTime.now(), "yyyy-MM-dd"));
+        });
+      }
+//      转盘
+//      showCupertinoModalPopup(context: context, builder: (c)=> SPClassDialogTurntable((){
+//        spFunShowNewUser(context);
+//
+//      }));
+    }else{
+      spFunShowNewUser(context);
+    }
+
+
+  }
+
   static bool spFunIsShowIosUI(){
     return false;
   }
@@ -140,5 +172,26 @@ bool spFunIsLogin({BuildContext ?context}) {
     return false;
   }
 }
+
+Future<void> spFunShowNewUser(BuildContext context) async {
+  var dialogShowTime;
+  dialogShowTime = await  SharedPreferences.getInstance().then((sp){
+    return sp.getString("dialog_register");
+  }); //
+  if(dialogShowTime==null)
+  {
+
+    SharedPreferences.getInstance().then((sp){
+      sp.setString("dialog_register","show");
+    });
+    showDialog<void>(context: context,
+        builder: (BuildContext context) {
+          return SPClassNewRegisterDialog(callback: (){
+          },);
+        });
+    return;
+  }
+}
+
 
 SPClassUserLoginInfo? get userLoginInfo=>SPClassApplicaion.spProUserLoginInfo;

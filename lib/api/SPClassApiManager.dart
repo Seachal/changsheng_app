@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:changshengh5/app/SPClassApplicaion.dart';
 import 'package:changshengh5/model/SPClassAnylizeMatchList.dart';
 import 'package:changshengh5/model/SPClassBaseModelEntity.dart';
+import 'package:changshengh5/model/SPClassCheckUpDate.dart';
 import 'package:changshengh5/model/SPClassCoinLogInfo.dart';
 import 'package:changshengh5/model/SPClassCoupon.dart';
 import 'package:changshengh5/model/SPClassCreatOrderEntity.dart';
@@ -285,11 +286,9 @@ class SPClassApiManager extends SPClassBaseApi{
   spFunLogAppShare({SPClassHttpCallBack<SPClassBaseModelEntity>? spProCallBack,Map<String,dynamic> ?queryParameters}){
     spFunGet<SPClassBaseModelEntity>(url: LOG_APP_SHARE,queryParameters:{},isToast: false,spProIsLoading: false,isBaseParams: true,spProCallBack: spProCallBack);
   }
-//
-//   spFunCheckUpdate({SPClassHttpCallBack<SPClassCheckUpDate> spProCallBack,BuildContext context,Map<String,dynamic> queryParameters}){
-//     spFunGet<SPClassCheckUpDate>(jsonObject: new SPClassCheckUpDate(),url: CHECK_UPDATE,queryParameters:queryParameters,isToast: false,spProIsLoading: true,isBaseParams: true,spProCallBack: spProCallBack);
-//   }
-//
+  spFunCheckUpdate({SPClassHttpCallBack<SPClassCheckUpDate> ?spProCallBack,BuildContext ?context,Map<String,dynamic> ?queryParameters}){
+    spFunGet<SPClassCheckUpDate>(jsonObject: SPClassCheckUpDate(),url: CHECK_UPDATE,queryParameters:queryParameters,isToast: false,spProIsLoading: true,isBaseParams: true,spProCallBack: spProCallBack);
+  }
 //   spFunOneClickLogin({SPClassHttpCallBack spProCallBack,BuildContext context,Map<String,dynamic> queryParameters}){
 //     spFunGet<SPClassUserLoginInfo>(jsonObject:new SPClassUserLoginInfo(),url: ONE_CLICK_LOGIN,queryParameters:queryParameters,isToast: true,spProIsLoading: true,isBaseParams: false, spProCallBack: spProCallBack ,context: context);
 //   }

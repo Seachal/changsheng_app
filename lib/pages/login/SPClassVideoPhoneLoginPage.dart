@@ -411,7 +411,7 @@ class SPClassVideoPhoneLoginPageState extends State<SPClassVideoPhoneLoginPage>
               SPClassApplicaion.spFunInitUserState();
               SPClassApplicaion.spFunGetUserInfo();
               SPClassToastUtils.spFunShowToast(msg: "登录成功");
-              // SPClassApplicaion.spFunSavePushToken();
+              SPClassApplicaion.spFunSavePushToken();
               SPClassNavigatorUtils.spFunPopAll(context);
             },onError: (v){},spProOnProgress: (v){}
             )

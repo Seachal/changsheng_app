@@ -454,39 +454,6 @@ class SPClassVideoLoginPageState extends State<SPClassVideoLoginPage>
                                                           .pop();
                                                     },onError: (v){},spProOnProgress: (v){},
                                                     ));
-                                          } else if (spProLoginType == 1) {
-                                            // SPClassApiManager().spFunUserLogin(
-                                            //     queryParameters: {
-                                            //       "username": spProPhoneNum
-                                            //     },
-                                            //     spProBodyParameters: {
-                                            //       "pwd": spProPhonePwd
-                                            //     },
-                                            //     context: context,
-                                            //     spProCallBack:
-                                            //         SPClassHttpCallBack<
-                                            //                 SPClassUserLoginInfo>(
-                                            //             spProOnSuccess:
-                                            //                 (loginInfo) {
-                                            //       SPClassApplicaion
-                                            //               .spProUserLoginInfo =
-                                            //           loginInfo;
-                                            //       SPClassApplicaion
-                                            //           .spFunSaveUserState();
-                                            //       SPClassApplicaion
-                                            //           .spFunInitUserState();
-                                            //       SPClassApplicaion
-                                            //           .spFunGetUserInfo();
-                                            //       SPClassGlobalNotification
-                                            //               .spFunGetInstance()
-                                            //           .spFunInitWebSocket();
-                                            //       SPClassApplicaion
-                                            //           .spFunSavePushToken();
-                                            //       SPClassApplicaion
-                                            //           .spProEventBus
-                                            //           .fire("login:gamelist");
-                                            //       Navigator.of(context).pop();
-                                            //     }));
                                           }
                                         }
                                         ),
