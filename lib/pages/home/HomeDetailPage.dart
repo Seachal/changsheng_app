@@ -2,13 +2,16 @@ import 'dart:async';
 
 import 'package:changshengh5/api/SPClassApiManager.dart';
 import 'package:changshengh5/api/SPClassHttpCallBack.dart';
+import 'package:changshengh5/api/SPClassNetConfig.dart';
 import 'package:changshengh5/app/SPClassApplicaion.dart';
 import 'package:changshengh5/model/SPClassGuessMatchInfo.dart';
 import 'package:changshengh5/pages/anylise/SPClassExpertDetailPage.dart';
+import 'package:changshengh5/pages/common/SPClassShareView.dart';
 import 'package:changshengh5/pages/competition/SPClassMatchDetailPage.dart';
 import 'package:changshengh5/pages/competition/scheme/SPClassExpertApplyPage.dart';
 import 'package:changshengh5/pages/competition/scheme/SPClassSchemeDetailPage.dart';
 import 'package:changshengh5/pages/dialogs/SPClassHomeFilterMatchDialog.dart';
+import 'package:changshengh5/pages/news/SPClassWebPageState.dart';
 import 'package:changshengh5/pages/user/SPClassContactPage.dart';
 import 'package:changshengh5/untils/SPClassCommonMethods.dart';
 import 'package:changshengh5/untils/SPClassDateUtils.dart';
@@ -488,7 +491,6 @@ class HomeDetailPageState extends State<HomeDetailPage> with
   spFunGoRoutPage(
       String urlPage, String title, String spProMsgId, bool isDemo) {
     if (spProMsgId != null) {
-      //标记
       SPClassApiManager.spFunGetInstance().spFunPushMsgClick(
           pushMsgId: spProMsgId,
           isDemo: isDemo,
@@ -544,24 +546,24 @@ class HomeDetailPageState extends State<HomeDetailPage> with
             ));
       }
       if (urlPage.contains("invite")) {
-        //标记
-        // if (spFunIsLogin(context: context)) {
-        //   SPClassApiManager.spFunGetInstance().spFunShare(
-        //       context: context,
-        //       spProCallBack: SPClassHttpCallBack(spProOnSuccess: (result) {
-        //         showModalBottomSheet<void>(
-        //             context: context,
-        //             builder: (BuildContext context) {
-        //               return SPClassShareView(
-        //                 title: result.title,
-        //                 spProDesContent: result.content,
-        //                 spProPageUrl: result.spProPageUrl ??
-        //                     SPClassNetConfig.spFunGetShareUrl(),
-        //                 spProIconUrl: result.spProIconUrl,
-        //               );
-        //             });
-        //       }));
-        // }
+        if (spFunIsLogin(context: context)) {
+          SPClassApiManager.spFunGetInstance().spFunShare(
+              context: context,
+              spProCallBack: SPClassHttpCallBack(spProOnSuccess: (result) {
+                showModalBottomSheet<void>(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return SPClassShareView(
+                        title: result.title,
+                        spProDesContent: result.content,
+                        spProPageUrl: result.spProPageUrl ??
+                            SPClassNetConfig.spFunGetShareUrl(),
+                        spProIconUrl: result.spProIconUrl,
+                      );
+                    });
+              },onError: (e){},spProOnProgress: (v){}
+              ));
+        }
       }
       if (urlPage.contains("contact_cs")) {
         SPClassNavigatorUtils.spFunPushRoute(context, SPClassContactPage());
@@ -596,25 +598,23 @@ class HomeDetailPageState extends State<HomeDetailPage> with
         }
       }
     } else {
-      //标记
-      // SPClassNavigatorUtils.spFunPushRoute(
-      //     context, SPClassWebPage(urlPage, title));
+      SPClassNavigatorUtils.spFunPushRoute(
+          context, SPClassWebPage(urlPage, title));
     }
   }
 
   void spFunGetBcwUrl(String value) {
-    //标记
-    // if (spFunIsLogin(context: context)) {
-    //   var params = SPClassApiManager.spFunGetInstance().spFunGetCommonParams();
-    //   params.putIfAbsent("model_type", () => value);
-    //   SPClassNavigatorUtils.spFunPushRoute(
-    //       context,
-    //       WebViewPage(
-    //           SPClassNetConfig.spFunGetBasicUrl() +
-    //               "user/bcw/login?" +
-    //               Transformer.urlEncodeMap(params),
-    //           ""));
-    // }
+    if (spFunIsLogin(context: context)) {
+      var params = SPClassApiManager.spFunGetInstance().spFunGetCommonParams();
+      params.putIfAbsent("model_type", () => value);
+      SPClassNavigatorUtils.spFunPushRoute(
+          context,
+          SPClassWebPage(
+              SPClassNetConfig.spFunGetBasicUrl() +
+                  "user/bcw/login?" +
+                  Transformer.urlEncodeMap(params),
+              ""));
+    }
   }
 
   spFunGetHotMatch() {

@@ -15,6 +15,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:event_bus/event_bus.dart';
 import 'package:package_info/package_info.dart';
+import 'package:jpush_flutter/jpush_flutter.dart';
 
 class SPClassApplicaion
 {
@@ -26,6 +27,7 @@ class SPClassApplicaion
   static String spProDeviceName="";
   static String spProSydid="";
   static String spProMacAddress="";
+  static String spProWifiName="";
   static PackageInfo ?spProPackageInfo;
   static bool spProDEBUG = false;
   static SPClassUserInfo ?spProUserInfo;
@@ -34,7 +36,7 @@ class SPClassApplicaion
   static SPClassLogInfoEntity ?spProLogOpenInfo;
   static List<String> spProShowMenuList =["home","pk","match","expert","info","pay","match_scheme","match_analyse","match_odds","bcw_data","game"];
   static bool spProEncrypt = false;//是否启用加密
-  // static JPush ?spProJPush;  标记 web端没有极光
+  static JPush ?spProJPush;
   static EventBus spProEventBus = EventBus();
   static SPClassShowPListEntity ?spProShowPListEntity;//;
   static SPClassConfRewardEntity ?spProConfReward;
@@ -99,6 +101,10 @@ class SPClassApplicaion
           spFunSaveUserState(isFire: isFire);
         },onError: (e){},spProOnProgress: (v){}
     ));
+  }
+
+  static bool spFunIsShowIosUI(){
+    return false;
   }
 
 }

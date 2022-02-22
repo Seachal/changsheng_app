@@ -1,14 +1,20 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:changshengh5/api/SPClassApiManager.dart';
+import 'package:changshengh5/api/SPClassHttpCallBack.dart';
 import 'package:changshengh5/app/SPClassApplicaion.dart';
+import 'package:changshengh5/model/SPClassBaseModelEntity.dart';
+import 'package:changshengh5/pages/common/SPClassDialogUtils.dart';
 import 'package:changshengh5/pages/common/SPClassLoadingPage.dart';
+import 'package:changshengh5/pages/user/SPClassUnionPlatDetailPage.dart';
 import 'package:changshengh5/untils/SPClassCommonMethods.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:changshengh5/untils/SPClassNavigatorUtils.dart';
+import 'package:changshengh5/untils/SPClassToastUtils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 class SPClassWebPage extends StatefulWidget
@@ -31,9 +37,9 @@ class SPClassWebPageState extends State<SPClassWebPage>
   void initState() {
     // TODO: implement initState
     super.initState();
-    // if(SPClassApplicaion.spProJsMap==null){
-    //   spFunDomainJs(null);
-    // }
+    if(SPClassApplicaion.spProJsMap==null){
+      spFunDomainJs('');
+    }
   }
 
   @override
@@ -125,53 +131,53 @@ class SPClassWebPageState extends State<SPClassWebPage>
                 }
               } ,
 
-              // navigationDelegate: (NavigationRequest request) {
-              //
-              //   if (request.url.contains("union_pay_callback")) {
-              //     var url =Uri.parse(request.url);
-              //     var spProDiamond=double.tryParse(url.queryParameters["diamond"]);
-              //     var spProMoney=double.tryParse(url.queryParameters["money"]);
-              //     var unionOrderNum=url.queryParameters["union_order_num"].toString();
-              //     var unionPlat=url.queryParameters["union_plat"].toString();
-              //     if(spProDiamond>=spProMoney){
-              //       SPClassDialogUtils.spFunShowConfirmDialog(context,RichText(
-              //         text: TextSpan(
-              //           text: "确认后将扣除",
-              //           style: TextStyle(fontSize: 16, color: Color(0xFF333333)),
-              //           children: <TextSpan>[
-              //             TextSpan(text: "${spProMoney.toString()}", style: TextStyle(fontSize: 16, color: Color(0xFFE3494B))),
-              //             TextSpan(text: "钻石"),
-              //           ],
-              //         ),
-              //       ), (){
-              //         SPClassApiManager.spFunGetInstance().spFunUnionPay<SPClassBaseModelEntity>(context:context,unionOrderNum: unionOrderNum,unionPlat: unionPlat,spProCallBack: SPClassHttpCallBack(
-              //             spProOnSuccess: (value){
-              //               SPClassToastUtils.spFunShowToast(msg: "支付成功");
-              //               spProWebViewController.reload();
-              //             },
-              //             onError: (value){
-              //             }
-              //         ));
-              //       });
-              //     }else{
-              //       SPClassNavigatorUtils.spFunPushRoute(context, SPClassUnionPlatDetailPage(callback: (){
-              //         SPClassApiManager.spFunGetInstance().spFunUnionPay<SPClassBaseModelEntity>(context:context,unionOrderNum: unionOrderNum,unionPlat: unionPlat,spProCallBack: SPClassHttpCallBack(
-              //             spProOnSuccess: (value){
-              //               SPClassToastUtils.spFunShowToast(msg: "支付成功");
-              //               spProWebViewController.reload();
-              //             }, onError: (value){}
-              //         ));
-              //       },spProDiamond: 0,spProOrderMoney: spProMoney,));
-              //     }
-              //     return NavigationDecision.prevent;
-              //   }
-              //   if(request.url.contains(".apk")){
-              //     launch(request.url);
-              //     return NavigationDecision.prevent;
-              //
-              //   }
-              //   return NavigationDecision.navigate;
-              // },
+              navigationDelegate: (NavigationRequest request) {
+
+                if (request.url.contains("union_pay_callback")) {
+                  var url =Uri.parse(request.url);
+                  var spProDiamond=double.tryParse(url.queryParameters["diamond"]!);
+                  var spProMoney=double.tryParse(url.queryParameters["money"]!);
+                  var unionOrderNum=url.queryParameters["union_order_num"].toString();
+                  var unionPlat=url.queryParameters["union_plat"].toString();
+                  if(spProDiamond!>=spProMoney!){
+                    SPClassDialogUtils.spFunShowConfirmDialog(context,RichText(
+                      text: TextSpan(
+                        text: "确认后将扣除",
+                        style: TextStyle(fontSize: 16, color: Color(0xFF333333)),
+                        children: <TextSpan>[
+                          TextSpan(text: "${spProMoney.toString()}", style: TextStyle(fontSize: 16, color: Color(0xFFE3494B))),
+                          TextSpan(text: "钻石"),
+                        ],
+                      ),
+                    ), (){
+                      SPClassApiManager.spFunGetInstance().spFunUnionPay<SPClassBaseModelEntity>(context:context,unionOrderNum: unionOrderNum,unionPlat: unionPlat,spProCallBack: SPClassHttpCallBack(
+                          spProOnSuccess: (value){
+                            SPClassToastUtils.spFunShowToast(msg: "支付成功");
+                            spProWebViewController.reload();
+                          },
+                          onError: (value){
+                          },spProOnProgress: (v){}
+                      ));
+                    });
+                  }else{
+                    SPClassNavigatorUtils.spFunPushRoute(context, SPClassUnionPlatDetailPage(callback: (){
+                      SPClassApiManager.spFunGetInstance().spFunUnionPay<SPClassBaseModelEntity>(context:context,unionOrderNum: unionOrderNum,unionPlat: unionPlat,spProCallBack: SPClassHttpCallBack(
+                          spProOnSuccess: (value){
+                            SPClassToastUtils.spFunShowToast(msg: "支付成功");
+                            spProWebViewController.reload();
+                          }, onError: (value){},spProOnProgress: (v){}
+                      ));
+                    },spProDiamond: 0,spProOrderMoney: spProMoney,));
+                  }
+                  return NavigationDecision.prevent;
+                }
+                if(request.url.contains(".apk")){
+                  launch(request.url);
+                  return NavigationDecision.prevent;
+
+                }
+                return NavigationDecision.navigate;
+              },
             ),
             spProIsHide? Positioned(
               top: 0,
@@ -196,13 +202,14 @@ class SPClassWebPageState extends State<SPClassWebPage>
     ).toString());
   }
 
-  // void spFunDomainJs(String autoString) async{
-  //
-  //   SPClassApiManager.spFunGetInstance().spFunDomainJs(spProCallBack: SPClassHttpCallBack(spProOnSuccess: (result){
-  //     SPClassApplicaion.spProJsMap=result.data;
-  //   }));
-  //
-  // }
+  void spFunDomainJs(String autoString) async{
+
+    SPClassApiManager.spFunGetInstance().spFunDomainJs(spProCallBack: SPClassHttpCallBack(spProOnSuccess: (result){
+      SPClassApplicaion.spProJsMap=result.data;
+    },onError: (e){},spProOnProgress: (v){}
+    ));
+
+  }
 }
 
 

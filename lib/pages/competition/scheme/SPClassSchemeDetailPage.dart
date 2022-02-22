@@ -6,6 +6,7 @@ import 'package:changshengh5/model/SPClassSchemeDetailEntity.dart';
 import 'package:changshengh5/model/SPClassSchemeListEntity.dart';
 import 'package:changshengh5/pages/anylise/SPClassExpertDetailPage.dart';
 import 'package:changshengh5/pages/common/SPClassDialogUtils.dart';
+import 'package:changshengh5/pages/common/SPClassShareView.dart';
 import 'package:changshengh5/pages/home/SPClassSchemeItemView.dart';
 import 'package:changshengh5/pages/hot/SPClassComplainPage.dart';
 import 'package:changshengh5/pages/user/SPClassRechargeDiamondPage.dart';
@@ -355,46 +356,45 @@ class SPClassSchemeDetailPageState extends State<SPClassSchemeDetailPage> {
                 }
               },
             ),
+            GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              child: Container(
+                alignment: Alignment.center,
+                padding: EdgeInsets.only(
+                    left: width(16), right: width(15)),
+                child: Image.asset(
+                  SPClassImageUtil.spFunGetImagePath(
+                      "ic_sheme_sahre"),
+                  width: width(23),
+                ),
+              ),
+              onTap: () {
 
-            //标记 web没有分享
-            // GestureDetector(
-            //   behavior: HitTestBehavior.opaque,
-            //   child: Container(
-            //     alignment: Alignment.center,
-            //     padding: EdgeInsets.only(
-            //         left: width(16), right: width(15)),
-            //     child: Image.asset(
-            //       SPClassImageUtil.spFunGetImagePath(
-            //           "ic_sheme_sahre"),
-            //       width: width(23),
-            //     ),
-            //   ),
-            //   onTap: () {
-            //
-            //     SPClassApiManager.spFunGetInstance().spFunShare(
-            //         context: context,
-            //         type: "scheme",
-            //         spProSchemeId: widget
-            //             .spProSchemeDetail.scheme.spProSchemeId,
-            //         spProCallBack: SPClassHttpCallBack(
-            //             spProOnSuccess: (result) {
-            //               showModalBottomSheet<void>(
-            //                   context: context,
-            //                   builder: (BuildContext context) {
-            //                     return SPClassShareView(
-            //                       spProSchemeId: widget
-            //                           .spProSchemeDetail
-            //                           .scheme
-            //                           .spProSchemeId,
-            //                       title: result.title,
-            //                       spProDesContent: result.content,
-            //                       spProPageUrl: result.spProPageUrl,
-            //                       spProIconUrl: result.spProIconUrl,
-            //                     );
-            //                   });
-            //             }));
-            //   },
-            // )
+                SPClassApiManager.spFunGetInstance().spFunShare(
+                    context: context,
+                    type: "scheme",
+                    spProSchemeId: widget
+                        .spProSchemeDetail.scheme?.spProSchemeId,
+                    spProCallBack: SPClassHttpCallBack(
+                        spProOnSuccess: (result) {
+                          showModalBottomSheet<void>(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return SPClassShareView(
+                                  spProSchemeId: widget
+                                      .spProSchemeDetail
+                                      .scheme
+                                      ?.spProSchemeId,
+                                  title: result.title,
+                                  spProDesContent: result.content,
+                                  spProPageUrl: result.spProPageUrl,
+                                  spProIconUrl: result.spProIconUrl,
+                                );
+                              });
+                        },onError: (e){},spProOnProgress: (v){}
+                        ));
+              },
+            )
           ],
         ),
       ),

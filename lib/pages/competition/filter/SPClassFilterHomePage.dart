@@ -58,8 +58,7 @@ class SPClassFilterHomePageState extends State<SPClassFilterHomePage> with Ticke
               height: width(6),
               color: Color(0xFFF2F2F2),
             ),
-           // 标记
-           // SPClassApplicaion.spFunIsShowIosUI() ?SizedBox():
+           SPClassApplicaion.spFunIsShowIosUI() ?SizedBox():
            Container(
               decoration: BoxDecoration(
                   color: Colors.white,

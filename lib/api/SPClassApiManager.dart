@@ -17,6 +17,7 @@ import 'package:changshengh5/model/SPClassOddsHistoryListEntity.dart';
 import 'package:changshengh5/model/SPClassSchemeDetailEntity.dart';
 import 'package:changshengh5/model/SPClassSchemeGuessMatch2.dart';
 import 'package:changshengh5/model/SPClassSchemeListEntity.dart';
+import 'package:changshengh5/model/SPClassShareModel.dart';
 import 'package:changshengh5/model/SPClassShowPListEntity.dart';
 import 'package:changshengh5/model/SPClassSsOddsList.dart';
 import 'package:changshengh5/model/SPClassSystemMsg.dart';
@@ -233,9 +234,9 @@ class SPClassApiManager extends SPClassBaseApi{
 //     return spFunGet< SPClassListEntity<T>>(jsonObject:new SPClassListEntity<T>(key: "msg_list"),url: PRODUCT_BROADCAST,queryParameters:{},isToast: false,spProIsLoading: false,isBaseParams: true, spProCallBack: spProCallBack);
 //   }
 //
-//   spFunShare({BuildContext context,SPClassHttpCallBack<SPClassShareModel> spProCallBack, String type:"",spProSchemeId:""}) async {
-//    return spFunGet<SPClassShareModel>(jsonObject:new SPClassShareModel(),spProCallBack: spProCallBack,url: SHARE,queryParameters:type.isEmpty ?{}:{"type":type,"scheme_id":spProSchemeId},isToast: true,spProIsLoading: true,isBaseParams: false,context: context);
-//   }
+  spFunShare({BuildContext ?context,SPClassHttpCallBack<SPClassShareModel> ?spProCallBack, String type:"",spProSchemeId:""}) async {
+   return spFunGet<SPClassShareModel>(jsonObject:new SPClassShareModel(),spProCallBack: spProCallBack,url: SHARE,queryParameters:type.isEmpty ?{}:{"type":type,"scheme_id":spProSchemeId},isToast: true,spProIsLoading: true,isBaseParams: false,context: context);
+  }
   spFunReadMsg({SPClassHttpCallBack<SPClassBaseModelEntity>? spProCallBack,BuildContext? context,Map<String,dynamic>? queryParameters}){
     spFunGet(url: READ_MSG,queryParameters:queryParameters,isToast: false,spProIsLoading: false,isBaseParams: true,spProCallBack: spProCallBack);
   }
@@ -267,9 +268,9 @@ class SPClassApiManager extends SPClassBaseApi{
   spFunGetConfCs({SPClassHttpCallBack<SPClassBaseModelEntity>? spProCallBack,BuildContext? context}){
     spFunGet<SPClassBaseModelEntity>(url: CONF_CS,queryParameters:{},isToast: true,spProIsLoading: true,isBaseParams: true,spProCallBack: spProCallBack);
   }
-//   spFunDomainJs({SPClassHttpCallBack<SPClassBaseModelEntity> spProCallBack}){
-//     spFunGet<SPClassBaseModelEntity>(url: DO_DOMAIN_JS,queryParameters:{},isToast: false,spProIsLoading: false,isBaseParams: true,spProCallBack: spProCallBack);
-//   }
+  spFunDomainJs({SPClassHttpCallBack<SPClassBaseModelEntity> ?spProCallBack}){
+    spFunGet<SPClassBaseModelEntity>(url: DO_DOMAIN_JS,queryParameters:{},isToast: false,spProIsLoading: false,isBaseParams: true,spProCallBack: spProCallBack);
+  }
 //
 //   spFunAddCircleInfo({SPClassHttpCallBack<SPClassBaseModelEntity> spProCallBack,Map<String,dynamic> queryParameters,BuildContext context,}){
 //     spFunGet<SPClassBaseModelEntity>(url: ADD_CIRCLE_INFO,queryParameters:{},isToast: true,spProIsLoading: true,isBaseParams: true,spProCallBack: spProCallBack,context: context);
@@ -281,9 +282,9 @@ class SPClassApiManager extends SPClassBaseApi{
   spFunMatchClick({SPClassHttpCallBack<SPClassBaseModelEntity>? spProCallBack,Map<String,dynamic>? queryParameters}){
     spFunGet<SPClassBaseModelEntity>(url: MATCH_CLICK,queryParameters:{},isToast: false,spProIsLoading: false,isBaseParams: true,spProCallBack: spProCallBack);
   }
-//   spFunLogAppShare({SPClassHttpCallBack<SPClassBaseModelEntity> spProCallBack,Map<String,dynamic> queryParameters}){
-//     spFunGet<SPClassBaseModelEntity>(url: LOG_APP_SHARE,queryParameters:{},isToast: false,spProIsLoading: false,isBaseParams: true,spProCallBack: spProCallBack);
-//   }
+  spFunLogAppShare({SPClassHttpCallBack<SPClassBaseModelEntity>? spProCallBack,Map<String,dynamic> ?queryParameters}){
+    spFunGet<SPClassBaseModelEntity>(url: LOG_APP_SHARE,queryParameters:{},isToast: false,spProIsLoading: false,isBaseParams: true,spProCallBack: spProCallBack);
+  }
 //
 //   spFunCheckUpdate({SPClassHttpCallBack<SPClassCheckUpDate> spProCallBack,BuildContext context,Map<String,dynamic> queryParameters}){
 //     spFunGet<SPClassCheckUpDate>(jsonObject: new SPClassCheckUpDate(),url: CHECK_UPDATE,queryParameters:queryParameters,isToast: false,spProIsLoading: true,isBaseParams: true,spProCallBack: spProCallBack);
@@ -551,10 +552,10 @@ class SPClassApiManager extends SPClassBaseApi{
 //     spFunGet<T>(url: TEAM_RECENT_MATCH,queryParameters:{
 //       "league_name":spProLeagueName,"match_type":spProMatchType,"team_name":spProTeamName},spProCallBack: spProCallBack,context: context,isToast: true,spProIsLoading: true,isBaseParams: false,);
 //   }
-//   spFunUnionPay<T>({BuildContext context,SPClassHttpCallBack<T> spProCallBack,String unionOrderNum,String unionPlat}){
-//     spFunGet<T>(url: spProUNION_PAY,queryParameters:{
-//       "union_order_num":unionOrderNum,"union_plat":unionPlat,},spProCallBack: spProCallBack,context: context,isToast: true,spProIsLoading: true,isBaseParams: false,);
-//   }
+  spFunUnionPay<T>({BuildContext ?context,SPClassHttpCallBack<T> ?spProCallBack,String ?unionOrderNum,String ?unionPlat}){
+    spFunGet<T>(url: spProUNION_PAY,queryParameters:{
+      "union_order_num":unionOrderNum,"union_plat":unionPlat,},spProCallBack: spProCallBack,context: context,isToast: true,spProIsLoading: true,isBaseParams: false,);
+  }
 //   spFunGetGameList<T>({BuildContext context,SPClassHttpCallBack<T> spProCallBack,String ifExistence ,String gameCategory,String gameName,int page,int limit}){
 //     spFunGet<T>(url: GAME,queryParameters:{
 //       "game_pack":ifExistence,"game_category":gameCategory,'game_name':gameName,'page':page,'limit':limit},spProCallBack: spProCallBack,context: context,isToast: true,spProIsLoading: true,isBaseParams: false,);
