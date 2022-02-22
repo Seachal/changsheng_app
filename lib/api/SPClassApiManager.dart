@@ -341,9 +341,9 @@ class SPClassApiManager extends SPClassBaseApi{
   spFunUserChangePwd({Map<String,dynamic>? queryParameters,Map<String,dynamic>? spProBodyParameters,SPClassHttpCallBack<SPClassBaseModelEntity>? spProCallBack,BuildContext? context}){
     spFunPost<SPClassBaseModelEntity>(url: DO_CHANGE_PWD,queryParameters:queryParameters,spProBodyParameters:spProBodyParameters,isToast: true,spProIsLoading: true,isBaseParams: false, spProCallBack: spProCallBack ,context: context);
   }
-//   spFunUserLoginByWx({BuildContext context,String spProWxCode,SPClassHttpCallBack spProCallBack}) async {
-//     spFunGet<SPClassUserLoginInfo>(jsonObject:new SPClassUserLoginInfo(),url: spProDO_LOGIN_WX,queryParameters:{"wx_code":spProWxCode,},isToast: true,spProIsLoading: true,isBaseParams: false, spProCallBack: spProCallBack ,context: context);
-//    }
+  spFunUserLoginByWx({BuildContext ?context,String ?spProWxCode,SPClassHttpCallBack<SPClassUserLoginInfo> ?spProCallBack}) async {
+    spFunGet<SPClassUserLoginInfo>(jsonObject:new SPClassUserLoginInfo(),url: spProDO_LOGIN_WX,queryParameters:{"wx_code":spProWxCode,},isToast: true,spProIsLoading: true,isBaseParams: false, spProCallBack: spProCallBack ,context: context);
+   }
    spFunUserRegister({Map<String,dynamic>? queryParameters,Map<String,dynamic>? spProBodyParameters,SPClassHttpCallBack<SPClassUserLoginInfo>? spProCallBack,BuildContext? context}) async {
     spFunPost<SPClassUserLoginInfo>(jsonObject:new SPClassUserLoginInfo(),url: DO_REGISTER,queryParameters:queryParameters,spProBodyParameters:spProBodyParameters,isToast: true,spProIsLoading: true,isBaseParams: false, spProCallBack: spProCallBack ,context: context);
   }
@@ -507,10 +507,9 @@ class SPClassApiManager extends SPClassBaseApi{
     spFunGet<T>(jsonObject: new SPClassLeagueFilter(),url: LEAGUE_LIST_BY_STATUS,
         queryParameters:params,spProCallBack: spProCallBack,isToast: true,spProIsLoading: true,isBaseParams: true,context: context );
   }
-//   spFunSavePushToken<T>({SPClassHttpCallBack<T> spProCallBack,String packName,String pushToken,String tokenType}){
-//     spFunGet<T>(url: save_push_token,queryParameters:{"pack_name":packName,"push_token":pushToken,"token_type":tokenType},spProCallBack: spProCallBack,isToast: false,spProIsLoading: false,isBaseParams: false,);
-//   }
-//
+  spFunSavePushToken<T>({SPClassHttpCallBack<T> ?spProCallBack,String ?packName,String? pushToken,String ?tokenType}){
+    spFunGet<T>(url: save_push_token,queryParameters:{"pack_name":packName,"push_token":pushToken,"token_type":tokenType},spProCallBack: spProCallBack,isToast: false,spProIsLoading: false,isBaseParams: false,);
+  }//
   spFunPushMsgClick<T>({SPClassHttpCallBack<T> ?spProCallBack,String ?pushMsgId,String ?spProAutoLoginStr,bool ?isDemo}){
     spFunGet<T>(url: PUSH_MSG_CLICK,queryParameters:{"push_msg_id":pushMsgId,"auto_login_str":spProAutoLoginStr},spProCallBack: spProCallBack,isToast: false,spProIsLoading: false,isBaseParams: false,isDemo: isDemo!);
   }

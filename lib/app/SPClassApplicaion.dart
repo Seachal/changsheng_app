@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:changshengh5/api/SPClassApiManager.dart';
 import 'package:changshengh5/api/SPClassHttpCallBack.dart';
+import 'package:changshengh5/api/SPClassNetConfig.dart';
 import 'package:changshengh5/model/SPClassConfRewardEntity.dart';
 import 'package:changshengh5/model/SPClassLogInfoEntity.dart';
 import 'package:changshengh5/model/SPClassShowPListEntity.dart';
@@ -28,6 +29,7 @@ class SPClassApplicaion
   static String spProSydid="";
   static String spProMacAddress="";
   static String spProWifiName="";
+  static String pushToken="";
   static PackageInfo ?spProPackageInfo;
   static bool spProDEBUG = false;
   static SPClassUserInfo ?spProUserInfo;
@@ -91,6 +93,24 @@ class SPClassApplicaion
       //  Application.mJpush.deleteAlias();
     // }
   }
+
+  static Future<void> spFunSavePushToken() async {
+    var pakegeInfo= await PackageInfo.fromPlatform();
+    if(pushToken.isNotEmpty&&SPClassNetConfig.androidInfo!.manufacturer.toLowerCase().contains("huawei")){
+      SPClassApiManager.spFunGetInstance().spFunSavePushToken(packName: pakegeInfo.packageName,pushToken:pushToken,tokenType: "huawei");
+    }
+    if(SPClassApplicaion.spProJPush!=null){
+      if(SPClassApplicaion.spProSydid.isNotEmpty){
+        print('极光Alias：${SPClassApplicaion.spProSydid}');
+        SPClassApplicaion.spProJPush?.setAlias(SPClassApplicaion.spProSydid);
+      }
+      var registrationId= await SPClassApplicaion.spProJPush?.getRegistrationID();
+      if(registrationId!=null&&registrationId.isNotEmpty){
+        SPClassApiManager.spFunGetInstance().spFunSavePushToken(packName: pakegeInfo.packageName,pushToken:registrationId,tokenType: "jiguang",);
+      }
+    }
+  }
+
 
   //获取最新用户信息
   static void spFunGetUserInfo({BuildContext? context,bool isFire:true}) {

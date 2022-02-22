@@ -302,8 +302,8 @@ class _PasswordLoginState extends State<PasswordLogin> {
                                                     SPClassGlobalNotification
                                                         .spFunGetInstance()
                                                         ?.spFunInitWebSocket();
-                                                    // SPClassApplicaion
-                                                    //     .spFunSavePushToken();
+                                                    SPClassApplicaion
+                                                        .spFunSavePushToken();
                                                     SPClassApplicaion
                                                         .spProEventBus
                                                         .fire("login:gamelist");

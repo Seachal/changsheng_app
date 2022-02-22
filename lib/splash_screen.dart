@@ -31,6 +31,7 @@ import 'package:fluwx/fluwx.dart' as fluwx;
 import 'package:crypto/crypto.dart';
 
 
+
 class SplashScreen extends StatefulWidget {
   @override
   _SplashScreenState createState() => _SplashScreenState();
@@ -99,7 +100,6 @@ class _SplashScreenState extends State<SplashScreen> {
       spFunInitConnectivity();
       spFunInitPush();
       spFunInitWx();
-      // spFunInitUserData();
     }
   }
 

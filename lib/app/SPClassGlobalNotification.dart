@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:web_socket_channel/io.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter_vibrate/flutter_vibrate.dart';
 
 
 import 'SPClassApplicaion.dart';
@@ -209,9 +210,8 @@ class SPClassGlobalNotification {
   }
 
   spFunPlayVibrate() async {
-    //震动 APP使用
-    // bool canVibrate = await Vibrate.canVibrate;
-    // Vibrate.vibrate();
+    bool canVibrate = await Vibrate.canVibrate;
+    Vibrate.vibrate();
   }
 
   spFunPlayAudio(String type) async {

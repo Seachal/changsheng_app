@@ -7,6 +7,7 @@ import 'package:changshengh5/app/SPClassApplicaion.dart';
 import 'package:changshengh5/app/SPClassGlobalNotification.dart';
 import 'package:changshengh5/model/SPClassBaseModelEntity.dart';
 import 'package:changshengh5/model/SPClassUserLoginInfo.dart';
+import 'package:changshengh5/pages/common/SPClassDialogUtils.dart';
 import 'package:changshengh5/pages/dialogs/agreement_page.dart';
 import 'package:changshengh5/untils/SPClassCommonMethods.dart';
 import 'package:changshengh5/untils/SPClassImageUtil.dart';
@@ -21,6 +22,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:video_player/video_player.dart';
 
 import 'PasswordLogin.dart';
+import 'SPClassVideoPhoneLoginPage.dart';
 
 class SPClassVideoLoginPage extends StatefulWidget {
   SPClassVideoLoginPageState createState() => SPClassVideoLoginPageState();
@@ -598,7 +600,6 @@ class SPClassVideoLoginPageState extends State<SPClassVideoLoginPage>
                                 SizedBox(
                                   height: width(61),
                                 ),
-                                ///APP使用
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
@@ -738,34 +739,34 @@ class SPClassVideoLoginPageState extends State<SPClassVideoLoginPage>
     );
   }
 
-  ///APP使用
-  // void spFunDoLoginWx(String code) {
-  //   SPClassApiManager.spFunGetInstance().spFunUserLoginByWx(
-  //       context: context,
-  //       spProWxCode: code,
-  //       spProCallBack: SPClassHttpCallBack<SPClassUserLoginInfo>(
-  //           spProOnSuccess: (loginInfo) {
-  //         if (loginInfo.spProNeedBind) {
-  //           SPClassNavigatorUtils.spFunPushRoute(
-  //               context,
-  //               SPClassVideoPhoneLoginPage(
-  //                 spProVideoPlayerController: _videoPlayerController,
-  //                 spProPhoneType: 0,
-  //                 spProBindSid: loginInfo.spProBindSid,
-  //               ));
-  //         } else {
-  //           SPClassApplicaion.spProUserLoginInfo = loginInfo;
-  //           SPClassApplicaion.spFunSaveUserState();
-  //           SPClassApplicaion.spFunInitUserState();
-  //           SPClassApplicaion.spFunGetUserInfo();
-  //           SPClassToastUtils.spFunShowToast(msg: "登录成功");
-  //           SPClassGlobalNotification.spFunGetInstance().spFunInitWebSocket();
-  //           SPClassApplicaion.spFunSavePushToken();
-  //           Navigator.of(context).pop();
-  //         }
-  //       }));
-  // }
-  //
+  void spFunDoLoginWx(String code) {
+    SPClassApiManager.spFunGetInstance().spFunUserLoginByWx(
+        context: context,
+        spProWxCode: code,
+        spProCallBack: SPClassHttpCallBack<SPClassUserLoginInfo>(
+            spProOnSuccess: (loginInfo) {
+          if (loginInfo.spProNeedBind!) {
+            SPClassNavigatorUtils.spFunPushRoute(
+                context,
+                SPClassVideoPhoneLoginPage(
+                  spProVideoPlayerController: _videoPlayerController,
+                  spProPhoneType: 0,
+                  spProBindSid: loginInfo.spProBindSid,
+                ));
+          } else {
+            SPClassApplicaion.spProUserLoginInfo = loginInfo;
+            SPClassApplicaion.spFunSaveUserState();
+            SPClassApplicaion.spFunInitUserState();
+            SPClassApplicaion.spFunGetUserInfo();
+            SPClassToastUtils.spFunShowToast(msg: "登录成功");
+            SPClassGlobalNotification.spFunGetInstance()!.spFunInitWebSocket();
+            SPClassApplicaion.spFunSavePushToken();
+            Navigator.of(context).pop();
+          }
+        },onError: (e){},spProOnProgress: (v){}
+        ));
+  }
+
   // void spFunDoOneLogin() {
   //   SPClassDialogUtils.spFunShowLoadingDialog(context,
   //       barrierDismissible: true, content: "登录中");
@@ -788,7 +789,8 @@ class SPClassVideoLoginPageState extends State<SPClassVideoLoginPage>
   //           SPClassApplicaion.spFunSavePushToken();
   //           SPClassGlobalNotification.spFunGetInstance().spFunInitWebSocket();
   //           Navigator.of(context).pop();
-  //         }));
+  //         },onError: (e){},spProOnProgress: (v){}
+  //         ));
   //   }, fail: (code) {
   //     Navigator.of(context).pop();
   //     if (Platform.isIOS) {
