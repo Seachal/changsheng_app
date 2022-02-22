@@ -1,11 +1,13 @@
 
 import 'dart:convert';
+
 import 'dart:io';
 import 'package:changshengh5/pages/SPClassSplashPage.dart';
 import 'package:changshengh5/pages/competition/SPClassMatchListSettingPage.dart';
 import 'package:changshengh5/pages/dialogs/SPClassPrivacyDialogDialog.dart';
 import 'package:changshengh5/untils/LocalStorage.dart';
 import 'package:changshengh5/untils/SPClassCommonMethods.dart';
+import 'package:changshengh5/untils/SPClassIphoneDevices.dart';
 import 'package:changshengh5/untils/SPClassLogUtils.dart';
 import 'package:changshengh5/untils/SPClassNavigatorUtils.dart';
 import 'package:changshengh5/untils/SPClassSharedPreferencesKeys.dart';
@@ -14,11 +16,19 @@ import 'package:changshengh5/untils/common.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:connectivity/connectivity.dart';
+import 'package:package_info/package_info.dart';
 
+import 'api/SPClassApiManager.dart';
+import 'api/SPClassHttpCallBack.dart';
+import 'api/SPClassNetConfig.dart';
 import 'app/SPClassApplicaion.dart';
+import 'generated/json/base/json_convert_content.dart';
 import 'main/SPClassAppPage.dart';
+import 'model/SPClassBaseModelEntity.dart';
+import 'model/SPClassConfRewardEntity.dart';
 import 'model/SPClassLogInfoEntity.dart';
 import 'package:fluwx/fluwx.dart' as fluwx;
+import 'package:crypto/crypto.dart';
 
 
 class SplashScreen extends StatefulWidget {
@@ -106,8 +116,12 @@ class _SplashScreenState extends State<SplashScreen> {
       }
     } );
     await SPClassApplicaion.spFunInitUserState();
-    ///有欠缺
-    ///
+    if(Platform.isAndroid){
+      spFunInitAndroid();
+    }
+    if(Platform.isIOS){
+      spFunGetSydidCache();
+    }
     return;
   }
 
@@ -209,7 +223,149 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 
+  Future spFunInitAndroid() async {
+    spFunGetSydidCache();
+    spFunInitData();
+  }
 
+  void spFunGetSydidCache() async {
+    // if(Platform.isAndroid){
+    //   String documentsPath = await FlutterToolplugin.getExternalStorage();
+    //   String appIdPath= SPClassApplicaion.spProAndroidAppId=="100" ? '/wbs/wbs.txt':("/wbs/"+SPClassApplicaion.spProAndroidAppId+"/wbs.txt");
+    //   File file = new File(documentsPath+appIdPath);
+    //   bool exists =await file.exists();
+    //   if(exists) {
+    //     String wbs = await file.readAsString();
+    //     String encryptedString = await Cipher2.decryptAesCbc128Padding7(wbs, SPClassConstants.spProEncryptKey, SPClassConstants.spProEncryptIv);
+    //     SPClassApplicaion.spProSydid=encryptedString;
+    //   }else{
+    //     if(SPClassApplicaion.spProLogOpenInfo!=null){
+    //       SPClassApplicaion.spProSydid=SPClassApplicaion.spProLogOpenInfo.sydid;
+    //     }
+    //   }
+    // }
+    //
+    // if(Platform.isIOS){
+    //   SPClassApplicaion.spProSydid= await FlutterToolplugin.getKeyChainSyDid;
+    // }
+    spFunInitData();
+
+  }
+
+  void spFunInitData() async {
+
+    SPClassApplicaion.spProPackageInfo = await PackageInfo.fromPlatform();
+    if (Platform.isAndroid) {
+      SPClassNetConfig.androidInfo = await SPClassNetConfig.spProDeviceInfo.androidInfo;
+      try {
+        SPClassApplicaion.spProImei = await SharedPreferences.getInstance().then((sp)=>sp.getString(SPClassSharedPreferencesKeys.KEY_IMEI)!);
+        if(SPClassApplicaion.spProImei==null||SPClassApplicaion.spProImei.contains("Denied")){SPClassApplicaion.spProImei="";}
+        SPClassApplicaion.spProDeviceName =SPClassNetConfig.androidInfo!.model;
+      } catch (e) {
+      }
+    } else if(Platform.isIOS){
+      SPClassNetConfig.spProIosDeviceInfo = await SPClassNetConfig.spProDeviceInfo.iosInfo;
+      SPClassApplicaion.spProDeviceName= SPClassIphoneDevices().spFunDevicesString(SPClassNetConfig.spProIosDeviceInfo!.utsname.machine);
+    }
+    spFunDoLogOpen();
+
+    if(spFunIsLogin()){
+      spFunDoLogin(SPClassApplicaion.spProUserLoginInfo!.spProAutoLoginStr!);
+    }
+
+    spFunDomainJs(null);
+  }
+
+  void spFunDoLogOpen() {
+
+    if(SPClassApplicaion.spProLogOpenInfo==null){
+      spFunInitMenuList();
+    }
+
+    SPClassApiManager.spFunGetInstance().spFunConfReward<SPClassConfRewardEntity>(spProCallBack:SPClassHttpCallBack(
+        spProOnSuccess: (value){
+          SPClassApplicaion.spProConfReward=value;
+        },onError: (e){},spProOnProgress: (v){}
+    ));
+    SPClassApiManager.spFunGetInstance().spFunLogOpen<SPClassBaseModelEntity>(needSydid: "1",spProCallBack: SPClassHttpCallBack(
+        spProOnSuccess: (result) async {
+          var logOpen= JsonConvert.fromJsonAsT<SPClassLogInfoEntity>(result.data);
+          print('显示的内容：${logOpen?.toJson()}');
+          SPClassApplicaion.spProLogOpenInfo=logOpen;
+          var md5Code=md5.convert(utf8.encode(AppId)).toString();
+          if(Platform.isAndroid){
+            if(result.data["app_sign"]==md5Code){
+              SPClassApplicaion.spProShowMenuList=logOpen!.spProMenuList!;
+              SharedPreferences.getInstance().then((sp)=>sp.setString(SPClassSharedPreferencesKeys.KEY_LOG_JSON, jsonEncode(logOpen)));
+              SPClassApplicaion.spProShowMenuList.add('game');
+            }else{
+              spFunInitMenuList();
+            }
+
+          }
+
+          if(SPClassApplicaion.spProSydid==logOpen!.sydid!){
+            return;
+          }
+          SPClassApplicaion.spProSydid=logOpen.sydid!;
+          // 标记
+          // if(Platform.isAndroid){
+          //   try {
+          //     String encryptedString = await Cipher2.encryptAesCbc128Padding7(
+          //         logOpen.sydid, SPClassConstants.spProEncryptKey, SPClassConstants.spProEncryptIv);
+          //     if (Platform.isAndroid) {
+          //       String documentsPath =   await FlutterToolplugin.getExternalStorage();
+          //       String appIdPath= SPClassApplicaion.spProAndroidAppId=="100" ? '/wbs/wbs.txt':("/wbs/"+SPClassApplicaion.spProAndroidAppId+"/wbs.txt");
+          //       File file = new File(documentsPath+appIdPath);
+          //       if (!file.existsSync()) {
+          //         file.createSync(recursive:true);
+          //       }
+          //       spFunWriteToFile( file, encryptedString);
+          //     }
+          //   } on PlatformException {
+          //   }
+          // }
+          // if(Platform.isIOS){
+          //   FlutterToolplugin.saveKeyChainSyDiy(SPClassApplicaion.spProSydid);
+          // }
+        },onError: (e){},spProOnProgress: (v){}
+    ));
+
+  }
+
+  void spFunInitMenuList() {
+    var channels=["1","2","7","5","6","4","13",'9'];
+    if(channels.contains(SPClassApplicaion.spProChannelId)){
+      SPClassApplicaion.spProShowMenuList=["circle","match"];
+    }
+  }
+
+  void spFunWriteToFile( File file, String notes) async {
+    await file.writeAsString(notes);
+  }
+
+  void spFunDomainJs(String ?autoString) async{
+    SPClassApiManager.spFunGetInstance().spFunDomainJs(spProCallBack: SPClassHttpCallBack(spProOnSuccess: (result){
+      SPClassApplicaion.spProJsMap=result.data;
+    },onError: (e){},spProOnProgress: (v){}
+    ));
+
+  }
+
+
+  void spFunDoLogin(String autoString) {
+    SPClassApiManager.spFunGetInstance().spFunUserAuoLogin(spProAutoLoginStr: autoString,spProCallBack:SPClassHttpCallBack(
+        spProOnSuccess: (result){
+          SPClassApplicaion.spProUserLoginInfo=result;
+          SPClassApplicaion.spFunSaveUserState();
+        },
+        onError: (error){
+          if(error.code=="401"){
+            SPClassApplicaion.spFunClearUserState();
+          }
+        },spProOnProgress: (v){}
+    ));
+  }
 
 
 }

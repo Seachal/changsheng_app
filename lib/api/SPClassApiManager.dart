@@ -329,9 +329,9 @@ class SPClassApiManager extends SPClassBaseApi{
 //   spFunConfStartup(){
 //     spFunGet<SPClassBaseModelEntity>(url: CONF_STARTUP,queryParameters:{},isToast: false,spProIsLoading: false,isBaseParams: true,);
 //   }
-//   spFunUserAuoLogin({String spProAutoLoginStr ,SPClassHttpCallBack spProCallBack,BuildContext context}){
-//     spFunGet<SPClassUserLoginInfo>(jsonObject:new SPClassUserLoginInfo(),url: DO_USER_AUTO_LOGIN,queryParameters:{"auto_login_str":spProAutoLoginStr},isToast: false,spProIsLoading: false,isBaseParams: false, spProCallBack: spProCallBack ,context: context);
-//   }
+  spFunUserAuoLogin({String ?spProAutoLoginStr ,SPClassHttpCallBack<SPClassUserLoginInfo> ?spProCallBack,BuildContext ?context}){
+    spFunGet<SPClassUserLoginInfo>(jsonObject:new SPClassUserLoginInfo(),url: DO_USER_AUTO_LOGIN,queryParameters:{"auto_login_str":spProAutoLoginStr},isToast: false,spProIsLoading: false,isBaseParams: false, spProCallBack: spProCallBack ,context: context);
+  }
   spFunLoginByCode({String? spProPhoneNumber ,String? spProPhoneCode ,String? spProInviteCode,SPClassHttpCallBack<SPClassUserLoginInfo>? spProCallBack,BuildContext? context}){
     spFunGet<SPClassUserLoginInfo>(jsonObject:SPClassUserLoginInfo(),url: LOGIN_BY_CODE,queryParameters:{"phone_number":spProPhoneNumber,"phone_code":spProPhoneCode,"invite_code":spProInviteCode},isToast: true,spProIsLoading: true,isBaseParams: false, spProCallBack: spProCallBack ,context: context);
   }
@@ -523,9 +523,9 @@ class SPClassApiManager extends SPClassBaseApi{
   spFunLogAppEvent<T>({SPClassHttpCallBack<T>? spProCallBack,String? spProEventName,String?  targetId}){
     spFunGet<T>(url: LOG_APP_EVENT,queryParameters:{"event_name":spProEventName,"target_id":targetId??"0"},spProCallBack: spProCallBack,isToast: false,spProIsLoading: false,isBaseParams: false,);
   }
-//   spFunLogOpen<T>({SPClassHttpCallBack<T> spProCallBack,String needSydid}){
-//     spFunGet<T>(url: DO_LOG_OPEN,queryParameters:{"need_sydid":needSydid},spProCallBack: spProCallBack,isToast: false,spProIsLoading: false,isBaseParams: false,);
-//   }
+  spFunLogOpen<T>({SPClassHttpCallBack<T> ?spProCallBack,String ?needSydid}){
+    spFunGet<T>(url: DO_LOG_OPEN,queryParameters:{"need_sydid":needSydid},spProCallBack: spProCallBack,isToast: false,spProIsLoading: false,isBaseParams: false,);
+  }
   spFunConfReward<T>({SPClassHttpCallBack<T>? spProCallBack}){
     spFunGet<T>(url: CONF_REWARD,queryParameters:{},spProCallBack: spProCallBack,isToast: false,spProIsLoading: false,isBaseParams: false,);
   }
