@@ -38,10 +38,10 @@ class SPClassCompetitionHomePageState extends State<SPClassCompetitionHomePage> 
     void initState() {
     // TODO: implement initState
     super.initState();
-    // if(SPClassApplicaion.spProShowMenuList.contains("es")){
-    //   titles.add("电竞");
-    //   spProMatchTypes.add("lol");
-    // }
+    if(SPClassApplicaion.spProShowMenuList.contains("es")){
+      titles.add("电竞");
+      spProMatchTypes.add("lol");
+    }
     
     spProPages=spProMatchTypes.map((item)=>SPClassTabMatchInfoPage(item),).toList();
     // 标记

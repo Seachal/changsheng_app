@@ -8,10 +8,9 @@ import 'package:changshengh5/untils/SPClassCommonMethods.dart';
 import 'package:changshengh5/untils/SPClassImageUtil.dart';
 import 'package:changshengh5/untils/SPClassNavigatorUtils.dart';
 import 'package:changshengh5/widgets/SPClassToolBar.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:package_info/package_info.dart';
 
-import 'SPClassTestPage.dart';
 
 
 class SPClassAboutUsPage extends StatefulWidget{
@@ -28,21 +27,19 @@ class SPClassAboutUsPageState extends State<SPClassAboutUsPage>{
 
   int spProDebugIndex=0;
   DateTime ?spProPressTime;
-  //标记 app专用
-  // PackageInfo spProPackageInfo;
+  PackageInfo ?spProPackageInfo;
   Timer ?timer;
   @override
    initState()  {
     // TODO: implement initState
     super.initState();
-    //标记 app专用
-     //   PackageInfo.fromPlatform().then((result){
-     //     spProPackageInfo=result;
-     //     if(mounted){
-     //       setState(() {
-     //       });
-     //     }
-     // });
+       PackageInfo.fromPlatform().then((result){
+         spProPackageInfo=result;
+         if(mounted){
+           setState(() {
+           });
+         }
+     });
 
   }
   @override
@@ -125,30 +122,29 @@ class SPClassAboutUsPageState extends State<SPClassAboutUsPage>{
 
                 },
               ),
-//              标记 APP专用
-              // Flexible(
-              //   flex: 1,
-              //   fit: FlexFit.tight,
-              //   child: GestureDetector(
-              //     child: Container(
-              //       padding: EdgeInsets.only(bottom: 10),
-              //       width: MediaQuery.of(context).size.width,
-              //       alignment: Alignment.bottomCenter,
-              //       child:Text("version "+
-              //           spProPackageInfo.version+
-              //           " build "+
-              //           spProPackageInfo.buildNumber +
-              //           (SPClassApplicaion.spProDEBUG?
-              //            "调试模式":""),style: TextStyle(fontSize: 13,color: Color(0xFFBDBDBD)),),
-              //     ),
-              //     onLongPressStart:(value){
-              //
-              //     },
-              //     onLongPressEnd: (value){
-              //
-              //     },
-              //   ),
-              // )
+              Flexible(
+                flex: 1,
+                fit: FlexFit.tight,
+                child: GestureDetector(
+                  child: Container(
+                    padding: EdgeInsets.only(bottom: 10),
+                    width: MediaQuery.of(context).size.width,
+                    alignment: Alignment.bottomCenter,
+                    child:Text("version "+
+                        spProPackageInfo!.version+
+                        " build "+
+                        spProPackageInfo!.buildNumber +
+                        (SPClassApplicaion.spProDEBUG?
+                         "调试模式":""),style: TextStyle(fontSize: 13,color: Color(0xFFBDBDBD)),),
+                  ),
+                  onLongPressStart:(value){
+
+                  },
+                  onLongPressEnd: (value){
+
+                  },
+                ),
+              )
 
             ],
 

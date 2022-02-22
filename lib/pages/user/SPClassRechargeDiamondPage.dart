@@ -18,8 +18,8 @@ import "package:url_launcher/url_launcher.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 
 import 'SPClassDiamondHistoryPage.dart';
-// import "package:fluwx/fluwx.dart" as fluwx;
-// import "package:tobias/tobias.dart" as tobias;
+import "package:fluwx/fluwx.dart" as fluwx;
+import "package:tobias/tobias.dart" as tobias;
 
 
 class SPClassRechargeDiamondPage extends StatefulWidget {
@@ -66,40 +66,38 @@ class SPClassRechargeDiamondPageState extends State<SPClassRechargeDiamondPage> 
           spFunInitConfig();
         },onError: (e){},spProOnProgress: (v){}
     ));
-    // 标记 App使用
-    // tobias.isAliPayInstalled().then((value){
-    //   spProIsAliPayWeb=value? "0":"1";
-    // });
-    // fluwx.isWeChatInstalled.then((value){
-    //   spProIsWechatWeb=value? "0":"1";
-    // });
+    tobias.isAliPayInstalled().then((value){
+      spProIsAliPayWeb=value? "0":"1";
+    });
+    fluwx.isWeChatInstalled.then((value){
+      spProIsWechatWeb=value? "0":"1";
+    });
     spProTextEditingController=TextEditingController();
     spProTextEditingController!.addListener(() {
       setState(() {
 
       });
     });
-    //标记 App使用
-    // fluwx.weChatResponseEventHandler.listen((response){
-    //   //do something
-    //   switch(response.errCode){
-    //     case 0:
-    //      if(spProOrderNum.isNotEmpty){
-    //         spFunQueryOrder();
-    //      }
-    //     break;
-    //     case -1:
-    //       SPClassToastUtils.spFunShowToast(msg: "支付异常："+response.errStr);
-    //       break;
-    //     case -2:
-    //       SPClassToastUtils.spFunShowToast(msg: "已取消");
-    //       if(spProOrderNum.isNotEmpty){
-    //         SPClassApiManager.spFunGetInstance().spFunCancelOrder(spProOrderNum:spProOrderNum,context: context);
-    //       }
-    //       break;
-    //   }
-    //
-    // });
+    fluwx.weChatResponseEventHandler.listen((response){
+      //do something
+      switch(response.errCode){
+        case 0:
+         if(spProOrderNum.isNotEmpty){
+            spFunQueryOrder();
+         }
+        break;
+        case -1:
+          SPClassToastUtils.spFunShowToast(msg: "支付异常："+response.errStr!);
+          break;
+        case -2:
+          SPClassToastUtils.spFunShowToast(msg: "已取消");
+          if(spProOrderNum.isNotEmpty){
+            SPClassApiManager.spFunGetInstance().spFunCancelOrder(spProOrderNum:spProOrderNum,context: context);
+          }
+          break;
+      }
+
+    });
 
     SPClassApplicaion.spProEventBus.on<String>().listen((event) {
       if(event=="userInfo"){
@@ -597,49 +595,45 @@ class SPClassRechargeDiamondPageState extends State<SPClassRechargeDiamondPage> 
                       context:context,
                       spProCallBack: SPClassHttpCallBack(
                         spProOnSuccess: (value){
-                          // 标记App使用
                           spProOrderNum=value.spProOrderNum!;
                           if(spProPayType=="weixin"){
-                            launch(value.url!);
-                            // if(spProIsWechatWeb=="1"){
-                            //   launch(value.url);
-                            // }else{
-                            //   fluwx.payWithWeChat( appId: value.appid,
-                            //     partnerId: value.partnerid,
-                            //     prepayId: value.spProPrepayid,
-                            //     packageValue: "Sign=WXPay",
-                            //     nonceStr: value.noncestr,
-                            //     timeStamp: value.timestamp,
-                            //     sign: value.sign,
-                            //   );
-                            //  }
+                            if(spProIsWechatWeb=="1"){
+                              launch(value.url!);
+                            }else{
+                              fluwx.payWithWeChat( appId: value.appid!,
+                                partnerId: value.partnerid!,
+                                prepayId: value.spProPrepayid!,
+                                packageValue: "Sign=WXPay",
+                                nonceStr: value.noncestr!,
+                                timeStamp: value.timestamp!,
+                                sign: value.sign!,
+                              );
+                             }
                           }else if(spProPayType=="alipay"){
-                            launch(value.url!);
-                            //App使用
-                            // if(spProIsAliPayWeb=="1"){
-                            //   launch(value.url);
-                            // }else{
-                            //   tobias.aliPay(value.spProOrderInfo).then((value){
-                            //     switch(int.tryParse(value["resultStatus"].toString())){
-                            //       case 9000:
-                            //         if(spProOrderNum.isNotEmpty){
-                            //           spFunQueryOrder();
-                            //         }
-                            //         break;
-                            //       case 8000:
-                            //         break;
-                            //       case 6002:
-                            //         SPClassToastUtils.spFunShowToast(msg: "支付异常："+value["memo"].toString());
-                            //         break;
-                            //       case 6001:
-                            //         SPClassToastUtils.spFunShowToast(msg: "已取消");
-                            //         if(spProOrderNum.isNotEmpty){
-                            //           SPClassApiManager.spFunGetInstance().spFunCancelOrder(spProOrderNum:spProOrderNum,context: context);
-                            //         }
-                            //         break;
-                            //     }
-                            //   });
-                            // }
+                            if(spProIsAliPayWeb=="1"){
+                              launch(value.url!);
+                            }else{
+                              tobias.aliPay(value.spProOrderInfo!).then((value){
+                                switch(int.tryParse(value["resultStatus"].toString())){
+                                  case 9000:
+                                    if(spProOrderNum.isNotEmpty){
+                                      spFunQueryOrder();
+                                    }
+                                    break;
+                                  case 8000:
+                                    break;
+                                  case 6002:
+                                    SPClassToastUtils.spFunShowToast(msg: "支付异常："+value["memo"].toString());
+                                    break;
+                                  case 6001:
+                                    SPClassToastUtils.spFunShowToast(msg: "已取消");
+                                    if(spProOrderNum.isNotEmpty){
+                                      SPClassApiManager.spFunGetInstance().spFunCancelOrder(spProOrderNum:spProOrderNum,context: context);
+                                    }
+                                    break;
+                                }
+                              });
+                            }
 
                           }
 
