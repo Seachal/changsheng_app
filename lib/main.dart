@@ -51,7 +51,6 @@ class MyAppState extends State<MyApp> {
         ],
         home: WillPopScope(
           child:  Scaffold(body:SplashScreen()),
-//          child:  Scaffold(body: spFunShowWelcomePage()),
           onWillPop: () async{
             if(DateTime.now().difference(spProPopTimer).inSeconds>3){
               SPClassToastUtils.spFunShowToast(msg: "再按一次退出");
