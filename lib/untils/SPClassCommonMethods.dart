@@ -18,10 +18,6 @@ double sp(num sp){
 
  SPClassApiManager get Api=>SPClassApiManager.spFunGetInstance();
 ///APP使用
-// String get AppId => ((Platform.isAndroid) ? SPClassApplicaion.spProAndroidAppId:SPClassApplicaion.spProIOSAppId);
+String get AppId => ((Platform.isAndroid) ? SPClassApplicaion.spProAndroidAppId:SPClassApplicaion.spProIOSAppId);
 //
-// String get ChannelId => (Platform.isAndroid ? SPClassApplicaion.spProChannelId:"10");
-
-String get AppId => SPClassApplicaion.spProAndroidAppId;
-
-String get ChannelId => SPClassApplicaion.spProChannelId;
+String get ChannelId => (Platform.isAndroid ? SPClassApplicaion.spProChannelId:"10");
