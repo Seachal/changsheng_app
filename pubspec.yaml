@@ -75,6 +75,8 @@ dev_dependencies:
   url_launcher: ^6.0.20
   image_gallery_saver: ^1.7.1
   sprintf: 6.0.0
+  device_info: 2.0.3
+  package_info: 2.0.2
 
 
 

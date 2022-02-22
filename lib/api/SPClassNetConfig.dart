@@ -1,18 +1,16 @@
 
 import 'dart:io';
 
+import 'package:device_info/device_info.dart';
 import 'package:changshengh5/app/SPClassApplicaion.dart';
 import 'package:changshengh5/untils/SPClassCommonMethods.dart';
 
 class SPClassNetConfig {
 
-  /* app
+  static final DeviceInfoPlugin spProDeviceInfo=DeviceInfoPlugin();
+  static AndroidDeviceInfo ?androidInfo;
+  static  IosDeviceInfo ?spProIosDeviceInfo;
 
-  static final DeviceInfoPlugin spProDeviceInfo=new DeviceInfoPlugin();
-  static AndroidDeviceInfo androidInfo;
-  static  IosDeviceInfo spProIosDeviceInfo;
-
-   */
   static var  BASE_URL_DEBUG = 'http://api-test.demo.gz583.com/';
   static var  BASE_URL_RELEASE = 'http://api.gz583.com/';
   static var  BASE_URL_IOS_RELEASE = 'http://api.gz583.cn/';

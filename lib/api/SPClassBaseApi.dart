@@ -245,31 +245,30 @@ class SPClassBaseApi{
 
    Map<String, dynamic> spFunGetBasicParams() {
     Map<String, dynamic> basicParam = {};
-
-      basicParam["oauth_token"] =userLoginInfo==null? "":userLoginInfo!.spProOauthToken;
-      basicParam["app_id"] =AppId;
-      basicParam["channel_id"] =ChannelId;
-      basicParam["app_version"] ='';
-      basicParam["sydid"] = '';
-      basicParam["did"] ='';
+    basicParam["oauth_token"] =userLoginInfo==null? "":userLoginInfo?.spProOauthToken;
+    basicParam["app_id"] =AppId;
+    basicParam["channel_id"] =ChannelId;
+    basicParam["app_version"] =SPClassApplicaion.spProPackageInfo?.version??'';
+    basicParam["sydid"] = SPClassApplicaion.spProSydid;
+    basicParam["did"] =Platform.isAndroid ? SPClassApplicaion.spProImei : SPClassNetConfig.spProIosDeviceInfo?.identifierForVendor??'';
 
     return basicParam;
   }
 
    Map<String, dynamic> spFunGetCommonParams() {
-    Map<String, dynamic> basicParam = {};
-    basicParam["oauth_token"] =SPClassApplicaion.spProUserLoginInfo==null? "":SPClassApplicaion.spProUserLoginInfo?.spProOauthToken??'';
-    basicParam["app_id"] =AppId;
-    basicParam["channel_id"] =ChannelId;
-    basicParam["did"] ='e1652ed8-d5c6-4858-be38-f9f6d3242fb5';
-    basicParam["device"] ='M2004J7AC';
-    basicParam["os"] ="android";
-    basicParam["app_version"] ='3.0.1';
-    basicParam["android_id"] ="fa462f316d05e99b";
-    basicParam["manufacturer"] = "xiaomi";
-    basicParam["sydid"] = '440fc3535f24d276cbd0a2cd15dca44f';
-    basicParam["os_version"] ='10';
-    basicParam["mac"] ='02:00:00:00:00:00';
+     Map<String, dynamic> basicParam = {};
+     basicParam["oauth_token"] =SPClassApplicaion.spProUserLoginInfo==null? "":SPClassApplicaion.spProUserLoginInfo?.spProOauthToken??'';
+     basicParam["app_id"] =AppId;
+     basicParam["channel_id"] =ChannelId;
+     basicParam["did"] =Platform.isAndroid ? SPClassApplicaion.spProImei : SPClassNetConfig.spProIosDeviceInfo?.identifierForVendor??'';
+     basicParam["device"] =SPClassApplicaion.spProDeviceName;
+     basicParam["os"] = Platform.isAndroid ? "android" : "ios";
+     basicParam["app_version"] =SPClassApplicaion.spProPackageInfo?.version??'';
+     basicParam["android_id"] =Platform.isAndroid ?    SPClassNetConfig.androidInfo?.androidId:"";
+     basicParam["manufacturer"] = Platform.isAndroid ? SPClassNetConfig.androidInfo?.manufacturer.toLowerCase():"apple";
+     basicParam["sydid"] = SPClassApplicaion.spProSydid;
+     basicParam["os_version"] =Platform.isAndroid ?SPClassNetConfig.androidInfo?.version.release:SPClassNetConfig.spProIosDeviceInfo?.systemVersion??'';
+     basicParam["mac"] =SPClassApplicaion.spProMacAddress;
     return basicParam;
   }
 

@@ -14,6 +14,7 @@ import 'package:changshengh5/untils/SPClassSharedPreferencesKeys.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:event_bus/event_bus.dart';
+import 'package:package_info/package_info.dart';
 
 class SPClassApplicaion
 {
@@ -21,6 +22,11 @@ class SPClassApplicaion
   static String spProChannelId="11";
   static  String spProAndroidAppId="100";
   static const String spProIOSAppId="106";
+  static String spProImei="";
+  static String spProDeviceName="";
+  static String spProSydid="";
+  static String spProMacAddress="";
+  static PackageInfo ?spProPackageInfo;
   static bool spProDEBUG = false;
   static SPClassUserInfo ?spProUserInfo;
   static Map<String,dynamic> ?spProJsMap;
