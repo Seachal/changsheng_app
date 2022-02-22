@@ -1,0 +1,11 @@
+/android/
+/web/
+/test/
+/build/
+/.dart_tool/
+/.flutter-plugins
+/.flutter-plugins-dependencies
+/.packages
+/changshengh5.iml
+/pubspec.lock
+/.idea/
