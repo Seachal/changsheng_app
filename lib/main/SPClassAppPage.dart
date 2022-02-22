@@ -105,7 +105,6 @@ class SPClassAppPageState extends State<SPClassAppPage>
     ) );
 
   }
-///
 
   void spFunGetBcwUrl(String value){
     if(spFunIsLogin(context: context)){
