@@ -17,6 +17,8 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:package_info/package_info.dart';
+import 'package:jpush_flutter/jpush_flutter.dart';
+
 
 import 'api/SPClassApiManager.dart';
 import 'api/SPClassHttpCallBack.dart';
@@ -82,8 +84,6 @@ class _SplashScreenState extends State<SplashScreen> {
 }
 
   Future<void> init() async{
-    print('哈哈哈：${AesUtils.encryptAes('helloWorld')}');
-    print('哈哈哈：${AesUtils.decryptAes(AesUtils.encryptAes('helloWorld'))}');
     try{
       if(Platform.isAndroid){
         //标记
@@ -183,41 +183,41 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> spFunInitPush() async {
-//     if(Platform.isIOS){
-//       SPClassApplicaion.spProJPush = new JPush();
-//       SPClassApplicaion.spProJPush .setup(
-//         appKey:SPClassApplicaion.spProChannelId=="2"? "13a7f0f109637413b2cc9c6d":"883e94b7fc3b1e8eae037188",
-//         channel: "theChannel",
-//         production: true,
-//         debug: true,
-// //        production: false,
-// //        debug: SPClassApplicaion.spProDEBUG,
-//       );
-//       SPClassApplicaion.spProJPush.applyPushAuthority(new NotificationSettingsIOS(
-//           sound: true,
-//           alert: true,
-//           badge: true));
-//     }else{
-//       var androidInfo=  await SPClassNetConfig.spProDeviceInfo.androidInfo;
-//       if(androidInfo.manufacturer.toLowerCase().contains("huawei")){
-//         FlutterPluginHuaweiPush.pushToken.then((pushToken){
-//           print("token=====$pushToken");
-//           if(pushToken!=null&&pushToken.isNotEmpty){
-//             SPClassApplicaion.pushToken=pushToken;
-//           }
-//         });
-//       }else{
-//         SPClassApplicaion.spProJPush = new JPush();
-//         SPClassApplicaion.spProJPush .setup(
-//           appKey:SPClassApplicaion.spProChannelId=="2"? "13a7f0f109637413b2cc9c6d":"883e94b7fc3b1e8eae037188",
-//           channel: "theChannel",
-//           production: true,
-//           debug: true,
-// //        production: false,
-// //        debug: SPClassApplicaion.spProDEBUG,
-//         );
-//       }
-//     }
+    if(Platform.isIOS){
+      SPClassApplicaion.spProJPush = JPush();
+      SPClassApplicaion.spProJPush ?.setup(
+        appKey:SPClassApplicaion.spProChannelId=="2"? "13a7f0f109637413b2cc9c6d":"883e94b7fc3b1e8eae037188",
+        channel: "theChannel",
+        production: true,
+        debug: true,
+//        production: false,
+//        debug: SPClassApplicaion.spProDEBUG,
+      );
+      SPClassApplicaion.spProJPush?.applyPushAuthority(new NotificationSettingsIOS(
+          sound: true,
+          alert: true,
+          badge: true));
+    }else{
+      var androidInfo=  await SPClassNetConfig.spProDeviceInfo.androidInfo;
+      if(androidInfo.manufacturer.toLowerCase().contains("huawei")){
+        // FlutterPluginHuaweiPush.pushToken.then((pushToken){
+        //   print("token=====$pushToken");
+        //   if(pushToken!=null&&pushToken.isNotEmpty){
+        //     SPClassApplicaion.pushToken=pushToken;
+        //   }
+        // });
+      }else{
+        SPClassApplicaion.spProJPush = JPush();
+        SPClassApplicaion.spProJPush ?.setup(
+          appKey:SPClassApplicaion.spProChannelId=="2"? "13a7f0f109637413b2cc9c6d":"883e94b7fc3b1e8eae037188",
+          channel: "theChannel",
+          production: true,
+          debug: true,
+//        production: false,
+//        debug: SPClassApplicaion.spProDEBUG,
+        );
+      }
+    }
   }
 
   spFunInitWx() async {
@@ -294,7 +294,7 @@ class _SplashScreenState extends State<SplashScreen> {
     SPClassApiManager.spFunGetInstance().spFunLogOpen<SPClassBaseModelEntity>(needSydid: "1",spProCallBack: SPClassHttpCallBack(
         spProOnSuccess: (result) async {
           var logOpen= JsonConvert.fromJsonAsT<SPClassLogInfoEntity>(result.data);
-          print('显示的内容：${logOpen?.toJson()}');
+          print('显示的内容：${logOpen?.spProMenuList}');
           SPClassApplicaion.spProLogOpenInfo=logOpen;
           var md5Code=md5.convert(utf8.encode(AppId)).toString();
           if(Platform.isAndroid){
@@ -316,7 +316,6 @@ class _SplashScreenState extends State<SplashScreen> {
           // if(Platform.isAndroid){
           //   try {
           // String encryptedString = AesUtils.encryptAes(logOpen.sydid!);
-
           //     if (Platform.isAndroid) {
           //       String documentsPath =   await FlutterToolplugin.getExternalStorage();
           //       String appIdPath= SPClassApplicaion.spProAndroidAppId=="100" ? '/wbs/wbs.txt':("/wbs/"+SPClassApplicaion.spProAndroidAppId+"/wbs.txt");

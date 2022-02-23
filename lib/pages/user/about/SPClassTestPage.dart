@@ -38,11 +38,11 @@ class SPClassTestPageState extends State<SPClassTestPage>{
                children: <Widget>[
                  Expanded(
                    child:GestureDetector(
-                     behavior: HitTestBehavior.opaque,
+                     behavior: HitTestBehavior.translucent,
                      child: Row(
                        children: <Widget>[
                          Text("测试坏境"),
-                         Checkbox(value: debug==1,activeColor: Colors.red,checkColor: Colors.red, onChanged: (bool? value) {  },)
+                         Checkbox(value: debug==1,activeColor: Colors.red,checkColor: Colors.black, onChanged: (bool? value) {  },)
                        ],
                      ),
                      onTap: (){
@@ -59,11 +59,11 @@ class SPClassTestPageState extends State<SPClassTestPage>{
                  ),
                  Expanded(
                    child:GestureDetector(
-                     behavior: HitTestBehavior.opaque,
+                     behavior: HitTestBehavior.translucent,
                      child: Row(
                        children: <Widget>[
                          Text("正式环境"),
-                         Checkbox(value: debug!=1,activeColor: Colors.red,checkColor: Colors.red, onChanged: (bool? value) {  },)
+                         Checkbox(value: debug!=1,activeColor: Colors.red,checkColor: Colors.black, onChanged: (bool? value) {  },)
                        ],
                      ),
                      onTap: (){
@@ -81,30 +81,30 @@ class SPClassTestPageState extends State<SPClassTestPage>{
                ],
              ),
 
-             // Row(
-             //   children: <Widget>[
-             //     Flexible(
-             //       flex: 1,
-             //       fit: FlexFit.tight,
-             //       child: Column(
-             //         crossAxisAlignment: CrossAxisAlignment.start,
-             //         children: <Widget>[
-             //           Text("打印log"),
-             //         ],
-             //       ),
-             //     ),
-             //
-             //     Switch(
-             //       activeColor:Theme.of(context).primaryColor,
-             //       value: SPClassApplicaion.spProLOG_OPEN,
-             //       onChanged: (value){
-             //         SPClassApplicaion.spProLOG_OPEN=value;
-             //         setState(() {
-             //         });
-             //       },
-             //     )
-             //   ],
-             // ),
+             Row(
+               children: <Widget>[
+                 Flexible(
+                   flex: 1,
+                   fit: FlexFit.tight,
+                   child: Column(
+                     crossAxisAlignment: CrossAxisAlignment.start,
+                     children: <Widget>[
+                       Text("打印log"),
+                     ],
+                   ),
+                 ),
+
+                 Switch(
+                   activeColor:Theme.of(context).primaryColor,
+                   value: SPClassApplicaion.spProLOG_OPEN,
+                   onChanged: (value){
+                     SPClassApplicaion.spProLOG_OPEN=value;
+                     setState(() {
+                     });
+                   },
+                 )
+               ],
+             ),
 
 
            ],

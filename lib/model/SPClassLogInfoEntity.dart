@@ -1,17 +1,15 @@
-import 'package:changshengh5/generated/json/base/json_field.dart';
-import 'package:changshengh5/generated/json/SPClassLogInfoEntity.g.dart';
 
 
-@JsonSerializable()
 class SPClassLogInfoEntity {
+  String ?sydid;
+  List<String>? spProMenuList;
+  SPClassLogInfoEntity({this.sydid,this.spProMenuList});
 
-	SPClassLogInfoEntity();
-
-	factory SPClassLogInfoEntity.fromJson(Map<String, dynamic> json) => $SPClassLogInfoEntityFromJson(json);
-
-	Map<String, dynamic> toJson() => $SPClassLogInfoEntityToJson(this);
-
-	 String? sydid;
-	 List<String>? spProMenuList;
+  SPClassLogInfoEntity.fromJson(Map<String, dynamic> json) {
+    sydid = json['sydid'];
+    if(json['menu_list'] != null){
+      spProMenuList = [];(json['menu_list'] as List).forEach((v) { spProMenuList!.add(v); });
+    }
+  }
 
 }

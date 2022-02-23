@@ -40,6 +40,7 @@ class SPClassApplicaion
   static SPClassLogInfoEntity ?spProLogOpenInfo;
   static List<String> spProShowMenuList =["home","pk","match","expert","info","pay","match_scheme","match_analyse","match_odds","bcw_data","game"];
   static bool spProEncrypt = false;//是否启用加密
+  static bool spProLOG_OPEN = false;
   static JPush ?spProJPush;
   static EventBus spProEventBus = EventBus();
   static SPClassShowPListEntity ?spProShowPListEntity;//;
