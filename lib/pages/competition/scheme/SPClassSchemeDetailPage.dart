@@ -755,9 +755,9 @@ class SPClassSchemeDetailPageState extends State<SPClassSchemeDetailPage> {
                       value2: SPClassStringUtils.spFunSqlitZero(SPClassStringUtils.spFunPanKouData(widget.spProSchemeDetail.scheme!.spProMidScore!).replaceAll("+", "")),
                       text3: '小',
                       value3: double.tryParse(widget.spProSchemeDetail.scheme!.spProWinOddsTwo!)!.toStringAsFixed(2),
-                      supportWhich:widget.spProSchemeDetail.scheme!.spProSupportWhich!,
-                      supportWhich2: widget.spProSchemeDetail.scheme!.spProSupportWhich2!,
-                      whichWin: widget.spProSchemeDetail.scheme!.spProWhichWin!
+                      supportWhich:widget.spProSchemeDetail.scheme!.spProSupportWhich,
+                      supportWhich2: widget.spProSchemeDetail.scheme!.spProSupportWhich2,
+                      whichWin: widget.spProSchemeDetail.scheme!.spProWhichWin
                   )
                       :
                   (widget.spProSchemeDetail.scheme!.spProPlayingWay=="让球胜负")?
@@ -768,9 +768,9 @@ class SPClassSchemeDetailPageState extends State<SPClassSchemeDetailPage> {
                     value2: SPClassStringUtils.spFunPanKouData(widget.spProSchemeDetail.scheme!.spProAddScore!),
                     text3: '主负',
                     value3: double.tryParse(widget.spProSchemeDetail.scheme!.spProWinOddsTwo!)!.toStringAsFixed(2),
-                    supportWhich:widget.spProSchemeDetail.scheme!.spProSupportWhich!,
-                    supportWhich2: widget.spProSchemeDetail.scheme!.spProSupportWhich2!,
-                    whichWin: widget.spProSchemeDetail.scheme!.spProWhichWin!
+                    supportWhich:widget.spProSchemeDetail.scheme!.spProSupportWhich,
+                    supportWhich2: widget.spProSchemeDetail.scheme!.spProSupportWhich2,
+                    whichWin: widget.spProSchemeDetail.scheme!.spProWhichWin
                   ):
                   (widget.spProSchemeDetail.scheme!.spProPlayingWay=="让分胜负"||widget.spProSchemeDetail.scheme!.spProPlayingWay=="让局胜负")?
                   guessItem(
@@ -780,9 +780,9 @@ class SPClassSchemeDetailPageState extends State<SPClassSchemeDetailPage> {
                       value2: SPClassStringUtils.spFunSqlitZero(SPClassStringUtils.spFunPanKouData(widget.spProSchemeDetail.scheme!.spProAddScore!,)),
                       text3: widget.spProSchemeDetail.scheme!.spProMatchType!.toLowerCase()=="lol" ?(widget.spProSchemeDetail.spProGuessMatch!.spProTeamTwo!):"客队",
                       value3: double.tryParse(widget.spProSchemeDetail.scheme!.spProWinOddsTwo!)!.toStringAsFixed(2),
-                      supportWhich:widget.spProSchemeDetail.scheme!.spProSupportWhich!,
-                      supportWhich2: widget.spProSchemeDetail.scheme!.spProSupportWhich2!,
-                      whichWin: widget.spProSchemeDetail.scheme!.spProWhichWin!
+                      supportWhich:widget.spProSchemeDetail.scheme!.spProSupportWhich,
+                      supportWhich2: widget.spProSchemeDetail.scheme!.spProSupportWhich2,
+                      whichWin: widget.spProSchemeDetail.scheme!.spProWhichWin
                   ) :
                   (widget.spProSchemeDetail.scheme!.spProPlayingWay=="总时长"||widget.spProSchemeDetail.scheme!.spProPlayingWay=="总击杀")?
                   guessItem(
@@ -792,20 +792,20 @@ class SPClassSchemeDetailPageState extends State<SPClassSchemeDetailPage> {
                       value2: (SPClassStringUtils.spFunSqlitZero(widget.spProSchemeDetail.scheme!.spProMidScore!)+(widget.spProSchemeDetail.scheme!.spProPlayingWay=="总时长"? "分钟":"")),
                       text3: '小于',
                       value3: double.tryParse(widget.spProSchemeDetail.scheme!.spProWinOddsTwo!)!.toStringAsFixed(2),
-                      supportWhich:widget.spProSchemeDetail.scheme!.spProSupportWhich!,
-                      supportWhich2: widget.spProSchemeDetail.scheme!.spProSupportWhich2!,
-                      whichWin: widget.spProSchemeDetail.scheme!.spProWhichWin!
+                      supportWhich:widget.spProSchemeDetail.scheme!.spProSupportWhich,
+                      supportWhich2: widget.spProSchemeDetail.scheme!.spProSupportWhich2,
+                      whichWin: widget.spProSchemeDetail.scheme!.spProWhichWin
                   ):
                   guessItem(
                       text1: widget.spProSchemeDetail.scheme!.spProMatchType!.toLowerCase()=="lol" ?widget.spProSchemeDetail.spProGuessMatch!.spProTeamOne!:"胜",
                       value1: double.tryParse(widget.spProSchemeDetail.scheme!.spProWinOddsOne!)!.toStringAsFixed(2),
                       text2: widget.spProSchemeDetail.scheme!.spProPlayingWay!.contains("平")? "平":"",
-                      value2: widget.spProSchemeDetail.scheme!.spProDrawOdds!,
+                      value2: widget.spProSchemeDetail.scheme!.spProDrawOdds,
                       text3:  widget.spProSchemeDetail.scheme!.spProMatchType!.toLowerCase()=="lol" ?widget.spProSchemeDetail.spProGuessMatch!.spProTeamTwo!:"负",
                       value3: double.tryParse(widget.spProSchemeDetail.scheme!.spProWinOddsTwo!)!.toStringAsFixed(2),
-                      supportWhich:widget.spProSchemeDetail.scheme!.spProSupportWhich!,
-                      supportWhich2: widget.spProSchemeDetail.scheme!.spProSupportWhich2!,
-                      whichWin: widget.spProSchemeDetail.scheme!.spProWhichWin!
+                      supportWhich:widget.spProSchemeDetail.scheme!.spProSupportWhich,
+                      supportWhich2: widget.spProSchemeDetail.scheme!.spProSupportWhich2,
+                      whichWin: widget.spProSchemeDetail.scheme!.spProWhichWin
                   )
                 ,),),
           ],

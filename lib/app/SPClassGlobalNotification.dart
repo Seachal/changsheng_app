@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'package:changshengh5/api/SPClassApiManager.dart';
 import 'package:changshengh5/api/SPClassHttpCallBack.dart';
 import 'package:changshengh5/model/SPClassMatchNotice.dart';
+import 'package:changshengh5/untils/AesUtils.dart';
 import 'package:changshengh5/untils/SPClassLogUtils.dart';
 import 'package:changshengh5/untils/SPClassPathUtils.dart';
 import 'package:changshengh5/widgets/SPClassMatchToast.dart';
@@ -79,7 +80,7 @@ class SPClassGlobalNotification {
         done=false;
         //标记
         // var result=json.decode(await SPClassEncryptUtils.spFunDecryptByAes(message));
-        var result=json.decode(message);
+        var result=json.decode(AesUtils.decryptAes(message));
 
         if(result["method"]=="connectSuccess"){
          spFunUserLogin();
@@ -147,7 +148,6 @@ class SPClassGlobalNotification {
 
   Future<void> spFunDoMethod(Map param) async {
 
-    // 标记
     // SPClassEncryptUtils.spFunEncryptByAes(param)
     //     .then((value){
     //   SPClassLogUtils.spFunPrintLog(json.encode(param));
@@ -155,6 +155,11 @@ class SPClassGlobalNotification {
     //     spProSocketChannel.sink.add(value);
     //   }
     // });
+    if(spProSocketChannel!=null){
+      spProSocketChannel?.sink.add(AesUtils.encryptAes(json.encode(param)));
+    }
+
+
   }
 
   Future<void> spFunShowMatchNotice(SPClassMatchNotice notice) async {

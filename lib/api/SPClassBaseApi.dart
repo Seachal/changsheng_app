@@ -6,6 +6,7 @@ import 'dart:io';
 import 'package:changshengh5/app/SPClassApplicaion.dart';
 import 'package:changshengh5/model/SPClassBaseModelEntity.dart';
 import 'package:changshengh5/pages/common/SPClassDialogUtils.dart';
+import 'package:changshengh5/untils/AesUtils.dart';
 import 'package:changshengh5/untils/SPClassCommonMethods.dart';
 import 'package:changshengh5/untils/SPClassLogUtils.dart';
 import 'package:dio/dio.dart';
@@ -92,13 +93,13 @@ class SPClassBaseApi{
       switch(method){
         case  Method.GET:
           if(SPClassApplicaion.spProEncrypt){
-            //标记
-            // var  urlEncode  =Transformer.urlEncodeMap(params);
-            // var aes=  await Cipher2.encryptAesCbc128Padding7(urlEncode,"0CD29CA6CFF94F22","4BE6FB7804494C64");
-            // var spProEncrypParameter=  base64Encode(utf8.encode(aes));
-            // response  =await httpManager.get(url!+"?"+spProEncrypParameter,cancelToken:cancelToken);
+            var  urlEncode  =Transformer.urlEncodeMap(params);
+            var aes=  AesUtils.encryptAes(urlEncode);
+            var spProEncrypParameter=  base64Encode(utf8.encode(aes));
+            response  =await httpManager.get(url!+"?"+spProEncrypParameter,cancelToken:cancelToken);
           }else{
             response  =await httpManager.get(url!,queryParameters: params,cancelToken:cancelToken,);
+            // 测试
             // try {
             //   await httpManager.get(url!,queryParameters: params,cancelToken:cancelToken);
             // } on DioError catch (e) {
@@ -117,11 +118,10 @@ class SPClassBaseApi{
           break;
         case Method.POST:
           if(SPClassApplicaion.spProEncrypt){
-            //标记
-            // var  urlEncode  =Transformer.urlEncodeMap(params);
-            // var aes=  await Cipher2.encryptAesCbc128Padding7(urlEncode,"0CD29CA6CFF94F22","4BE6FB7804494C64");
-            // var spProEncrypParameter=  base64Encode(utf8.encode(aes));
-            // response  =await httpManager.post(url!+"?"+spProEncrypParameter,data: Transformer.urlEncodeMap(spProBodyParameters!),cancelToken:cancelToken);
+            var  urlEncode  =Transformer.urlEncodeMap(params);
+            var aes=  AesUtils.encryptAes(urlEncode);
+            var spProEncrypParameter=  base64Encode(utf8.encode(aes));
+            response  =await httpManager.post(url!+"?"+spProEncrypParameter,data: Transformer.urlEncodeMap(spProBodyParameters!),cancelToken:cancelToken);
           }else{
             response  =await httpManager.post(url!,queryParameters: params,data:Transformer.urlEncodeMap(spProBodyParameters!),cancelToken:cancelToken );
 
@@ -176,8 +176,7 @@ class SPClassBaseApi{
           }
 
           if(SPClassApplicaion.spProEncrypt){
-            //标记
-            // data["data"] = json.decode(await Cipher2.decryptAesCbc128Padding7(data["data"],"0CD29CA6CFF94F22","4BE6FB7804494C64"));
+            data["data"] = json.decode( AesUtils.encryptAes(data["data"]));
           }
           print('请求url：${httpManager.options.baseUrl}$url');
           print('请求参数：$queryParameters');

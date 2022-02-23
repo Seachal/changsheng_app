@@ -84,6 +84,7 @@ dev_dependencies:
 #  震动
   flutter_vibrate: 1.3.0
   open_file: 3.2.1
+  encrypt: 5.0.1
 
 
 

@@ -30,6 +30,8 @@ import 'model/SPClassLogInfoEntity.dart';
 import 'package:fluwx/fluwx.dart' as fluwx;
 import 'package:crypto/crypto.dart';
 
+import 'untils/AesUtils.dart';
+
 
 
 class SplashScreen extends StatefulWidget {
@@ -80,6 +82,8 @@ class _SplashScreenState extends State<SplashScreen> {
 }
 
   Future<void> init() async{
+    print('哈哈哈：${AesUtils.encryptAes('helloWorld')}');
+    print('哈哈哈：${AesUtils.decryptAes(AesUtils.encryptAes('helloWorld'))}');
     try{
       if(Platform.isAndroid){
         //标记
@@ -230,17 +234,17 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void spFunGetSydidCache() async {
     // if(Platform.isAndroid){
-    //   String documentsPath = await FlutterToolplugin.getExternalStorage();
+    //   // String documentsPath = await FlutterToolplugin.getExternalStorage();
     //   String appIdPath= SPClassApplicaion.spProAndroidAppId=="100" ? '/wbs/wbs.txt':("/wbs/"+SPClassApplicaion.spProAndroidAppId+"/wbs.txt");
     //   File file = new File(documentsPath+appIdPath);
     //   bool exists =await file.exists();
     //   if(exists) {
     //     String wbs = await file.readAsString();
-    //     String encryptedString = await Cipher2.decryptAesCbc128Padding7(wbs, SPClassConstants.spProEncryptKey, SPClassConstants.spProEncryptIv);
+    //     String encryptedString = AesUtils.decryptAes(wbs);
     //     SPClassApplicaion.spProSydid=encryptedString;
     //   }else{
     //     if(SPClassApplicaion.spProLogOpenInfo!=null){
-    //       SPClassApplicaion.spProSydid=SPClassApplicaion.spProLogOpenInfo.sydid;
+    //       SPClassApplicaion.spProSydid=SPClassApplicaion.spProLogOpenInfo!.sydid!;
     //     }
     //   }
     // }
@@ -248,7 +252,7 @@ class _SplashScreenState extends State<SplashScreen> {
     // if(Platform.isIOS){
     //   SPClassApplicaion.spProSydid= await FlutterToolplugin.getKeyChainSyDid;
     // }
-    spFunInitData();
+    // spFunInitData();
 
   }
 
@@ -311,8 +315,8 @@ class _SplashScreenState extends State<SplashScreen> {
           // 标记
           // if(Platform.isAndroid){
           //   try {
-          //     String encryptedString = await Cipher2.encryptAesCbc128Padding7(
-          //         logOpen.sydid, SPClassConstants.spProEncryptKey, SPClassConstants.spProEncryptIv);
+          // String encryptedString = AesUtils.encryptAes(logOpen.sydid!);
+
           //     if (Platform.isAndroid) {
           //       String documentsPath =   await FlutterToolplugin.getExternalStorage();
           //       String appIdPath= SPClassApplicaion.spProAndroidAppId=="100" ? '/wbs/wbs.txt':("/wbs/"+SPClassApplicaion.spProAndroidAppId+"/wbs.txt");
