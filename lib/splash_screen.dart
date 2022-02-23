@@ -293,13 +293,14 @@ class _SplashScreenState extends State<SplashScreen> {
     ));
     SPClassApiManager.spFunGetInstance().spFunLogOpen<SPClassBaseModelEntity>(needSydid: "1",spProCallBack: SPClassHttpCallBack(
         spProOnSuccess: (result) async {
-          var logOpen= JsonConvert.fromJsonAsT<SPClassLogInfoEntity>(result.data);
-          print('显示的内容：${logOpen?.spProMenuList}');
+          // var logOpen= JsonConvert.fromJsonAsT<SPClassLogInfoEntity>(result.data);
+          var logOpen= SPClassLogInfoEntity.fromJson(result.data);
+          print('显示的内容：${logOpen.spProMenuList}');
           SPClassApplicaion.spProLogOpenInfo=logOpen;
           var md5Code=md5.convert(utf8.encode(AppId)).toString();
           if(Platform.isAndroid){
             if(result.data["app_sign"]==md5Code){
-              SPClassApplicaion.spProShowMenuList=logOpen!.spProMenuList!;
+              SPClassApplicaion.spProShowMenuList=logOpen.spProMenuList!;
               SharedPreferences.getInstance().then((sp)=>sp.setString(SPClassSharedPreferencesKeys.KEY_LOG_JSON, jsonEncode(logOpen)));
               SPClassApplicaion.spProShowMenuList.add('game');
             }else{
@@ -308,7 +309,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
           }
 
-          if(SPClassApplicaion.spProSydid==logOpen!.sydid!){
+          if(SPClassApplicaion.spProSydid==logOpen.sydid!){
             return;
           }
           SPClassApplicaion.spProSydid=logOpen.sydid!;
