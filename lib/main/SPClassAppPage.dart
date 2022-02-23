@@ -100,8 +100,7 @@ class SPClassAppPageState extends State<SPClassAppPage>
         },
       onError: (error){
         SPClassApplicaion.spFunShowUserDialog(context);
-
-      }
+      },spProOnProgress: (v){}
     ) );
 
   }

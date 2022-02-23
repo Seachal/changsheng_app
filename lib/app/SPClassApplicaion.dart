@@ -92,7 +92,7 @@ class SPClassApplicaion
       sp.remove(SPClassSharedPreferencesKeys.KEY_LOGIN_INFO);
     });
     // if(SPClassApplicaion.spProJPush!=null){
-      //  Application.mJpush.deleteAlias();
+    //    Application.mJpush.deleteAlias();
     // }
   }
 

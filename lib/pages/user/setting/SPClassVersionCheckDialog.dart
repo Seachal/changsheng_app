@@ -14,7 +14,8 @@ import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:ota_update/ota_update.dart';
+// import 'package:ota_update/ota_update.dart';
+import 'package:open_file/open_file.dart';
 
 
 class SPClassVersionCheckDialog extends StatefulWidget{
@@ -194,21 +195,7 @@ class SPClassVersionCheckDialogState  extends State<SPClassVersionCheckDialog>{
       Permission.storage,
     ].request();
     if (await Permission.storage.isGranted) {
-      try {
-        OtaUpdate()
-            .execute(
-          installPath,
-          destinationFilename: SPClassApplicaion.spProPackageInfo?.packageName,
-          //OPTIONAL, ANDROID ONLY - ABILITY TO VALIDATE CHECKSUM OF FILE:
-          // sha256checksum: "d6da28451a1e15cf7a75f2c3f151befad3b80ad0bb232ab15c20897e54f21478",
-        ).listen(
-              (OtaEvent event) {
-
-          },
-        );
-      } catch (e) {
-        spFunShowInstallFail("安装失败，请跳转外部浏览器下载安装！");
-      }
+      OpenFile.open(installPath);
     } else {
       SPClassToastUtils.spFunShowToast(msg: "权限不足，请检查文件权限");
       spFunShowInstallFail("安装失败，请跳转外部浏览器下载安装！");
