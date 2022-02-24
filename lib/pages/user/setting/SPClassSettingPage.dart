@@ -1,10 +1,10 @@
 import 'package:changshengh5/app/SPClassApplicaion.dart';
 import 'package:changshengh5/pages/common/SPClassDialogUtils.dart';
 import 'package:changshengh5/pages/login/SPClassChangePwdPage.dart';
-import 'package:changshengh5/untils/SPClassCommonMethods.dart';
-import 'package:changshengh5/untils/SPClassImageUtil.dart';
-import 'package:changshengh5/untils/SPClassNavigatorUtils.dart';
-import 'package:changshengh5/untils/colors.dart';
+import 'package:changshengh5/utils/SPClassCommonMethods.dart';
+import 'package:changshengh5/utils/SPClassImageUtil.dart';
+import 'package:changshengh5/utils/SPClassNavigatorUtils.dart';
+import 'package:changshengh5/utils/colors.dart';
 import 'package:changshengh5/widgets/SPClassToolBar.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';

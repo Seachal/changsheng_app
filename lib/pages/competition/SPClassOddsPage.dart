@@ -5,11 +5,11 @@ import 'package:changshengh5/model/SPClassListEntity.dart';
 import 'package:changshengh5/model/SPClassOddsHistoryListEntity.dart';
 import 'package:changshengh5/model/SPClassSchemePlayWay.dart';
 import 'package:changshengh5/model/SPClassSsOddsList.dart';
-import 'package:changshengh5/untils/SPClassCommonMethods.dart';
-import 'package:changshengh5/untils/SPClassDateUtils.dart';
-import 'package:changshengh5/untils/SPClassImageUtil.dart';
-import 'package:changshengh5/untils/SPClassStringUtils.dart';
-import 'package:changshengh5/untils/colors.dart';
+import 'package:changshengh5/utils/SPClassCommonMethods.dart';
+import 'package:changshengh5/utils/SPClassDateUtils.dart';
+import 'package:changshengh5/utils/SPClassImageUtil.dart';
+import 'package:changshengh5/utils/SPClassStringUtils.dart';
+import 'package:changshengh5/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

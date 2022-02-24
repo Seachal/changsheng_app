@@ -3,11 +3,11 @@ import 'package:changshengh5/api/SPClassApiManager.dart';
 import 'package:changshengh5/api/SPClassHttpCallBack.dart';
 import 'package:changshengh5/app/SPClassApplicaion.dart';
 import 'package:changshengh5/model/SPClassConfRewardEntity.dart';
-import 'package:changshengh5/untils/SPClassCommonMethods.dart';
-import 'package:changshengh5/untils/SPClassImageUtil.dart';
-import 'package:changshengh5/untils/SPClassNavigatorUtils.dart';
-import 'package:changshengh5/untils/colors.dart';
-import 'package:changshengh5/untils/common.dart';
+import 'package:changshengh5/utils/SPClassCommonMethods.dart';
+import 'package:changshengh5/utils/SPClassImageUtil.dart';
+import 'package:changshengh5/utils/SPClassNavigatorUtils.dart';
+import 'package:changshengh5/utils/colors.dart';
+import 'package:changshengh5/utils/common.dart';
 import 'package:flutter/material.dart';
 import 'SPClassRechargeDiamondPage.dart';
 

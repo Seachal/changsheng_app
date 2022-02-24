@@ -1,6 +1,6 @@
 import 'package:changshengh5/splash_screen.dart';
-import 'package:changshengh5/untils/LocalStorage.dart';
-import 'package:changshengh5/untils/SPClassToastUtils.dart';
+import 'package:changshengh5/utils/LocalStorage.dart';
+import 'package:changshengh5/utils/SPClassToastUtils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 

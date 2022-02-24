@@ -6,12 +6,12 @@ import 'package:changshengh5/pages/user/scheme/bug/SPClassMyBuySchemePage.dart';
 import 'package:changshengh5/pages/user/scheme/follow/SPClassMyFollowSchemePage.dart';
 import 'package:changshengh5/pages/user/setting/SPClassSettingPage.dart';
 import 'package:changshengh5/pages/user/systemMsg/SPClassSystemMsgPageState.dart';
-import 'package:changshengh5/untils/SPClassCommonMethods.dart';
-import 'package:changshengh5/untils/SPClassImageUtil.dart';
-import 'package:changshengh5/untils/SPClassNavigatorUtils.dart';
-import 'package:changshengh5/untils/SPClassStringUtils.dart';
-import 'package:changshengh5/untils/SPClassToastUtils.dart';
-import 'package:changshengh5/untils/colors.dart';
+import 'package:changshengh5/utils/SPClassCommonMethods.dart';
+import 'package:changshengh5/utils/SPClassImageUtil.dart';
+import 'package:changshengh5/utils/SPClassNavigatorUtils.dart';
+import 'package:changshengh5/utils/SPClassStringUtils.dart';
+import 'package:changshengh5/utils/SPClassToastUtils.dart';
+import 'package:changshengh5/utils/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

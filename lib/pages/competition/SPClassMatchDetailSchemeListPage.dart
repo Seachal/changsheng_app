@@ -4,7 +4,7 @@ import 'package:changshengh5/model/SPClassGuessMatchInfo.dart';
 import 'package:changshengh5/model/SPClassSchemeListEntity.dart';
 import 'package:changshengh5/pages/common/SPClassNoDataView.dart';
 import 'package:changshengh5/pages/home/SPClassSchemeItemView.dart';
-import 'package:changshengh5/untils/SPClassCommonMethods.dart';
+import 'package:changshengh5/utils/SPClassCommonMethods.dart';
 import 'package:changshengh5/widgets/SPClassBallFooter.dart';
 import 'package:changshengh5/widgets/SPClassBallHeader.dart';
 import 'package:flutter/cupertino.dart';

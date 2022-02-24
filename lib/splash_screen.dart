@@ -5,14 +5,14 @@ import 'dart:io';
 import 'package:changshengh5/pages/SPClassSplashPage.dart';
 import 'package:changshengh5/pages/competition/SPClassMatchListSettingPage.dart';
 import 'package:changshengh5/pages/dialogs/SPClassPrivacyDialogDialog.dart';
-import 'package:changshengh5/untils/LocalStorage.dart';
-import 'package:changshengh5/untils/SPClassCommonMethods.dart';
-import 'package:changshengh5/untils/SPClassIphoneDevices.dart';
-import 'package:changshengh5/untils/SPClassLogUtils.dart';
-import 'package:changshengh5/untils/SPClassNavigatorUtils.dart';
-import 'package:changshengh5/untils/SPClassSharedPreferencesKeys.dart';
-import 'package:changshengh5/untils/SPClassUtil.dart';
-import 'package:changshengh5/untils/common.dart';
+import 'package:changshengh5/utils/LocalStorage.dart';
+import 'package:changshengh5/utils/SPClassCommonMethods.dart';
+import 'package:changshengh5/utils/SPClassIphoneDevices.dart';
+import 'package:changshengh5/utils/SPClassLogUtils.dart';
+import 'package:changshengh5/utils/SPClassNavigatorUtils.dart';
+import 'package:changshengh5/utils/SPClassSharedPreferencesKeys.dart';
+import 'package:changshengh5/utils/SPClassUtil.dart';
+import 'package:changshengh5/utils/common.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:connectivity/connectivity.dart';
@@ -32,7 +32,7 @@ import 'model/SPClassLogInfoEntity.dart';
 import 'package:fluwx/fluwx.dart' as fluwx;
 import 'package:crypto/crypto.dart';
 
-import 'untils/AesUtils.dart';
+import 'utils/AesUtils.dart';
 
 
 

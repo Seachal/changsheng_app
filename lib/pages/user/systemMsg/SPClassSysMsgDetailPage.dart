@@ -1,6 +1,6 @@
 
 import 'package:changshengh5/model/SPClassSystemMsg.dart';
-import 'package:changshengh5/untils/SPClassCommonMethods.dart';
+import 'package:changshengh5/utils/SPClassCommonMethods.dart';
 import 'package:flutter/material.dart';
 
 

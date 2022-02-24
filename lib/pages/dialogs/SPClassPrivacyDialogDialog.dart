@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:changshengh5/app/SPClassApplicaion.dart';
 import 'package:changshengh5/pages/news/SPClassWebPageState.dart';
-import 'package:changshengh5/untils/SPClassCommonMethods.dart';
-import 'package:changshengh5/untils/SPClassNavigatorUtils.dart';
-import 'package:changshengh5/untils/common.dart';
+import 'package:changshengh5/utils/SPClassCommonMethods.dart';
+import 'package:changshengh5/utils/SPClassNavigatorUtils.dart';
+import 'package:changshengh5/utils/common.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';

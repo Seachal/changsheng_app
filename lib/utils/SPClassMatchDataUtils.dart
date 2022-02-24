@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:changshengh5/app/SPClassApplicaion.dart';
 import 'package:changshengh5/model/SPClassSchemeGuessMatch2.dart';
 import 'package:changshengh5/model/SPClassSchemePlayWay.dart';
-import 'package:changshengh5/untils/SPClassStringUtils.dart';
+import 'package:changshengh5/utils/SPClassStringUtils.dart';
 import 'package:flutter/cupertino.dart';
 
 class SPClassMatchDataUtils {

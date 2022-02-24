@@ -1,7 +1,7 @@
 import 'package:changshengh5/api/SPClassApiManager.dart';
-import 'package:changshengh5/untils/SPClassCommonMethods.dart';
-import 'package:changshengh5/untils/SPClassImageUtil.dart';
-import 'package:changshengh5/untils/SPClassToastUtils.dart';
+import 'package:changshengh5/utils/SPClassCommonMethods.dart';
+import 'package:changshengh5/utils/SPClassImageUtil.dart';
+import 'package:changshengh5/utils/SPClassToastUtils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

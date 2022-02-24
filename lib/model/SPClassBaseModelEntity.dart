@@ -1,6 +1,6 @@
 
  import 'package:changshengh5/generated/json/base/json_convert_content.dart';
-import 'package:changshengh5/untils/SPClassToastUtils.dart';
+import 'package:changshengh5/utils/SPClassToastUtils.dart';
 
 import 'SPClassAnylizeMatchList.dart';
 import 'SPClassCreatOrderEntity.dart';

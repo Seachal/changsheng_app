@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:changshengh5/pages/common/AnimationImagePage.dart';
-import 'package:changshengh5/untils/SPClassCommonMethods.dart';
+import 'package:changshengh5/utils/SPClassCommonMethods.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 
