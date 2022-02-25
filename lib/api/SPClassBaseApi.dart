@@ -66,7 +66,9 @@ class SPClassBaseApi{
       Response ?response;
       cancelToken =CancelToken();
       var httpManager=SPClassHttpManager.spFunGetInstance();
-      var baseUrl=((isDemo!=null) ? SPClassNetConfig.spFunGetBasicUrlByValue(isDemo):spFunGetBaseUrl());
+      // 标记
+      // var baseUrl=((isDemo!=null) ? SPClassNetConfig.spFunGetBasicUrlByValue(isDemo):spFunGetBaseUrl());
+      var baseUrl=spFunGetBaseUrl();
       httpManager.options.baseUrl=baseUrl;
       if((isTimeOut==null||!isTimeOut)){
         httpManager.options.sendTimeout=SPClassHttpManager.Timeout;

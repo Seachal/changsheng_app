@@ -24,7 +24,7 @@ class SPClassNetConfig {
     return  SPClassApplicaion.spProDEBUG? SPClassNetConfig.BASE_URL_DEBUG:Platform.isIOS ? BASE_URL_IOS_RELEASE: SPClassNetConfig.BASE_URL_RELEASE;
   }
   static spFunGetBasicUrlByValue(bool isDemo) {
-    return  isDemo? SPClassNetConfig.BASE_URL_DEBUG: Platform.isIOS ? BASE_URL_IOS_RELEASE: SPClassNetConfig.BASE_URL_RELEASE;
+    return  isDemo?SPClassNetConfig.BASE_URL_DEBUG: Platform.isIOS ? BASE_URL_IOS_RELEASE: SPClassNetConfig.BASE_URL_RELEASE;
   }
   static spFunGetImageUrl() {
     return  SPClassApplicaion.spProDEBUG? SPClassNetConfig.IMAGE_URL_DEBUG:IMAGE_URL_RELEASE;

@@ -14,6 +14,7 @@ import "package:dio/dio.dart";
 import "package:flutter/material.dart";
 import "package:flutter/services.dart";
 import "package:image_gallery_saver/image_gallery_saver.dart";
+import 'package:fluwx/fluwx.dart' as fluwx;
 
 
 class SPClassContactPage extends StatefulWidget{
@@ -64,52 +65,54 @@ class  SPClassContactPageState extends State<SPClassContactPage>
               ),
             ),
             SizedBox(height: width(15),),
-            // GestureDetector(
-            //   child:Container(
-            //     padding: EdgeInsets.symmetric(horizontal: width(23),vertical: width(15)),
-            //       decoration: BoxDecoration(
-            //         color: Color.fromRGBO(27, 141, 224, 0.05),
-            //         borderRadius: BorderRadius.circular(32)
-            //       ),
-            //       child: Text("保存二维码",style: TextStyle(fontSize: sp(23),color: Theme.of(context).primaryColor),)),
-            //   onTap: () async {
-            //     try {
-            //       SPClassDialogUtils.spFunShowLoadingDialog(context,barrierDismissible: false,content:"保存中");
-            //       var response = await Dio().get(spProWxQrcode, options: Options(responseType: ResponseType.bytes));
-            //       ImageGallerySaver.saveImage(Uint8List.fromList(response.data)).then((result){
-            //         SPClassLogUtils.spFunPrintLog(result.toString());
-            //         Navigator.of(context).pop();
-            //         if(result.toString().isNotEmpty){
-            //           SPClassToastUtils.spFunShowToast(msg: "保存成功");
-            //         }else{
-            //           SPClassToastUtils.spFunShowToast(msg: "保存失败");
-            //         }
-            //       });
-            //     } on PlatformException {
-            //       Navigator.of(context).pop();
-            //       SPClassToastUtils.spFunShowToast(msg: "保存失败");
-            //     }
-            //   },
-            // ),
-            // SizedBox(height: width(85),),
-            // GestureDetector(
-            //   child:Row(
-            //     mainAxisAlignment: MainAxisAlignment.center,
-            //     crossAxisAlignment: CrossAxisAlignment.center,
-            //     children: <Widget>[
-            //       Text("去微信添加",style: TextStyle(fontSize: sp(17),color: Theme.of(context).primaryColor),textAlign: TextAlign.justify,),
-            //       Image.asset(SPClassImageUtil.spFunGetImagePath("ic_btn_right",),
-            //         width: width(12),
-            //         color: MyColors.main1,
-            //       ),
-            //     ],
-            //   ),
-            //   onTap: () async {
-            //     // fluwx.openWeChatApp().then((value){
-            //     //   SPClassLogUtils.spFunPrintLog(value.toString());
-            //     // });
-            //   },
-            // ),
+            GestureDetector(
+              child:Container(
+                padding: EdgeInsets.symmetric(horizontal: width(23),vertical: width(15)),
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(27, 141, 224, 0.05),
+                    borderRadius: BorderRadius.circular(32)
+                  ),
+                  child: Text("保存二维码",style: TextStyle(fontSize: sp(23),color: Theme.of(context).primaryColor),)),
+              onTap: () async {
+                try {
+                  SPClassDialogUtils.spFunShowLoadingDialog(context,barrierDismissible: false,content:"保存中");
+                  var response = await Dio().get(spProWxQrcode, options: Options(responseType: ResponseType.bytes));
+                  var result =await ImageGallerySaver.saveImage(Uint8List.fromList(response.data));
+                  Navigator.of(context).pop();
+                        // ImageGallerySaver.saveImage(Uint8List.fromList(response.data)).then((result){
+                  //   SPClassLogUtils.spFunPrintLog(result.toString());
+                  //   Navigator.of(context).pop();
+                    if(result.toString().isNotEmpty){
+                      SPClassToastUtils.spFunShowToast(msg: "保存成功");
+                    }else{
+                      SPClassToastUtils.spFunShowToast(msg: "保存失败");
+                    }
+                  // });
+                } on PlatformException {
+                  Navigator.of(context).pop();
+                  SPClassToastUtils.spFunShowToast(msg: "保存失败");
+                }
+              },
+            ),
+            SizedBox(height: width(85),),
+            GestureDetector(
+              child:Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Text("去微信添加",style: TextStyle(fontSize: sp(17),color: Theme.of(context).primaryColor),textAlign: TextAlign.justify,),
+                  Image.asset(SPClassImageUtil.spFunGetImagePath("ic_btn_right",),
+                    width: width(12),
+                    color: MyColors.main1,
+                  ),
+                ],
+              ),
+              onTap: () async {
+                fluwx.openWeChatApp().then((value){
+                  SPClassLogUtils.spFunPrintLog(value.toString());
+                });
+              },
+            ),
           ],
         ),
 

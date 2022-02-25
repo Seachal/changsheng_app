@@ -18,8 +18,9 @@ import 'package:changshengh5/widgets/SPClassToolBar.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:video_player/video_player.dart';
+import 'package:jverify/jverify.dart';
+import 'package:fluwx/fluwx.dart' as fluwx;
 
 import 'PasswordLogin.dart';
 import 'SPClassVideoPhoneLoginPage.dart';
@@ -37,12 +38,13 @@ class SPClassVideoLoginPageState extends State<SPClassVideoLoginPage>
   String spProPhoneNum = "";
   String spProVerCode = "";
   String spProPhonePwd = "";
-  // String spProWxCode;
+  String spProWxCode ="";
   bool isAgree = false; //是否同意协议
   var spProWxListen;
   static bool spProOneLogin = false;
   int spProCurrentSecond = 0;
   Timer ?spProTimer;
+  final Jverify jverify = new Jverify();
 
   late TextEditingController _textEditingController;
   @override
@@ -61,17 +63,17 @@ class SPClassVideoLoginPageState extends State<SPClassVideoLoginPage>
     _videoPlayerController.play();
     WidgetsBinding.instance!.addObserver(this);
 
-    ///备注APP使用
-    // spProWxListen = fluwx.weChatResponseEventHandler
-    //     .distinct((a, b) => a == b)
-    //     .listen((res) {
-    //   if (res is fluwx.WeChatAuthResponse) {
-    //     if (spProWxCode == null || (spProWxCode != res.code)) {
-    //       spProWxCode = res.code;
-    //       spFunDoLoginWx(res.code);
-    //     }
-    //   }
-    // });
+    spProWxListen = fluwx.weChatResponseEventHandler
+        .distinct((a, b) => a == b)
+        .listen((res) {
+      if (res is fluwx.WeChatAuthResponse) {
+        if (spProWxCode == null || (spProWxCode != res.code)) {
+          spProWxCode = res.code!;
+          spFunDoLoginWx(res.code!);
+        }
+      }
+    });
+    initOneLogin();
     // FlutterPhoneLogin.preLogin((result) {
     //   if (result) {
     //     spProOneLogin = true;
@@ -95,9 +97,9 @@ class SPClassVideoLoginPageState extends State<SPClassVideoLoginPage>
     }
 
     ///备注APP使用
-    // if (spProWxListen != null) {
-    //   spProWxListen.cancel();
-    // }
+    if (spProWxListen != null) {
+      spProWxListen.cancel();
+    }
   }
 
   @override
@@ -602,49 +604,49 @@ class SPClassVideoLoginPageState extends State<SPClassVideoLoginPage>
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
-                                    // GestureDetector(
-                                    //   child: Column(
-                                    //     children: <Widget>[
-                                    //       Container(
-                                    //         padding: EdgeInsets.all(width(10)),
-                                    //         decoration: ShapeDecoration(
-                                    //             color: Colors.black45,
-                                    //             shape: CircleBorder()),
-                                    //         alignment: Alignment.center,
-                                    //         child: Image.asset(
-                                    //           SPClassImageUtil
-                                    //               .spFunGetImagePath(
-                                    //                   'ic_wx_login'),
-                                    //           fit: BoxFit.contain,
-                                    //           color: Colors.white,
-                                    //           width: height(30),
-                                    //         ),
-                                    //       ),
-                                    //       SizedBox(
-                                    //         height: height(5),
-                                    //       ),
-                                    //       Text(
-                                    //         "微信",
-                                    //         style: TextStyle(
-                                    //             fontSize: sp(12),
-                                    //             color: Colors.white),
-                                    //       ),
-                                    //     ],
-                                    //   ),
-                                    //   onTap: () {
-                                    //     if (!isAgree) {
-                                    //       SPClassToastUtils.spFunShowToast(
-                                    //           msg: "请阅读并勾选 用户协议 和 隐私政策 ");
-                                    //       return;
-                                    //     }
-                                    //     fluwx.sendWeChatAuth(
-                                    //         scope: "snsapi_userinfo",
-                                    //         state: "wechat_sdk_demo_test");
-                                    //   },
-                                    // ),
-                                    // SizedBox(
-                                    //   width: width(20),
-                                    // ),
+                                    GestureDetector(
+                                      child: Column(
+                                        children: <Widget>[
+                                          Container(
+                                            padding: EdgeInsets.all(width(10)),
+                                            decoration: ShapeDecoration(
+                                                color: Colors.black45,
+                                                shape: CircleBorder()),
+                                            alignment: Alignment.center,
+                                            child: Image.asset(
+                                              SPClassImageUtil
+                                                  .spFunGetImagePath(
+                                                      'ic_wx_login'),
+                                              fit: BoxFit.contain,
+                                              color: Colors.white,
+                                              width: height(30),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: height(5),
+                                          ),
+                                          Text(
+                                            "微信",
+                                            style: TextStyle(
+                                                fontSize: sp(12),
+                                                color: Colors.white),
+                                          ),
+                                        ],
+                                      ),
+                                      onTap: () {
+                                        if (!isAgree) {
+                                          SPClassToastUtils.spFunShowToast(
+                                              msg: "请阅读并勾选 用户协议 和 隐私政策 ");
+                                          return;
+                                        }
+                                        fluwx.sendWeChatAuth(
+                                            scope: "snsapi_userinfo",
+                                            state: "wechat_sdk_demo_test");
+                                      },
+                                    ),
+                                    SizedBox(
+                                      width: width(20),
+                                    ),
                                     GestureDetector(
                                       child: Column(
                                         children: <Widget>[
@@ -734,8 +736,43 @@ class SPClassVideoLoginPageState extends State<SPClassVideoLoginPage>
         ));
   }
 
-  // void spFunDoOneLogin() {
-  //   SPClassDialogUtils.spFunShowLoadingDialog(context,
+  void initOneLogin(){
+    String _token='';
+    String _result='';
+    // 初始化一键登录
+    jverify.setup(appKey: 'c79807ca5d4fd2a554e7ad1d',channel: "devloper-default");
+    jverify.isInitSuccess().then((map) {
+      print('初始化：$map');
+      bool result = map['result'];
+      setState(() {
+        if (result) {
+          jverify.checkVerifyEnable().then((map) {
+            bool result = map['result'];
+            if (result) {
+              jverify.getToken().then((map) {
+                int code = map['code'];
+                _token = map['message'];
+                String operator = map['operator'];
+                setState(() {
+                  _result = "[$code] message = $_token, operator = $operator";
+                });
+              });
+            } else {
+              // setState(() {
+              //   _hideLoading();
+              //   _result = "[2016],msg = 当前网络环境不支持认证";
+              // });
+            }
+          });
+        } else {
+          _result = "sdk 初始换失败";
+        }
+      });
+    });
+  }
+
+  void spFunDoOneLogin() {
+    //   SPClassDialogUtils.spFunShowLoadingDialog(context,
   //       barrierDismissible: true, content: "登录中");
   //   FlutterPhoneLogin.loginWithModel(success: (map) {
   //     Navigator.of(context).pop();
@@ -778,7 +815,7 @@ class SPClassVideoLoginPageState extends State<SPClassVideoLoginPage>
   //       }
   //     }
   //   });
-  // }
+  }
 
   void spFunDoSendCode() async {
     if (spProPhoneNum.length != 11) {
