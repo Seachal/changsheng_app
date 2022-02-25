@@ -460,30 +460,29 @@ class SPClassVideoLoginPageState extends State<SPClassVideoLoginPage>
                                         }
                                         ),
 
-                                    ///一键登录 APP使用
-                                    // spProOneLogin
-                                    //     ? GestureDetector(
-                                    //         child: Container(
-                                    //           margin: EdgeInsets.only(
-                                    //               top: width(12)),
-                                    //           decoration: BoxDecoration(
-                                    //               borderRadius:
-                                    //                   BorderRadius.circular(
-                                    //                       400),
-                                    //               color: MyColors.main1),
-                                    //           height: width(46),
-                                    //           alignment: Alignment.center,
-                                    //           child: Text(
-                                    //             "本机号码一键登录",
-                                    //             style: TextStyle(
-                                    //                 color: Colors.white,
-                                    //                 fontSize: sp(16)),
-                                    //           ),
-                                    //         ),
-                                    //         onTap: () {
-                                    //           spFunDoOneLogin();
-                                    //         })
-                                    //     : Container(),
+                                    spProOneLogin
+                                        ? GestureDetector(
+                                            child: Container(
+                                              margin: EdgeInsets.only(
+                                                  top: width(12)),
+                                              decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          400),
+                                                  color: MyColors.main1),
+                                              height: width(46),
+                                              alignment: Alignment.center,
+                                              child: Text(
+                                                "本机号码一键登录",
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: sp(16)),
+                                              ),
+                                            ),
+                                            onTap: () {
+                                              spFunDoOneLogin();
+                                            })
+                                        : Container(),
 
                                     ///协议
                                     Container(

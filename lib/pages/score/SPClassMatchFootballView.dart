@@ -67,18 +67,18 @@ class SPClassMatchFootballViewState extends State<SPClassMatchFootballView> {
                   width:width(70),
                   child: Text(
                     widget.spProShwoGroupName!
-                        ? widget.spProMatchItem!.spProGroupName!
+                        ? widget.spProMatchItem!.spProGroupName??''
                         : widget
-                        .spProMatchItem!.spProLeagueName!,
+                        .spProMatchItem!.spProLeagueName??'',
                     style: TextStyle(
                       fontSize: sp(10),
                       color: SPClassMatchDataUtils
                           .spFunLeagueNameColor(
                           widget.spProShwoGroupName!
                               ? widget.spProMatchItem!
-                              .spProGroupName!
+                              .spProGroupName??''
                               : widget.spProMatchItem!
-                              .spProLeagueName!),
+                              .spProLeagueName??''),
                     ),
                     maxLines: 1,overflow: TextOverflow.ellipsis,
                   ),

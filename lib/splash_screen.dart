@@ -121,6 +121,7 @@ class _SplashScreenState extends State<SplashScreen> {
       var logInfoJson = sp.getString(SPClassSharedPreferencesKeys.KEY_LOG_JSON);
       if (logInfoJson != null) {
         var jsonData = json.decode(logInfoJson);
+        print('哈哈哈：$jsonData');
         SPClassApplicaion.spProLogOpenInfo =
             SPClassLogInfoEntity.fromJson(jsonData);
       }
@@ -336,7 +337,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   SPClassApplicaion.spProShowMenuList = logOpen.spProMenuList!;
                   SharedPreferences.getInstance().then((sp) => sp.setString(
                       SPClassSharedPreferencesKeys.KEY_LOG_JSON,
-                      jsonEncode(logOpen)));
+                      jsonEncode(result.data)));
                   SPClassApplicaion.spProShowMenuList.add('game');
                 } else {
                   spFunInitMenuList();
