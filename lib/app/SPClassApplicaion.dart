@@ -92,9 +92,9 @@ class SPClassApplicaion
       sp.remove(SPClassSharedPreferencesKeys.KEY_USER_INFO);
       sp.remove(SPClassSharedPreferencesKeys.KEY_LOGIN_INFO);
     });
-    // if(SPClassApplicaion.spProJPush!=null){
-    //    Application.mJpush.deleteAlias();
-    // }
+    if(SPClassApplicaion.spProJPush!=null){
+      SPClassApplicaion.spProJPush?.deleteAlias();
+    }
   }
 
   static Future<void> spFunSavePushToken() async {

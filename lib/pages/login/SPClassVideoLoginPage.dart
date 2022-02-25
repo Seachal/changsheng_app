@@ -44,7 +44,7 @@ class SPClassVideoLoginPageState extends State<SPClassVideoLoginPage>
   static bool spProOneLogin = false;
   int spProCurrentSecond = 0;
   Timer ?spProTimer;
-  final Jverify jverify = new Jverify();
+  final Jverify jverify =  Jverify();
 
   late TextEditingController _textEditingController;
   @override
@@ -738,8 +738,7 @@ class SPClassVideoLoginPageState extends State<SPClassVideoLoginPage>
   void initOneLogin(){
     String _token='';
     String _result='';
-    // 初始化一键登录
-    jverify.setup(appKey: 'c79807ca5d4fd2a554e7ad1d',channel: "devloper-default");
+
     jverify.isInitSuccess().then((map) {
       print('初始化：$map');
       bool result = map['result'];
@@ -748,14 +747,15 @@ class SPClassVideoLoginPageState extends State<SPClassVideoLoginPage>
           jverify.checkVerifyEnable().then((map) {
             bool result = map['result'];
             if (result) {
-              jverify.getToken().then((map) {
-                int code = map['code'];
-                _token = map['message'];
-                String operator = map['operator'];
-                setState(() {
-                  _result = "[$code] message = $_token, operator = $operator";
-                });
-              });
+              spProOneLogin =true;
+              // jverify.getToken().then((map) {
+              //   int code = map['code'];
+              //   _token = map['message'];
+              //   String operator = map['operator'];
+              //   setState(() {
+              //     _result = "[$code] message = $_token, operator = $operator";
+              //   });
+              // });
             } else {
               // setState(() {
               //   _hideLoading();
@@ -771,49 +771,40 @@ class SPClassVideoLoginPageState extends State<SPClassVideoLoginPage>
   }
 
   void spFunDoOneLogin() {
-    //   SPClassDialogUtils.spFunShowLoadingDialog(context,
-  //       barrierDismissible: true, content: "登录中");
-  //   FlutterPhoneLogin.loginWithModel(success: (map) {
-  //     Navigator.of(context).pop();
-  //     SPClassApiManager.spFunGetInstance().spFunOneClickLogin(
-  //         context: context,
-  //         queryParameters: {
-  //           "token": map["token"],
-  //           "op_token": map["operatorToken"],
-  //           "operator": map["operatorType"]
-  //         },
-  //         spProCallBack: SPClassHttpCallBack<SPClassUserLoginInfo>(
-  //             spProOnSuccess: (userLogin) {
-  //           SPClassApplicaion.spProUserLoginInfo = userLogin;
-  //           SPClassApplicaion.spFunSaveUserState();
-  //           SPClassApplicaion.spFunInitUserState();
-  //           SPClassApplicaion.spFunGetUserInfo();
-  //           SPClassToastUtils.spFunShowToast(msg: "登录成功");
-  //           SPClassApplicaion.spFunSavePushToken();
-  //           SPClassGlobalNotification.spFunGetInstance().spFunInitWebSocket();
-  //           Navigator.of(context).pop();
-  //         },onError: (e){},spProOnProgress: (v){}
-  //         ));
-  //   }, fail: (code) {
-  //     Navigator.of(context).pop();
-  //     if (Platform.isIOS) {
-  //       if (code != 170204 && code != 170301) {
-  //         SPClassToastUtils.spFunShowToast(
-  //             msg: "一键登录失败:code" + code.toString());
-  //         setState(() {
-  //           spProOneLogin = false;
-  //         });
-  //       }
-  //     } else {
-  //       if (code != 0 && code != 1) {
-  //         SPClassToastUtils.spFunShowToast(
-  //             msg: "一键登录失败:code" + code.toString());
-  //         setState(() {
-  //           spProOneLogin = false;
-  //         });
-  //       }
-  //     }
-  //   });
+    JVUIConfig uiConfig = JVUIConfig();
+    uiConfig.privacyState = true; //设置默认勾选
+    uiConfig.privacyCheckboxSize = 12;
+    uiConfig.privacyTextSize = 12;
+    uiConfig.privacyOffsetX = 30; // 距离底部距离
+    SPClassDialogUtils.spFunShowLoadingDialog(context,
+            barrierDismissible: true, content: "登录中");
+    jverify.setCustomAuthorizationView(true, uiConfig,
+        landscapeConfig: uiConfig, );
+    jverify.addLoginAuthCallBackListener((event) {
+      print(
+          "通过添加监听，获取到 loginAuthSyncApi 接口返回数据，code=${event.code},message = ${event.message},operator = ${event.operator}");
+      Navigator.of(context).pop();
+      SPClassApiManager.spFunGetInstance().spFunOneClickLogin(
+          context: context,
+          queryParameters: {
+            "token": event.message,
+            "op_token": '',
+            "operator": event.operator
+          },
+          spProCallBack: SPClassHttpCallBack<SPClassUserLoginInfo>(
+              spProOnSuccess: (userLogin) {
+                SPClassApplicaion.spProUserLoginInfo = userLogin;
+                SPClassApplicaion.spFunSaveUserState();
+                SPClassApplicaion.spFunInitUserState();
+                SPClassApplicaion.spFunGetUserInfo();
+                SPClassToastUtils.spFunShowToast(msg: "登录成功");
+                SPClassApplicaion.spFunSavePushToken();
+                SPClassGlobalNotification.spFunGetInstance()?.spFunInitWebSocket();
+                Navigator.of(context).pop();
+              },onError: (e){},spProOnProgress: (v){}
+          ));
+    });
+    jverify.loginAuthSyncApi(autoDismiss: true);
   }
 
   void spFunDoSendCode() async {

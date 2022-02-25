@@ -289,9 +289,9 @@ class SPClassApiManager extends SPClassBaseApi{
   spFunCheckUpdate({SPClassHttpCallBack<SPClassCheckUpDate> ?spProCallBack,BuildContext ?context,Map<String,dynamic> ?queryParameters}){
     spFunGet<SPClassCheckUpDate>(jsonObject: SPClassCheckUpDate(),url: CHECK_UPDATE,queryParameters:queryParameters,isToast: false,spProIsLoading: true,isBaseParams: true,spProCallBack: spProCallBack);
   }
-//   spFunOneClickLogin({SPClassHttpCallBack spProCallBack,BuildContext context,Map<String,dynamic> queryParameters}){
-//     spFunGet<SPClassUserLoginInfo>(jsonObject:new SPClassUserLoginInfo(),url: ONE_CLICK_LOGIN,queryParameters:queryParameters,isToast: true,spProIsLoading: true,isBaseParams: false, spProCallBack: spProCallBack ,context: context);
-//   }
+  spFunOneClickLogin({SPClassHttpCallBack<SPClassUserLoginInfo> ?spProCallBack,BuildContext ?context,Map<String,dynamic> ?queryParameters}){
+    spFunGet<SPClassUserLoginInfo>(jsonObject:new SPClassUserLoginInfo(),url: ONE_CLICK_LOGIN,queryParameters:queryParameters,isToast: true,spProIsLoading: true,isBaseParams: false, spProCallBack: spProCallBack ,context: context);
+  }
 
   spFunSchemeLeagueOfDate<T>({SPClassHttpCallBack<T> ?spProCallBack,BuildContext ?context,Map<String,dynamic> ?queryParameters}){
     spFunGet<T>(jsonObject:new SPClassListEntity<String>(key: "league_name_list"),url: SCHEME_LEAGUE_OF_DATE,queryParameters:queryParameters,isToast: true,spProIsLoading: true,isBaseParams: true, spProCallBack: spProCallBack ,context: context);

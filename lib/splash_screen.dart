@@ -30,6 +30,7 @@ import 'model/SPClassConfRewardEntity.dart';
 import 'model/SPClassLogInfoEntity.dart';
 import 'package:fluwx/fluwx.dart' as fluwx;
 import 'package:crypto/crypto.dart';
+import 'package:jverify/jverify.dart';
 
 import 'utils/AesUtils.dart';
 import 'utils/FlutterToolUtil.dart';
@@ -42,6 +43,8 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   final Connectivity _connectivity = Connectivity();
+  final Jverify jverify =  Jverify();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -137,12 +140,8 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void spFunInitOneLogin() {
-    // 标记
-    // if(SPClassApplicaion.spProChannelId=="2"){
-    //   FlutterPhoneLogin.init(appId: "5abdca70b4e6e", appSecret: "14e354d0d7cb3c89ffb5590be87b04ee");
-    // }else{
-    //   FlutterPhoneLogin.init(appId: "59dda2adae0c1", appSecret: "8c62e662895f9583dfa2aed777df8c08");
-    // }
+    // 初始化一键登录
+    jverify.setup(appKey: 'c79807ca5d4fd2a554e7ad1d',channel: "devloper-default");
   }
 
   /// 监听网络状态
