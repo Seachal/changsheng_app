@@ -772,7 +772,7 @@ class SPClassVideoLoginPageState extends State<SPClassVideoLoginPage>
 
   void spFunDoOneLogin() {
     JVUIConfig uiConfig = JVUIConfig();
-    uiConfig.privacyState = true; //设置默认勾选
+    // uiConfig.privacyState = false; //设置默认勾选
     uiConfig.privacyCheckboxSize = 12;
     uiConfig.privacyTextSize = 12;
     uiConfig.privacyOffsetX = 30; // 距离底部距离

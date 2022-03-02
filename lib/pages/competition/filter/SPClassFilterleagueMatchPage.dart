@@ -7,6 +7,7 @@ import 'package:changshengh5/pages/common/SPClassNoDataView.dart';
 import 'package:changshengh5/utils/SPClassCommonMethods.dart';
 import 'package:changshengh5/utils/SPClassImageUtil.dart';
 import 'package:changshengh5/utils/SPClassStringUtils.dart';
+import 'package:changshengh5/utils/SPClassToastUtils.dart';
 import 'package:changshengh5/utils/colors.dart';
 import 'package:changshengh5/widgets/SPClassBallHeader.dart';
 import 'package:flutter/material.dart';
@@ -183,17 +184,31 @@ class SPClassFilterleagueMatchPageState extends State<SPClassFilterleagueMatchPa
             ),
 
             SizedBox(width: width(23),),
-            Container(
-              width: width(84),
-              height: width(36),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: MyColors.main1,
-                borderRadius: BorderRadius.circular(150),
-              ),
-              child: Text(
-                '确定',
-                style: TextStyle(color: Colors.white,fontSize: sp(15)),
+            GestureDetector(
+              onTap: (){
+                if(spProMatchCount==0){
+                  SPClassToastUtils.spFunShowToast(msg:"请选择赛事");
+                  return;
+                }
+                var result= JsonEncoder().convert(spProLeagueName).replaceAll("[", "").replaceAll("]", "").replaceAll(",", ";").replaceAll("\"", "");
+                if(spProSelectAll){
+                  result="";
+                }
+                widget.callback!(result,widget.spProIsLottery!);
+                Navigator.of(context).pop();
+              },
+              child: Container(
+                width: width(84),
+                height: width(36),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: MyColors.main1,
+                  borderRadius: BorderRadius.circular(150),
+                ),
+                child: Text(
+                  '确定',
+                  style: TextStyle(color: Colors.white,fontSize: sp(15)),
+                ),
               ),
             )
           ],
