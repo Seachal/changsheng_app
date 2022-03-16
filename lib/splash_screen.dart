@@ -124,7 +124,6 @@ class _SplashScreenState extends State<SplashScreen> {
       var logInfoJson = sp.getString(SPClassSharedPreferencesKeys.KEY_LOG_JSON);
       if (logInfoJson != null) {
         var jsonData = json.decode(logInfoJson);
-        print('哈哈哈：$jsonData');
         SPClassApplicaion.spProLogOpenInfo =
             SPClassLogInfoEntity.fromJson(jsonData);
       }

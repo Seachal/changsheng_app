@@ -12,7 +12,7 @@ class SPClassNetConfig {
   static  IosDeviceInfo ?spProIosDeviceInfo;
 
   static var  BASE_URL_DEBUG = 'http://api-test.demo.gz583.com/';
-  static var  BASE_URL_RELEASE = 'http://api.gz583.com/';
+  static var  BASE_URL_RELEASE = 'http://csapi.gz583.cn/';
   static var  BASE_URL_IOS_RELEASE = 'http://api.gz583.cn/';
   static var  SHARE_URL_DEBUG = 'http://demo.gz583.com/';
   static var  SHARE_URL_RELEASE = 'http://www.gz583.com/';
