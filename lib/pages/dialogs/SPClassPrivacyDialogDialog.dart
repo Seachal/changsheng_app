@@ -70,7 +70,7 @@ class PrivacyDialogState extends State<SPClassPrivacyDialogDialog>{
                                   style: TextStyle(color: Color(0xFF4CA3F5)),
                                   text: "《用户协议》",recognizer: new TapGestureRecognizer()..onTap=(){
                                 // SPClassNavigatorUtils.spFunPushRoute(context,  SPClassWebPage("","用户协议", spProLocalFile: "assets/html/useragreement.html"));
-                                SPClassNavigatorUtils.spFunPushRoute(context,  AgreementPage(title:"用户协议",url:"../../assets/html/useragreement.html"));
+                                SPClassNavigatorUtils.spFunPushRoute(context,  AgreementPage(title:"用户协议",));
 
                               }),
                               TextSpan(text: "及",),
@@ -78,7 +78,7 @@ class PrivacyDialogState extends State<SPClassPrivacyDialogDialog>{
                                   style: TextStyle(color: Color(0xFF4CA3F5)),
                                   text: "《隐私政策》",recognizer: new TapGestureRecognizer()..onTap=(){
                                 // SPClassNavigatorUtils.spFunPushRoute(context,  SPClassWebPage("","隐私协议", spProLocalFile: "assets/html/privacy_score.html"));
-                                SPClassNavigatorUtils.spFunPushRoute(context,  AgreementPage(title:"隐私协议",url:"../../assets/html/privacy_score.html"));
+                                SPClassNavigatorUtils.spFunPushRoute(context,  AgreementPage(title:"隐私协议",));
 
                               }),
                               TextSpan(text: "，您同意并接受全部条款后方可开始使用"+

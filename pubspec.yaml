@@ -71,9 +71,9 @@ dev_dependencies:
   image_picker: 0.8.4+9
   image_crop: 0.4.0
   flutter_image_compress: 1.1.0
-  flutter_pickers: ^2.1.9
-  url_launcher: ^6.0.20
-  image_gallery_saver: ^1.7.1
+  flutter_pickers: 2.1.9
+  url_launcher: 6.0.20
+  image_gallery_saver: 1.7.1
   sprintf: 6.0.0
   device_info: 2.0.3
   package_info: 2.0.2
@@ -86,7 +86,7 @@ dev_dependencies:
   open_file: 3.2.1
   encrypt: 5.0.1
 #  一键登录
-  jverify: 2.2.4
+#  jverify: 2.2.4
 
 
 

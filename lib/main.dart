@@ -1,6 +1,7 @@
 import 'package:changshengh5/splash_screen.dart';
 import 'package:changshengh5/utils/LocalStorage.dart';
 import 'package:changshengh5/utils/SPClassToastUtils.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -49,18 +50,20 @@ class MyAppState extends State<MyApp> {
           const Locale('zh', 'CH'),
           const Locale('en', 'US'),
         ],
-        home: WillPopScope(
-          child:  Scaffold(body:SplashScreen()),
-          onWillPop: () async{
-            if(DateTime.now().difference(spProPopTimer).inSeconds>3){
-              SPClassToastUtils.spFunShowToast(msg: "再按一次退出");
-            }else{
-              return true;
-            }
-            spProPopTimer=DateTime.now();
-            return false;
-          },
-        )
+        home: CupertinoPageScaffold(
+          child: WillPopScope(
+            child:  Scaffold(body:SplashScreen()),
+            onWillPop: () async{
+              if(DateTime.now().difference(spProPopTimer).inSeconds>3){
+                SPClassToastUtils.spFunShowToast(msg: "再按一次退出");
+              }else{
+                return true;
+              }
+              spProPopTimer=DateTime.now();
+              return false;
+            },
+          ),
+        ),
     );
   }
 }

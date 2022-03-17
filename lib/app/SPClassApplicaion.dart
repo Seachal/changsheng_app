@@ -25,7 +25,7 @@ class SPClassApplicaion
   static var spProAppName="常胜体育";
   static String spProChannelId="11";
   static  String spProAndroidAppId="100";
-  static const String spProIOSAppId="106";
+  static const String spProIOSAppId="108";
   static String spProImei="";
   static String spProDeviceName="";
   static String spProSydid="";

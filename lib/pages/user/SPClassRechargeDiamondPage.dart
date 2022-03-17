@@ -47,8 +47,8 @@ class SPClassRechargeDiamondPageState extends State<SPClassRechargeDiamondPage> 
 
   var spProPayType="weixin";
   var spProOrderNum="";
-  var spProIsAliPayWeb="1";
-  var spProIsWechatWeb="1";
+  var spProIsAliPayWeb="0";
+  var spProIsWechatWeb="0";
 
   List<SPClassCoupon> coupons=[];
 

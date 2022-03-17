@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Changshengh5</string>
+	<string>常胜体育</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -20,10 +20,49 @@
 	<string>$(FLUTTER_BUILD_NAME)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>weixin</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wx3968d1915829705d</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>weixin</string>
+		<string>weixinULAPI</string>
+		<string>wechat</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>需要编辑媒体资料库,是否允许App获取媒体资料库权限？</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>需要编辑日历资料,是否允许App获取日历权限？</string>
+	<key>NSCameraUsageDescription</key>
+	<string>需要编辑个人相机信息,是否允许App获取相机权限？</string>
+	<key>NSContactsUsageDescription</key>
+	<string>需要编辑通讯录信息,是否允许App获取通讯录权限</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>需要使用定位描述信息</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>需要获取当前位置</string>
+	<key>NSMotionUsageDescription</key>
+	<string>需要编辑运动与健身信息,是否允许App获取运动与健身权限</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>需要保存图片到相册,是否允许App获取保存相册权限？</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>需要编辑个人相册,是否允许App获取相册权限？</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>需要编辑语音识信息,是否允许App获取语音识别权限？</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

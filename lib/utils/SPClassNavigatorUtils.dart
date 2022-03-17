@@ -13,12 +13,14 @@ class SPClassNavigatorUtils{
    Navigator.of(context).push(MaterialPageRoute (
         builder:(context){return t();}));
   }*/
-  static Future<Object> spFunPushRoute(BuildContext context,Widget t,{VoidCallback ?callback}){
-    return  Navigator.of(context).push(SPClassAnimationRoute(t)).then((value){
-    if(callback!=null){callback();}
-    return true;
-  });
-
+  static spFunPushRoute(BuildContext context,Widget t,{ValueChanged ?callback}){
+//    return  Navigator.of(context).push(SPClassAnimationRoute(t)).then((value){
+//    if(callback!=null){callback();}
+//    return true;
+//  });
+    Navigator.push(context, CupertinoPageRoute(builder: (context)=>t)).then((value){
+      if(callback != null){ callback(value); }
+    });
   }
 
   static void spFunPopAll(BuildContext context){
@@ -28,6 +30,6 @@ class SPClassNavigatorUtils{
   }
 
   static Future pushAndRemoveAll(BuildContext context,Widget t){
-    return Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => t), (route) => route == null);
+    return Navigator.pushAndRemoveUntil(context, CupertinoPageRoute(builder: (context) => t), (route) => route == null);
   }
 }

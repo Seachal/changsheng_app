@@ -10,7 +10,7 @@ class FlutterToolUtil {
   static Future<String> get getKeyChainSyDid async {
     // final String value = await _channel.invokeMethod('getKeyChainSyDid');
     // return value;
-    return LocalStorage.get('ChainSyDid');
+    return LocalStorage.get('ChainSyDid')??'';
   }
 
   static Future<void>  saveKeyChainSyDiy(String value) async {

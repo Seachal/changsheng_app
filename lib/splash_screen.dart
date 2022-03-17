@@ -30,7 +30,7 @@ import 'model/SPClassConfRewardEntity.dart';
 import 'model/SPClassLogInfoEntity.dart';
 import 'package:fluwx/fluwx.dart' as fluwx;
 import 'package:crypto/crypto.dart';
-import 'package:jverify/jverify.dart';
+//import 'package:jverify/jverify.dart';
 
 import 'utils/AesUtils.dart';
 import 'utils/FlutterToolUtil.dart';
@@ -43,7 +43,8 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   final Connectivity _connectivity = Connectivity();
-  final Jverify jverify =  Jverify();
+//  标记
+//  final Jverify jverify =  Jverify();
 
   @override
   Widget build(BuildContext context) {
@@ -94,15 +95,15 @@ class _SplashScreenState extends State<SplashScreen> {
           }
         });
       } else {
-        SPClassApplicaion.spProShowMenuList = [
-          "home",
-          "match",
-          "expert",
-          "info",
-          "match_scheme",
-          "match_analyse",
-          "game"
-        ];
+//        SPClassApplicaion.spProShowMenuList = [
+//          "home",
+//          "match",
+//          "expert",
+//          "info",
+//          "match_scheme",
+//          "match_analyse",
+//          "game"
+//        ];
       }
     } catch (e) {
       SPClassLogUtils.spFunPrintLog(e.toString());
@@ -140,7 +141,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void spFunInitOneLogin() {
     // 初始化一键登录
-    jverify.setup(appKey: 'c79807ca5d4fd2a554e7ad1d',channel: "devloper-default");
+//    jverify.setup(appKey: 'c79807ca5d4fd2a554e7ad1d',channel: "devloper-default");
   }
 
   /// 监听网络状态
@@ -192,57 +193,27 @@ class _SplashScreenState extends State<SplashScreen> {
     if (Platform.isIOS) {
       SPClassApplicaion.spProJPush = JPush();
       SPClassApplicaion.spProJPush?.setup(
-        appKey:'c79807ca5d4fd2a554e7ad1d',
+        appKey:'13a7f0f109637413b2cc9c6d',
         channel: "theChannel",
         production: true,
         debug: true,
-//        production: false,
-//        debug: SPClassApplicaion.spProDEBUG,
       );
       SPClassApplicaion.spProJPush?.applyPushAuthority(
-          new NotificationSettingsIOS(sound: true, alert: true, badge: true));
+          const NotificationSettingsIOS(sound: true, alert: true, badge: true));
     } else {
       SPClassApplicaion.spProJPush = JPush();
       SPClassApplicaion.spProJPush?.setup(
         appKey: 'c79807ca5d4fd2a554e7ad1d',
-        // appKey: SPClassApplicaion.spProChannelId == "2"
-        //     ? "13a7f0f109637413b2cc9c6d"
-        //     : "883e94b7fc3b1e8eae037188",
         channel: "theChannel",
         production: true,
         debug: true,
-//        production: false,
-//        debug: SPClassApplicaion.spProDEBUG,
       );
-      // var androidInfo = await SPClassNetConfig.spProDeviceInfo.androidInfo;
-//       if (androidInfo.manufacturer.toLowerCase().contains("huawei")) {
-//         // 标记
-//         // FlutterPluginHuaweiPush.pushToken.then((pushToken){
-//         //   print("token=====$pushToken");
-//         //   if(pushToken!=null&&pushToken.isNotEmpty){
-//         //     SPClassApplicaion.pushToken=pushToken;
-//         //   }
-//         // });
-//       } else {
-//         SPClassApplicaion.spProJPush = JPush();
-//         SPClassApplicaion.spProJPush?.setup(
-//           appKey: 'c79807ca5d4fd2a554e7ad1d',
-//           // appKey: SPClassApplicaion.spProChannelId == "2"
-//           //     ? "13a7f0f109637413b2cc9c6d"
-//           //     : "883e94b7fc3b1e8eae037188",
-//           channel: "theChannel",
-//           production: true,
-//           debug: true,
-// //        production: false,
-// //        debug: SPClassApplicaion.spProDEBUG,
-//         );
-//       }
     }
   }
 
   spFunInitWx() async {
     fluwx.registerWxApi(
-      appId: ChannelId == "2" ? "wx3968d1915829705d" : "wx55c3416a14860147",
+      appId: ChannelId == "2" ? "wx3968d1915829705d" : "wx3968d1915829705d",
       universalLink: "https://api.gz583.com/hongsheng/",
     );
   }
@@ -339,6 +310,11 @@ class _SplashScreenState extends State<SplashScreen> {
                   SPClassApplicaion.spProShowMenuList.add('game');
                 } else {
                   spFunInitMenuList();
+                }
+              }else{
+                //ios
+                if(result.data['app_sign']!=md5.convert(utf8.encode(SPClassApplicaion.spProIOSAppId)).toString()){
+                  SPClassApplicaion.spProShowMenuList =["home","shop","pk","match","expert","info","match_analyse","bcw_data",];
                 }
               }
 
