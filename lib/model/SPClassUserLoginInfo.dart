@@ -77,11 +77,11 @@ class SPClassUserLoginInfo
 }
 
 class SPClassUserSetting{
-  late String spProPromptScope;
-  late String spProScorePrompt;
-  late String spProRedCardPrompt;
-  late String spProHalfPrompt;
-  late String spProOverPrompt;
+   String ?spProPromptScope;
+   String ?spProScorePrompt;
+   String ?spProRedCardPrompt;
+   String ?spProHalfPrompt;
+   String ?spProOverPrompt;
 
 
   SPClassUserSetting({json}){

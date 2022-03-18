@@ -193,7 +193,7 @@ class _SplashScreenState extends State<SplashScreen> {
     if (Platform.isIOS) {
       SPClassApplicaion.spProJPush = JPush();
       SPClassApplicaion.spProJPush?.setup(
-        appKey:'13a7f0f109637413b2cc9c6d',
+        appKey:'c79807ca5d4fd2a554e7ad1d',
         channel: "theChannel",
         production: true,
         debug: true,
@@ -301,13 +301,14 @@ class _SplashScreenState extends State<SplashScreen> {
               print('显示的内容：${logOpen.spProMenuList}');
               SPClassApplicaion.spProLogOpenInfo = logOpen;
               var md5Code = md5.convert(utf8.encode(AppId)).toString();
+              print('哈哈哈：${result.data["app_sign"] == md5Code}');
               if (Platform.isAndroid) {
                 if (result.data["app_sign"] == md5Code) {
                   SPClassApplicaion.spProShowMenuList = logOpen.spProMenuList!;
                   SharedPreferences.getInstance().then((sp) => sp.setString(
                       SPClassSharedPreferencesKeys.KEY_LOG_JSON,
                       jsonEncode(result.data)));
-                  SPClassApplicaion.spProShowMenuList.add('game');
+//                  SPClassApplicaion.spProShowMenuList.add('game');
                 } else {
                   spFunInitMenuList();
                 }
@@ -315,6 +316,11 @@ class _SplashScreenState extends State<SplashScreen> {
                 //ios
                 if(result.data['app_sign']!=md5.convert(utf8.encode(SPClassApplicaion.spProIOSAppId)).toString()){
                   SPClassApplicaion.spProShowMenuList =["home","shop","pk","match","expert","info","match_analyse","bcw_data",];
+                }else{
+                  SPClassApplicaion.spProShowMenuList = logOpen.spProMenuList!;
+                  SharedPreferences.getInstance().then((sp) => sp.setString(
+                      SPClassSharedPreferencesKeys.KEY_LOG_JSON,
+                      jsonEncode(result.data)));
                 }
               }
 

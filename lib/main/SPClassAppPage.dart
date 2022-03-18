@@ -1,5 +1,6 @@
 
 import 'dart:convert';
+import 'package:changshengh5/pages/shop/ShopPage.dart';
 import 'package:changshengh5/pages/user/setting/SPClassVersionCheckDialog.dart';
 import 'package:dio/dio.dart';
 
@@ -214,6 +215,11 @@ class SPClassAppPageState extends State<SPClassAppPage>
       // spProPageList.add(SPClassHomePage());
       spProPageList.add(HomePage());
       tabs.add(SPClassQNavTab( spProTabText: "推荐",spProTabImage:SPClassImageUtil.spFunGetImagePath("ic_homepage")));
+    }
+    if(SPClassApplicaion.spProShowMenuList.contains("shop")){
+
+      spProPageList.add(ShopPage());
+      tabs.add(SPClassQNavTab( spProTabText: "商城",spProTabImage:SPClassImageUtil.spFunGetImagePath("ic_shopPage")));
     }
     if(SPClassApplicaion.spProShowMenuList.contains("match")){
       spProPageList.add(SPClassCompetitionHomePage());

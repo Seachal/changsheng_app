@@ -30,4 +30,9 @@ class SPClassImageUtil {
         );
       });
   }
+
+  //  获取商城的图片
+  static String spFunGetShopImagePath(String fileName, {String format: '.png'}) {
+    return 'assets/shop/$fileName$format';
+  }
 }

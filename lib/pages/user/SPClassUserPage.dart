@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:changshengh5/app/SPClassApplicaion.dart';
 import 'package:changshengh5/pages/competition/scheme/SPClassExpertApplyPage.dart';
+import 'package:changshengh5/pages/shop/MyOrder.dart';
 import 'package:changshengh5/pages/user/scheme/bug/SPClassMyBuySchemePage.dart';
 import 'package:changshengh5/pages/user/scheme/follow/SPClassMyFollowSchemePage.dart';
 import 'package:changshengh5/pages/user/setting/SPClassSettingPage.dart';
@@ -34,6 +35,7 @@ class SPClassUserPageState extends State<SPClassUserPage>
   var spProMyTitles = ["已购方案", "关注专家","关注方案", '专家入驻'];
   var spProMyTitleImages = ["bug","follow_expert", "follow",'expert_apply'];
   var spProOtherTitles = [
+    "我的订单",
     // "邀请好友", web没有分享
     "新人福利",
     /*"抽奖",*/
@@ -44,6 +46,7 @@ class SPClassUserPageState extends State<SPClassUserPage>
     "设置"
   ];
   var spProOtherImages = [
+    "order",
     // "invite", web没有分享
     "new",
 /*"turntable",*/
@@ -103,7 +106,14 @@ class SPClassUserPageState extends State<SPClassUserPage>
       spProMyTitleImages.remove("expert_apply");
     }
 
-    if (SPClassApplicaion.spProUserLoginInfo!.spProExpertVerifyStatus == "1") {
+    if (!SPClassApplicaion.spProShowMenuList.contains("shop")) {
+      spProMyTitleImages.remove("order");
+      spProOtherTitles.remove("我的订单");
+    }
+
+
+
+      if (SPClassApplicaion.spProUserLoginInfo!.spProExpertVerifyStatus == "1") {
       spProMyTitles.remove("专家入驻");
       spProMyTitleImages.remove("expert_apply");
       spProMyTitles.add("我的发布");
@@ -503,6 +513,9 @@ class SPClassUserPageState extends State<SPClassUserPage>
     }
     if (value == "已购方案") {
       SPClassNavigatorUtils.spFunPushRoute(context, SPClassMyBuySchemePage());
+    }
+    if (value == "我的订单") {
+      SPClassNavigatorUtils.spFunPushRoute(context, MyOrder());
     }
     if (value == "关注方案") {
       SPClassNavigatorUtils.spFunPushRoute(

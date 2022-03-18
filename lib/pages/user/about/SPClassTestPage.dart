@@ -36,48 +36,44 @@ class SPClassTestPageState extends State<SPClassTestPage>{
            children: <Widget>[
              Row(
                children: <Widget>[
-                 Expanded(
-                   child:GestureDetector(
-                     behavior: HitTestBehavior.translucent,
-                     child: Row(
-                       children: <Widget>[
-                         Text("测试坏境"),
-                         Checkbox(value: debug==1,activeColor: Colors.red,checkColor: Colors.black, onChanged: (bool? value) {  },)
-                       ],
-                     ),
-                     onTap: (){
-                       SPClassApplicaion.spProDEBUG=true;
-                       SPClassApplicaion.spFunClearUserState();
-                       SPClassApplicaion.spProEventBus.fire("login:change");
-                       SharedPreferences.getInstance().then((sp)=>sp.setBool("test", true));
-                       debug=1;
-                       setState(() {});
-                       SPClassGlobalNotification.spFunGetInstance()?.spFunCloseConnect();
-                       SPClassGlobalNotification.spFunGetInstance()?.spFunInitWebSocket();
-                     },
+                 GestureDetector(
+                   behavior: HitTestBehavior.translucent,
+                   child:  Row(
+                     children: <Widget>[
+                       Text("测试坏境"),
+                       Checkbox(value: debug==1,activeColor: Colors.red,checkColor: Colors.black, onChanged: (bool? value) {  },)
+                     ],
                    ),
+                   onTap: (){
+                     SPClassApplicaion.spProDEBUG=true;
+                     SPClassApplicaion.spFunClearUserState();
+                     SPClassApplicaion.spProEventBus.fire("login:change");
+                     SharedPreferences.getInstance().then((sp)=>sp.setBool("test", true));
+                     debug=1;
+                     setState(() {});
+                     SPClassGlobalNotification.spFunGetInstance()?.spFunCloseConnect();
+                     SPClassGlobalNotification.spFunGetInstance()?.spFunInitWebSocket();
+                   },
                  ),
-                 Expanded(
-                   child:GestureDetector(
-                     behavior: HitTestBehavior.translucent,
-                     child: Row(
-                       children: <Widget>[
-                         Text("正式环境"),
-                         Checkbox(value: debug!=1,activeColor: Colors.red,checkColor: Colors.black, onChanged: (bool? value) {  },)
-                       ],
-                     ),
-                     onTap: (){
-                       SPClassApplicaion.spProDEBUG=false;
-                       SPClassApplicaion.spFunClearUserState();
-                       SPClassApplicaion.spProEventBus.fire("login:change");
-                       SharedPreferences.getInstance().then((sp)=>sp.setBool("test", false));
-                       debug=0;
-                       setState(() {});
-                       SPClassGlobalNotification.spFunGetInstance()?.spFunCloseConnect();
-                       SPClassGlobalNotification.spFunGetInstance()?.spFunInitWebSocket();
-                     },
+                 GestureDetector(
+                   behavior: HitTestBehavior.translucent,
+                   child:Row(
+                     children: <Widget>[
+                       Text("正式环境"),
+                       Checkbox(value: debug!=1,activeColor: Colors.red,checkColor: Colors.black, onChanged: (bool? value) {  },)
+                     ],
                    ),
-                 ),
+                   onTap: (){
+                     SPClassApplicaion.spProDEBUG=false;
+                     SPClassApplicaion.spFunClearUserState();
+                     SPClassApplicaion.spProEventBus.fire("login:change");
+                     SharedPreferences.getInstance().then((sp)=>sp.setBool("test", false));
+                     debug=0;
+                     setState(() {});
+                     SPClassGlobalNotification.spFunGetInstance()?.spFunCloseConnect();
+                     SPClassGlobalNotification.spFunGetInstance()?.spFunInitWebSocket();
+                   },
+                 )
                ],
              ),
 

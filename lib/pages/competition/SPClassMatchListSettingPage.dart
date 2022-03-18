@@ -40,13 +40,13 @@ class SPClassMatchListSettingPageState extends State<SPClassMatchListSettingPage
     // TODO: implement initState
     super.initState();
     var spProPromptScope=SPClassApplicaion.spProUserLoginInfo!.spProUserSetting!.spProPromptScope;
-    if(spProPromptScope.isNotEmpty){
+    if(spProPromptScope!.isNotEmpty){
       spProPromptScoreIndex=spProPromptScopeKeys.indexOf(spProPromptScope);
     }
-    spProScorePrompts=userLoginInfo!.spProUserSetting!.spProScorePrompt.split(";");
-    spProRedPrompts=userLoginInfo!.spProUserSetting!.spProRedCardPrompt.split(";");
-    spProHalfPrompts=userLoginInfo!.spProUserSetting!.spProHalfPrompt.split(";");
-    spProOverPrompts=userLoginInfo!.spProUserSetting!.spProOverPrompt.split(";");
+    spProScorePrompts=userLoginInfo!.spProUserSetting!.spProScorePrompt!.split(";");
+    spProRedPrompts=userLoginInfo!.spProUserSetting!.spProRedCardPrompt!.split(";");
+    spProHalfPrompts=userLoginInfo!.spProUserSetting!.spProHalfPrompt!.split(";");
+    spProOverPrompts=userLoginInfo!.spProUserSetting!.spProOverPrompt!.split(";");
   }
   @override
   Widget build(BuildContext context) {

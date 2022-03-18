@@ -166,46 +166,46 @@ class SPClassGlobalNotification {
 
     if(spFunIsLogin()){
       if(notice.spProNoticeType=="score"){
-        if(SPClassApplicaion.spProUserLoginInfo!.spProUserSetting!.spProScorePrompt.contains("vibrate")){
+        if(SPClassApplicaion.spProUserLoginInfo!.spProUserSetting!.spProScorePrompt!.contains("vibrate")){
           spFunPlayVibrate();
         }
-        if (SPClassApplicaion.spProUserLoginInfo!.spProUserSetting!.spProScorePrompt.contains("audio")){
+        if (SPClassApplicaion.spProUserLoginInfo!.spProUserSetting!.spProScorePrompt!.contains("audio")){
           spFunPlayAudio(notice.spProNoticeType!);
         }
-        if(SPClassApplicaion.spProUserLoginInfo!.spProUserSetting!.spProScorePrompt.contains("alert")){
+        if(SPClassApplicaion.spProUserLoginInfo!.spProUserSetting!.spProScorePrompt!.contains("alert")){
           SPClassMatchToast.spFunToast(context!, notice);
         }
       }
       if(notice.spProNoticeType=="red_card"){
-        if(SPClassApplicaion.spProUserLoginInfo!.spProUserSetting!.spProRedCardPrompt.contains("vibrate")){
+        if(SPClassApplicaion.spProUserLoginInfo!.spProUserSetting!.spProRedCardPrompt!.contains("vibrate")){
           spFunPlayVibrate();
         }
-        if (SPClassApplicaion.spProUserLoginInfo!.spProUserSetting!.spProRedCardPrompt.contains("audio")){
+        if (SPClassApplicaion.spProUserLoginInfo!.spProUserSetting!.spProRedCardPrompt!.contains("audio")){
           spFunPlayAudio(notice.spProNoticeType!);
         }
-        if(SPClassApplicaion.spProUserLoginInfo!.spProUserSetting!.spProRedCardPrompt.contains("alert")){
+        if(SPClassApplicaion.spProUserLoginInfo!.spProUserSetting!.spProRedCardPrompt!.contains("alert")){
           SPClassMatchToast.spFunToast(context!, notice);
         }
       }
       if(notice.spProNoticeType=="half"){
-        if(SPClassApplicaion.spProUserLoginInfo!.spProUserSetting!.spProHalfPrompt.contains("vibrate")){
+        if(SPClassApplicaion.spProUserLoginInfo!.spProUserSetting!.spProHalfPrompt!.contains("vibrate")){
           spFunPlayVibrate();
         }
-        if (SPClassApplicaion.spProUserLoginInfo!.spProUserSetting!.spProHalfPrompt.contains("audio")){
+        if (SPClassApplicaion.spProUserLoginInfo!.spProUserSetting!.spProHalfPrompt!.contains("audio")){
           spFunPlayAudio(notice.spProNoticeType!);
         }
-        if(SPClassApplicaion.spProUserLoginInfo!.spProUserSetting!.spProHalfPrompt.contains("alert")){
+        if(SPClassApplicaion.spProUserLoginInfo!.spProUserSetting!.spProHalfPrompt!.contains("alert")){
           SPClassMatchToast.spFunToast(context!, notice);
         }
       }
       if(notice.spProNoticeType=="over"){
-         if(SPClassApplicaion.spProUserLoginInfo!.spProUserSetting!.spProOverPrompt.contains("vibrate")){
+         if(SPClassApplicaion.spProUserLoginInfo!.spProUserSetting!.spProOverPrompt!.contains("vibrate")){
              spFunPlayVibrate();
          }
-          if (SPClassApplicaion.spProUserLoginInfo!.spProUserSetting!.spProOverPrompt.contains("audio")){
+          if (SPClassApplicaion.spProUserLoginInfo!.spProUserSetting!.spProOverPrompt!.contains("audio")){
             spFunPlayAudio(notice.spProNoticeType!);
          }
-          if(SPClassApplicaion.spProUserLoginInfo!.spProUserSetting!.spProOverPrompt.contains("alert")){
+          if(SPClassApplicaion.spProUserLoginInfo!.spProUserSetting!.spProOverPrompt!.contains("alert")){
             SPClassMatchToast.spFunToast(context!, notice);
           }
       }

@@ -120,7 +120,7 @@ class SPClassAboutUsPageState extends State<SPClassAboutUsPage>{
                 ),
                 onTap: ()  {
                   // SPClassNavigatorUtils.spFunPushRoute(context,  SPClassWebPage("","隐私协议", spProLocalFile: "assets/html/privacy_score.html"));
-                  SPClassNavigatorUtils.spFunPushRoute(context,  AgreementPage(title:"隐私协议",url:"../../assets/html/privacy_score.html"));
+                  SPClassNavigatorUtils.spFunPushRoute(context,  AgreementPage(title:"隐私协议",));
 
                 },
               ),

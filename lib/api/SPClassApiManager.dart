@@ -64,6 +64,7 @@ class SPClassApiManager extends SPClassBaseApi{
   var RECEIVE_GIFT = "sport/user/receive_gift";
   var LOGIN_BY_CODE = "user/phone/login_by_code";
   var spProDO_LOGIN_WX  = "user/wx/login";
+  static String spProDO_LOGIN_Apple  = "user/apple/login";
   var DO_CHANGE_PWD  = "user/user/change_pwd";
   var DO_REGISTER  = "user/phone/register";
   var ONE_CLICK_LOGIN  = "user/phone/one_click_login";
@@ -343,6 +344,9 @@ class SPClassApiManager extends SPClassBaseApi{
   spFunUserLoginByWx({BuildContext ?context,String ?spProWxCode,SPClassHttpCallBack<SPClassUserLoginInfo> ?spProCallBack}) async {
     spFunGet<SPClassUserLoginInfo>(jsonObject:new SPClassUserLoginInfo(),url: spProDO_LOGIN_WX,queryParameters:{"wx_code":spProWxCode,},isToast: true,spProIsLoading: true,isBaseParams: false, spProCallBack: spProCallBack ,context: context);
    }
+  spFunUserLoginByApple({BuildContext ?context,String ?spProAppleId,SPClassHttpCallBack<SPClassUserLoginInfo> ?spProCallBack}) async {
+    spFunGet<SPClassUserLoginInfo>(jsonObject:new SPClassUserLoginInfo(),url: spProDO_LOGIN_Apple,queryParameters:{"apple_id":spProAppleId,},isToast: true,spProIsLoading: true,isBaseParams: false, spProCallBack: spProCallBack ,context: context);
+  }
    spFunUserRegister({Map<String,dynamic>? queryParameters,Map<String,dynamic>? spProBodyParameters,SPClassHttpCallBack<SPClassUserLoginInfo>? spProCallBack,BuildContext? context}) async {
     spFunPost<SPClassUserLoginInfo>(jsonObject:new SPClassUserLoginInfo(),url: DO_REGISTER,queryParameters:queryParameters,spProBodyParameters:spProBodyParameters,isToast: true,spProIsLoading: true,isBaseParams: false, spProCallBack: spProCallBack ,context: context);
   }
