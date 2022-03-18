@@ -8,10 +8,13 @@ import 'package:changshengh5/model/SPClassCheckUpDate.dart';
 import 'package:changshengh5/model/SPClassCoinLogInfo.dart';
 import 'package:changshengh5/model/SPClassCoupon.dart';
 import 'package:changshengh5/model/SPClassCreatOrderEntity.dart';
+import 'package:changshengh5/model/SPClassExpertIncome.dart';
+import 'package:changshengh5/model/SPClassExpertIncomeDetail.dart';
 import 'package:changshengh5/model/SPClassExpertInfo.dart';
 import 'package:changshengh5/model/SPClassExpertListEntity.dart';
 import 'package:changshengh5/model/SPClassForecast.dart';
 import 'package:changshengh5/model/SPClassGuessMatchInfo.dart';
+import 'package:changshengh5/model/SPClassIncomeReport.dart';
 import 'package:changshengh5/model/SPClassLeagueFilter.dart';
 import 'package:changshengh5/model/SPClassListEntity.dart';
 import 'package:changshengh5/model/SPClassOddsHistoryListEntity.dart';
@@ -310,21 +313,20 @@ class SPClassApiManager extends SPClassBaseApi{
   spFunAddScheme<BaseModelEntity>({SPClassHttpCallBack<BaseModelEntity>? spProCallBack,BuildContext ?context,Map<String,dynamic>? queryParameters,Map<String,dynamic> ?bodyPrams}){
     spFunPost<BaseModelEntity>(url: add_scheme,queryParameters:queryParameters,spProBodyParameters: bodyPrams,isToast: true,spProIsLoading: true,isBaseParams: true, spProCallBack: spProCallBack ,context: context);
   }
+  spFunIncomeList<T>({SPClassHttpCallBack< SPClassListEntity<T>> ?spProCallBack,BuildContext? context,Map<String,dynamic> ?queryParameters}){
+    spFunGet< SPClassListEntity<T>>(jsonObject:new SPClassListEntity<T>(key: "expert_income_list",object: new SPClassExpertIncome()),url: INCOME_LIST,queryParameters:queryParameters,isToast: true,spProIsLoading: true,isBaseParams: true, spProCallBack: spProCallBack ,context: context);
+  }
+  spFunSchemeOrderList<T>({SPClassHttpCallBack< SPClassListEntity<T>> ?spProCallBack,BuildContext? context,Map<String,dynamic>? queryParameters}){
+    spFunGet< SPClassListEntity<T>>(jsonObject:new SPClassListEntity<T>(key: "user_scheme_list",object: new SPClassExpertIncomeDetail()),url: scheme_order_list,queryParameters:queryParameters,isToast: true,spProIsLoading: true,isBaseParams: true, spProCallBack: spProCallBack ,context: context);
+  }
 //
-//   spFunIncomeList<T>({SPClassHttpCallBack< SPClassListEntity<T>> spProCallBack,BuildContext context,Map<String,dynamic> queryParameters}){
-//     spFunGet< SPClassListEntity<T>>(jsonObject:new SPClassListEntity<T>(key: "expert_income_list",object: new SPClassExpertIncome()),url: INCOME_LIST,queryParameters:queryParameters,isToast: true,spProIsLoading: true,isBaseParams: true, spProCallBack: spProCallBack ,context: context);
-//   }
-//   spFunSchemeOrderList<T>({SPClassHttpCallBack< SPClassListEntity<T>> spProCallBack,BuildContext context,Map<String,dynamic> queryParameters}){
-//     spFunGet< SPClassListEntity<T>>(jsonObject:new SPClassListEntity<T>(key: "user_scheme_list",object: new SPClassExpertIncomeDetail()),url: scheme_order_list,queryParameters:queryParameters,isToast: true,spProIsLoading: true,isBaseParams: true, spProCallBack: spProCallBack ,context: context);
-//   }
+  spFunWithdrawIncome<BaseModelEntity>({SPClassHttpCallBack<BaseModelEntity>? spProCallBack,BuildContext? context,Map<String,dynamic> ?queryParameters}){
+    spFunPost<BaseModelEntity>(url: WITHDRAW_INCOME,queryParameters:queryParameters,isToast: true,spProIsLoading: true,isBaseParams: true, spProCallBack: spProCallBack ,context: context);
+  }
 //
-//   spFunWithdrawIncome<BaseModelEntity>({SPClassHttpCallBack<BaseModelEntity> spProCallBack,BuildContext context,Map<String,dynamic> queryParameters}){
-//     spFunPost<BaseModelEntity>(url: WITHDRAW_INCOME,queryParameters:queryParameters,isToast: true,spProIsLoading: true,isBaseParams: true, spProCallBack: spProCallBack ,context: context);
-//   }
-//
-//   spFunIncomeReport({SPClassHttpCallBack<SPClassIncomeReport> spProCallBack,BuildContext context,Map<String,dynamic> queryParameters}){
-//     spFunGet<SPClassIncomeReport>(jsonObject:SPClassIncomeReport(),url: INCOME_REPORT,queryParameters:queryParameters,isToast: false,spProIsLoading: false,isBaseParams: true, spProCallBack: spProCallBack ,context: context);
-//   }
+  spFunIncomeReport({SPClassHttpCallBack<SPClassIncomeReport> ?spProCallBack,BuildContext? context,Map<String,dynamic> ?queryParameters}){
+    spFunGet<SPClassIncomeReport>(jsonObject:SPClassIncomeReport(),url: INCOME_REPORT,queryParameters:queryParameters,isToast: false,spProIsLoading: false,isBaseParams: true, spProCallBack: spProCallBack ,context: context);
+  }
 //
 //   spFunConfStartup(){
 //     spFunGet<SPClassBaseModelEntity>(url: CONF_STARTUP,queryParameters:{},isToast: false,spProIsLoading: false,isBaseParams: true,);
