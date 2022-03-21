@@ -58,6 +58,7 @@ class SPClassAppPageState extends State<SPClassAppPage>
           controller: controller,
           children:spProPageList,
         ) ,
+        backgroundColor: Colors.white,
         bottomNavigationBar:SafeArea(
           bottom: true,
           child:
@@ -210,7 +211,7 @@ class SPClassAppPageState extends State<SPClassAppPage>
     controller=PageController();
     // SPClassGlobalNotification.spFunGetInstance(buildContext: context);
     SPClassApplicaion.spFunSavePushToken();
-
+    print('哈哈哈${SPClassApplicaion.spProShowMenuList}');
     if(SPClassApplicaion.spProShowMenuList.contains("home")){
       // spProPageList.add(SPClassHomePage());
       spProPageList.add(HomePage());
@@ -226,11 +227,11 @@ class SPClassAppPageState extends State<SPClassAppPage>
       tabs.add(SPClassQNavTab( spProTabText: "比分",spProTabImage:SPClassImageUtil.spFunGetImagePath("ic_score")),);
     }
 
-    if(SPClassApplicaion.spProShowMenuList.contains("circle")){
-      spProPageList.add(Container());
-      // spProPageList.add(SPClassHotHomePage());
-      tabs.add(SPClassQNavTab( spProTabText: "热门",spProTabImage:SPClassImageUtil.spFunGetImagePath("ic_tab_hot")));
-    }
+//    if(SPClassApplicaion.spProShowMenuList.contains("circle")){
+//      spProPageList.add(Container());
+//      // spProPageList.add(SPClassHotHomePage());
+//      tabs.add(SPClassQNavTab( spProTabText: "热门",spProTabImage:SPClassImageUtil.spFunGetImagePath("ic_tab_hot")));
+//    }
     if(SPClassApplicaion.spProShowMenuList.contains("expert")){
       spProPageList.add(SPClassExpertHomePage());
         tabs.add(SPClassQNavTab( spProTabText: "专家",spProTabImage:SPClassImageUtil.spFunGetImagePath("ic_match")));

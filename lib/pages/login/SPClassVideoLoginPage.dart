@@ -19,8 +19,10 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:video_player/video_player.dart';
-import 'package:jverify/jverify.dart';
+//import 'package:jverify/jverify.dart';
 import 'package:fluwx/fluwx.dart' as fluwx;
+import 'package:sign_in_apple/apple_id_user.dart';
+import 'package:sign_in_apple/sign_in_apple.dart';
 
 import 'PasswordLogin.dart';
 import 'SPClassVideoPhoneLoginPage.dart';
@@ -44,7 +46,7 @@ class SPClassVideoLoginPageState extends State<SPClassVideoLoginPage>
   static bool spProOneLogin = false;
   int spProCurrentSecond = 0;
   Timer ?spProTimer;
-  final Jverify jverify =  Jverify();
+//  final Jverify jverify =  Jverify();
 
   late TextEditingController _textEditingController;
   @override
@@ -62,7 +64,7 @@ class SPClassVideoLoginPageState extends State<SPClassVideoLoginPage>
     _videoPlayerController.setLooping(true);
     _videoPlayerController.play();
     WidgetsBinding.instance!.addObserver(this);
-
+    initPlatformState();
     spProWxListen = fluwx.weChatResponseEventHandler
         .distinct((a, b) => a == b)
         .listen((res) {
@@ -480,7 +482,8 @@ class SPClassVideoLoginPageState extends State<SPClassVideoLoginPage>
                                               ),
                                             ),
                                             onTap: () {
-                                              spFunDoOneLogin();
+//                                              标记
+//                                              spFunDoOneLogin();
                                             })
                                         : Container(),
 
@@ -531,7 +534,7 @@ class SPClassVideoLoginPageState extends State<SPClassVideoLoginPage>
                                                         recognizer:
                                                             new TapGestureRecognizer()
                                                               ..onTap = () {
-                                                                SPClassNavigatorUtils.spFunPushRoute(context,  AgreementPage(title:"用户协议",url:"../../assets/html/useragreement.html"));
+                                                                SPClassNavigatorUtils.spFunPushRoute(context,  AgreementPage(title:"用户协议",));
                                                                 // SPClassNavigatorUtils
                                                                 //     .spFunPushRoute(
                                                                 //         context,
@@ -548,7 +551,7 @@ class SPClassVideoLoginPageState extends State<SPClassVideoLoginPage>
                                                         recognizer:
                                                             new TapGestureRecognizer()
                                                               ..onTap = () {
-                                                                SPClassNavigatorUtils.spFunPushRoute(context,  AgreementPage(title:"隐私协议",url:"../../assets/html/privacy_score.html"));
+                                                                SPClassNavigatorUtils.spFunPushRoute(context,  AgreementPage(title:"隐私协议",));
                                                                 // SPClassNavigatorUtils.spFunPushRoute(
                                                                 //     context,
                                                                 //     SPClassWebPage(
@@ -607,10 +610,10 @@ class SPClassVideoLoginPageState extends State<SPClassVideoLoginPage>
                                       child: Column(
                                         children: <Widget>[
                                           Container(
-                                            padding: EdgeInsets.all(width(10)),
-                                            decoration: ShapeDecoration(
-                                                color: Colors.black45,
-                                                shape: CircleBorder()),
+//                                            padding: EdgeInsets.all(width(10)),
+//                                            decoration: ShapeDecoration(
+//                                                color: Colors.black45,
+//                                                shape: CircleBorder()),
                                             alignment: Alignment.center,
                                             child: Image.asset(
                                               SPClassImageUtil
@@ -618,7 +621,7 @@ class SPClassVideoLoginPageState extends State<SPClassVideoLoginPage>
                                                       'ic_wx_login'),
                                               fit: BoxFit.contain,
                                               color: Colors.white,
-                                              width: height(30),
+                                              width: width(40),
                                             ),
                                           ),
                                           SizedBox(
@@ -650,10 +653,51 @@ class SPClassVideoLoginPageState extends State<SPClassVideoLoginPage>
                                       child: Column(
                                         children: <Widget>[
                                           Container(
-                                            padding: EdgeInsets.all(width(10)),
-                                            decoration: ShapeDecoration(
-                                                color: Colors.black45,
-                                                shape: CircleBorder()),
+//                                            padding: EdgeInsets.all(width(10)),
+//                                            decoration: ShapeDecoration(
+//                                                color: Colors.black45,
+//                                                shape: CircleBorder()),
+                                            alignment: Alignment.center,
+                                            child: Image.asset(
+                                              SPClassImageUtil
+                                                  .spFunGetImagePath(
+                                                  'ic_apple_login'),
+                                              fit: BoxFit.contain,
+                                              color: Colors.white,
+                                              width: width(40),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: height(5),
+                                          ),
+                                          Text(
+                                            "苹果",
+                                            style: TextStyle(
+                                                fontSize: sp(12),
+                                                color: Colors.white),
+                                          ),
+                                        ],
+                                      ),
+                                      onTap: () {
+                                        if (!isAgree) {
+                                          SPClassToastUtils.spFunShowToast(
+                                              msg: "请阅读并勾选 用户协议 和 隐私政策 ");
+                                          return;
+                                        }
+                                        SignInApple.clickAppleSignIn();
+                                      },
+                                    ),
+                                    SizedBox(
+                                      width: width(20),
+                                    ),
+                                    GestureDetector(
+                                      child: Column(
+                                        children: <Widget>[
+                                          Container(
+//                                            padding: EdgeInsets.all(width(10)),
+//                                            decoration: ShapeDecoration(
+//                                                color: Colors.black45,
+//                                                shape: CircleBorder()),
                                             alignment: Alignment.center,
                                             child: Image.asset(
                                               spProLoginType == 1
@@ -665,7 +709,7 @@ class SPClassVideoLoginPageState extends State<SPClassVideoLoginPage>
                                                           'ic_pwd_login'),
                                               fit: BoxFit.contain,
                                               color: Colors.white,
-                                              width: height(30),
+                                              width: width(40),
                                             ),
                                           ),
                                           SizedBox(
@@ -720,6 +764,7 @@ class SPClassVideoLoginPageState extends State<SPClassVideoLoginPage>
                   spProVideoPlayerController: _videoPlayerController,
                   spProPhoneType: 0,
                   spProBindSid: loginInfo.spProBindSid,
+                  spProLoginType: 0,
                 ));
           } else {
             SPClassApplicaion.spProUserLoginInfo = loginInfo;
@@ -735,77 +780,123 @@ class SPClassVideoLoginPageState extends State<SPClassVideoLoginPage>
         ));
   }
 
+  Future<void> initPlatformState() async {
+    SignInApple.handleAppleSignInCallBack(onCompleteWithSignIn: (AppleIdUser user) async {
+
+      print('苹果登陆成功：_name:${user.familyName} ==_mail: ${user.mail} == _userIdentify:${user.userIdentifier} ==_authorizationCode: ${user.authorizationCode} ');
+
+      SPClassApiManager.spFunGetInstance().spFunUserLoginByApple(context: context,spProAppleId: user.userIdentifier,spProCallBack: SPClassHttpCallBack<SPClassUserLoginInfo>(
+          spProOnSuccess: (loginInfo){
+            if (loginInfo.spProNeedBind!) {
+              SPClassNavigatorUtils.spFunPushRoute(context, SPClassVideoPhoneLoginPage(spProVideoPlayerController:_videoPlayerController,spProPhoneType: 0,spProBindSid: loginInfo.spProBindSid,spProLoginType: 1,));
+            } else {
+              SPClassApplicaion.spProUserLoginInfo = loginInfo;
+              SPClassApplicaion.spFunSaveUserState();
+              SPClassApplicaion.spFunInitUserState();
+              SPClassApplicaion.spFunGetUserInfo();
+              SPClassToastUtils.spFunShowToast(msg: "登录成功");
+              SPClassGlobalNotification.spFunGetInstance()!.spFunInitWebSocket();
+              SPClassApplicaion.spFunSavePushToken();
+              Navigator.of(context).pop();
+            }
+          },onError: (e){},spProOnProgress: (v){}
+      ));
+
+    }, onCompleteWithError: (AppleSignInErrorCode code) async {
+      var errorMsg = "unknown";
+      switch (code) {
+        case AppleSignInErrorCode.canceled:
+          errorMsg = "user canceled request";
+          break;
+        case AppleSignInErrorCode.failed:
+          errorMsg = "request fail";
+          break;
+        case AppleSignInErrorCode.invalidResponse:
+          errorMsg = "request invalid response";
+          break;
+        case AppleSignInErrorCode.notHandled:
+          errorMsg = "request not handled";
+          break;
+        case AppleSignInErrorCode.unknown:
+          errorMsg = "request fail unknown";
+          break;
+      }
+      print(errorMsg);
+    });
+  }
+
+
   void initOneLogin(){
     String _token='';
     String _result='';
 
-    jverify.isInitSuccess().then((map) {
-      print('初始化：$map');
-      bool result = map['result'];
-      setState(() {
-        if (result) {
-          jverify.checkVerifyEnable().then((map) {
-            bool result = map['result'];
-            if (result) {
-              spProOneLogin =true;
-              // jverify.getToken().then((map) {
-              //   int code = map['code'];
-              //   _token = map['message'];
-              //   String operator = map['operator'];
-              //   setState(() {
-              //     _result = "[$code] message = $_token, operator = $operator";
-              //   });
-              // });
-            } else {
-              // setState(() {
-              //   _hideLoading();
-              //   _result = "[2016],msg = 当前网络环境不支持认证";
-              // });
-            }
-          });
-        } else {
-          _result = "sdk 初始换失败";
-        }
-      });
-    });
+//    jverify.isInitSuccess().then((map) {
+//      print('初始化：$map');
+//      bool result = map['result'];
+//      setState(() {
+//        if (result) {
+//          jverify.checkVerifyEnable().then((map) {
+//            bool result = map['result'];
+//            if (result) {
+//              spProOneLogin =true;
+//              // jverify.getToken().then((map) {
+//              //   int code = map['code'];
+//              //   _token = map['message'];
+//              //   String operator = map['operator'];
+//              //   setState(() {
+//              //     _result = "[$code] message = $_token, operator = $operator";
+//              //   });
+//              // });
+//            } else {
+//              // setState(() {
+//              //   _hideLoading();
+//              //   _result = "[2016],msg = 当前网络环境不支持认证";
+//              // });
+//            }
+//          });
+//        } else {
+//          _result = "sdk 初始换失败";
+//        }
+//      });
+//    });
   }
 
-  void spFunDoOneLogin() {
-    JVUIConfig uiConfig = JVUIConfig();
-    // uiConfig.privacyState = false; //设置默认勾选
-    uiConfig.privacyCheckboxSize = 12;
-    uiConfig.privacyTextSize = 12;
-    uiConfig.privacyOffsetX = 30; // 距离底部距离
-    SPClassDialogUtils.spFunShowLoadingDialog(context,
-            barrierDismissible: true, content: "登录中");
-    jverify.setCustomAuthorizationView(true, uiConfig,
-        landscapeConfig: uiConfig, );
-    jverify.addLoginAuthCallBackListener((event) {
-      print(
-          "通过添加监听，获取到 loginAuthSyncApi 接口返回数据，code=${event.code},message = ${event.message},operator = ${event.operator}");
-      Navigator.of(context).pop();
-      SPClassApiManager.spFunGetInstance().spFunOneClickLogin(
-          context: context,
-          queryParameters: {
-            "token": event.message,
-            "op_token": '',
-            "operator": event.operator
-          },
-          spProCallBack: SPClassHttpCallBack<SPClassUserLoginInfo>(
-              spProOnSuccess: (userLogin) {
-                SPClassApplicaion.spProUserLoginInfo = userLogin;
-                SPClassApplicaion.spFunSaveUserState();
-                SPClassApplicaion.spFunInitUserState();
-                SPClassApplicaion.spFunGetUserInfo();
-                SPClassToastUtils.spFunShowToast(msg: "登录成功");
-                SPClassApplicaion.spFunSavePushToken();
-                SPClassGlobalNotification.spFunGetInstance()?.spFunInitWebSocket();
-                Navigator.of(context).pop();
-              },onError: (e){},spProOnProgress: (v){}
-          ));
-    });
-    jverify.loginAuthSyncApi(autoDismiss: true);
-  }
+//  void spFunDoOneLogin() {
+//    JVUIConfig uiConfig = JVUIConfig();
+//    // uiConfig.privacyState = false; //设置默认勾选
+//    uiConfig.privacyCheckboxSize = 12;
+//    uiConfig.privacyTextSize = 12;
+//    uiConfig.privacyOffsetX = 30; // 距离底部距离
+//    SPClassDialogUtils.spFunShowLoadingDialog(context,
+//            barrierDismissible: true, content: "登录中");
+//    jverify.setCustomAuthorizationView(true, uiConfig,
+//        landscapeConfig: uiConfig, );
+//    jverify.addLoginAuthCallBackListener((event) {
+//      print(
+//          "通过添加监听，获取到 loginAuthSyncApi 接口返回数据，code=${event.code},message = ${event.message},operator = ${event.operator}");
+//      Navigator.of(context).pop();
+//      SPClassApiManager.spFunGetInstance().spFunOneClickLogin(
+//          context: context,
+//          queryParameters: {
+//            "token": event.message,
+//            "op_token": '',
+//            "operator": event.operator
+//          },
+//          spProCallBack: SPClassHttpCallBack<SPClassUserLoginInfo>(
+//              spProOnSuccess: (userLogin) {
+//                SPClassApplicaion.spProUserLoginInfo = userLogin;
+//                SPClassApplicaion.spFunSaveUserState();
+//                SPClassApplicaion.spFunInitUserState();
+//                SPClassApplicaion.spFunGetUserInfo();
+//                SPClassToastUtils.spFunShowToast(msg: "登录成功");
+//                SPClassApplicaion.spFunSavePushToken();
+//                SPClassGlobalNotification.spFunGetInstance()?.spFunInitWebSocket();
+//                Navigator.of(context).pop();
+//              },onError: (e){},spProOnProgress: (v){}
+//          ));
+//    });
+//    jverify.loginAuthSyncApi(autoDismiss: true);
+//  }
 
   void spFunDoSendCode() async {
     if (spProPhoneNum.length != 11) {

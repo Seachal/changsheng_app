@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:changshengh5/app/SPClassApplicaion.dart';
 import 'package:changshengh5/pages/competition/scheme/SPClassExpertApplyPage.dart';
 import 'package:changshengh5/pages/shop/MyOrder.dart';
+import 'package:changshengh5/pages/user/publicScheme/SPClassMyAddSchemePage.dart';
 import 'package:changshengh5/pages/user/scheme/bug/SPClassMyBuySchemePage.dart';
 import 'package:changshengh5/pages/user/scheme/follow/SPClassMyFollowSchemePage.dart';
 import 'package:changshengh5/pages/user/setting/SPClassSettingPage.dart';
@@ -107,7 +108,7 @@ class SPClassUserPageState extends State<SPClassUserPage>
     }
 
     if (!SPClassApplicaion.spProShowMenuList.contains("shop")) {
-      spProMyTitleImages.remove("order");
+      spProOtherImages.remove("order");
       spProOtherTitles.remove("我的订单");
     }
 
@@ -581,8 +582,8 @@ class SPClassUserPageState extends State<SPClassUserPage>
     if (value == "设置") {
       SPClassNavigatorUtils.spFunPushRoute(context, SPClassSettingPage());
     }
-    // if (value == "我的发布") {
-    //   SPClassNavigatorUtils.spFunPushRoute(context, SPClassMyAddSchemePage());
-    // }
+     if (value == "我的发布") {
+       SPClassNavigatorUtils.spFunPushRoute(context, SPClassMyAddSchemePage());
+     }
   }
 }

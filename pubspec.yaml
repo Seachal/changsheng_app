@@ -87,6 +87,9 @@ dev_dependencies:
   encrypt: 5.0.1
 #  一键登录
 #  jverify: 2.2.4
+  sign_in_apple: 2.0.0
+  city_pickers: 1.0.1
+  flutter_swiper_null_safety: 1.0.2
 
 
 
@@ -114,6 +117,7 @@ flutter:
     - assets/video/
     - assets/audio/
     - assets/html/
+    - assets/shop/
     - assets/images/ic_diamond.png
     - assets/images/ic_play.png
     - assets/images/ic_gift.png

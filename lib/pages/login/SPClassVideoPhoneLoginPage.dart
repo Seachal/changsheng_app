@@ -24,10 +24,13 @@ class SPClassVideoPhoneLoginPage extends StatefulWidget {
   VideoPlayerController? spProVideoPlayerController;
   int? spProPhoneType; //0== 绑定手机号 1==找回密码
   String? spProBindSid;
+  int spProLoginType; //0 wx 1  apple
   SPClassVideoPhoneLoginPage(
       {this.spProVideoPlayerController,
       this.spProPhoneType,
-      this.spProBindSid});
+      this.spProBindSid,
+        this.spProLoginType=0
+      });
 
   @override
   State<StatefulWidget> createState() {
@@ -256,8 +259,9 @@ class SPClassVideoPhoneLoginPageState extends State<SPClassVideoPhoneLoginPage>
                                     )
                                   ],
                                 ),
-                                widget.spProPhoneType == 1
-                                    ? Container(
+//                                widget.spProPhoneType == 1
+//                                    ?
+                                Container(
                                         decoration: BoxDecoration(
                                             // color: Color(0x4DDDDDDD),
                                             border: Border(
@@ -326,8 +330,8 @@ class SPClassVideoPhoneLoginPageState extends State<SPClassVideoPhoneLoginPage>
                                             ))
                                           ],
                                         ),
-                                      )
-                                    : SizedBox(),
+                                      ),
+//                                    : SizedBox(),
 
                                 /// 登录按钮
                                 GestureDetector(
@@ -401,7 +405,7 @@ class SPClassVideoPhoneLoginPageState extends State<SPClassVideoPhoneLoginPage>
               "phone_number": spProPhoneNum,
               "phone_code": spProVerCode,
               "bind_sid": widget.spProBindSid,
-              "bind_type": "WX"
+              "bind_type": widget.spProLoginType==0?"WX":"APPLE"
             },
             spProBodyParameters: {"pwd": spProPhonePwd},
             spProCallBack: SPClassHttpCallBack<SPClassUserLoginInfo>(
@@ -479,6 +483,7 @@ class SPClassVideoPhoneLoginPageState extends State<SPClassVideoPhoneLoginPage>
               }
             });
           });
-        }));
+        },onError: (v){},spProOnProgress: (v){}
+        ));
   }
 }

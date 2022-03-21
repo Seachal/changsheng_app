@@ -30,11 +30,17 @@ class SPClassQNavBarState extends  State<SPClassQNavBar>{
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            offset:Offset(0,-2),
-            color: Color(0x33000000),
-            blurRadius: 15,
-            spreadRadius: 4
+              offset:Offset(0,-10),
+              color: Color.fromRGBO(0, 0, 0, 0.08),
+              blurRadius: 6,
+              spreadRadius: 1
           )
+//          BoxShadow(
+//            offset:Offset(0,-2),
+//            color: Color(0x33000000),
+//            blurRadius: 15,
+//            spreadRadius: 4
+//          )
         ]
       ),
       width: viewSize.width,

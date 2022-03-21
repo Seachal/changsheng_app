@@ -378,7 +378,7 @@ class _PasswordLoginState extends State<PasswordLogin> {
                                                         recognizer:
                                                         new TapGestureRecognizer()
                                                           ..onTap = () {
-                                                            SPClassNavigatorUtils.spFunPushRoute(context,  AgreementPage(title:"用户协议",url:"../../assets/html/useragreement.html"));
+                                                            SPClassNavigatorUtils.spFunPushRoute(context,  AgreementPage(title:"用户协议",));
                                                             // SPClassNavigatorUtils
                                                             //     .spFunPushRoute(
                                                             //     context,
@@ -394,7 +394,7 @@ class _PasswordLoginState extends State<PasswordLogin> {
                                                         recognizer:
                                                         new TapGestureRecognizer()
                                                           ..onTap = () {
-                                                            SPClassNavigatorUtils.spFunPushRoute(context,  AgreementPage(title:"隐私协议",url:"../../assets/html/privacy_score.html"));
+                                                            SPClassNavigatorUtils.spFunPushRoute(context,  AgreementPage(title:"隐私协议",));
 
                                                             // SPClassNavigatorUtils
                                                             //     .spFunPushRoute(

@@ -301,14 +301,15 @@ class _SplashScreenState extends State<SplashScreen> {
               print('显示的内容：${logOpen.spProMenuList}');
               SPClassApplicaion.spProLogOpenInfo = logOpen;
               var md5Code = md5.convert(utf8.encode(AppId)).toString();
-              print('哈哈哈：${result.data["app_sign"] == md5Code}');
+              print('是否相等：${result.data["app_sign"] == md5Code}');
               if (Platform.isAndroid) {
                 if (result.data["app_sign"] == md5Code) {
-                  SPClassApplicaion.spProShowMenuList = logOpen.spProMenuList!;
-                  SharedPreferences.getInstance().then((sp) => sp.setString(
-                      SPClassSharedPreferencesKeys.KEY_LOG_JSON,
-                      jsonEncode(result.data)));
-//                  SPClassApplicaion.spProShowMenuList.add('game');
+                  if(logOpen.spProMenuList!.isNotEmpty){
+                    SPClassApplicaion.spProShowMenuList = logOpen.spProMenuList!;
+                    SharedPreferences.getInstance().then((sp) => sp.setString(
+                        SPClassSharedPreferencesKeys.KEY_LOG_JSON,
+                        jsonEncode(result.data)));
+                  }
                 } else {
                   spFunInitMenuList();
                 }
@@ -317,10 +318,13 @@ class _SplashScreenState extends State<SplashScreen> {
                 if(result.data['app_sign']!=md5.convert(utf8.encode(SPClassApplicaion.spProIOSAppId)).toString()){
                   SPClassApplicaion.spProShowMenuList =["home","shop","pk","match","expert","info","match_analyse","bcw_data",];
                 }else{
-                  SPClassApplicaion.spProShowMenuList = logOpen.spProMenuList!;
-                  SharedPreferences.getInstance().then((sp) => sp.setString(
-                      SPClassSharedPreferencesKeys.KEY_LOG_JSON,
-                      jsonEncode(result.data)));
+                  if(logOpen.spProMenuList!.isNotEmpty){
+                    SPClassApplicaion.spProShowMenuList = logOpen.spProMenuList!;
+                    SharedPreferences.getInstance().then((sp) => sp.setString(
+                        SPClassSharedPreferencesKeys.KEY_LOG_JSON,
+                        jsonEncode(result.data)));
+                  }
+
                 }
               }
 
