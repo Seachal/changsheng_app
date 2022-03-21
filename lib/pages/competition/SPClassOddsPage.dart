@@ -88,7 +88,7 @@ class SPClassOddsPageState extends State<SPClassOddsPage>
         children: <Widget>[
           Container(
             padding: EdgeInsets.symmetric(horizontal: width(25)),
-            margin: EdgeInsets.only(top: width(23), bottom: width(12)),
+            margin: EdgeInsets.only(top: width(12), bottom: width(12)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
@@ -409,7 +409,7 @@ class SPClassOddsPageState extends State<SPClassOddsPage>
                           child: Text(
                             '公司',
                             style: TextStyle(
-                                fontSize: sp(13),
+                                fontSize: sp(12),
                                 color: MyColors.grey_66),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
@@ -425,7 +425,7 @@ class SPClassOddsPageState extends State<SPClassOddsPage>
                                 child: Text(
                                   '初',
                                   style: TextStyle(
-                                      fontSize: sp(13),
+                                      fontSize: sp(12),
                                       color:
                                       MyColors.grey_66),
                                   textAlign: TextAlign.center,
@@ -435,12 +435,13 @@ class SPClassOddsPageState extends State<SPClassOddsPage>
                                 child: Text(
                                   '即',
                                   style: TextStyle(
-                                      fontSize: sp(13),
+                                      fontSize: sp(12),
                                       color:
                                       MyColors.grey_66),
                                   textAlign: TextAlign.center,
                                 ),
                               ),
+                              SizedBox(width: width(26),)
                             ],
                           ),
                         ):
@@ -499,7 +500,7 @@ class SPClassOddsPageState extends State<SPClassOddsPage>
                                       color: selectCompany==item.company?MyColors.main1:Color(0xFFF5F6F7),
                                       border: Border(bottom: BorderSide(color: Color(0xFFE6E6E6),width: 0.4)),
                                     ),
-                                    child: Text('${item.company}',style: TextStyle(color:selectCompany==item.company?Colors.white:MyColors.grey_33 ),maxLines: 1,overflow: TextOverflow.ellipsis,),
+                                    child: Text('${item.company}',style: TextStyle(color:selectCompany==item.company?Colors.white:MyColors.grey_33 ,fontSize: sp(12)),maxLines: 1,overflow: TextOverflow.ellipsis,),
                                   ),
                                 );
                               },
@@ -513,61 +514,76 @@ class SPClassOddsPageState extends State<SPClassOddsPage>
                                   !.getListItem(spProIndex)
                                   !.map(
                                     (item) {
-                                  return Container(
-                                    width: double.maxFinite,
-                                    height: width(38),
-                                    alignment: Alignment.center,
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      border: Border(bottom: BorderSide(color: Color(0xFFE6E6E6),width: 0.4)),
-                                    ),
-                                    child: Row(
-                                      children: <Widget>[
-                                        Expanded(
-                                          flex: 1,
-                                          child: Container(
-                                            child: Row(
-                                              children: <Widget>[
-                                                Expanded(
-                                                  flex: 1,
-                                                  child: Text(item.spProInitWinOddsOne!,style: TextStyle(fontSize: sp(12),color: Color(0xFF333333),),maxLines: 1,overflow: TextOverflow.ellipsis,textAlign: TextAlign.center,),
-                                                ),
-                                                ((spProIndex==0&&item.spProInitDrawOdds!.isEmpty)||(spProIndex==1&&item.init_add_score_desc!.isEmpty)||(spProIndex==2&&item.init_mid_score_desc!.isEmpty))?SizedBox():
-                                                Expanded(
-                                                  flex: 1,
-                                                  child: Text( spProIndex==0 ? item.spProInitDrawOdds!: spProIndex==1 ? item.init_add_score_desc!:item.init_mid_score_desc!,style: TextStyle(fontSize: sp(spProIndex==1 ?10:12),color: Color(0xFF333333),),maxLines: 1,overflow: TextOverflow.ellipsis,textAlign: TextAlign.center,),
-                                                ),
-                                                Expanded(
-                                                  flex: 1,
-                                                  child: Text(item.spProInitWinOddsTwo!,style: TextStyle(fontSize: sp(12),color: Color(0xFF333333),),maxLines: 1,overflow: TextOverflow.ellipsis,textAlign: TextAlign.center,),
-                                                ),
-                                              ],
+                                  return GestureDetector(
+                                    onTap: (){
+                                      selectCompany = item.company;
+                                      spFunGetOddHistory();
+                                      setState(() {
+                                      });
+                                    },
+                                    child: Container(
+                                      width: double.maxFinite,
+                                      height: width(38),
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        border: Border(bottom: BorderSide(color: Color(0xFFE6E6E6),width: 0.4)),
+                                      ),
+                                      child: Row(
+                                        children: <Widget>[
+                                          Expanded(
+                                            flex: 1,
+                                            child: Container(
+                                              child: Row(
+                                                children: <Widget>[
+                                                  Expanded(
+                                                    flex: 1,
+                                                    child: Text(item.spProInitWinOddsOne!,style: TextStyle(fontSize: sp(10),color: Color(0xFF333333),),maxLines: 1,overflow: TextOverflow.ellipsis,textAlign: TextAlign.center,),
+                                                  ),
+                                                  ((spProIndex==0&&item.spProInitDrawOdds!.isEmpty)||(spProIndex==1&&item.init_add_score_desc!.isEmpty)||(spProIndex==2&&item.init_mid_score_desc!.isEmpty))?SizedBox():
+                                                  Expanded(
+                                                    flex: 1,
+                                                    child: Text( spProIndex==0 ? item.spProInitDrawOdds!: spProIndex==1 ? item.init_add_score_desc!:item.init_mid_score_desc!,style: TextStyle(fontSize:sp(10) /*sp(spProIndex==1 ?10:12)*/,color: Color(0xFF333333),),maxLines: 1,overflow: TextOverflow.ellipsis,textAlign: TextAlign.center,),
+                                                  ),
+                                                  Expanded(
+                                                    flex: 1,
+                                                    child: Text(item.spProInitWinOddsTwo!,style: TextStyle(fontSize: sp(10),color: Color(0xFF333333),),maxLines: 1,overflow: TextOverflow.ellipsis,textAlign: TextAlign.center,),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                        Expanded(
-                                          flex: 1,
-                                          child: Container(
-                                            child: Row(
-                                              children: <Widget>[
-                                                Expanded(
-                                                  flex: 1,
-                                                  child: Text("${item.spProWinOddsOne}" ,style: TextStyle(fontSize: sp(12),color:spFunGetOddsColor(item.spProWinOddsOne!,item.spProInitWinOddsOne!),),maxLines: 1,overflow: TextOverflow.ellipsis,textAlign: TextAlign.center,),
-                                                ),
-                                                ((spProIndex==0&&item.spProDrawOdds!.isEmpty)||(spProIndex==1&&item.add_score_desc!.isEmpty)||(spProIndex==2&&item.mid_score_desc!.isEmpty))?SizedBox():
-                                                Expanded(
-                                                  flex: 1,
-                                                  child: Text( spProIndex==0 ? item.spProDrawOdds!: spProIndex==1 ? item.add_score_desc!:item.mid_score_desc!,style: TextStyle(fontSize: sp(spProIndex==1 ?10:12),color:spProIndex==0 ? spFunGetOddsColor(item.spProDrawOdds!, item.spProInitDrawOdds!): Color(0xFF333333),),maxLines: 1,overflow: TextOverflow.ellipsis,textAlign: TextAlign.center,),
-                                                ),
-                                                Expanded(
-                                                  flex: 1,
-                                                  child: Text("${item.spProWinOddsTwo}" ,style: TextStyle(fontSize: sp(12),color: spFunGetOddsColor(item.spProWinOddsTwo!, item.spProInitWinOddsTwo!),),maxLines: 1,overflow: TextOverflow.ellipsis,textAlign: TextAlign.center,),
-                                                ),
-                                              ],
+                                          Expanded(
+                                            flex: 1,
+                                            child: Container(
+                                              child: Row(
+                                                children: <Widget>[
+                                                  Expanded(
+                                                    flex: 1,
+                                                    child: Text("${item.spProWinOddsOne}" ,style: TextStyle(fontSize: sp(10),color:spFunGetOddsColor(item.spProWinOddsOne!,item.spProInitWinOddsOne!),),maxLines: 1,overflow: TextOverflow.ellipsis,textAlign: TextAlign.center,),
+                                                  ),
+                                                  ((spProIndex==0&&item.spProDrawOdds!.isEmpty)||(spProIndex==1&&item.add_score_desc!.isEmpty)||(spProIndex==2&&item.mid_score_desc!.isEmpty))?SizedBox():
+                                                  Expanded(
+                                                    flex: 1,
+                                                    child: Text( spProIndex==0 ? item.spProDrawOdds!: spProIndex==1 ? item.add_score_desc!:item.mid_score_desc!,style: TextStyle(fontSize:sp(10) /*sp(spProIndex==1 ?10:12)*/,color:spProIndex==0 ? spFunGetOddsColor(item.spProDrawOdds!, item.spProInitDrawOdds!): Color(0xFF333333),),maxLines: 1,overflow: TextOverflow.ellipsis,textAlign: TextAlign.center,),
+                                                  ),
+                                                  Expanded(
+                                                    flex: 1,
+                                                    child: Text("${item.spProWinOddsTwo}" ,style: TextStyle(fontSize: sp(10),color: spFunGetOddsColor(item.spProWinOddsTwo!, item.spProInitWinOddsTwo!),),maxLines: 1,overflow: TextOverflow.ellipsis,textAlign: TextAlign.center,),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                      ],
+                                          Container(
+                                            margin: EdgeInsets.only(right: width(16)),
+                                            child: Image.asset(
+                                              SPClassImageUtil.spFunGetImagePath('ic_btn_right'),
+                                              width: width(10),
+                                            ),
+                                          )
+                                        ],
+                                      ),
                                     ),
                                   );
                                 },

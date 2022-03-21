@@ -301,7 +301,6 @@ class _SplashScreenState extends State<SplashScreen> {
               print('显示的内容：${logOpen.spProMenuList}');
               SPClassApplicaion.spProLogOpenInfo = logOpen;
               var md5Code = md5.convert(utf8.encode(AppId)).toString();
-              print('是否相等：${result.data["app_sign"] == md5Code}');
               if (Platform.isAndroid) {
                 if (result.data["app_sign"] == md5Code) {
                   if(logOpen.spProMenuList!.isNotEmpty){

@@ -258,7 +258,7 @@ class SPClassPickSchemeDataDialogState extends State<SPClassPickSchemeDataDialog
                                             spProGuessMatch=value.spProDataList[index];
                                           });
                                         },));
-                                    }
+                                    },onError: (v){},spProOnProgress: (v){}
                                 ));
                               },
                             ),

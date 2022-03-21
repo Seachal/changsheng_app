@@ -211,7 +211,6 @@ class SPClassAppPageState extends State<SPClassAppPage>
     controller=PageController();
     // SPClassGlobalNotification.spFunGetInstance(buildContext: context);
     SPClassApplicaion.spFunSavePushToken();
-    print('哈哈哈${SPClassApplicaion.spProShowMenuList}');
     if(SPClassApplicaion.spProShowMenuList.contains("home")){
       // spProPageList.add(SPClassHomePage());
       spProPageList.add(HomePage());

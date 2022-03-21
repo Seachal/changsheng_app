@@ -101,7 +101,8 @@ class SPClassFilterleagueMatchPageState extends State<SPClassFilterleagueMatchPa
                                     border: Border.all(width: 0.4,color:item.check?  MyColors.main1: MyColors.grey_99),
                                     borderRadius: BorderRadius.circular(150)
                                 ),
-                                child:Text("${(item.spProLeagueName!.length>4&&SPClassStringUtils.spFunIsNum(item.spProLeagueName!.substring(0,4))) ? item.spProLeagueName!.substring(4).trim():item.spProLeagueName}" ,style: TextStyle(fontSize: sp(13),color:item.check?  MyColors.main1: Color(0xFF303133)),maxLines: 1,overflow: TextOverflow.ellipsis,)
+//                                child:Text("${(item.spProLeagueName!.length>4&&SPClassStringUtils.spFunIsNum(item.spProLeagueName!.substring(0,4))) ? item.spProLeagueName!.substring(4).trim():item.spProLeagueName}" ,style: TextStyle(fontSize: sp(13),color:item.check?  MyColors.main1: Color(0xFF303133)),maxLines: 1,overflow: TextOverflow.ellipsis,)
+                                child:Text("${SPClassStringUtils.spFunMaxLength(item.spProLeagueName!,length: 4)}" ,style: TextStyle(fontSize: sp(13),color:item.check?  MyColors.main1: Color(0xFF303133)),maxLines: 1,overflow: TextOverflow.ellipsis,)
                                 ,
                               ),
                               onTap: (){

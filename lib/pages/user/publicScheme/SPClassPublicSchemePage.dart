@@ -1109,7 +1109,8 @@ class SPClassPublicSchemePageState extends State<SPClassPublicSchemePage> {
                 spProPlayWayColNum = spProPlayWays.length == 3 ? 3 : 2;
               });
               FocusScope.of(context).requestFocus(FocusNode());
-            }));
+            },onError: (v){},spProOnProgress: (v){}
+            ));
   }
 
   void spFunInitMarquee() {

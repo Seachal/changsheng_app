@@ -461,13 +461,17 @@ class SPClassSchemeItemView extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.only(right: width(8)),
                     child: (item.spProIsOver == "1" ||
-                            item.spProDiamond == "0" ||
                             item.spProIsBought == "1")
                         ? Text(
-                            '免费',
+                            '查看',
                             style: TextStyle(
-                                color: Color(0xFF4D97FF), fontSize: sp(14)),
-                          )
+                                color: MyColors.grey_99, fontSize: sp(14)),
+                          ):
+                    item.spProDiamond == "0"?Text(
+                      '免费',
+                      style: TextStyle(
+                          color: Color(0xFF4D97FF), fontSize: sp(14)),
+                    )
                         : Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
