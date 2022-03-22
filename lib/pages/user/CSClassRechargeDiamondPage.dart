@@ -468,185 +468,88 @@ class CSClassRechargeDiamondPageState extends State<CSClassRechargeDiamondPage> 
             ),
           ),
     ),
-        bottomNavigationBar:Container(
-          decoration: BoxDecoration(
-              color: Colors.white,
-              boxShadow:[BoxShadow(
-                offset: Offset(1,1),
-                color: Color(0x1a000000),
-                blurRadius:width(6,),
-              )]
-          ),
-          height: width(64)+MediaQuery.of(context).padding.bottom,
-          child:Column(
-            children: <Widget>[
-             /* Container(
-                height: width(40),
-                padding: EdgeInsets.symmetric(horizontal:width(23)),
-                child: Row(
-                  children: <Widget>[
-                    RichText(text: TextSpan(
-                        text: "优惠券 ",
-                        style: TextStyle(fontSize: sp(13),color: Color(0xFF333333)),
-                        children: [
-                          TextSpan(
-                            text: coupons.length.toString(),
-                            style: TextStyle(color: Color(0xFFEB3F39)),
+        bottomNavigationBar:GestureDetector(
+          child: Container(
+            alignment: Alignment.center,
+            
+            height: width(48),
+            margin: EdgeInsets.symmetric(horizontal: width(16),vertical: width(8)),
+            decoration: BoxDecoration(
+              color: MyColors.main1,
+              borderRadius: BorderRadius.circular(8)
+            ),
+            child:Text("立即支付",style: TextStyle(fontSize: sp(15),color: Colors.white),),
+          ) ,
+          onTap: () async {
 
-                          ),
-                          TextSpan(
-                            text: " 张",
 
-                          )
-                        ]
-                    ),),
-                    Expanded(
-                      child:  GestureDetector(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: <Widget>[
-                            selectCoupon==null?  RichText(text: TextSpan(
-                                text: "当前可使用 ",
-                                style: TextStyle(fontSize: sp(13),color: Color(0xFF333333)),
-                                children: [
-                                  TextSpan(
-                                    text: getUseCouponList().length.toString(),
-                                    style: TextStyle(color: Color(0xFFEB3F39)),
-
-                                  ),
-                                  TextSpan(
-                                    text: " 张",
-
-                                  )
-                                ]
-                            ),):RichText(text: TextSpan(
-                                text: "已减 ",
-                                style: TextStyle(fontSize: sp(13),color: Color(0xFF333333)),
-                                children: [
-                                  TextSpan(
-                                    text: selectCoupon.money,
-                                    style: TextStyle(color: Color(0xFFEB3F39)),
-                                  ),
-                                  TextSpan(
-                                    text: " 元",
-
-                                  )
-                                ]
-                            ),),
-                            Image.asset(ImageUtil.getImagePath("ic_btn_right"),
-                              width: width(11),
-                            ),
-
-                          ],
-                        ),
-                        onTap: (){
-                          if(getUseCouponList().length>0){
-                            showCupertinoModalPopup(context: context, builder:(c)=>
-                                PickCouponDialog(
-                                  coupons: getUseCouponList(),
-                                  select: selectCoupon,
-                                  csProValueChanged: (select){
-                                    selectCoupon=select;
-                                    setState(() {});
-                                    FocusScope.of(context).requestFocus(FocusNode());
-
-                                  },
-                                ));
-                          }else{
-                            ToastUtils.showToast(msg: "当前没有可用的优惠券");
+            String? value;
+            if(rechargeString[csProSelectIndex]["in_put"] ==true){
+              value=csProTextEditingController!.text;
+            }else{
+              value=rechargeString[csProSelectIndex]["value"] as String?;
+            }
+            if(value==null||value.isEmpty||double.tryParse(value)==0){
+              CSClassToastUtils.csMethodShowToast(msg: "请输入金额");
+              return;
+            }
+            csProOrderNum="";
+            CSClassApiManager.csMethodGetInstance().csMethodCreateOrder(queryParameters: {
+              "pay_type_key":csProPayType,
+              "coupon_id":selectCoupon==null? "":selectCoupon!.csProCouponId,
+              "money":selectCoupon==null? value:(CSClassStringUtils.csMethodSqlitZero((double.tryParse(value)!-double.tryParse(selectCoupon!.csPromoney!)!).toStringAsFixed(2))),
+              "is_web":csProPayType=="weixin"? csProIsWechatWeb:csProIsAliPayWeb},
+                context:context,
+                csProCallBack: CSClassHttpCallBack(
+                  csProOnSuccess: (value){
+                    csProOrderNum=value.csProOrderNum!;
+                    if(csProPayType=="weixin"){
+                      if(csProIsWechatWeb=="1"){
+                        launch(value.url!);
+                      }else{
+                        fluwx.payWithWeChat( appId: value.appid!,
+                          partnerId: value.partnerid!,
+                          prepayId: value.csProPrepayid!,
+                          packageValue: "Sign=WXPay",
+                          nonceStr: value.noncestr!,
+                          timeStamp: value.timestamp!,
+                          sign: value.sign!,
+                        );
+                      }
+                    }else if(csProPayType=="alipay"){
+                      if(csProIsAliPayWeb=="1"){
+                        launch(value.url!);
+                      }else{
+                        tobias.aliPay(value.csProOrderInfo!).then((value){
+                          switch(int.tryParse(value["resultStatus"].toString())){
+                            case 9000:
+                              if(csProOrderNum.isNotEmpty){
+                                csMethodQueryOrder();
+                              }
+                              break;
+                            case 8000:
+                              break;
+                            case 6002:
+                              CSClassToastUtils.csMethodShowToast(msg: "支付异常："+value["memo"].toString());
+                              break;
+                            case 6001:
+                              CSClassToastUtils.csMethodShowToast(msg: "已取消");
+                              if(csProOrderNum.isNotEmpty){
+                                CSClassApiManager.csMethodGetInstance().csMethodCancelOrder(csProOrderNum:csProOrderNum,context: context);
+                              }
+                              break;
                           }
-                        },
-                      ),
-                    )
+                        });
+                      }
 
-                  ],
-                ),
-              ),*/
-              GestureDetector(
-                child:  Container(
-                  height: width(61),
-                  alignment: Alignment.topCenter,
-                  child:Container(
-                    alignment: Alignment.center,
-                    // height: height(41),
-                      color: MyColors.main1,
-                    child:Text("立即支付",style: TextStyle(fontSize: sp(15),color: Colors.white),),
-                  ) ,
-                ),
-                onTap: () async {
+                    }
 
 
-                  String? value;
-                  if(rechargeString[csProSelectIndex]["in_put"] ==true){
-                    value=csProTextEditingController!.text;
-                  }else{
-                    value=rechargeString[csProSelectIndex]["value"] as String?;
-                  }
-                  if(value==null||value.isEmpty||double.tryParse(value)==0){
-                    CSClassToastUtils.csMethodShowToast(msg: "请输入金额");
-                    return;
-                  }
-                  csProOrderNum="";
-                  CSClassApiManager.csMethodGetInstance().csMethodCreateOrder(queryParameters: {
-                    "pay_type_key":csProPayType,
-                    "coupon_id":selectCoupon==null? "":selectCoupon!.csProCouponId,
-                    "money":selectCoupon==null? value:(CSClassStringUtils.csMethodSqlitZero((double.tryParse(value)!-double.tryParse(selectCoupon!.csPromoney!)!).toStringAsFixed(2))),
-                    "is_web":csProPayType=="weixin"? csProIsWechatWeb:csProIsAliPayWeb},
-                      context:context,
-                      csProCallBack: CSClassHttpCallBack(
-                        csProOnSuccess: (value){
-                          csProOrderNum=value.csProOrderNum!;
-                          if(csProPayType=="weixin"){
-                            if(csProIsWechatWeb=="1"){
-                              launch(value.url!);
-                            }else{
-                              fluwx.payWithWeChat( appId: value.appid!,
-                                partnerId: value.partnerid!,
-                                prepayId: value.csProPrepayid!,
-                                packageValue: "Sign=WXPay",
-                                nonceStr: value.noncestr!,
-                                timeStamp: value.timestamp!,
-                                sign: value.sign!,
-                              );
-                             }
-                          }else if(csProPayType=="alipay"){
-                            if(csProIsAliPayWeb=="1"){
-                              launch(value.url!);
-                            }else{
-                              tobias.aliPay(value.csProOrderInfo!).then((value){
-                                switch(int.tryParse(value["resultStatus"].toString())){
-                                  case 9000:
-                                    if(csProOrderNum.isNotEmpty){
-                                      csMethodQueryOrder();
-                                    }
-                                    break;
-                                  case 8000:
-                                    break;
-                                  case 6002:
-                                    CSClassToastUtils.csMethodShowToast(msg: "支付异常："+value["memo"].toString());
-                                    break;
-                                  case 6001:
-                                    CSClassToastUtils.csMethodShowToast(msg: "已取消");
-                                    if(csProOrderNum.isNotEmpty){
-                                      CSClassApiManager.csMethodGetInstance().csMethodCancelOrder(csProOrderNum:csProOrderNum,context: context);
-                                    }
-                                    break;
-                                }
-                              });
-                            }
-
-                          }
-
-
-                        },onError: (e){},csProOnProgress: (v){},
-                      )
-                  );
-                },
-              ),
-              SizedBox(height: MediaQuery.of(context).padding.bottom,),
-            ],
-          ),
-        )
+                  },onError: (e){},csProOnProgress: (v){},
+                )
+            );
+          },
+        ),
 
     );
   }

@@ -13,6 +13,7 @@ import 'package:changshengh5/utils/CSClassStringUtils.dart';
 import 'package:changshengh5/utils/colors.dart';
 import 'package:changshengh5/widgets/CSClassBallFooter.dart';
 import 'package:changshengh5/widgets/CSClassBallHeader.dart';
+import 'package:changshengh5/widgets/CSClassToolBar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
@@ -46,9 +47,11 @@ class CSClassDiamondHistoryPageState extends State<CSClassDiamondHistoryPage> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text("余额明细"),
+      appBar:CSClassToolBar(
+        context,
+        title: "余额明细",
+        csProBgColor: MyColors.main1,
+        iconColor: 0xffffffff,
       ),
       backgroundColor: Colors.white,
       body: Container(
