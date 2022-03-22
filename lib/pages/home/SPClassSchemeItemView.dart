@@ -324,7 +324,7 @@ class SPClassSchemeItemView extends StatelessWidget {
                                         ]),
                                   ),
                                   Text(
-                                    spProShowRate ? "近期胜率" : "",
+                                    spProShowRate ? "近10场胜率" : "",
                                     style: TextStyle(
                                         height: 0.6,
                                         fontSize: sp(10),

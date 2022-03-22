@@ -78,7 +78,7 @@ class _FollowPageState extends State<FollowPage> with  TickerProviderStateMixin<
             controller: _controller,
             children: <Widget>[
               SPClassMyFollowExpertPage(),
-              SPClassFollowSchemeListPage('0'),
+              SPClassFollowSchemeListPage(''),
             ],
           ),
         )

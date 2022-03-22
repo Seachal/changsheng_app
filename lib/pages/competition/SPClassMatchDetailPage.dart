@@ -14,6 +14,7 @@ import 'SPClassMatchDetailSchemeListPage.dart';
 import 'SPClassMatchLiveStatisPage.dart';
 import 'SPClassMatchRecomPage.dart';
 import 'SPClassOddsPage.dart';
+import 'detail/SPClassMatchLiveBasketballTeamPage.dart';
 
 
 class SPClassMatchDetailPage extends StatefulWidget{
@@ -70,17 +71,15 @@ class SPClassMatchDetailPageState extends State<SPClassMatchDetailPage> with Tic
 
     if(widget.spProSportMatch!.spProMatchType=="篮球" ){
       spProTabTitles.add("直播");
-      views.add(Container());
-      // views.add(SPClassMatchLiveBasketballTeamPage(widget.spProSportMatch,callback: (value){
-      //   setState(() {
-      //     widget.spProSportMatch=value;
-      //   });
-      // },)
-      // );
+      views.add(SPClassMatchLiveBasketballTeamPage(widget.spProSportMatch!,callback: (value){
+        setState(() {
+          widget.spProSportMatch=value;
+        });
+      },)
+      );
       if(SPClassApplicaion.spProShowMenuList.contains("match_analyse")){
         spProTabTitles.add("数据");
-        views.add(Container());
-        // views.add(SPClassMatchAnylizePage({widget.spProMatchType:widget.spProSportMatch.spProGuessMatchId,},widget.spProSportMatch,1));
+        views.add(SPClassMatchAnylizePage({widget.spProMatchType:widget.spProSportMatch!.spProGuessMatchId!,},widget.spProSportMatch!,1));
       }
 
       if(SPClassApplicaion.spProShowMenuList.contains("match_odds")){

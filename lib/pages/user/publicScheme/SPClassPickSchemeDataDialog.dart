@@ -297,8 +297,8 @@ class SPClassPickSchemeDataDialogState extends State<SPClassPickSchemeDataDialog
                                 onTap: ()  {
                                   if((LeagueName.isNotEmpty&&spProGuessMatch!=null)){
                                     spProGuessMatch!.spProLeagueName=LeagueName;
-                                    widget.changed!(spProGuessMatch!);
                                     Navigator.of(context).pop();
+                                    widget.changed!(spProGuessMatch!);
                                   }else{
                                     SPClassToastUtils.spFunShowToast(msg: "请完善相关信息");
                                   }

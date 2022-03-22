@@ -494,14 +494,13 @@ class SPClassApiManager extends SPClassBaseApi{
     spFunGet<T>(url: SPORT_MATCH_DATA,jsonObject:dataKeys!.contains("guess_match")? new SPClassGuessMatchInfo(spProGuessMatchId: spProGuessMatchId):null,queryParameters:{"guess_match_id":spProGuessMatchId,"data_keys":dataKeys},spProCallBack: spProCallBack,isToast: true,spProIsLoading: loading,isBaseParams: true,context: context );
   }
 
-//   spFunPlayerStat<T>({SPClassHttpCallBack<T> spProCallBack,BuildContext context,String spProGuessMatchId}){
-//     spFunGet<T>(url: PLAYER_STAT,queryParameters:{"guess_match_id":spProGuessMatchId,},spProCallBack: spProCallBack,isToast: false,spProIsLoading: false,isBaseParams: true,context: context );
-//   }
-//
-//
-//   spFunTextLive<T>({SPClassHttpCallBack<T> spProCallBack,BuildContext context,String spProGuessMatchId,String refSeqNum}){
-//     spFunGet<T>(url: TEXT_LIVE,queryParameters:{"guess_match_id":spProGuessMatchId,"ref_seq_num":refSeqNum},spProCallBack: spProCallBack,isToast: false,spProIsLoading: false,isBaseParams: true,context: context,isTimeOut: true );
-//   }
+  spFunPlayerStat<T>({SPClassHttpCallBack<T> ?spProCallBack,BuildContext ?context,String ?spProGuessMatchId}){
+    spFunGet<T>(url: PLAYER_STAT,queryParameters:{"guess_match_id":spProGuessMatchId,},spProCallBack: spProCallBack,isToast: false,spProIsLoading: false,isBaseParams: true,context: context );
+  }
+
+  spFunTextLive<T>({SPClassHttpCallBack<T>? spProCallBack,BuildContext ?context,String ?spProGuessMatchId,String ?refSeqNum}){
+    spFunGet<T>(url: TEXT_LIVE,queryParameters:{"guess_match_id":spProGuessMatchId,"ref_seq_num":refSeqNum},spProCallBack: spProCallBack,isToast: false,spProIsLoading: false,isBaseParams: true,context: context,isTimeOut: true );
+  }
   spFunMatchEvent<T>({SPClassHttpCallBack<T>? spProCallBack,BuildContext? context,String? spProGuessMatchId,String? refSeqNum}){
     spFunGet<T>(jsonObject:SPClassMatchEventEntity(),url: MATCH_EVENT,queryParameters:{"guess_match_id":spProGuessMatchId,"ref_seq_num":refSeqNum},spProCallBack: spProCallBack,isToast: false,spProIsLoading: false,isBaseParams: true,context: context,isTimeOut: true );
   }

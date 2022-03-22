@@ -134,8 +134,9 @@ class SPClassHomeRangkingListState extends State<SPClassHomeRangkingList> with A
                       (widget.order_key=="max_red_num" )?//连红
                       "${expertItem.spProMaxRedNum}"+
                           "连红":
-                      (widget.order_key=="recent_correct_rate" )?//胜率
-                      (SPClassMatchDataUtils.spFunCalcBestCorrectRate(expertItem.spProLast10Result!)*100).toStringAsFixed(0)+
+                      (widget.order_key=="correct_rate" )?//胜率
+                      // (SPClassMatchDataUtils.spFunCalcBestCorrectRate(expertItem.spProLast10Result!)*100).toStringAsFixed(0)+
+                      (double.tryParse(expertItem.spProCorrectRate!)!*100).toStringAsFixed(0)+
                           "%": (double.tryParse(expertItem.spProRecentProfitSum!)!*100).toStringAsFixed(0)+
                           "%"
                         ,style: TextStyle(fontSize: sp(9),color: Colors.white,fontWeight: FontWeight.w500),maxLines: 1,),
@@ -169,7 +170,7 @@ class SPClassHomeRangkingListState extends State<SPClassHomeRangkingList> with A
      params= {"fetch_type":widget.order_key,"${widget.spProMatchType}":"1"};
 
    }else{
-     params= {"order_key":widget.order_key,"ranking_type":"近7天","${widget.spProMatchType}":"1"};
+     params= {"order_key":widget.order_key,"ranking_type":"近10场","${widget.spProMatchType}":"1"};
    }
     SPClassApiManager.spFunGetInstance().spFunExpertList(queryParameters:params,spProCallBack: SPClassHttpCallBack<SPClassExpertListEntity>(
         spProOnSuccess: (list){
