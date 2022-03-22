@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:changshengh5/app/SPClassApplicaion.dart';
-import 'package:changshengh5/utils/SPClassCommonMethods.dart';
-import 'package:changshengh5/utils/SPClassImageUtil.dart';
-import 'package:changshengh5/widgets/SPClassToolBar.dart';
+import 'package:changshengh5/app/CSClassApplicaion.dart';
+import 'package:changshengh5/utils/CSClassCommonMethods.dart';
+import 'package:changshengh5/utils/CSClassImageUtil.dart';
+import 'package:changshengh5/widgets/CSClassToolBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
 
@@ -34,7 +34,7 @@ class _ProductDetailState extends State<ProductDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:SPClassToolBar(
+      appBar:CSClassToolBar(
         context,
         title: '商品详情',
       ),
@@ -52,7 +52,7 @@ class _ProductDetailState extends State<ProductDetail> {
                 itemBuilder: (BuildContext context, int index) {
                   return ClipRRect(
                     child: Image.asset(
-                      SPClassImageUtil.spFunGetShopImagePath('${widget.data!['image']}-${index+1}'),
+                      CSClassImageUtil.csMethodGetShopImagePath('${widget.data!['image']}-${index+1}'),
                     ),
                   );
                 },
@@ -140,7 +140,7 @@ class _ProductDetailState extends State<ProductDetail> {
             GestureDetector(
               behavior: HitTestBehavior.translucent,
               onTap: () {
-                if(!spFunIsLogin(context: context)){
+                if(!csMethodIsLogin(context: context)){
                   return;
                 }
                 showModalBottomSheet(context: context, builder: (context){
@@ -160,7 +160,7 @@ class _ProductDetailState extends State<ProductDetail> {
                       child: SizedBox(),
                     ),
                     Image.asset(
-                      SPClassImageUtil.spFunGetShopImagePath("jiantou_right"),
+                      CSClassImageUtil.csMethodGetShopImagePath("jiantou_right"),
                       width: width(20),
                     )
                   ],
@@ -216,7 +216,7 @@ class _ProductDetailState extends State<ProductDetail> {
               children: <Widget>[
                 GestureDetector(
                   onTap: (){
-                    if(!spFunIsLogin(context: context)){
+                    if(!csMethodIsLogin(context: context)){
                       return;
                     }
                     Navigator.push(
@@ -225,7 +225,7 @@ class _ProductDetailState extends State<ProductDetail> {
                             builder: (context) => ShopCar()));
                   },
                   child: Image.asset(
-                    SPClassImageUtil.spFunGetShopImagePath('shop_car',),
+                    CSClassImageUtil.csMethodGetShopImagePath('shop_car',),
                     width: width(30),
                   ),
                 )
@@ -236,7 +236,7 @@ class _ProductDetailState extends State<ProductDetail> {
             flex: 1,
             child: GestureDetector(
               onTap: (){
-                if(!spFunIsLogin(context: context)){
+                if(!csMethodIsLogin(context: context)){
                   return;
                 }
                 showModalBottomSheet(context: context, builder: (context){
@@ -257,7 +257,7 @@ class _ProductDetailState extends State<ProductDetail> {
             flex: 1,
             child: GestureDetector(
               onTap: (){
-                if(!spFunIsLogin(context: context)){
+                if(!csMethodIsLogin(context: context)){
                   return;
                 }
                 showModalBottomSheet(context: context, builder: (context){
@@ -287,7 +287,7 @@ class _ProductDetailState extends State<ProductDetail> {
         margin: EdgeInsets.only(bottom: width(24)),
         width: MediaQuery.of(context).size.width,
         child: Image.asset(
-          SPClassImageUtil.spFunGetShopImagePath('${widget.data!['image']}-${i+3}'),
+          CSClassImageUtil.csMethodGetShopImagePath('${widget.data!['image']}-${i+3}'),
           fit: BoxFit.fitWidth,
         ),
       ));

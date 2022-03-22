@@ -1,4 +1,4 @@
-import 'package:changshengh5/utils/SPClassCommonMethods.dart';
+import 'package:changshengh5/utils/CSClassCommonMethods.dart';
 import 'package:changshengh5/utils/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -13,15 +13,15 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage>
     with TickerProviderStateMixin<HomePage> {
-  List spProTabMatchTitles = ['关注', '足球', '篮球', /*'AI分析'*/];
-  late TabController spProTabMatchController; //顶部导航栏
-  int spProTabMatchIndex = 1; //顶部栏的下标
+  List csProTabMatchTitles = ['关注', '足球', '篮球', /*'AI分析'*/];
+  late TabController csProTabMatchController; //顶部导航栏
+  int csProTabMatchIndex = 1; //顶部栏的下标
 
   @override
   void initState() {
-    spProTabMatchController = TabController(
-        length: spProTabMatchTitles.length, initialIndex: 1, vsync: this);
-    spProTabMatchController.addListener(() {
+    csProTabMatchController = TabController(
+        length: csProTabMatchTitles.length, initialIndex: 1, vsync: this);
+    csProTabMatchController.addListener(() {
       setState(() {
 
       });
@@ -69,14 +69,14 @@ class _HomePageState extends State<HomePage>
                       fontSize: sp(17),
                       fontWeight: FontWeight.w500,
                     ),
-                    controller: spProTabMatchController,
-                    tabs: spProTabMatchTitles.map((key) {
+                    controller: csProTabMatchController,
+                    tabs: csProTabMatchTitles.map((key) {
                       return Container(
                         width: width(65),
                         height: width(27),
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                          color:spProTabMatchController.index==spProTabMatchTitles.indexOf(key)?Colors.white: MyColors.main1,
+                          color:csProTabMatchController.index==csProTabMatchTitles.indexOf(key)?Colors.white: MyColors.main1,
                           borderRadius: BorderRadius.circular(width(150)),
                         ),
                         child: Text(key),
@@ -90,7 +90,7 @@ class _HomePageState extends State<HomePage>
             Expanded(
               child: TabBarView(
                 physics: NeverScrollableScrollPhysics(),
-                controller: spProTabMatchController,
+                controller: csProTabMatchController,
                 children: <Widget>[
                   FollowPage(),
                   HomeDetailPage(type: 0,),

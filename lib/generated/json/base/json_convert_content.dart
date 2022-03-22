@@ -104,20 +104,20 @@
 
 import 'package:changshengh5/generated/json/base/player_stat_list_entity_helper.dart';
 import 'package:changshengh5/generated/json/base/text_live_list_entity_helper.dart';
-import 'package:changshengh5/model/SPClassConfRewardEntity.dart';
-import 'package:changshengh5/model/SPClassLogInfoEntity.dart';
-import 'package:changshengh5/model/SPClassMatchEventEntity.dart';
-import 'package:changshengh5/model/SPClassMatchInjuryEntity.dart';
-import 'package:changshengh5/model/SPClassMatchIntelligenceEntity.dart';
-import 'package:changshengh5/model/SPClassMatchLineupEntity.dart';
-import 'package:changshengh5/model/SPClassMatchLineupPlayerEntity.dart';
-import 'package:changshengh5/model/SPClassMatchStatListEntity.dart';
-import 'package:changshengh5/model/SPClassMatchTrendEntity.dart';
-import 'package:changshengh5/model/SPClassMatchTrendRecentEntity.dart';
-import 'package:changshengh5/model/SPClassPlayerStatListEntity.dart';
-import 'package:changshengh5/model/SPClassTextLiveListEntity.dart';
+import 'package:changshengh5/model/CSClassConfRewardEntity.dart';
+import 'package:changshengh5/model/CSClassLogInfoEntity.dart';
+import 'package:changshengh5/model/CSClassMatchEventEntity.dart';
+import 'package:changshengh5/model/CSClassMatchInjuryEntity.dart';
+import 'package:changshengh5/model/CSClassMatchIntelligenceEntity.dart';
+import 'package:changshengh5/model/CSClassMatchLineupEntity.dart';
+import 'package:changshengh5/model/CSClassMatchLineupPlayerEntity.dart';
+import 'package:changshengh5/model/CSClassMatchStatListEntity.dart';
+import 'package:changshengh5/model/CSClassMatchTrendEntity.dart';
+import 'package:changshengh5/model/CSClassMatchTrendRecentEntity.dart';
+import 'package:changshengh5/model/CSClassPlayerStatListEntity.dart';
+import 'package:changshengh5/model/CSClassTextLiveListEntity.dart';
 
-import 'SPClassConfRewardEntityHelper.dart';
+import 'CSClassConfRewardEntityHelper.dart';
 import 'log_info_entity_helper.dart';
 import 'match_event_entity_helper.dart';
 import 'match_injury_entity_helper.dart';
@@ -138,171 +138,171 @@ class JsonConvert<T> {
   }
 
   static _getFromJson<T>(Type type, data, json) {
-    switch (type) {					case SPClassMatchTrendRecentEntity:
-      return matchTrendRecentEntityFromJson(data as SPClassMatchTrendRecentEntity, json) as T;			case SPClassMatchTrendRecentMatchTrendRecent:
-      return matchTrendRecentMatchTrendRecentFromJson(data as SPClassMatchTrendRecentMatchTrendRecent, json) as T;			case SPClassMatchTrendRecentMatchTrendRecentItem:
-      return matchTrendRecentMatchTrendRecentItemFromJson(data as SPClassMatchTrendRecentMatchTrendRecentItem, json) as T;			case SPClassMatchTrendEntity:
-      return matchTrendEntityFromJson(data as SPClassMatchTrendEntity, json) as T;			case SPClassMatchTrendMatchTrend:
-      return matchTrendMatchTrendFromJson(data as SPClassMatchTrendMatchTrend, json) as T;			case SPClassMatchTrendMatchTrendLoad:
-      return matchTrendMatchTrendLoadFromJson(data as SPClassMatchTrendMatchTrendLoad, json) as T;			case SPClassMatchTrendMatchTrendItem:
-      return matchTrendMatchTrendItemFromJson(data as SPClassMatchTrendMatchTrendItem, json) as T;			case SPClassMatchEventEntity:
-      return matchEventEntityFromJson(data as SPClassMatchEventEntity, json) as T;			case SPClassMatchEventMatchEventItem:
-      return matchEventMatchEventItemFromJson(data as SPClassMatchEventMatchEventItem, json) as T;			case SPClassMatchInjuryEntity:
-      return matchInjuryEntityFromJson(data as SPClassMatchInjuryEntity, json) as T;			case SPClassMatchInjuryMatchInjury:
-      return matchInjuryMatchInjuryFromJson(data as SPClassMatchInjuryMatchInjury, json) as T;			case SPClassMatchInjuryMatchInjuryItem:
-      return matchInjuryMatchInjuryItemFromJson(data as SPClassMatchInjuryMatchInjuryItem, json) as T;			case SPClassMatchLineupEntity:
-      return matchLineupEntityFromJson(data as SPClassMatchLineupEntity, json) as T;			case SPClassMatchLineupMatchLineup:
-      return matchLineupMatchLineupFromJson(data as SPClassMatchLineupMatchLineup, json) as T;						case SPClassMatchStatListEntity:
-      return matchStatListEntityFromJson(data as SPClassMatchStatListEntity, json) as T;			case SPClassMatchStatListMatchStat:
-      return matchStatListMatchStatFromJson(data as SPClassMatchStatListMatchStat, json) as T;			case SPClassMatchIntelligenceEntity:
-      return matchIntelligenceEntityFromJson(data as SPClassMatchIntelligenceEntity, json) as T;			case SPClassMatchIntelligenceMatchIntelligence:
-      return matchIntelligenceMatchIntelligenceFromJson(data as SPClassMatchIntelligenceMatchIntelligence, json) as T;			case SPClassMatchIntelligenceMatchIntelligenceItem:
-      return matchIntelligenceMatchIntelligenceItemFromJson(data as SPClassMatchIntelligenceMatchIntelligenceItem, json) as T;						case SPClassMatchLineupPlayerEntity:
-      return matchLineupPlayerEntityFromJson(data as SPClassMatchLineupPlayerEntity, json) as T;			case SPClassMatchLineupPlayerMatchLineupPlayer:
-      return matchLineupPlayerMatchLineupPlayerFromJson(data as SPClassMatchLineupPlayerMatchLineupPlayer, json) as T;			case SPClassMatchLineupPlayerMatchLineupPlayerItem:
-      return matchLineupPlayerMatchLineupPlayerItemFromJson(data as SPClassMatchLineupPlayerMatchLineupPlayerItem, json) as T;						case SPClassLogInfoEntity:
-      return logInfoEntityFromJson(data as SPClassLogInfoEntity, json) as T;			case SPClassPlayerStatListEntity:
-      return playerStatListEntityFromJson(data as SPClassPlayerStatListEntity, json) as T;			case SPClassPlayerStatListPlayerStatList:
-      return playerStatListPlayerStatListFromJson(data as SPClassPlayerStatListPlayerStatList, json) as T;			case SPClassPlayerStatListPlayerStatListItem:
-      return playerStatListPlayerStatListItemFromJson(data as SPClassPlayerStatListPlayerStatListItem, json) as T;			case SPClassPlayerStatListBestPlayerList:
-      return playerStatListBestPlayerListFromJson(data as SPClassPlayerStatListBestPlayerList, json) as T;			case SPClassPlayerStatListBestPlayerListItem:
-      return playerStatListBestPlayerListItemFromJson(data as SPClassPlayerStatListBestPlayerListItem, json) as T;			case SPClassPlayerStatListBestPlayerListScore:
-      return playerStatListBestPlayerListScoreFromJson(data as SPClassPlayerStatListBestPlayerListScore, json) as T;			case SPClassPlayerStatListBestPlayerListRebound:
-      return playerStatListBestPlayerListReboundFromJson(data as SPClassPlayerStatListBestPlayerListRebound, json) as T;			case SPClassPlayerStatListBestPlayerListAssist:
-      return playerStatListBestPlayerListAssistFromJson(data as SPClassPlayerStatListBestPlayerListAssist, json) as T;			case PlayerStatListSum:
+    switch (type) {					case CSClassMatchTrendRecentEntity:
+      return matchTrendRecentEntityFromJson(data as CSClassMatchTrendRecentEntity, json) as T;			case CSClassMatchTrendRecentMatchTrendRecent:
+      return matchTrendRecentMatchTrendRecentFromJson(data as CSClassMatchTrendRecentMatchTrendRecent, json) as T;			case CSClassMatchTrendRecentMatchTrendRecentItem:
+      return matchTrendRecentMatchTrendRecentItemFromJson(data as CSClassMatchTrendRecentMatchTrendRecentItem, json) as T;			case CSClassMatchTrendEntity:
+      return matchTrendEntityFromJson(data as CSClassMatchTrendEntity, json) as T;			case CSClassMatchTrendMatchTrend:
+      return matchTrendMatchTrendFromJson(data as CSClassMatchTrendMatchTrend, json) as T;			case CSClassMatchTrendMatchTrendLoad:
+      return matchTrendMatchTrendLoadFromJson(data as CSClassMatchTrendMatchTrendLoad, json) as T;			case CSClassMatchTrendMatchTrendItem:
+      return matchTrendMatchTrendItemFromJson(data as CSClassMatchTrendMatchTrendItem, json) as T;			case CSClassMatchEventEntity:
+      return matchEventEntityFromJson(data as CSClassMatchEventEntity, json) as T;			case CSClassMatchEventMatchEventItem:
+      return matchEventMatchEventItemFromJson(data as CSClassMatchEventMatchEventItem, json) as T;			case CSClassMatchInjuryEntity:
+      return matchInjuryEntityFromJson(data as CSClassMatchInjuryEntity, json) as T;			case CSClassMatchInjuryMatchInjury:
+      return matchInjuryMatchInjuryFromJson(data as CSClassMatchInjuryMatchInjury, json) as T;			case CSClassMatchInjuryMatchInjuryItem:
+      return matchInjuryMatchInjuryItemFromJson(data as CSClassMatchInjuryMatchInjuryItem, json) as T;			case CSClassMatchLineupEntity:
+      return matchLineupEntityFromJson(data as CSClassMatchLineupEntity, json) as T;			case CSClassMatchLineupMatchLineup:
+      return matchLineupMatchLineupFromJson(data as CSClassMatchLineupMatchLineup, json) as T;						case CSClassMatchStatListEntity:
+      return matchStatListEntityFromJson(data as CSClassMatchStatListEntity, json) as T;			case CSClassMatchStatListMatchStat:
+      return matchStatListMatchStatFromJson(data as CSClassMatchStatListMatchStat, json) as T;			case CSClassMatchIntelligenceEntity:
+      return matchIntelligenceEntityFromJson(data as CSClassMatchIntelligenceEntity, json) as T;			case CSClassMatchIntelligenceMatchIntelligence:
+      return matchIntelligenceMatchIntelligenceFromJson(data as CSClassMatchIntelligenceMatchIntelligence, json) as T;			case CSClassMatchIntelligenceMatchIntelligenceItem:
+      return matchIntelligenceMatchIntelligenceItemFromJson(data as CSClassMatchIntelligenceMatchIntelligenceItem, json) as T;						case CSClassMatchLineupPlayerEntity:
+      return matchLineupPlayerEntityFromJson(data as CSClassMatchLineupPlayerEntity, json) as T;			case CSClassMatchLineupPlayerMatchLineupPlayer:
+      return matchLineupPlayerMatchLineupPlayerFromJson(data as CSClassMatchLineupPlayerMatchLineupPlayer, json) as T;			case CSClassMatchLineupPlayerMatchLineupPlayerItem:
+      return matchLineupPlayerMatchLineupPlayerItemFromJson(data as CSClassMatchLineupPlayerMatchLineupPlayerItem, json) as T;						case CSClassLogInfoEntity:
+      return logInfoEntityFromJson(data as CSClassLogInfoEntity, json) as T;			case CSClassPlayerStatListEntity:
+      return playerStatListEntityFromJson(data as CSClassPlayerStatListEntity, json) as T;			case CSClassPlayerStatListPlayerStatList:
+      return playerStatListPlayerStatListFromJson(data as CSClassPlayerStatListPlayerStatList, json) as T;			case CSClassPlayerStatListPlayerStatListItem:
+      return playerStatListPlayerStatListItemFromJson(data as CSClassPlayerStatListPlayerStatListItem, json) as T;			case CSClassPlayerStatListBestPlayerList:
+      return playerStatListBestPlayerListFromJson(data as CSClassPlayerStatListBestPlayerList, json) as T;			case CSClassPlayerStatListBestPlayerListItem:
+      return playerStatListBestPlayerListItemFromJson(data as CSClassPlayerStatListBestPlayerListItem, json) as T;			case CSClassPlayerStatListBestPlayerListScore:
+      return playerStatListBestPlayerListScoreFromJson(data as CSClassPlayerStatListBestPlayerListScore, json) as T;			case CSClassPlayerStatListBestPlayerListRebound:
+      return playerStatListBestPlayerListReboundFromJson(data as CSClassPlayerStatListBestPlayerListRebound, json) as T;			case CSClassPlayerStatListBestPlayerListAssist:
+      return playerStatListBestPlayerListAssistFromJson(data as CSClassPlayerStatListBestPlayerListAssist, json) as T;			case PlayerStatListSum:
       return playerStatListSumFromJson(data as PlayerStatListSum, json) as T;			case PlayerStatListSumItem:
-      return playerStatListSumItemFromJson(data as PlayerStatListSumItem, json) as T;									case SPClassConfRewardEntity:
-      return spFunConfRewardEntityFromJson(data as SPClassConfRewardEntity, json) as T;			case SPClassTextLiveListEntity:
-      return textLiveListEntityFromJson(data as SPClassTextLiveListEntity, json) as T;			case SPClassTextLiveListTextLiveList:
-      return textLiveListTextLiveListFromJson(data as SPClassTextLiveListTextLiveList, json) as T;			case SPClassTextLiveListGuessMatch:
-      return textLiveListGuessMatchFromJson(data as SPClassTextLiveListGuessMatch, json) as T;			    }
+      return playerStatListSumItemFromJson(data as PlayerStatListSumItem, json) as T;									case CSClassConfRewardEntity:
+      return csMethodConfRewardEntityFromJson(data as CSClassConfRewardEntity, json) as T;			case CSClassTextLiveListEntity:
+      return textLiveListEntityFromJson(data as CSClassTextLiveListEntity, json) as T;			case CSClassTextLiveListTextLiveList:
+      return textLiveListTextLiveListFromJson(data as CSClassTextLiveListTextLiveList, json) as T;			case CSClassTextLiveListGuessMatch:
+      return textLiveListGuessMatchFromJson(data as CSClassTextLiveListGuessMatch, json) as T;			    }
     return data as T;
   }
 
   static _getToJson<T>(Type type, data) {
-    switch (type) {				case SPClassMatchTrendRecentEntity:
-      return matchTrendRecentEntityToJson(data as SPClassMatchTrendRecentEntity);			case SPClassMatchTrendRecentMatchTrendRecent:
-      return matchTrendRecentMatchTrendRecentToJson(data as SPClassMatchTrendRecentMatchTrendRecent);			case SPClassMatchTrendRecentMatchTrendRecentItem:
-      return matchTrendRecentMatchTrendRecentItemToJson(data as SPClassMatchTrendRecentMatchTrendRecentItem);			case SPClassMatchTrendEntity:
-      return matchTrendEntityToJson(data as SPClassMatchTrendEntity);			case SPClassMatchTrendMatchTrend:
-      return matchTrendMatchTrendToJson(data as SPClassMatchTrendMatchTrend);			case SPClassMatchTrendMatchTrendLoad:
-      return matchTrendMatchTrendLoadToJson(data as SPClassMatchTrendMatchTrendLoad);			case SPClassMatchTrendMatchTrendItem:
-      return matchTrendMatchTrendItemToJson(data as SPClassMatchTrendMatchTrendItem);			case SPClassMatchEventEntity:
-      return matchEventEntityToJson(data as SPClassMatchEventEntity);			case SPClassMatchEventMatchEventItem:
-      return matchEventMatchEventItemToJson(data as SPClassMatchEventMatchEventItem);			case SPClassMatchInjuryEntity:
-      return matchInjuryEntityToJson(data as SPClassMatchInjuryEntity);			case SPClassMatchInjuryMatchInjury:
-      return matchInjuryMatchInjuryToJson(data as SPClassMatchInjuryMatchInjury);			case SPClassMatchInjuryMatchInjuryItem:
-      return matchInjuryMatchInjuryItemToJson(data as SPClassMatchInjuryMatchInjuryItem);			case SPClassMatchLineupEntity:
-      return matchLineupEntityToJson(data as SPClassMatchLineupEntity);			case SPClassMatchLineupMatchLineup:
-      return matchLineupMatchLineupToJson(data as SPClassMatchLineupMatchLineup);				case SPClassMatchStatListEntity:
-      return matchStatListEntityToJson(data as SPClassMatchStatListEntity);			case SPClassMatchStatListMatchStat:
-      return matchStatListMatchStatToJson(data as SPClassMatchStatListMatchStat);			case SPClassMatchIntelligenceEntity:
-      return matchIntelligenceEntityToJson(data as SPClassMatchIntelligenceEntity);			case SPClassMatchIntelligenceMatchIntelligence:
-      return matchIntelligenceMatchIntelligenceToJson(data as SPClassMatchIntelligenceMatchIntelligence);			case SPClassMatchIntelligenceMatchIntelligenceItem:
-      return matchIntelligenceMatchIntelligenceItemToJson(data as SPClassMatchIntelligenceMatchIntelligenceItem);						case SPClassMatchLineupPlayerEntity:
-      return matchLineupPlayerEntityToJson(data as SPClassMatchLineupPlayerEntity);			case SPClassMatchLineupPlayerMatchLineupPlayer:
-      return matchLineupPlayerMatchLineupPlayerToJson(data as SPClassMatchLineupPlayerMatchLineupPlayer);			case SPClassMatchLineupPlayerMatchLineupPlayerItem:
-      return matchLineupPlayerMatchLineupPlayerItemToJson(data as SPClassMatchLineupPlayerMatchLineupPlayerItem);						case SPClassLogInfoEntity:
-      return logInfoEntityToJson(data as SPClassLogInfoEntity);			case SPClassPlayerStatListEntity:
-      return playerStatListEntityToJson(data as SPClassPlayerStatListEntity);			case SPClassPlayerStatListPlayerStatList:
-      return playerStatListPlayerStatListToJson(data as SPClassPlayerStatListPlayerStatList);			case SPClassPlayerStatListPlayerStatListItem:
-      return playerStatListPlayerStatListItemToJson(data as SPClassPlayerStatListPlayerStatListItem);			case SPClassPlayerStatListBestPlayerList:
-      return playerStatListBestPlayerListToJson(data as SPClassPlayerStatListBestPlayerList);			case SPClassPlayerStatListBestPlayerListItem:
-      return playerStatListBestPlayerListItemToJson(data as SPClassPlayerStatListBestPlayerListItem);			case SPClassPlayerStatListBestPlayerListScore:
-      return playerStatListBestPlayerListScoreToJson(data as SPClassPlayerStatListBestPlayerListScore);			case SPClassPlayerStatListBestPlayerListRebound:
-      return playerStatListBestPlayerListReboundToJson(data as SPClassPlayerStatListBestPlayerListRebound);			case SPClassPlayerStatListBestPlayerListAssist:
-      return playerStatListBestPlayerListAssistToJson(data as SPClassPlayerStatListBestPlayerListAssist);			case PlayerStatListSum:
+    switch (type) {				case CSClassMatchTrendRecentEntity:
+      return matchTrendRecentEntityToJson(data as CSClassMatchTrendRecentEntity);			case CSClassMatchTrendRecentMatchTrendRecent:
+      return matchTrendRecentMatchTrendRecentToJson(data as CSClassMatchTrendRecentMatchTrendRecent);			case CSClassMatchTrendRecentMatchTrendRecentItem:
+      return matchTrendRecentMatchTrendRecentItemToJson(data as CSClassMatchTrendRecentMatchTrendRecentItem);			case CSClassMatchTrendEntity:
+      return matchTrendEntityToJson(data as CSClassMatchTrendEntity);			case CSClassMatchTrendMatchTrend:
+      return matchTrendMatchTrendToJson(data as CSClassMatchTrendMatchTrend);			case CSClassMatchTrendMatchTrendLoad:
+      return matchTrendMatchTrendLoadToJson(data as CSClassMatchTrendMatchTrendLoad);			case CSClassMatchTrendMatchTrendItem:
+      return matchTrendMatchTrendItemToJson(data as CSClassMatchTrendMatchTrendItem);			case CSClassMatchEventEntity:
+      return matchEventEntityToJson(data as CSClassMatchEventEntity);			case CSClassMatchEventMatchEventItem:
+      return matchEventMatchEventItemToJson(data as CSClassMatchEventMatchEventItem);			case CSClassMatchInjuryEntity:
+      return matchInjuryEntityToJson(data as CSClassMatchInjuryEntity);			case CSClassMatchInjuryMatchInjury:
+      return matchInjuryMatchInjuryToJson(data as CSClassMatchInjuryMatchInjury);			case CSClassMatchInjuryMatchInjuryItem:
+      return matchInjuryMatchInjuryItemToJson(data as CSClassMatchInjuryMatchInjuryItem);			case CSClassMatchLineupEntity:
+      return matchLineupEntityToJson(data as CSClassMatchLineupEntity);			case CSClassMatchLineupMatchLineup:
+      return matchLineupMatchLineupToJson(data as CSClassMatchLineupMatchLineup);				case CSClassMatchStatListEntity:
+      return matchStatListEntityToJson(data as CSClassMatchStatListEntity);			case CSClassMatchStatListMatchStat:
+      return matchStatListMatchStatToJson(data as CSClassMatchStatListMatchStat);			case CSClassMatchIntelligenceEntity:
+      return matchIntelligenceEntityToJson(data as CSClassMatchIntelligenceEntity);			case CSClassMatchIntelligenceMatchIntelligence:
+      return matchIntelligenceMatchIntelligenceToJson(data as CSClassMatchIntelligenceMatchIntelligence);			case CSClassMatchIntelligenceMatchIntelligenceItem:
+      return matchIntelligenceMatchIntelligenceItemToJson(data as CSClassMatchIntelligenceMatchIntelligenceItem);						case CSClassMatchLineupPlayerEntity:
+      return matchLineupPlayerEntityToJson(data as CSClassMatchLineupPlayerEntity);			case CSClassMatchLineupPlayerMatchLineupPlayer:
+      return matchLineupPlayerMatchLineupPlayerToJson(data as CSClassMatchLineupPlayerMatchLineupPlayer);			case CSClassMatchLineupPlayerMatchLineupPlayerItem:
+      return matchLineupPlayerMatchLineupPlayerItemToJson(data as CSClassMatchLineupPlayerMatchLineupPlayerItem);						case CSClassLogInfoEntity:
+      return logInfoEntityToJson(data as CSClassLogInfoEntity);			case CSClassPlayerStatListEntity:
+      return playerStatListEntityToJson(data as CSClassPlayerStatListEntity);			case CSClassPlayerStatListPlayerStatList:
+      return playerStatListPlayerStatListToJson(data as CSClassPlayerStatListPlayerStatList);			case CSClassPlayerStatListPlayerStatListItem:
+      return playerStatListPlayerStatListItemToJson(data as CSClassPlayerStatListPlayerStatListItem);			case CSClassPlayerStatListBestPlayerList:
+      return playerStatListBestPlayerListToJson(data as CSClassPlayerStatListBestPlayerList);			case CSClassPlayerStatListBestPlayerListItem:
+      return playerStatListBestPlayerListItemToJson(data as CSClassPlayerStatListBestPlayerListItem);			case CSClassPlayerStatListBestPlayerListScore:
+      return playerStatListBestPlayerListScoreToJson(data as CSClassPlayerStatListBestPlayerListScore);			case CSClassPlayerStatListBestPlayerListRebound:
+      return playerStatListBestPlayerListReboundToJson(data as CSClassPlayerStatListBestPlayerListRebound);			case CSClassPlayerStatListBestPlayerListAssist:
+      return playerStatListBestPlayerListAssistToJson(data as CSClassPlayerStatListBestPlayerListAssist);			case PlayerStatListSum:
       return playerStatListSumToJson(data as PlayerStatListSum);			case PlayerStatListSumItem:
-      return playerStatListSumItemToJson(data as PlayerStatListSumItem);						case SPClassConfRewardEntity:
-      return confRewardEntityToJson(data as SPClassConfRewardEntity);			case SPClassTextLiveListEntity:
-      return textLiveListEntityToJson(data as SPClassTextLiveListEntity);			case SPClassTextLiveListTextLiveList:
-      return textLiveListTextLiveListToJson(data as SPClassTextLiveListTextLiveList);			case SPClassTextLiveListGuessMatch:
-      return textLiveListGuessMatchToJson(data as SPClassTextLiveListGuessMatch);			    }
+      return playerStatListSumItemToJson(data as PlayerStatListSumItem);						case CSClassConfRewardEntity:
+      return confRewardEntityToJson(data as CSClassConfRewardEntity);			case CSClassTextLiveListEntity:
+      return textLiveListEntityToJson(data as CSClassTextLiveListEntity);			case CSClassTextLiveListTextLiveList:
+      return textLiveListTextLiveListToJson(data as CSClassTextLiveListTextLiveList);			case CSClassTextLiveListGuessMatch:
+      return textLiveListGuessMatchToJson(data as CSClassTextLiveListGuessMatch);			    }
     return data as T;
   }
   //Go back to a single instance by type
   static _fromJsonSingle(String type, json) {
-    switch (type) {						case 'SPClassMatchTrendRecentEntity':
-      return SPClassMatchTrendRecentEntity().fromJson(json);			case 'SPClassMatchTrendRecentMatchTrendRecent':
-      return SPClassMatchTrendRecentMatchTrendRecent().fromJson(json);			case 'SPClassMatchTrendRecentMatchTrendRecentItem':
-      return SPClassMatchTrendRecentMatchTrendRecentItem().fromJson(json);			case 'SPClassMatchTrendEntity':
-      return SPClassMatchTrendEntity().fromJson(json);			case 'SPClassMatchTrendMatchTrend':
-      return SPClassMatchTrendMatchTrend().fromJson(json);			case 'SPClassMatchTrendMatchTrendLoad':
-      return SPClassMatchTrendMatchTrendLoad().fromJson(json);			case 'SPClassMatchTrendMatchTrendItem':
-      return SPClassMatchTrendMatchTrendItem().fromJson(json);			case 'SPClassMatchEventEntity':
-      return SPClassMatchEventEntity().fromJson(json);			case 'SPClassMatchEventMatchEventItem':
-      return SPClassMatchEventMatchEventItem().fromJson(json);			case 'SPClassMatchInjuryEntity':
-      return SPClassMatchInjuryEntity().fromJson(json);			case 'SPClassMatchInjuryMatchInjury':
-      return SPClassMatchInjuryMatchInjury().fromJson(json);			case 'SPClassMatchInjuryMatchInjuryItem':
-      return SPClassMatchInjuryMatchInjuryItem().fromJson(json);			case 'SPClassMatchLineupEntity':
-      return SPClassMatchLineupEntity().fromJson(json);			case 'SPClassMatchLineupMatchLineup':
-      return SPClassMatchLineupMatchLineup().fromJson(json);						case 'SPClassMatchStatListEntity':
-      return SPClassMatchStatListEntity().fromJson(json);			case 'SPClassMatchStatListMatchStat':
-      return SPClassMatchStatListMatchStat().fromJson(json);			case 'SPClassMatchIntelligenceEntity':
-      return SPClassMatchIntelligenceEntity().fromJson(json);			case 'SPClassMatchIntelligenceMatchIntelligence':
-      return SPClassMatchIntelligenceMatchIntelligence().fromJson(json);			case 'SPClassMatchIntelligenceMatchIntelligenceItem':
-      return SPClassMatchIntelligenceMatchIntelligenceItem().fromJson(json);						case 'SPClassMatchLineupPlayerEntity':
-      return SPClassMatchLineupPlayerEntity().fromJson(json);			case 'SPClassMatchLineupPlayerMatchLineupPlayer':
-      return SPClassMatchLineupPlayerMatchLineupPlayer().fromJson(json);			case 'SPClassMatchLineupPlayerMatchLineupPlayerItem':
-      return SPClassMatchLineupPlayerMatchLineupPlayerItem().fromJson(json);						case 'SPClassLogInfoEntity':
-      return SPClassLogInfoEntity().fromJson(json);			case 'SPClassPlayerStatListEntity':
-      return SPClassPlayerStatListEntity().fromJson(json);			case 'SPClassPlayerStatListPlayerStatList':
-      return SPClassPlayerStatListPlayerStatList().fromJson(json);			case 'SPClassPlayerStatListPlayerStatListItem':
-      return SPClassPlayerStatListPlayerStatListItem().fromJson(json);			case 'SPClassPlayerStatListBestPlayerList':
-      return SPClassPlayerStatListBestPlayerList().fromJson(json);			case 'SPClassPlayerStatListBestPlayerListItem':
-      return SPClassPlayerStatListBestPlayerListItem().fromJson(json);			case 'SPClassPlayerStatListBestPlayerListScore':
-      return SPClassPlayerStatListBestPlayerListScore().fromJson(json);			case 'SPClassPlayerStatListBestPlayerListRebound':
-      return SPClassPlayerStatListBestPlayerListRebound().fromJson(json);			case 'SPClassPlayerStatListBestPlayerListAssist':
-      return SPClassPlayerStatListBestPlayerListAssist().fromJson(json);			case 'SPClassPlayerStatListSum':
-      return PlayerStatListSum().fromJson(json);			case 'SPClassPlayerStatListSumItem':
-      return PlayerStatListSumItem().fromJson(json);							case 'SPClassConfRewardEntity':
-      return SPClassConfRewardEntity().fromJson(json);			case 'SPClassTextLiveListEntity':
-      return SPClassTextLiveListEntity().fromJson(json);			case 'SPClassTextLiveListTextLiveList':
-      return SPClassTextLiveListTextLiveList().fromJson(json);			case 'SPClassTextLiveListGuessMatch':
-      return SPClassTextLiveListGuessMatch().fromJson(json);			    }
+    switch (type) {						case 'CSClassMatchTrendRecentEntity':
+      return CSClassMatchTrendRecentEntity().fromJson(json);			case 'CSClassMatchTrendRecentMatchTrendRecent':
+      return CSClassMatchTrendRecentMatchTrendRecent().fromJson(json);			case 'CSClassMatchTrendRecentMatchTrendRecentItem':
+      return CSClassMatchTrendRecentMatchTrendRecentItem().fromJson(json);			case 'CSClassMatchTrendEntity':
+      return CSClassMatchTrendEntity().fromJson(json);			case 'CSClassMatchTrendMatchTrend':
+      return CSClassMatchTrendMatchTrend().fromJson(json);			case 'CSClassMatchTrendMatchTrendLoad':
+      return CSClassMatchTrendMatchTrendLoad().fromJson(json);			case 'CSClassMatchTrendMatchTrendItem':
+      return CSClassMatchTrendMatchTrendItem().fromJson(json);			case 'CSClassMatchEventEntity':
+      return CSClassMatchEventEntity().fromJson(json);			case 'CSClassMatchEventMatchEventItem':
+      return CSClassMatchEventMatchEventItem().fromJson(json);			case 'CSClassMatchInjuryEntity':
+      return CSClassMatchInjuryEntity().fromJson(json);			case 'CSClassMatchInjuryMatchInjury':
+      return CSClassMatchInjuryMatchInjury().fromJson(json);			case 'CSClassMatchInjuryMatchInjuryItem':
+      return CSClassMatchInjuryMatchInjuryItem().fromJson(json);			case 'CSClassMatchLineupEntity':
+      return CSClassMatchLineupEntity().fromJson(json);			case 'CSClassMatchLineupMatchLineup':
+      return CSClassMatchLineupMatchLineup().fromJson(json);						case 'CSClassMatchStatListEntity':
+      return CSClassMatchStatListEntity().fromJson(json);			case 'CSClassMatchStatListMatchStat':
+      return CSClassMatchStatListMatchStat().fromJson(json);			case 'CSClassMatchIntelligenceEntity':
+      return CSClassMatchIntelligenceEntity().fromJson(json);			case 'CSClassMatchIntelligenceMatchIntelligence':
+      return CSClassMatchIntelligenceMatchIntelligence().fromJson(json);			case 'CSClassMatchIntelligenceMatchIntelligenceItem':
+      return CSClassMatchIntelligenceMatchIntelligenceItem().fromJson(json);						case 'CSClassMatchLineupPlayerEntity':
+      return CSClassMatchLineupPlayerEntity().fromJson(json);			case 'CSClassMatchLineupPlayerMatchLineupPlayer':
+      return CSClassMatchLineupPlayerMatchLineupPlayer().fromJson(json);			case 'CSClassMatchLineupPlayerMatchLineupPlayerItem':
+      return CSClassMatchLineupPlayerMatchLineupPlayerItem().fromJson(json);						case 'CSClassLogInfoEntity':
+      return CSClassLogInfoEntity().fromJson(json);			case 'CSClassPlayerStatListEntity':
+      return CSClassPlayerStatListEntity().fromJson(json);			case 'CSClassPlayerStatListPlayerStatList':
+      return CSClassPlayerStatListPlayerStatList().fromJson(json);			case 'CSClassPlayerStatListPlayerStatListItem':
+      return CSClassPlayerStatListPlayerStatListItem().fromJson(json);			case 'CSClassPlayerStatListBestPlayerList':
+      return CSClassPlayerStatListBestPlayerList().fromJson(json);			case 'CSClassPlayerStatListBestPlayerListItem':
+      return CSClassPlayerStatListBestPlayerListItem().fromJson(json);			case 'CSClassPlayerStatListBestPlayerListScore':
+      return CSClassPlayerStatListBestPlayerListScore().fromJson(json);			case 'CSClassPlayerStatListBestPlayerListRebound':
+      return CSClassPlayerStatListBestPlayerListRebound().fromJson(json);			case 'CSClassPlayerStatListBestPlayerListAssist':
+      return CSClassPlayerStatListBestPlayerListAssist().fromJson(json);			case 'CSClassPlayerStatListSum':
+      return PlayerStatListSum().fromJson(json);			case 'CSClassPlayerStatListSumItem':
+      return PlayerStatListSumItem().fromJson(json);							case 'CSClassConfRewardEntity':
+      return CSClassConfRewardEntity().fromJson(json);			case 'CSClassTextLiveListEntity':
+      return CSClassTextLiveListEntity().fromJson(json);			case 'CSClassTextLiveListTextLiveList':
+      return CSClassTextLiveListTextLiveList().fromJson(json);			case 'CSClassTextLiveListGuessMatch':
+      return CSClassTextLiveListGuessMatch().fromJson(json);			    }
     return null;
   }
 
   //empty list is returned by type
   static _getListFromType(String type) {
-    switch (type) {			case 'SPClassMatchTrendRecentEntity':
-      return <SPClassMatchTrendRecentEntity>[];			case 'SPClassMatchTrendRecentMatchTrendRecent':
-      return <SPClassMatchTrendRecentMatchTrendRecent>[];			case 'SPClassMatchTrendRecentMatchTrendRecentItem':
-      return <SPClassMatchTrendRecentMatchTrendRecentItem>[];			case 'SPClassMatchTrendEntity':
-      return <SPClassMatchTrendEntity>[];			case 'SPClassMatchTrendMatchTrend':
-      return <SPClassMatchTrendMatchTrend>[];			case 'SPClassMatchTrendMatchTrendLoad':
-      return <SPClassMatchTrendMatchTrendLoad>[];			case 'SPClassMatchTrendMatchTrendItem':
-      return <SPClassMatchTrendMatchTrendItem>[];			case 'SPClassMatchEventEntity':
-      return <SPClassMatchEventEntity>[];			case 'SPClassMatchEventMatchEventItem':
-      return <SPClassMatchEventMatchEventItem>[];			case 'SPClassMatchInjuryEntity':
-      return <SPClassMatchInjuryEntity>[];			case 'SPClassMatchInjuryMatchInjury':
-      return <SPClassMatchInjuryMatchInjury>[];			case 'SPClassMatchInjuryMatchInjuryItem':
-      return <SPClassMatchInjuryMatchInjuryItem>[];			case 'SPClassMatchLineupEntity':
-      return <SPClassMatchLineupEntity>[];			case 'SPClassMatchLineupMatchLineup':
-      return <SPClassMatchLineupMatchLineup>[];					case 'SPClassMatchStatListEntity':
-      return <SPClassMatchStatListEntity>[];			case 'SPClassMatchStatListMatchStat':
-      return <SPClassMatchStatListMatchStat>[];			case 'SPClassMatchIntelligenceEntity':
-      return <SPClassMatchIntelligenceEntity>[];			case 'SPClassMatchIntelligenceMatchIntelligence':
-      return <SPClassMatchIntelligenceMatchIntelligence>[];			case 'SPClassMatchIntelligenceMatchIntelligenceItem':
-      return <SPClassMatchIntelligenceMatchIntelligenceItem>[];						case 'SPClassMatchLineupPlayerEntity':
-      return <SPClassMatchLineupPlayerEntity>[];			case 'SPClassMatchLineupPlayerMatchLineupPlayer':
-      return <SPClassMatchLineupPlayerMatchLineupPlayer>[];			case 'SPClassMatchLineupPlayerMatchLineupPlayerItem':
-      return <SPClassMatchLineupPlayerMatchLineupPlayerItem>[];						case 'SPClassLogInfoEntity':
-      return <SPClassLogInfoEntity>[];			case 'SPClassPlayerStatListEntity':
-      return <SPClassPlayerStatListEntity>[];			case 'SPClassPlayerStatListPlayerStatList':
-      return <SPClassPlayerStatListPlayerStatList>[];			case 'SPClassPlayerStatListPlayerStatListItem':
-      return <SPClassPlayerStatListPlayerStatListItem>[];			case 'SPClassPlayerStatListBestPlayerList':
-      return <SPClassPlayerStatListBestPlayerList>[];			case 'SPClassPlayerStatListBestPlayerListItem':
-      return <SPClassPlayerStatListBestPlayerListItem>[];			case 'SPClassPlayerStatListBestPlayerListScore':
-      return <SPClassPlayerStatListBestPlayerListScore>[];			case 'SPClassPlayerStatListBestPlayerListRebound':
-      return <SPClassPlayerStatListBestPlayerListRebound>[];			case 'SPClassPlayerStatListBestPlayerListAssist':
-      return <SPClassPlayerStatListBestPlayerListAssist>[];			case 'SPClassPlayerStatListSum':
-      return <PlayerStatListSum>[];			case 'SPClassPlayerStatListSumItem':
-      return <PlayerStatListSumItem>[];									case 'SPClassConfRewardEntity':
-      return <SPClassConfRewardEntity>[];			case 'SPClassTextLiveListEntity':
-      return <SPClassTextLiveListEntity>[];			case 'SPClassTextLiveListTextLiveList':
-      return <SPClassTextLiveListTextLiveList>[];			case 'SPClassTextLiveListGuessMatch':
-      return <SPClassTextLiveListGuessMatch>[];			    }
+    switch (type) {			case 'CSClassMatchTrendRecentEntity':
+      return <CSClassMatchTrendRecentEntity>[];			case 'CSClassMatchTrendRecentMatchTrendRecent':
+      return <CSClassMatchTrendRecentMatchTrendRecent>[];			case 'CSClassMatchTrendRecentMatchTrendRecentItem':
+      return <CSClassMatchTrendRecentMatchTrendRecentItem>[];			case 'CSClassMatchTrendEntity':
+      return <CSClassMatchTrendEntity>[];			case 'CSClassMatchTrendMatchTrend':
+      return <CSClassMatchTrendMatchTrend>[];			case 'CSClassMatchTrendMatchTrendLoad':
+      return <CSClassMatchTrendMatchTrendLoad>[];			case 'CSClassMatchTrendMatchTrendItem':
+      return <CSClassMatchTrendMatchTrendItem>[];			case 'CSClassMatchEventEntity':
+      return <CSClassMatchEventEntity>[];			case 'CSClassMatchEventMatchEventItem':
+      return <CSClassMatchEventMatchEventItem>[];			case 'CSClassMatchInjuryEntity':
+      return <CSClassMatchInjuryEntity>[];			case 'CSClassMatchInjuryMatchInjury':
+      return <CSClassMatchInjuryMatchInjury>[];			case 'CSClassMatchInjuryMatchInjuryItem':
+      return <CSClassMatchInjuryMatchInjuryItem>[];			case 'CSClassMatchLineupEntity':
+      return <CSClassMatchLineupEntity>[];			case 'CSClassMatchLineupMatchLineup':
+      return <CSClassMatchLineupMatchLineup>[];					case 'CSClassMatchStatListEntity':
+      return <CSClassMatchStatListEntity>[];			case 'CSClassMatchStatListMatchStat':
+      return <CSClassMatchStatListMatchStat>[];			case 'CSClassMatchIntelligenceEntity':
+      return <CSClassMatchIntelligenceEntity>[];			case 'CSClassMatchIntelligenceMatchIntelligence':
+      return <CSClassMatchIntelligenceMatchIntelligence>[];			case 'CSClassMatchIntelligenceMatchIntelligenceItem':
+      return <CSClassMatchIntelligenceMatchIntelligenceItem>[];						case 'CSClassMatchLineupPlayerEntity':
+      return <CSClassMatchLineupPlayerEntity>[];			case 'CSClassMatchLineupPlayerMatchLineupPlayer':
+      return <CSClassMatchLineupPlayerMatchLineupPlayer>[];			case 'CSClassMatchLineupPlayerMatchLineupPlayerItem':
+      return <CSClassMatchLineupPlayerMatchLineupPlayerItem>[];						case 'CSClassLogInfoEntity':
+      return <CSClassLogInfoEntity>[];			case 'CSClassPlayerStatListEntity':
+      return <CSClassPlayerStatListEntity>[];			case 'CSClassPlayerStatListPlayerStatList':
+      return <CSClassPlayerStatListPlayerStatList>[];			case 'CSClassPlayerStatListPlayerStatListItem':
+      return <CSClassPlayerStatListPlayerStatListItem>[];			case 'CSClassPlayerStatListBestPlayerList':
+      return <CSClassPlayerStatListBestPlayerList>[];			case 'CSClassPlayerStatListBestPlayerListItem':
+      return <CSClassPlayerStatListBestPlayerListItem>[];			case 'CSClassPlayerStatListBestPlayerListScore':
+      return <CSClassPlayerStatListBestPlayerListScore>[];			case 'CSClassPlayerStatListBestPlayerListRebound':
+      return <CSClassPlayerStatListBestPlayerListRebound>[];			case 'CSClassPlayerStatListBestPlayerListAssist':
+      return <CSClassPlayerStatListBestPlayerListAssist>[];			case 'CSClassPlayerStatListSum':
+      return <PlayerStatListSum>[];			case 'CSClassPlayerStatListSumItem':
+      return <PlayerStatListSumItem>[];									case 'CSClassConfRewardEntity':
+      return <CSClassConfRewardEntity>[];			case 'CSClassTextLiveListEntity':
+      return <CSClassTextLiveListEntity>[];			case 'CSClassTextLiveListTextLiveList':
+      return <CSClassTextLiveListTextLiveList>[];			case 'CSClassTextLiveListGuessMatch':
+      return <CSClassTextLiveListGuessMatch>[];			    }
     return null;
   }
 

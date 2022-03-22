@@ -1,9 +1,9 @@
 
-import 'package:changshengh5/app/SPClassApplicaion.dart';
-import 'package:changshengh5/utils/SPClassCommonMethods.dart';
-import 'package:changshengh5/utils/SPClassImageUtil.dart';
-import 'package:changshengh5/utils/SPClassNavigatorUtils.dart';
-import 'package:changshengh5/widgets/SPClassNestedScrollViewRefreshBallStyle.dart';
+import 'package:changshengh5/app/CSClassApplicaion.dart';
+import 'package:changshengh5/utils/CSClassCommonMethods.dart';
+import 'package:changshengh5/utils/CSClassImageUtil.dart';
+import 'package:changshengh5/utils/CSClassNavigatorUtils.dart';
+import 'package:changshengh5/widgets/CSClassNestedScrollViewRefreshBallStyle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
 
@@ -699,7 +699,7 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
           actions: <Widget>[
             GestureDetector(
               onTap: (){
-                if(!spFunIsLogin(context: context)){
+                if(!csMethodIsLogin(context: context)){
                   return;
                 }
                 Navigator.push(
@@ -710,7 +710,7 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
               child: Container(
                 padding: EdgeInsets.only(right: width(20)),
                 child: Image.asset(
-                  SPClassImageUtil.spFunGetShopImagePath('shop_car',),
+                  CSClassImageUtil.csMethodGetShopImagePath('shop_car',),
                   color: Color(0xFF666666),
                   height: width(25),
                   width: width(25),
@@ -721,7 +721,7 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
           ],
         ),
         backgroundColor: Color(0xFFF7F7F7),
-        body: SPClassNestedScrollViewRefreshBallStyle(
+        body: CSClassNestedScrollViewRefreshBallStyle(
           onRefresh: () async {},
           child: NestedScrollView(
             controller: _scrollController,
@@ -789,7 +789,7 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
           right: 0,
           bottom: 0,
           child: Image.asset(
-            SPClassImageUtil.spFunGetShopImagePath("shop_banner_bg"),
+            CSClassImageUtil.csMethodGetShopImagePath("shop_banner_bg"),
             width: MediaQuery.of(context).size.width,
           ),
         ),
@@ -808,7 +808,7 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
               return ClipRRect(
                 borderRadius: BorderRadius.circular(width(8)),
                 child: Image.asset(
-                  SPClassImageUtil.spFunGetShopImagePath("shop_banner"),
+                  CSClassImageUtil.csMethodGetShopImagePath("shop_banner"),
                 ),
               );
             },
@@ -841,7 +841,7 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
               child: Column(
                 children: <Widget>[
                   Image.asset(
-                    SPClassImageUtil.spFunGetShopImagePath(e['image']),
+                    CSClassImageUtil.csMethodGetShopImagePath(e['image']),
                     width: width(54),
                   ),
                   Text(
@@ -885,7 +885,7 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
             child: Row(
               children: <Widget>[
                 Image.asset(
-                  SPClassImageUtil.spFunGetShopImagePath('zekou'),
+                  CSClassImageUtil.csMethodGetShopImagePath('zekou'),
                   width: width(100),
                 ),
                 Expanded(
@@ -896,7 +896,7 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
                   style: TextStyle(fontSize: sp(13), color: Color(0xFF666666)),
                 ),
                 Image.asset(
-                  SPClassImageUtil.spFunGetShopImagePath('jiantou_right'),
+                  CSClassImageUtil.csMethodGetShopImagePath('jiantou_right'),
                   width: width(23),
                 ),
               ],
@@ -911,7 +911,7 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
               Expanded(
                 child: GestureDetector(
                   onTap: (){
-                    SPClassNavigatorUtils.spFunPushRoute(
+                    CSClassNavigatorUtils.csMethodPushRoute(
                         context,
                         ProductDetail(
                           data: discountProduct[0],
@@ -931,7 +931,7 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
                               width: width(115),
                               height: width(115),
                               child: Image.asset(
-                                SPClassImageUtil.spFunGetShopImagePath('${discountProduct[0]['image']}-1'),
+                                CSClassImageUtil.csMethodGetShopImagePath('${discountProduct[0]['image']}-1'),
                                 width: width(115),
                               ),
                             ),
@@ -994,7 +994,7 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
               Expanded(
                 child: GestureDetector(
                   onTap: (){
-                    SPClassNavigatorUtils.spFunPushRoute(
+                    CSClassNavigatorUtils.csMethodPushRoute(
                         context,
                         ProductDetail(
                           data: discountProduct[1],
@@ -1014,7 +1014,7 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
                               width: width(115),
                               height: width(115),
                               child: Image.asset(
-                                SPClassImageUtil.spFunGetShopImagePath('${discountProduct[1]['image']}-1'),
+                                CSClassImageUtil.csMethodGetShopImagePath('${discountProduct[1]['image']}-1'),
                                 width: width(115),
                               ),
                             ),
@@ -1116,7 +1116,7 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
                       children: <Widget>[
                         Text('新品上架',style: TextStyle(fontSize: sp(17),fontWeight: FontWeight.bold),),
                         Image.asset(
-                          SPClassImageUtil.spFunGetShopImagePath('#'),
+                          CSClassImageUtil.csMethodGetShopImagePath('#'),
                           width: width(19),
                         ),
                       ],
@@ -1130,7 +1130,7 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
                           Column(
                             children: <Widget>[
                               Image.asset(
-                                SPClassImageUtil.spFunGetShopImagePath('${newProduct[0]['image']}-1'),
+                                CSClassImageUtil.csMethodGetShopImagePath('${newProduct[0]['image']}-1'),
                                 width: width(61),
                               ),
                               RichText(
@@ -1160,7 +1160,7 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
                           Column(
                             children: <Widget>[
                               Image.asset(
-                                SPClassImageUtil.spFunGetShopImagePath('${newProduct[1]['image']}-1'),
+                                CSClassImageUtil.csMethodGetShopImagePath('${newProduct[1]['image']}-1'),
                                 width: width(61),
                               ),
                               RichText(
@@ -1225,7 +1225,7 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
                       children: <Widget>[
                         Text('特惠商品',style: TextStyle(fontSize: sp(17),fontWeight: FontWeight.bold),),
                         Image.asset(
-                          SPClassImageUtil.spFunGetShopImagePath('youhui'),
+                          CSClassImageUtil.csMethodGetShopImagePath('youhui'),
                           width: width(42),
                         ),
                       ],
@@ -1238,7 +1238,7 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
                           Column(
                             children: <Widget>[
                               Image.asset(
-                                SPClassImageUtil.spFunGetShopImagePath('${oddsProduct[0]['image']}-1'),
+                                CSClassImageUtil.csMethodGetShopImagePath('${oddsProduct[0]['image']}-1'),
                                 width: width(61),
                               ),
                               RichText(
@@ -1271,7 +1271,7 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
                           Column(
                             children: <Widget>[
                               Image.asset(
-                                SPClassImageUtil.spFunGetShopImagePath('${oddsProduct[1]['image']}-1'),
+                                CSClassImageUtil.csMethodGetShopImagePath('${oddsProduct[1]['image']}-1'),
                                 width: width(61),
                               ),
                               RichText(
@@ -1327,7 +1327,7 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
             Map data = list[index];
             return GestureDetector(
               onTap: () {
-                SPClassNavigatorUtils.spFunPushRoute(
+                CSClassNavigatorUtils.csMethodPushRoute(
                     context,
                     ProductDetail(
                       data: data,
@@ -1349,7 +1349,7 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
                       child: Container(
                         height: width(156),
                         child: Image.asset(
-                          SPClassImageUtil.spFunGetShopImagePath('${data['image']}-1'),
+                          CSClassImageUtil.csMethodGetShopImagePath('${data['image']}-1'),
                         ),
                       ),
                     ),

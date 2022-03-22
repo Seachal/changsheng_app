@@ -1,7 +1,7 @@
 
-import 'package:changshengh5/utils/SPClassCommonMethods.dart';
-import 'package:changshengh5/utils/SPClassToastUtils.dart';
-import 'package:changshengh5/widgets/SPClassToolBar.dart';
+import 'package:changshengh5/utils/CSClassCommonMethods.dart';
+import 'package:changshengh5/utils/CSClassToastUtils.dart';
+import 'package:changshengh5/widgets/CSClassToolBar.dart';
 import 'package:flutter/material.dart';
 import 'package:city_pickers/city_pickers.dart';
 
@@ -22,7 +22,7 @@ class _AddAddressState extends State<AddAddress> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:SPClassToolBar(
+      appBar:CSClassToolBar(
         context,
         title: '添加地址',
       ),
@@ -158,19 +158,19 @@ class _AddAddressState extends State<AddAddress> {
   submit(){
 
     if(_nameController.text.isEmpty){
-      SPClassToastUtils.spFunShowToast(msg: "名字不能为空");
+      CSClassToastUtils.csMethodShowToast(msg: "名字不能为空");
       return;
     }
     if(_phoneController.text.isEmpty){
-      SPClassToastUtils.spFunShowToast(msg: "号码不能为空");
+      CSClassToastUtils.csMethodShowToast(msg: "号码不能为空");
       return;
     }
     if(_addressController.text.isEmpty){
-      SPClassToastUtils.spFunShowToast(msg: "地区不能为空");
+      CSClassToastUtils.csMethodShowToast(msg: "地区不能为空");
       return;
     }
     if(_detailController.text.isEmpty){
-      SPClassToastUtils.spFunShowToast(msg: "地址不能为空");
+      CSClassToastUtils.csMethodShowToast(msg: "地址不能为空");
       return;
     }
     Map address ={

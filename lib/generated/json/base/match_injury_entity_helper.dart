@@ -1,38 +1,38 @@
 
-import 'package:changshengh5/model/SPClassMatchInjuryEntity.dart';
+import 'package:changshengh5/model/CSClassMatchInjuryEntity.dart';
 
-matchInjuryEntityFromJson(SPClassMatchInjuryEntity data, Map<String, dynamic> json) {
+matchInjuryEntityFromJson(CSClassMatchInjuryEntity data, Map<String, dynamic> json) {
 	if (json['match_injury'] != null) {
-		data.spProMatchInjury = new SPClassMatchInjuryMatchInjury().fromJson(json['match_injury']);
+		data.csProMatchInjury = new CSClassMatchInjuryMatchInjury().fromJson(json['match_injury']);
 	}
 	return data;
 }
 
-Map<String, dynamic> matchInjuryEntityToJson(SPClassMatchInjuryEntity entity) {
+Map<String, dynamic> matchInjuryEntityToJson(CSClassMatchInjuryEntity entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
-	if (entity.spProMatchInjury != null) {
-		data['match_injury'] = entity.spProMatchInjury?.toJson();
+	if (entity.csProMatchInjury != null) {
+		data['match_injury'] = entity.csProMatchInjury?.toJson();
 	}
 	return data;
 }
 
-matchInjuryMatchInjuryFromJson(SPClassMatchInjuryMatchInjury data, Map<String, dynamic> json) {
+matchInjuryMatchInjuryFromJson(CSClassMatchInjuryMatchInjury data, Map<String, dynamic> json) {
 	if (json['1'] != null) {
 		data.one = [];
 		(json['1'] as List).forEach((v) {
-			data.one?.add(new SPClassMatchInjuryMatchInjuryItem().fromJson(v));
+			data.one?.add(new CSClassMatchInjuryMatchInjuryItem().fromJson(v));
 		});
 	}
 	if (json['2'] != null) {
 		data.two = [];
 		(json['2'] as List).forEach((v) {
-			data.two?.add(new SPClassMatchInjuryMatchInjuryItem().fromJson(v));
+			data.two?.add(new CSClassMatchInjuryMatchInjuryItem().fromJson(v));
 		});
 	}
 	return data;
 }
 
-Map<String, dynamic> matchInjuryMatchInjuryToJson(SPClassMatchInjuryMatchInjury entity) {
+Map<String, dynamic> matchInjuryMatchInjuryToJson(CSClassMatchInjuryMatchInjury entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	if (entity.one != null) {
 		data['1'] =  entity.one?.map((v) => v.toJson()).toList();
@@ -43,27 +43,27 @@ Map<String, dynamic> matchInjuryMatchInjuryToJson(SPClassMatchInjuryMatchInjury 
 	return data;
 }
 
-matchInjuryMatchInjuryItemFromJson(SPClassMatchInjuryMatchInjuryItem data, Map<String, dynamic> json) {
+matchInjuryMatchInjuryItemFromJson(CSClassMatchInjuryMatchInjuryItem data, Map<String, dynamic> json) {
 	if (json['which_team'] != null) {
-		data.spProWhichTeam = json['which_team']?.toString();
+		data.csProWhichTeam = json['which_team']?.toString();
 	}
 	if (json['reason'] != null) {
 		data.reason = json['reason']?.toString();
 	}
 	if (json['player_name'] != null) {
-		data.spProPlayerName = json['player_name']?.toString();
+		data.csProPlayerName = json['player_name']?.toString();
 	}
 	if (json['shirt_number'] != null) {
-		data.spProShirtNumber = json['shirt_number']?.toString();
+		data.csProShirtNumber = json['shirt_number']?.toString();
 	}
 	return data;
 }
 
-Map<String, dynamic> matchInjuryMatchInjuryItemToJson(SPClassMatchInjuryMatchInjuryItem entity) {
+Map<String, dynamic> matchInjuryMatchInjuryItemToJson(CSClassMatchInjuryMatchInjuryItem entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
-	data['which_team'] = entity.spProWhichTeam;
+	data['which_team'] = entity.csProWhichTeam;
 	data['reason'] = entity.reason;
-	data['player_name'] = entity.spProPlayerName;
-	data['shirt_number'] = entity.spProShirtNumber;
+	data['player_name'] = entity.csProPlayerName;
+	data['shirt_number'] = entity.csProShirtNumber;
 	return data;
 }

@@ -1,21 +1,21 @@
-import 'package:changshengh5/app/SPClassApplicaion.dart';
-import 'package:changshengh5/pages/login/SPClassVideoLoginPage.dart';
-import 'package:changshengh5/pages/user/SPClassMyFollowExpertPage.dart';
-import 'package:changshengh5/pages/user/scheme/follow/SPClassFollowSchemeListPage.dart';
-import 'package:changshengh5/utils/SPClassCommonMethods.dart';
-import 'package:changshengh5/utils/SPClassNavigatorUtils.dart';
+import 'package:changshengh5/app/CSClassApplicaion.dart';
+import 'package:changshengh5/pages/login/CSClassVideoLoginPage.dart';
+import 'package:changshengh5/pages/user/CSClassMyFollowExpertPage.dart';
+import 'package:changshengh5/pages/user/scheme/follow/CSClassFollowSchemeListPage.dart';
+import 'package:changshengh5/utils/CSClassCommonMethods.dart';
+import 'package:changshengh5/utils/CSClassNavigatorUtils.dart';
 import 'package:changshengh5/utils/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
 class FollowPage extends StatefulWidget {
-  _FollowPageState ?spProState;
+  _FollowPageState ?csProState;
 
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return spProState = _FollowPageState();
+    return csProState = _FollowPageState();
   }
 }
 
@@ -39,7 +39,7 @@ class _FollowPageState extends State<FollowPage> with  TickerProviderStateMixin<
 
   @override
   Widget build(BuildContext context) {
-    return spFunIsLogin()?
+    return csMethodIsLogin()?
     Column(
       children: <Widget>[
         Container(
@@ -77,8 +77,8 @@ class _FollowPageState extends State<FollowPage> with  TickerProviderStateMixin<
           TabBarView(
             controller: _controller,
             children: <Widget>[
-              SPClassMyFollowExpertPage(),
-              SPClassFollowSchemeListPage(''),
+              CSClassMyFollowExpertPage(),
+              CSClassFollowSchemeListPage(''),
             ],
           ),
         )
@@ -87,7 +87,7 @@ class _FollowPageState extends State<FollowPage> with  TickerProviderStateMixin<
     Center(child:
       GestureDetector(
         onTap: (){
-          SPClassNavigatorUtils.spFunPushRoute(context, SPClassVideoLoginPage());
+          CSClassNavigatorUtils.csMethodPushRoute(context, CSClassVideoLoginPage());
         },
         child: Text('请登录',style: TextStyle(color: Colors.blue,fontSize: sp(16),decoration: TextDecoration.underline),),
       ),

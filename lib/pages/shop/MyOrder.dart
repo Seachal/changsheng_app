@@ -2,10 +2,10 @@ import 'dart:convert';
 
 
 import 'package:changshengh5/utils/LocalStorage.dart';
-import 'package:changshengh5/utils/SPClassCommonMethods.dart';
-import 'package:changshengh5/utils/SPClassImageUtil.dart';
+import 'package:changshengh5/utils/CSClassCommonMethods.dart';
+import 'package:changshengh5/utils/CSClassImageUtil.dart';
 import 'package:changshengh5/utils/colors.dart';
-import 'package:changshengh5/widgets/SPClassToolBar.dart';
+import 'package:changshengh5/widgets/CSClassToolBar.dart';
 import 'package:flutter/material.dart';
 
 
@@ -37,7 +37,7 @@ class _MyOrderState extends State<MyOrder> with TickerProviderStateMixin{
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: SPClassToolBar(
+      appBar: CSClassToolBar(
         context,
         title: '我的订单',
         showLead: false,
@@ -95,7 +95,7 @@ class _MyOrderState extends State<MyOrder> with TickerProviderStateMixin{
                             width: width(96),
                             height: width(96),
                             child: Image.asset(
-                              SPClassImageUtil.spFunGetShopImagePath('${data['image']}-1'),
+                              CSClassImageUtil.csMethodGetShopImagePath('${data['image']}-1'),
                             ),
                           ),
                           SizedBox(width: width(12),),

@@ -1,37 +1,37 @@
 
-import 'package:changshengh5/model/SPClassMatchLineupEntity.dart';
+import 'package:changshengh5/model/CSClassMatchLineupEntity.dart';
 
-matchLineupEntityFromJson(SPClassMatchLineupEntity data, Map<String, dynamic> json) {
+matchLineupEntityFromJson(CSClassMatchLineupEntity data, Map<String, dynamic> json) {
 	if (json["match_lineup"] != null) {
-		data.spProMatchLineup = [];
+		data.csProMatchLineup = [];
 		(json["match_lineup"] as List).forEach((v) {
-			data.spProMatchLineup?.add(new SPClassMatchLineupMatchLineup().fromJson(v));
+			data.csProMatchLineup?.add(new CSClassMatchLineupMatchLineup().fromJson(v));
 		});
 	}
 	return data;
 }
 
-Map<String, dynamic> matchLineupEntityToJson(SPClassMatchLineupEntity entity) {
+Map<String, dynamic> matchLineupEntityToJson(CSClassMatchLineupEntity entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
-	if (entity.spProMatchLineup != null) {
-		data["match_lineup"] =  entity.spProMatchLineup?.map((v) => v.toJson()).toList();
+	if (entity.csProMatchLineup != null) {
+		data["match_lineup"] =  entity.csProMatchLineup?.map((v) => v.toJson()).toList();
 	}
 	return data;
 }
 
-matchLineupMatchLineupFromJson(SPClassMatchLineupMatchLineup data, Map<String, dynamic> json) {
+matchLineupMatchLineupFromJson(CSClassMatchLineupMatchLineup data, Map<String, dynamic> json) {
 	if (json["team_one_lineup"] != null) {
-		data.spProTeamOneLineup = json["team_one_lineup"]?.toString();
+		data.csProTeamOneLineup = json["team_one_lineup"]?.toString();
 	}
 	if (json["team_two_lineup"] != null) {
-		data.spProTeamTwoLineup = json["team_two_lineup"]?.toString();
+		data.csProTeamTwoLineup = json["team_two_lineup"]?.toString();
 	}
 	return data;
 }
 
-Map<String, dynamic> matchLineupMatchLineupToJson(SPClassMatchLineupMatchLineup entity) {
+Map<String, dynamic> matchLineupMatchLineupToJson(CSClassMatchLineupMatchLineup entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
-	data["team_one_lineup"] = entity.spProTeamOneLineup;
-	data["team_two_lineup"] = entity.spProTeamTwoLineup;
+	data["team_one_lineup"] = entity.csProTeamOneLineup;
+	data["team_two_lineup"] = entity.csProTeamTwoLineup;
 	return data;
 }

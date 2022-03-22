@@ -1,15 +1,15 @@
 import 'dart:convert';
 
 
-import 'package:changshengh5/api/SPClassApiManager.dart';
-import 'package:changshengh5/api/SPClassHttpCallBack.dart';
-import 'package:changshengh5/app/SPClassApplicaion.dart';
-import 'package:changshengh5/model/SPClassCreatOrderEntity.dart';
+import 'package:changshengh5/api/CSClassApiManager.dart';
+import 'package:changshengh5/api/CSClassHttpCallBack.dart';
+import 'package:changshengh5/app/CSClassApplicaion.dart';
+import 'package:changshengh5/model/CSClassCreatOrderEntity.dart';
 import 'package:changshengh5/utils/LocalStorage.dart';
-import 'package:changshengh5/utils/SPClassCommonMethods.dart';
-import 'package:changshengh5/utils/SPClassImageUtil.dart';
-import 'package:changshengh5/utils/SPClassToastUtils.dart';
-import 'package:changshengh5/widgets/SPClassToolBar.dart';
+import 'package:changshengh5/utils/CSClassCommonMethods.dart';
+import 'package:changshengh5/utils/CSClassImageUtil.dart';
+import 'package:changshengh5/utils/CSClassToastUtils.dart';
+import 'package:changshengh5/widgets/CSClassToolBar.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:fluwx/fluwx.dart' as fluwx;
@@ -30,10 +30,10 @@ class OrderPage extends StatefulWidget {
 class _OrderPageState extends State<OrderPage> {
   Map ?userInfo;
   TextEditingController? _controller;
-  String spProPayType='weixin';
+  String csProPayType='weixin';
   int money =0;
-  var spProIsAliPayWeb="0";
-  var spProIsWechatWeb="0";
+  var csProIsAliPayWeb="0";
+  var csProIsWechatWeb="0";
 
   @override
   void initState() {
@@ -41,14 +41,14 @@ class _OrderPageState extends State<OrderPage> {
       money = money+int.parse((widget.dataList![i]!['price']!*widget.dataList![i]!['count']!).toString());
     }
     tobias.isAliPayInstalled().then((value){
-      spProIsAliPayWeb=value? "0":"1";
+      csProIsAliPayWeb=value? "0":"1";
     });
     fluwx.isWeChatInstalled.then((value){
-      spProIsWechatWeb=value? "0":"1";
+      csProIsWechatWeb=value? "0":"1";
     });
      fluwx.weChatResponseEventHandler.listen((response) {
        if (response.errCode == 0) {
-         SPClassToastUtils.spFunShowToast(msg: "购买成功");
+         CSClassToastUtils.csMethodShowToast(msg: "购买成功");
          List orderList = [];
          if (LocalStorage.get('orderList') != null) {
            orderList = jsonDecode(LocalStorage.get('orderList'));
@@ -65,7 +65,7 @@ class _OrderPageState extends State<OrderPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SPClassToolBar(
+      appBar: CSClassToolBar(
         context,
         title: '确认订单',
       ),
@@ -87,7 +87,7 @@ class _OrderPageState extends State<OrderPage> {
   Widget addressWidget(){
     return GestureDetector(
       onTap: (){
-        if(spFunIsLogin(context: context)){
+        if(csMethodIsLogin(context: context)){
           Navigator.push(
               context,
               MaterialPageRoute(
@@ -119,7 +119,7 @@ class _OrderPageState extends State<OrderPage> {
               ),
             ),
             Image.asset(
-              SPClassImageUtil.spFunGetShopImagePath("jiantou_right"),
+              CSClassImageUtil.csMethodGetShopImagePath("jiantou_right"),
               width: width(20),
             )
           ],
@@ -142,7 +142,7 @@ class _OrderPageState extends State<OrderPage> {
               return Row(
                 children: <Widget>[
                   Image.asset(
-                    SPClassImageUtil.spFunGetShopImagePath('${e['image']}-1'),
+                    CSClassImageUtil.csMethodGetShopImagePath('${e['image']}-1'),
                     height: width(96),
                   ),
                   Expanded(
@@ -233,7 +233,7 @@ class _OrderPageState extends State<OrderPage> {
               child: Row(
                 children: <Widget>[
                   Image.asset(
-                    SPClassImageUtil.spFunGetImagePath("ic_pay_wx"),
+                    CSClassImageUtil.csMethodGetImagePath("ic_pay_wx"),
                     width: width(37),
                     height: width(37),
                   ),
@@ -254,7 +254,7 @@ class _OrderPageState extends State<OrderPage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         Image.asset(
-                          spProPayType=="weixin"? SPClassImageUtil.spFunGetImagePath("ic_select"):SPClassImageUtil.spFunGetImagePath("ic_un_select"),
+                          csProPayType=="weixin"? CSClassImageUtil.csMethodGetImagePath("ic_select"):CSClassImageUtil.csMethodGetImagePath("ic_un_select"),
                           width: width(15),
                           height: width(15),
                         ),
@@ -267,7 +267,7 @@ class _OrderPageState extends State<OrderPage> {
             onPressed: (){
               if(mounted){
                 setState(() {
-                  spProPayType="weixin";
+                  csProPayType="weixin";
                 });
               }
             },
@@ -283,7 +283,7 @@ class _OrderPageState extends State<OrderPage> {
               child: Row(
                 children: <Widget>[
                   Image.asset(
-                    SPClassImageUtil.spFunGetImagePath("ic_pay_alipay"),
+                    CSClassImageUtil.csMethodGetImagePath("ic_pay_alipay"),
                     width: width(37),
                     height: width(37),
                   ),
@@ -304,7 +304,7 @@ class _OrderPageState extends State<OrderPage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         Image.asset(
-                          spProPayType=="alipay"? SPClassImageUtil.spFunGetImagePath("ic_select"):SPClassImageUtil.spFunGetImagePath("ic_un_select"),
+                          csProPayType=="alipay"? CSClassImageUtil.csMethodGetImagePath("ic_select"):CSClassImageUtil.csMethodGetImagePath("ic_un_select"),
                           width: width(15),
                           height: width(15),
                         ),
@@ -317,7 +317,7 @@ class _OrderPageState extends State<OrderPage> {
             onPressed: (){
               if(mounted){
                 setState(() {
-                  spProPayType="alipay";
+                  csProPayType="alipay";
                 });
               }
             },
@@ -364,60 +364,60 @@ class _OrderPageState extends State<OrderPage> {
           GestureDetector(
             onTap: () {
 
-              if(spFunIsLogin(context: context)){
+              if(csMethodIsLogin(context: context)){
                 if (userInfo ==null) {
-                  SPClassToastUtils.spFunShowToast(msg: "请添加收货地址");
+                  CSClassToastUtils.csMethodShowToast(msg: "请添加收货地址");
                   return;
                 }
 
-                SPClassApiManager.spFunGetInstance().spFunCreateOrder(
+                CSClassApiManager.csMethodGetInstance().csMethodCreateOrder(
                     queryParameters: {
-                      "pay_type_key": spProPayType,
+                      "pay_type_key": csProPayType,
                       "coupon_id": "",
                       "money": money,
-                      "is_web":spProPayType=="weixin"? spProIsWechatWeb:spProIsAliPayWeb
+                      "is_web":csProPayType=="weixin"? csProIsWechatWeb:csProIsAliPayWeb
                     },
                     context: context,
-                    spProCallBack: SPClassHttpCallBack<SPClassCreatOrderEntity>(
-                      spProOnSuccess: (value) {
+                    csProCallBack: CSClassHttpCallBack<CSClassCreatOrderEntity>(
+                      csProOnSuccess: (value) {
 
-                        if(spProPayType=='weixin'){
-                          if(spProIsWechatWeb=='1'){
+                        if(csProPayType=='weixin'){
+                          if(csProIsWechatWeb=='1'){
                             launch(value.url!);
                             return;
                           }
                           fluwx.payWithWeChat(
                             appId: value.appid!,
                             partnerId: value.partnerid!,
-                            prepayId: value.spProPrepayid!,
+                            prepayId: value.csProPrepayid!,
                             packageValue: "Sign=WXPay",
                             nonceStr: value.noncestr!,
                             timeStamp: value.timestamp!,
                             sign: value.sign!,
                           );
                         }else{
-                          if(spProIsAliPayWeb=='1'){
+                          if(csProIsAliPayWeb=='1'){
                             launch(value.url!);
                             return;
                           }
-                          tobias.aliPay(value.spProOrderInfo!).then((value){
+                          tobias.aliPay(value.csProOrderInfo!).then((value){
                             switch(int.tryParse(value["resultStatus"].toString())){
                               case 9000:
                                 Navigator.pop(context);
-                                SPClassToastUtils.spFunShowToast(msg: "购买成功");
+                                CSClassToastUtils.csMethodShowToast(msg: "购买成功");
                                 break;
                               case 8000:
                                 break;
                               case 6002:
-                                SPClassToastUtils.spFunShowToast(msg: "支付异常："+value["memo"].toString());
+                                CSClassToastUtils.csMethodShowToast(msg: "支付异常："+value["memo"].toString());
                                 break;
                               case 6001:
-                                SPClassToastUtils.spFunShowToast(msg: "已取消");
+                                CSClassToastUtils.csMethodShowToast(msg: "已取消");
                                 break;
                             }
                           });
                         }
-                      },onError: (v){},spProOnProgress: (v){}
+                      },onError: (v){},csProOnProgress: (v){}
                     ));
               }
 

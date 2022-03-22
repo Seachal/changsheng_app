@@ -2,10 +2,10 @@ import 'dart:convert';
 
 
 import 'package:changshengh5/utils/LocalStorage.dart';
-import 'package:changshengh5/utils/SPClassCommonMethods.dart';
-import 'package:changshengh5/utils/SPClassImageUtil.dart';
-import 'package:changshengh5/utils/SPClassToastUtils.dart';
-import 'package:changshengh5/widgets/SPClassToolBar.dart';
+import 'package:changshengh5/utils/CSClassCommonMethods.dart';
+import 'package:changshengh5/utils/CSClassImageUtil.dart';
+import 'package:changshengh5/utils/CSClassToastUtils.dart';
+import 'package:changshengh5/widgets/CSClassToolBar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -39,7 +39,7 @@ class _ShopCarState extends State<ShopCar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SPClassToolBar(
+      appBar: CSClassToolBar(
         context,
         title: '购物车',
         actions: <Widget>[
@@ -101,12 +101,12 @@ class _ShopCarState extends State<ShopCar> {
 
             },
             child: Image.asset(
-              SPClassImageUtil.spFunGetImagePath(selectIdList.contains(data['shopCarId'])?'ic_select':'ic_seleect_un',), //ic_seleect_un
+              CSClassImageUtil.csMethodGetImagePath(selectIdList.contains(data['shopCarId'])?'ic_select':'ic_seleect_un',), //ic_seleect_un
               height: width(23),
             ),
           ),
           Image.asset(
-            SPClassImageUtil.spFunGetShopImagePath('${data['image']}-1'),
+            CSClassImageUtil.csMethodGetShopImagePath('${data['image']}-1'),
             height: width(96),
           ),
           Expanded(
@@ -214,7 +214,7 @@ class _ShopCarState extends State<ShopCar> {
               });
             },
             child: Image.asset(
-              SPClassImageUtil.spFunGetImagePath(isSelectAll?'ic_select':'ic_seleect_un',),
+              CSClassImageUtil.csMethodGetImagePath(isSelectAll?'ic_select':'ic_seleect_un',),
               height: width(23),
             ),
           ),
@@ -233,7 +233,7 @@ class _ShopCarState extends State<ShopCar> {
                   selectList.remove(shopCarList[i]);
                   shopCarList.removeAt(i);
                   LocalStorage.save('shopCarList', jsonEncode(shopCarList));
-                  SPClassToastUtils.spFunShowToast(msg: "删除成功");
+                  CSClassToastUtils.csMethodShowToast(msg: "删除成功");
                   setState(() {
 
                   });
@@ -275,7 +275,7 @@ class _ShopCarState extends State<ShopCar> {
               });
             },
             child: Image.asset(
-              SPClassImageUtil.spFunGetImagePath(isSelectAll?'ic_select':'ic_seleect_un',),
+              CSClassImageUtil.csMethodGetImagePath(isSelectAll?'ic_select':'ic_seleect_un',),
               height: width(23),
             ),
           ),

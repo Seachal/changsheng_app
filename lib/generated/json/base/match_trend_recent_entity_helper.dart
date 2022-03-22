@@ -1,38 +1,38 @@
 
-import 'package:changshengh5/model/SPClassMatchTrendRecentEntity.dart';
+import 'package:changshengh5/model/CSClassMatchTrendRecentEntity.dart';
 
-matchTrendRecentEntityFromJson(SPClassMatchTrendRecentEntity data, Map<String, dynamic> json) {
+matchTrendRecentEntityFromJson(CSClassMatchTrendRecentEntity data, Map<String, dynamic> json) {
 	if (json['match_trend_recent'] != null) {
-		data.spProMatchTrendRecent = new SPClassMatchTrendRecentMatchTrendRecent().fromJson(json['match_trend_recent']);
+		data.csProMatchTrendRecent = new CSClassMatchTrendRecentMatchTrendRecent().fromJson(json['match_trend_recent']);
 	}
 	return data;
 }
 
-Map<String, dynamic> matchTrendRecentEntityToJson(SPClassMatchTrendRecentEntity entity) {
+Map<String, dynamic> matchTrendRecentEntityToJson(CSClassMatchTrendRecentEntity entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
-	if (entity.spProMatchTrendRecent != null) {
-		data['match_trend_recent'] = entity.spProMatchTrendRecent?.toJson();
+	if (entity.csProMatchTrendRecent != null) {
+		data['match_trend_recent'] = entity.csProMatchTrendRecent?.toJson();
 	}
 	return data;
 }
 
-matchTrendRecentMatchTrendRecentFromJson(SPClassMatchTrendRecentMatchTrendRecent data, Map<String, dynamic> json) {
+matchTrendRecentMatchTrendRecentFromJson(CSClassMatchTrendRecentMatchTrendRecent data, Map<String, dynamic> json) {
 	if (json['1'] != null) {
 		data.one = [];
 		(json['1'] as List).forEach((v) {
-			data.one?.add(new SPClassMatchTrendRecentMatchTrendRecentItem().fromJson(v));
+			data.one?.add(new CSClassMatchTrendRecentMatchTrendRecentItem().fromJson(v));
 		});
 	}
 	if (json['2'] != null) {
 		data.two = [];
 		(json['2'] as List).forEach((v) {
-			data.two?.add(new SPClassMatchTrendRecentMatchTrendRecentItem().fromJson(v));
+			data.two?.add(new CSClassMatchTrendRecentMatchTrendRecentItem().fromJson(v));
 		});
 	}
 	return data;
 }
 
-Map<String, dynamic> matchTrendRecentMatchTrendRecentToJson(SPClassMatchTrendRecentMatchTrendRecent entity) {
+Map<String, dynamic> matchTrendRecentMatchTrendRecentToJson(CSClassMatchTrendRecentMatchTrendRecent entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	if (entity.one != null) {
 		data['1'] =  entity.one?.map((v) => v.toJson()).toList();
@@ -43,27 +43,27 @@ Map<String, dynamic> matchTrendRecentMatchTrendRecentToJson(SPClassMatchTrendRec
 	return data;
 }
 
-matchTrendRecentMatchTrendRecentItemFromJson(SPClassMatchTrendRecentMatchTrendRecentItem data, Map<String, dynamic> json) {
+matchTrendRecentMatchTrendRecentItemFromJson(CSClassMatchTrendRecentMatchTrendRecentItem data, Map<String, dynamic> json) {
 	if (json['ya_pan_result'] != null) {
-		data.spProYaPanResult = json['ya_pan_result']?.toString();
+		data.csProYaPanResult = json['ya_pan_result']?.toString();
 	}
 	if (json['da_xiao_result'] != null) {
-		data.spProDaXiaoResult = json['da_xiao_result']?.toString();
+		data.csProDaXiaoResult = json['da_xiao_result']?.toString();
 	}
 	if (json['win_rate'] != null) {
-		data.spProWinRate = json['win_rate']?.toString();
+		data.csProWinRate = json['win_rate']?.toString();
 	}
 	if (json['which_team'] != null) {
-		data.spProWhichTeam = json['which_team']?.toString();
+		data.csProWhichTeam = json['which_team']?.toString();
 	}
 	return data;
 }
 
-Map<String, dynamic> matchTrendRecentMatchTrendRecentItemToJson(SPClassMatchTrendRecentMatchTrendRecentItem entity) {
+Map<String, dynamic> matchTrendRecentMatchTrendRecentItemToJson(CSClassMatchTrendRecentMatchTrendRecentItem entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
-	data['ya_pan_result'] = entity.spProYaPanResult;
-	data['da_xiao_result'] = entity.spProDaXiaoResult;
-	data['win_rate'] = entity.spProWinRate;
-	data['which_team'] = entity.spProWhichTeam;
+	data['ya_pan_result'] = entity.csProYaPanResult;
+	data['da_xiao_result'] = entity.csProDaXiaoResult;
+	data['win_rate'] = entity.csProWinRate;
+	data['which_team'] = entity.csProWhichTeam;
 	return data;
 }

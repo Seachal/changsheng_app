@@ -1,33 +1,33 @@
 import 'dart:async';
 
-import 'package:changshengh5/api/SPClassApiManager.dart';
-import 'package:changshengh5/api/SPClassHttpCallBack.dart';
-import 'package:changshengh5/api/SPClassNetConfig.dart';
-import 'package:changshengh5/app/SPClassApplicaion.dart';
-import 'package:changshengh5/model/SPClassGuessMatchInfo.dart';
-import 'package:changshengh5/pages/anylise/SPClassExpertDetailPage.dart';
-import 'package:changshengh5/pages/common/SPClassShareView.dart';
-import 'package:changshengh5/pages/competition/SPClassMatchDetailPage.dart';
-import 'package:changshengh5/pages/competition/scheme/SPClassExpertApplyPage.dart';
-import 'package:changshengh5/pages/competition/scheme/SPClassSchemeDetailPage.dart';
-import 'package:changshengh5/pages/dialogs/SPClassHomeFilterMatchDialog.dart';
-import 'package:changshengh5/pages/news/SPClassWebPageState.dart';
-import 'package:changshengh5/pages/user/SPClassContactPage.dart';
-import 'package:changshengh5/utils/SPClassCommonMethods.dart';
-import 'package:changshengh5/utils/SPClassDateUtils.dart';
-import 'package:changshengh5/utils/SPClassImageUtil.dart';
-import 'package:changshengh5/utils/SPClassNavigatorUtils.dart';
-import 'package:changshengh5/utils/SPClassStringUtils.dart';
+import 'package:changshengh5/api/CSClassApiManager.dart';
+import 'package:changshengh5/api/CSClassHttpCallBack.dart';
+import 'package:changshengh5/api/CSClassNetConfig.dart';
+import 'package:changshengh5/app/CSClassApplicaion.dart';
+import 'package:changshengh5/model/CSClassGuessMatchInfo.dart';
+import 'package:changshengh5/pages/anylise/CSClassExpertDetailPage.dart';
+import 'package:changshengh5/pages/common/CSClassShareView.dart';
+import 'package:changshengh5/pages/competition/CSClassMatchDetailPage.dart';
+import 'package:changshengh5/pages/competition/scheme/CSClassExpertApplyPage.dart';
+import 'package:changshengh5/pages/competition/scheme/CSClassSchemeDetailPage.dart';
+import 'package:changshengh5/pages/dialogs/CSClassHomeFilterMatchDialog.dart';
+import 'package:changshengh5/pages/news/CSClassWebPageState.dart';
+import 'package:changshengh5/pages/user/CSClassContactPage.dart';
+import 'package:changshengh5/utils/CSClassCommonMethods.dart';
+import 'package:changshengh5/utils/CSClassDateUtils.dart';
+import 'package:changshengh5/utils/CSClassImageUtil.dart';
+import 'package:changshengh5/utils/CSClassNavigatorUtils.dart';
+import 'package:changshengh5/utils/CSClassStringUtils.dart';
 import 'package:changshengh5/utils/colors.dart';
-import 'package:changshengh5/widgets/SPClassNestedScrollViewRefreshBallStyle.dart';
+import 'package:changshengh5/widgets/CSClassNestedScrollViewRefreshBallStyle.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter/material.dart' hide NestedScrollView;
 import 'package:cached_network_image/cached_network_image.dart';
 
 import '../../widgets/nested_scroll_view_inner_scroll_position_key_widget.dart';
-import 'SPClassHomeSchemeList.dart';
-import 'SPClassTabHotExpert.dart';
+import 'CSClassHomeSchemeList.dart';
+import 'CSClassTabHotExpert.dart';
 
 
 class HomeDetailPage extends StatefulWidget {
@@ -41,71 +41,71 @@ class HomeDetailPage extends StatefulWidget {
 class HomeDetailPageState extends State<HomeDetailPage> with
     AutomaticKeepAliveClientMixin<HomeDetailPage>,TickerProviderStateMixin<HomeDetailPage>{
   List banners = [];
-  TabController ?spProTabSchemeController;
-  TabController ?spProTabMatchController;   //顶部导航栏
-  PageController ?spProPageControlller;
-  ScrollController ?spProMsgScrollController;
-  ScrollController ?spProHomeScrollController;
-  // List<SPClassNoticesNotice> notices = List(); //公告列表
-  String spProHomeMatchType = "足球";
-  String spProHomeMatchTypeKey = "is_zq_expert";
-  bool spProShowTitle = false;
-  bool spProShowTopView = false;
-  List spProTabSchemeTitles = ["高胜率","最新",  "免费"];
-  List spProTabSchemeKeys = ["recent_correct_rate","newest",  "free"];
-  // var spProTabExpertKeys = ['',"is_zq_expert", "is_lq_expert", "is_es_expert"];
-  List<SPClassGuessMatchInfo> ?spProHotMatch =[];//热门赛事
-  String spProPayWay = "";
-  var spProReFreshTime;
-  List<SPClassHomeSchemeList> spProSchemeViews = [];
-  List<SPClassTabHotExpert> spProTabHotViews = [];
-  GlobalKey spProKeyTopTitle = GlobalKey();
-  GlobalKey spProKeyBannerItem = GlobalKey();
-  double spProTopOffset = 0.0;
-  double spProHeightNoticeItem = 0.0;
-  int spProTabSchemeIndex = 0;
-  int spProTabMatchIndex = 1; //顶部栏的下标
+  TabController ?csProTabSchemeController;
+  TabController ?csProTabMatchController;   //顶部导航栏
+  PageController ?csProPageControlller;
+  ScrollController ?csProMsgScrollController;
+  ScrollController ?csProHomeScrollController;
+  // List<CSClassNoticesNotice> notices = List(); //公告列表
+  String csProHomeMatchType = "足球";
+  String csProHomeMatchTypeKey = "is_zq_expert";
+  bool csProShowTitle = false;
+  bool csProShowTopView = false;
+  List csProTabSchemeTitles = ["高胜率","最新",  "免费"];
+  List csProTabSchemeKeys = ["recent_correct_rate","newest",  "free"];
+  // var csProTabExpertKeys = ['',"is_zq_expert", "is_lq_expert", "is_es_expert"];
+  List<CSClassGuessMatchInfo> ?csProHotMatch =[];//热门赛事
+  String csProPayWay = "";
+  var csProReFreshTime;
+  List<CSClassHomeSchemeList> csProSchemeViews = [];
+  List<CSClassTabHotExpert> csProTabHotViews = [];
+  GlobalKey csProKeyTopTitle = GlobalKey();
+  GlobalKey csProKeyBannerItem = GlobalKey();
+  double csProTopOffset = 0.0;
+  double csProHeightNoticeItem = 0.0;
+  int csProTabSchemeIndex = 0;
+  int csProTabMatchIndex = 1; //顶部栏的下标
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     if(widget.type==0){
-      spProHomeMatchType ='足球';
-      spProHomeMatchTypeKey ='is_zq_expert';
+      csProHomeMatchType ='足球';
+      csProHomeMatchTypeKey ='is_zq_expert';
     }else{
-      spProHomeMatchType ='篮球';
-      spProHomeMatchTypeKey ='is_lq_expert';
+      csProHomeMatchType ='篮球';
+      csProHomeMatchTypeKey ='is_lq_expert';
     }
-    spFunGetHotMatch();
-    spProMsgScrollController = ScrollController(initialScrollOffset: width(25));
-    spProHomeScrollController = ScrollController();
-    spProTabSchemeController = TabController(
-        length: spProTabSchemeTitles.length,
+    csMethodGetHotMatch();
+    csProMsgScrollController = ScrollController(initialScrollOffset: width(25));
+    csProHomeScrollController = ScrollController();
+    csProTabSchemeController = TabController(
+        length: csProTabSchemeTitles.length,
         vsync: this,
         initialIndex: 1);
         // (
-            // spFunIsLogin() &&
-            // SPClassApplicaion.spProUserLoginInfo!.spProIsFirstLogin!)
+            // csMethodIsLogin() &&
+            // CSClassApplicaion.csProUserLoginInfo!.csProIsFirstLogin!)
             // ? 2
             // : 0)
         // ;
-    spProSchemeViews = spProTabSchemeKeys.map((key) {
-      return SPClassHomeSchemeList(
-        spProFetchType: key,
-        spProPayWay: spProPayWay,
-        spProShowProfit: key != "recent_correct_rate",
+    csProSchemeViews = csProTabSchemeKeys.map((key) {
+      return CSClassHomeSchemeList(
+        csProFetchType: key,
+        csProPayWay: csProPayWay,
+        csProShowProfit: key != "recent_correct_rate",
         type: widget.type,
       );
     }).toList();
-    spProTabHotViews =[SPClassTabHotExpert(spProHomeMatchTypeKey)];
-    spProPageControlller = PageController();
-    // spFunGetNotices();
-    SPClassApplicaion.spProEventBus.on<String>().listen((event) {
+    csProTabHotViews =[CSClassTabHotExpert(csProHomeMatchTypeKey)];
+    csProPageControlller = PageController();
+    // csMethodGetNotices();
+    CSClassApplicaion.csProEventBus.on<String>().listen((event) {
       if (event == "loginInfo") {
         // getSeqNum();
-        // if (spFunIsLogin() &&
-        //     SPClassApplicaion.spProUserLoginInfo.spProIsFirstLogin) {
-        //   spProTabSchemeController.index = 2;
+        // if (csMethodIsLogin() &&
+        //     CSClassApplicaion.csProUserLoginInfo.csProIsFirstLogin) {
+        //   csProTabSchemeController.index = 2;
         // }
       }
     });
@@ -123,22 +123,22 @@ class HomeDetailPageState extends State<HomeDetailPage> with
           preferredSize: Size.fromHeight(0)),
       body: Container(
         color: Colors.white,
-        child: SPClassNestedScrollViewRefreshBallStyle(
+        child: CSClassNestedScrollViewRefreshBallStyle(
           onRefresh: () {
-            // spFunGetBannerList();
-            // spFunGetNotices();
-            spFunGetHotMatch();
+            // csMethodGetBannerList();
+            // csMethodGetNotices();
+            csMethodGetHotMatch();
 
-            spProTabHotViews[0]
-                .spProState!
+            csProTabHotViews[0]
+                .csProState!
                 .onRefresh();
-            return spProSchemeViews[spProTabSchemeController!.index]
-                .spProState!
-                .spFunOnRefresh(spProPayWay,
-                spProHomeMatchType);
+            return csProSchemeViews[csProTabSchemeController!.index]
+                .csProState!
+                .csMethodOnRefresh(csProPayWay,
+                csProHomeMatchType);
           },
           child: NestedScrollView(
-            controller: spProHomeScrollController!,
+            controller: csProHomeScrollController!,
             headerSliverBuilder:
                 (BuildContext context, bool boxIsScrolled) {
               return <Widget>[
@@ -149,7 +149,7 @@ class HomeDetailPageState extends State<HomeDetailPage> with
                     margin: EdgeInsets.only(top: width(12),),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: spProHotMatch!.map((e) {
+                      children: csProHotMatch!.map((e) {
                         return matchSchedule(e);
                       }).toList(),
                     ),
@@ -158,7 +158,7 @@ class HomeDetailPageState extends State<HomeDetailPage> with
                 SliverToBoxAdapter(
                   child: IndexedStack(
                     index: 0,
-                    children: spProTabHotViews,
+                    children: csProTabHotViews,
                   ),
                 ),
                 SliverToBoxAdapter(
@@ -174,14 +174,14 @@ class HomeDetailPageState extends State<HomeDetailPage> with
             // },
             // innerScrollPositionKeyBuilder: () {
             //   var index = "homeTab";
-            //   index += spProTabSchemeController!.index.toString();
+            //   index += csProTabSchemeController!.index.toString();
             //   return Key(index);
             // },
             body: Column(
               children: <Widget>[
                 GestureDetector(
                   child: Container(
-                    key: spProKeyTopTitle,
+                    key: csProKeyTopTitle,
                     padding: EdgeInsets.only(
                         left: width(13), right: width(13)),
                     height: width(42),
@@ -194,7 +194,7 @@ class HomeDetailPageState extends State<HomeDetailPage> with
                       children: <Widget>[
                         Container(
                           width:
-                          width(70 * spProTabSchemeTitles.length),
+                          width(70 * csProTabSchemeTitles.length),
                           child: TabBar(
                             labelColor: MyColors.main1,
                             labelPadding: EdgeInsets.zero,
@@ -207,8 +207,8 @@ class HomeDetailPageState extends State<HomeDetailPage> with
                                 fontWeight: FontWeight.bold),
                             unselectedLabelStyle:
                             TextStyle(fontSize: sp(13)),
-                            controller: spProTabSchemeController,
-                            tabs: spProTabSchemeTitles.map((tab) {
+                            controller: csProTabSchemeController,
+                            tabs: csProTabSchemeTitles.map((tab) {
                               return Tab(
                                 text: tab,
                               );
@@ -226,7 +226,7 @@ class HomeDetailPageState extends State<HomeDetailPage> with
                         ),
                         GestureDetector(
                           child: Image.asset(
-                            SPClassImageUtil.spFunGetImagePath(
+                            CSClassImageUtil.csMethodGetImagePath(
                                 "shaixuan"),
                             width: width(23),
                           ),
@@ -234,18 +234,18 @@ class HomeDetailPageState extends State<HomeDetailPage> with
                             showDialog(
                                 context: context,
                                 builder: (BuildContext context) {
-                                  return SPClassHomeFilterMatchDialog(
+                                  return CSClassHomeFilterMatchDialog(
                                           (value) {
-                                        spProPayWay = value;
-                                        spProSchemeViews[
-                                        spProTabSchemeController!
+                                        csProPayWay = value;
+                                        csProSchemeViews[
+                                        csProTabSchemeController!
                                             .index]
-                                            .spProState!
-                                            .spFunOnRefresh(
-                                            spProPayWay,
-                                            spProHomeMatchType);
+                                            .csProState!
+                                            .csMethodOnRefresh(
+                                            csProPayWay,
+                                            csProHomeMatchType);
                                       },
-                                      spProHomeMatchType);
+                                      csProHomeMatchType);
                                 });
                           },
                         )
@@ -253,7 +253,7 @@ class HomeDetailPageState extends State<HomeDetailPage> with
                     ),
                   ),
                   onDoubleTap: () {
-                    spFunScrollTop();
+                    csMethodScrollTop();
                   },
                 ),
                 SizedBox(
@@ -261,11 +261,11 @@ class HomeDetailPageState extends State<HomeDetailPage> with
                 ),
                 Expanded(
                   child: TabBarView(
-                    controller: spProTabSchemeController,
-                    children: spProSchemeViews.map((view) {
+                    controller: csProTabSchemeController,
+                    children: csProSchemeViews.map((view) {
                       return NestedScrollViewInnerScrollPositionKeyWidget(
                           Key("homeTab" +
-                              spProSchemeViews.indexOf(view).toString()),
+                              csProSchemeViews.indexOf(view).toString()),
                           view);
                     }).toList(),
                   ),
@@ -282,7 +282,7 @@ class HomeDetailPageState extends State<HomeDetailPage> with
   // TODO: implement wantKeepAlive
   bool get wantKeepAlive => true;
 
-  Widget matchSchedule(SPClassGuessMatchInfo data){
+  Widget matchSchedule(CSClassGuessMatchInfo data){
     return Container(
       height: height(86),
       // margin: EdgeInsets.only(left:width(i==0?14:8),),
@@ -309,8 +309,8 @@ class HomeDetailPageState extends State<HomeDetailPage> with
                 SizedBox(height: height(4),),
                 Row(
                   children: <Widget>[
-                    ( data.status=="in_progress" ) ? Text("进行中",style: TextStyle(fontSize: sp(12),color: Color(0xFFFB5146),),):Text(SPClassDateUtils.spFunDateFormatByString(data.spProStTime!, "MM-dd HH:mm"),style: TextStyle(fontSize: sp(11),color: Color(0xFF999999),),maxLines: 1,),
-                    Text("「${SPClassStringUtils.spFunMaxLength(data.spProLeagueName!,length: 3)}」",style: TextStyle(fontSize: sp(11),color: Color(0xFF999999),),maxLines: 1,),
+                    ( data.status=="in_progress" ) ? Text("进行中",style: TextStyle(fontSize: sp(12),color: Color(0xFFFB5146),),):Text(CSClassDateUtils.csMethodDateFormatByString(data.csProStTime!, "MM-dd HH:mm"),style: TextStyle(fontSize: sp(11),color: Color(0xFF999999),),maxLines: 1,),
+                    Text("「${CSClassStringUtils.csMethodMaxLength(data.csProLeagueName!,length: 3)}」",style: TextStyle(fontSize: sp(11),color: Color(0xFF999999),),maxLines: 1,),
                     SizedBox(width: 25,)
                   ],
                 ),
@@ -326,14 +326,14 @@ class HomeDetailPageState extends State<HomeDetailPage> with
                             children: <Widget>[
                               Row(
                                 children: <Widget>[
-                                  (data.spProIconUrlOne!.isNotEmpty)? CachedNetworkImage(imageUrl: data.spProIconUrlOne!,width: width(17),):
+                                  (data.csProIconUrlOne!.isNotEmpty)? CachedNetworkImage(imageUrl: data.csProIconUrlOne!,width: width(17),):
                                   Image.asset(
-                                    SPClassImageUtil.spFunGetImagePath("ic_team_one"),
+                                    CSClassImageUtil.csMethodGetImagePath("ic_team_one"),
                                     width: width(17),
                                   ),
                                   SizedBox(width: 5),
                                   Expanded(
-                                    child:  Text(data.spProTeamOne!,style: TextStyle(fontSize: sp(13),),maxLines: 1,),
+                                    child:  Text(data.csProTeamOne!,style: TextStyle(fontSize: sp(13),),maxLines: 1,),
                                   ),
                                   SizedBox(width: width(7),),
                                 ],
@@ -341,15 +341,15 @@ class HomeDetailPageState extends State<HomeDetailPage> with
                               SizedBox(height: height(5),),
                               Row(
                                 children: <Widget>[
-                                  // (data.spProIconUrlTwo!.isNotEmpty)? Image.network(data.spProIconUrlTwo!,width: width(17),):
-                                  (data.spProIconUrlTwo!.isNotEmpty)? CachedNetworkImage(imageUrl: data.spProIconUrlTwo!,width: width(17),):
+                                  // (data.csProIconUrlTwo!.isNotEmpty)? Image.network(data.csProIconUrlTwo!,width: width(17),):
+                                  (data.csProIconUrlTwo!.isNotEmpty)? CachedNetworkImage(imageUrl: data.csProIconUrlTwo!,width: width(17),):
                                   Image.asset(
-                                    SPClassImageUtil.spFunGetImagePath("ic_team_two"),
+                                    CSClassImageUtil.csMethodGetImagePath("ic_team_two"),
                                     width: width(17),
                                   ),
                                   SizedBox(width: 5),
                                   Expanded(
-                                    child:  Text(data.spProTeamTwo!,style: TextStyle(fontSize: sp(13),),maxLines: 1,),
+                                    child:  Text(data.csProTeamTwo!,style: TextStyle(fontSize: sp(13),),maxLines: 1,),
                                   ),
                                   SizedBox(width: width(7),),
                                 ],
@@ -373,34 +373,34 @@ class HomeDetailPageState extends State<HomeDetailPage> with
                     children: <Widget>[
                       Row(
                         children: <Widget>[
-                          // (data.spProIconUrlOne!.isNotEmpty)? Image.network(data.spProIconUrlOne!,width: width(17),):
-                          (data.spProIconUrlOne!.isNotEmpty)? CachedNetworkImage(imageUrl: data.spProIconUrlOne!,width: width(17),):
+                          // (data.csProIconUrlOne!.isNotEmpty)? Image.network(data.csProIconUrlOne!,width: width(17),):
+                          (data.csProIconUrlOne!.isNotEmpty)? CachedNetworkImage(imageUrl: data.csProIconUrlOne!,width: width(17),):
                           Image.asset(
-                            SPClassImageUtil.spFunGetImagePath("ic_team_one"),
+                            CSClassImageUtil.csMethodGetImagePath("ic_team_one"),
                             width: width(17),
                           ),
                           SizedBox(width: 5),
                           Expanded(
-                            child:  Text(data.spProTeamOne!,style: TextStyle(fontSize: sp(13),),maxLines: 1,),
+                            child:  Text(data.csProTeamOne!,style: TextStyle(fontSize: sp(13),),maxLines: 1,),
                           ),
-                          Text(data.status=="not_started" ?  "-":data.spProScoreOne!,style: TextStyle(fontSize: sp(13),color:data.status=="in_progress" ? Color(0xFFFB5146): Color(0xFF999999))),
+                          Text(data.status=="not_started" ?  "-":data.csProScoreOne!,style: TextStyle(fontSize: sp(13),color:data.status=="in_progress" ? Color(0xFFFB5146): Color(0xFF999999))),
                           SizedBox(width: width(7),),
                         ],
                       ),
                       SizedBox(height: height(5),),
                       Row(
                         children: <Widget>[
-                          // (data.spProIconUrlTwo!.isNotEmpty)? Image.network(data.spProIconUrlTwo!,width: width(17),):
-                          (data.spProIconUrlTwo!.isNotEmpty)? CachedNetworkImage(imageUrl: data.spProIconUrlTwo!,width: width(17),):
+                          // (data.csProIconUrlTwo!.isNotEmpty)? Image.network(data.csProIconUrlTwo!,width: width(17),):
+                          (data.csProIconUrlTwo!.isNotEmpty)? CachedNetworkImage(imageUrl: data.csProIconUrlTwo!,width: width(17),):
                           Image.asset(
-                            SPClassImageUtil.spFunGetImagePath("ic_team_two"),
+                            CSClassImageUtil.csMethodGetImagePath("ic_team_two"),
                             width: width(17),
                           ),
                           SizedBox(width: 5),
                           Expanded(
-                            child:  Text(data.spProTeamTwo!,style: TextStyle(fontSize: sp(13),),maxLines: 1,),
+                            child:  Text(data.csProTeamTwo!,style: TextStyle(fontSize: sp(13),),maxLines: 1,),
                           ),
-                          Text(data.status=="not_started" ?  "-":data.spProScoreTwo!,style: TextStyle(fontSize: sp(13),color:data.status=="in_progress" ? Color(0xFFFB5146): Color(0xFF999999))),
+                          Text(data.status=="not_started" ?  "-":data.csProScoreTwo!,style: TextStyle(fontSize: sp(13),color:data.status=="in_progress" ? Color(0xFFFB5146): Color(0xFF999999))),
                           SizedBox(width: width(7),),
                         ],
                       ),
@@ -411,9 +411,9 @@ class HomeDetailPageState extends State<HomeDetailPage> with
               ],
             ),
             onTap: (){
-              SPClassApiManager.spFunGetInstance().spFunMatchClick(queryParameters: {"match_id": data.spProGuessMatchId});
+              CSClassApiManager.csMethodGetInstance().csMethodMatchClick(queryParameters: {"match_id": data.csProGuessMatchId});
 
-              SPClassNavigatorUtils.spFunPushRoute(context, SPClassMatchDetailPage(data,spProMatchType:"guess_match_id",));
+              CSClassNavigatorUtils.csMethodPushRoute(context, CSClassMatchDetailPage(data,csProMatchType:"guess_match_id",));
 
             },
           ),
@@ -433,7 +433,7 @@ class HomeDetailPageState extends State<HomeDetailPage> with
                       ]
                   )
               ),
-              child: Text('${data.spProSchemeNum}观点',style: TextStyle(color: Colors.white,fontSize: sp(10)),),
+              child: Text('${data.csProSchemeNum}观点',style: TextStyle(color: Colors.white,fontSize: sp(10)),),
             ),
           )
         ],
@@ -442,60 +442,60 @@ class HomeDetailPageState extends State<HomeDetailPage> with
   }
 
   //轮播图
-  // void spFunGetBannerList() {
-  //   SPClassApiManager.spFunGetInstance().spFunGetBanner<SPClassBannerItem>(
-  //       spProCallBack: SPClassHttpCallBack(spProOnSuccess: (result) {
+  // void csMethodGetBannerList() {
+  //   CSClassApiManager.csMethodGetInstance().csMethodGetBanner<CSClassBannerItem>(
+  //       csProCallBack: CSClassHttpCallBack(csProOnSuccess: (result) {
   //         setState(() {
-  //           banners = result.spProDataList;
+  //           banners = result.csProDataList;
   //         });
   //       }),
   //       queryParameters: {"type": "analysis"});
   // }
 
 
-  // void spFunGetNotices() {
-  //   SPClassApiManager.spFunGetInstance().spFunGetNotice<SPClassNoticesNotice>(
-  //       spProCallBack: SPClassHttpCallBack(spProOnSuccess: (notices) {
-  //         if (notices.spProDataList.length > 0) {
+  // void csMethodGetNotices() {
+  //   CSClassApiManager.csMethodGetInstance().csMethodGetNotice<CSClassNoticesNotice>(
+  //       csProCallBack: CSClassHttpCallBack(csProOnSuccess: (notices) {
+  //         if (notices.csProDataList.length > 0) {
   //           if (mounted) {
   //             setState(() {
-  //               this.notices = notices.spProDataList;
+  //               this.notices = notices.csProDataList;
   //             });
   //           }
   //         }
   //       }));
   // }
 
-  void spFunTabReFresh() {
-    if (spProReFreshTime == null ||
-        DateTime.now().difference(spProReFreshTime).inSeconds > 30) {
-      // spFunGetBannerList();
-      // spFunGetNotices();
-      spProTabHotViews[0].spProState!.onRefresh();
-      SPClassTabHotExpert(spProHomeMatchTypeKey).spProState!.onRefresh();
-      spProSchemeViews[spProTabSchemeController!.index]
-          .spProState!
-          .spFunOnRefresh(
-          spProPayWay, spProHomeMatchTypeKey);
-      spProReFreshTime = DateTime.now();
+  void csMethodTabReFresh() {
+    if (csProReFreshTime == null ||
+        DateTime.now().difference(csProReFreshTime).inSeconds > 30) {
+      // csMethodGetBannerList();
+      // csMethodGetNotices();
+      csProTabHotViews[0].csProState!.onRefresh();
+      CSClassTabHotExpert(csProHomeMatchTypeKey).csProState!.onRefresh();
+      csProSchemeViews[csProTabSchemeController!.index]
+          .csProState!
+          .csMethodOnRefresh(
+          csProPayWay, csProHomeMatchTypeKey);
+      csProReFreshTime = DateTime.now();
     }
   }
 
-  void spFunScrollTop() {
-    RenderObject? renderBox = spProKeyTopTitle.currentContext!.findRenderObject();
+  void csMethodScrollTop() {
+    RenderObject? renderBox = csProKeyTopTitle.currentContext!.findRenderObject();
 
-    spProHomeScrollController?.animateTo(0,
+    csProHomeScrollController?.animateTo(0,
         duration: Duration(milliseconds: 500), curve: Curves.linear);
   }
 
-  spFunGoRoutPage(
-      String urlPage, String title, String spProMsgId, bool isDemo) {
-    if (spProMsgId != null) {
-      SPClassApiManager.spFunGetInstance().spFunPushMsgClick(
-          pushMsgId: spProMsgId,
+  csMethodGoRoutPage(
+      String urlPage, String title, String csProMsgId, bool isDemo) {
+    if (csProMsgId != null) {
+      CSClassApiManager.csMethodGetInstance().csMethodPushMsgClick(
+          pushMsgId: csProMsgId,
           isDemo: isDemo,
-          spProAutoLoginStr: spFunIsLogin()
-              ? SPClassApplicaion.spProUserLoginInfo!.spProAutoLoginStr!
+          csProAutoLoginStr: csMethodIsLogin()
+              ? CSClassApplicaion.csProUserLoginInfo!.csProAutoLoginStr!
               : "");
     }
     if (urlPage == null || urlPage.trim().isEmpty) {
@@ -504,128 +504,128 @@ class HomeDetailPageState extends State<HomeDetailPage> with
     if (urlPage.startsWith("hs_sport:")) {
       Uri url = Uri.parse(urlPage.replaceAll("hs_sport", "hssport"));
       if (urlPage.contains("scheme?")) {
-        if (spFunIsLogin(context: context)) {
-          SPClassApiManager.spFunGetInstance().spFunSchemeDetail(
+        if (csMethodIsLogin(context: context)) {
+          CSClassApiManager.csMethodGetInstance().csMethodSchemeDetail(
               queryParameters: {"scheme_id": url.queryParameters["scheme_id"]},
               context: context,
-              spProCallBack: SPClassHttpCallBack(
-                  spProOnSuccess: (value) {
-                    SPClassNavigatorUtils.spFunPushRoute(
-                        context, SPClassSchemeDetailPage(value));
-                  },onError: (e){},spProOnProgress: (v){}
+              csProCallBack: CSClassHttpCallBack(
+                  csProOnSuccess: (value) {
+                    CSClassNavigatorUtils.csMethodPushRoute(
+                        context, CSClassSchemeDetailPage(value));
+                  },onError: (e){},csProOnProgress: (v){}
                   ));
         }
       }
       if (urlPage.contains("expert?")) {
-        SPClassApiManager.spFunGetInstance().spFunExpertInfo(
+        CSClassApiManager.csMethodGetInstance().csMethodExpertInfo(
             queryParameters: {"expert_uid": url.queryParameters["expert_uid"]},
             context: context,
-            spProCallBack: SPClassHttpCallBack(spProOnSuccess: (info) {
-              SPClassNavigatorUtils.spFunPushRoute(
-                  context, SPClassExpertDetailPage(info));
-            },onError: (e){},spProOnProgress: (v){}
+            csProCallBack: CSClassHttpCallBack(csProOnSuccess: (info) {
+              CSClassNavigatorUtils.csMethodPushRoute(
+                  context, CSClassExpertDetailPage(info));
+            },onError: (e){},csProOnProgress: (v){}
             ));
       }
       if (urlPage.contains("guess_match?")) {
-        SPClassApiManager.spFunGetInstance()
-            .spFunSportMatchData<SPClassGuessMatchInfo>(
+        CSClassApiManager.csMethodGetInstance()
+            .csMethodSportMatchData<CSClassGuessMatchInfo>(
             loading: true,
             context: context,
-            spProGuessMatchId: url.queryParameters["guess_match_id"],
+            csProGuessMatchId: url.queryParameters["guess_match_id"],
             dataKeys: "guess_match",
-            spProCallBack:
-            SPClassHttpCallBack(spProOnSuccess: (result) async {
-              SPClassNavigatorUtils.spFunPushRoute(
+            csProCallBack:
+            CSClassHttpCallBack(csProOnSuccess: (result) async {
+              CSClassNavigatorUtils.csMethodPushRoute(
                   context,
-                  SPClassMatchDetailPage(
+                  CSClassMatchDetailPage(
                     result,
-                    spProMatchType: "guess_match_id",
-                    spProInitIndex: 1,
+                    csProMatchType: "guess_match_id",
+                    csProInitIndex: 1,
                   ));
-            },onError: (e){},spProOnProgress: (v){}
+            },onError: (e){},csProOnProgress: (v){}
             ));
       }
       if (urlPage.contains("invite")) {
-        if (spFunIsLogin(context: context)) {
-          SPClassApiManager.spFunGetInstance().spFunShare(
+        if (csMethodIsLogin(context: context)) {
+          CSClassApiManager.csMethodGetInstance().csMethodShare(
               context: context,
-              spProCallBack: SPClassHttpCallBack(spProOnSuccess: (result) {
+              csProCallBack: CSClassHttpCallBack(csProOnSuccess: (result) {
                 showModalBottomSheet<void>(
                     context: context,
                     builder: (BuildContext context) {
-                      return SPClassShareView(
+                      return CSClassShareView(
                         title: result.title,
-                        spProDesContent: result.content,
-                        spProPageUrl: result.spProPageUrl ??
-                            SPClassNetConfig.spFunGetShareUrl(),
-                        spProIconUrl: result.spProIconUrl,
+                        csProDesContent: result.content,
+                        csProPageUrl: result.csProPageUrl ??
+                            CSClassNetConfig.csMethodGetShareUrl(),
+                        csProIconUrl: result.csProIconUrl,
                       );
                     });
-              },onError: (e){},spProOnProgress: (v){}
+              },onError: (e){},csProOnProgress: (v){}
               ));
         }
       }
       if (urlPage.contains("contact_cs")) {
-        SPClassNavigatorUtils.spFunPushRoute(context, SPClassContactPage());
+        CSClassNavigatorUtils.csMethodPushRoute(context, CSClassContactPage());
       }
 
       if (urlPage.contains("apply_expert")) {
-        if (spFunIsLogin(context: context)) {
-          SPClassNavigatorUtils.spFunPushRoute(
-              context, SPClassExpertApplyPage());
+        if (csMethodIsLogin(context: context)) {
+          CSClassNavigatorUtils.csMethodPushRoute(
+              context, CSClassExpertApplyPage());
         }
       }
 
       if (urlPage.contains("big_data_report")) {
-        if (spFunIsLogin(context: context)) {
-          spFunGetBcwUrl("bigDataReport");
+        if (csMethodIsLogin(context: context)) {
+          csMethodGetBcwUrl("bigDataReport");
         }
       }
       if (urlPage.contains("all_analysis")) {
-        if (spFunIsLogin(context: context)) {
-          spFunGetBcwUrl("allAnalysis");
+        if (csMethodIsLogin(context: context)) {
+          csMethodGetBcwUrl("allAnalysis");
         }
       }
 
       if (urlPage.contains("odds_wave")) {
-        if (spFunIsLogin(context: context)) {
-          spFunGetBcwUrl("oddsWave");
+        if (csMethodIsLogin(context: context)) {
+          csMethodGetBcwUrl("oddsWave");
         }
       }
       if (urlPage.contains("dark_horse_analysis")) {
-        if (spFunIsLogin(context: context)) {
-          spFunGetBcwUrl("coldJudge");
+        if (csMethodIsLogin(context: context)) {
+          csMethodGetBcwUrl("coldJudge");
         }
       }
     } else {
-      SPClassNavigatorUtils.spFunPushRoute(
-          context, SPClassWebPage(urlPage, title));
+      CSClassNavigatorUtils.csMethodPushRoute(
+          context, CSClassWebPage(urlPage, title));
     }
   }
 
-  void spFunGetBcwUrl(String value) {
-    if (spFunIsLogin(context: context)) {
-      var params = SPClassApiManager.spFunGetInstance().spFunGetCommonParams();
+  void csMethodGetBcwUrl(String value) {
+    if (csMethodIsLogin(context: context)) {
+      var params = CSClassApiManager.csMethodGetInstance().csMethodGetCommonParams();
       params.putIfAbsent("model_type", () => value);
-      SPClassNavigatorUtils.spFunPushRoute(
+      CSClassNavigatorUtils.csMethodPushRoute(
           context,
-          SPClassWebPage(
-              SPClassNetConfig.spFunGetBasicUrl() +
+          CSClassWebPage(
+              CSClassNetConfig.csMethodGetBasicUrl() +
                   "user/bcw/login?" +
                   Transformer.urlEncodeMap(params),
               ""));
     }
   }
 
-  spFunGetHotMatch() {
-    SPClassApiManager.spFunGetInstance().spFunGuessMatchList<SPClassGuessMatchInfo>(queryParams: {"page": 1,"date":"","spProFetchType": "hot",'match_type':spProHomeMatchType},spProCallBack: SPClassHttpCallBack(
-      spProOnSuccess: (list){
+  csMethodGetHotMatch() {
+    CSClassApiManager.csMethodGetInstance().csMethodGuessMatchList<CSClassGuessMatchInfo>(queryParams: {"page": 1,"date":"","csProFetchType": "hot",'match_type':csProHomeMatchType},csProCallBack: CSClassHttpCallBack(
+      csProOnSuccess: (list){
         if(mounted){
           setState(() {
-            spProHotMatch=list.spProDataList.length>2?list.spProDataList.sublist(0,2):list.spProDataList;
+            csProHotMatch=list.csProDataList.length>2?list.csProDataList.sublist(0,2):list.csProDataList;
           });
         }
-      },onError: (v){},spProOnProgress: (v){}
+      },onError: (v){},csProOnProgress: (v){}
     ));
   }
 }

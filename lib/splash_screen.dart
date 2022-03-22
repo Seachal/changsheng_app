@@ -1,16 +1,16 @@
 import 'dart:convert';
 
 import 'dart:io';
-import 'package:changshengh5/pages/SPClassSplashPage.dart';
-import 'package:changshengh5/pages/competition/SPClassMatchListSettingPage.dart';
-import 'package:changshengh5/pages/dialogs/SPClassPrivacyDialogDialog.dart';
+import 'package:changshengh5/pages/CSClassSplashPage.dart';
+import 'package:changshengh5/pages/competition/CSClassMatchListSettingPage.dart';
+import 'package:changshengh5/pages/dialogs/CSClassPrivacyDialogDialog.dart';
 import 'package:changshengh5/utils/LocalStorage.dart';
-import 'package:changshengh5/utils/SPClassCommonMethods.dart';
-import 'package:changshengh5/utils/SPClassIphoneDevices.dart';
-import 'package:changshengh5/utils/SPClassLogUtils.dart';
-import 'package:changshengh5/utils/SPClassNavigatorUtils.dart';
-import 'package:changshengh5/utils/SPClassSharedPreferencesKeys.dart';
-import 'package:changshengh5/utils/SPClassUtil.dart';
+import 'package:changshengh5/utils/CSClassCommonMethods.dart';
+import 'package:changshengh5/utils/CSClassIphoneDevices.dart';
+import 'package:changshengh5/utils/CSClassLogUtils.dart';
+import 'package:changshengh5/utils/CSClassNavigatorUtils.dart';
+import 'package:changshengh5/utils/CSClassSharedPreferencesKeys.dart';
+import 'package:changshengh5/utils/CSClassUtil.dart';
 import 'package:changshengh5/utils/common.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -19,15 +19,15 @@ import 'package:connectivity/connectivity.dart';
 import 'package:package_info/package_info.dart';
 import 'package:jpush_flutter/jpush_flutter.dart';
 
-import 'api/SPClassApiManager.dart';
-import 'api/SPClassHttpCallBack.dart';
-import 'api/SPClassNetConfig.dart';
-import 'app/SPClassApplicaion.dart';
+import 'api/CSClassApiManager.dart';
+import 'api/CSClassHttpCallBack.dart';
+import 'api/CSClassNetConfig.dart';
+import 'app/CSClassApplicaion.dart';
 import 'generated/json/base/json_convert_content.dart';
-import 'main/SPClassAppPage.dart';
-import 'model/SPClassBaseModelEntity.dart';
-import 'model/SPClassConfRewardEntity.dart';
-import 'model/SPClassLogInfoEntity.dart';
+import 'main/CSClassAppPage.dart';
+import 'model/CSClassBaseModelEntity.dart';
+import 'model/CSClassConfRewardEntity.dart';
+import 'model/CSClassLogInfoEntity.dart';
 import 'package:fluwx/fluwx.dart' as fluwx;
 import 'package:crypto/crypto.dart';
 //import 'package:jverify/jverify.dart';
@@ -52,7 +52,7 @@ class _SplashScreenState extends State<SplashScreen> {
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
       color: Colors.white,
-      child: SPClassSplashPage(() {}),
+      child: CSClassSplashPage(() {}),
     );
   }
 
@@ -63,39 +63,39 @@ class _SplashScreenState extends State<SplashScreen> {
     if (LocalStorage.get(Commons.IS_AGREE_PRIVICY) != null) {
       init();
       Future.delayed(Duration(seconds: 3)).then((value) async {
-        SPClassNavigatorUtils.pushAndRemoveAll(context, SPClassAppPage());
-        SPClassUtil.spFunRequestPermission();
+        CSClassNavigatorUtils.pushAndRemoveAll(context, CSClassAppPage());
+        CSClassUtil.csMethodRequestPermission();
       });
     } else {
       Future.delayed(Duration(seconds: 3)).then((value) {
         showDialog(
             context: context,
             builder: (context) {
-              return SPClassPrivacyDialogDialog(() async {
+              return CSClassPrivacyDialogDialog(() async {
                 await init();
                 Future.delayed(Duration(milliseconds: 100)).then((value) {
-                  SPClassNavigatorUtils.pushAndRemoveAll(
-                      context, SPClassAppPage());
-                  SPClassUtil.spFunRequestPermission();
+                  CSClassNavigatorUtils.pushAndRemoveAll(
+                      context, CSClassAppPage());
+                  CSClassUtil.csMethodRequestPermission();
                 });
               });
             });
       });
     }
-    spFunInitUserData();
+    csMethodInitUserData();
   }
 
   Future<void> init() async {
     try {
       if (Platform.isAndroid) {
         FlutterToolUtil.channelId.then((channel) {
-          SPClassApplicaion.spProChannelId = channel;
-          if (SPClassApplicaion.spProChannelId == "2") {
-            SPClassApplicaion.spProAndroidAppId = "105";
+          CSClassApplicaion.csProChannelId = channel;
+          if (CSClassApplicaion.csProChannelId == "2") {
+            CSClassApplicaion.csProAndroidAppId = "105";
           }
         });
       } else {
-//        SPClassApplicaion.spProShowMenuList = [
+//        CSClassApplicaion.csProShowMenuList = [
 //          "home",
 //          "match",
 //          "expert",
@@ -106,104 +106,104 @@ class _SplashScreenState extends State<SplashScreen> {
 //        ];
       }
     } catch (e) {
-      SPClassLogUtils.spFunPrintLog(e.toString());
+      CSClassLogUtils.csMethodPrintLog(e.toString());
     } finally {
-      spFunInitOneLogin();
-      spFunInitConnectivity();
-      spFunInitPush();
-      spFunInitWx();
+      csMethodInitOneLogin();
+      csMethodInitConnectivity();
+      csMethodInitPush();
+      csMethodInitWx();
     }
   }
 
-  Future<void> spFunInitUserData() async {
+  Future<void> csMethodInitUserData() async {
     await SharedPreferences.getInstance().then((sp) {
-      SPClassApplicaion.spProDEBUG =
-          sp.getBool("test") ?? SPClassApplicaion.spProDEBUG;
-      SPClassMatchListSettingPageState.SHOW_PANKOU =
-          sp.getBool(SPClassSharedPreferencesKeys.KEY_MATCH_PAN_KOU) ??
-              SPClassMatchListSettingPageState.SHOW_PANKOU;
-      var logInfoJson = sp.getString(SPClassSharedPreferencesKeys.KEY_LOG_JSON);
+      CSClassApplicaion.csProDEBUG =
+          sp.getBool("test") ?? CSClassApplicaion.csProDEBUG;
+      CSClassMatchListSettingPageState.SHOW_PANKOU =
+          sp.getBool(CSClassSharedPreferencesKeys.KEY_MATCH_PAN_KOU) ??
+              CSClassMatchListSettingPageState.SHOW_PANKOU;
+      var logInfoJson = sp.getString(CSClassSharedPreferencesKeys.KEY_LOG_JSON);
       if (logInfoJson != null) {
         var jsonData = json.decode(logInfoJson);
-        SPClassApplicaion.spProLogOpenInfo =
-            // SPClassLogInfoEntity.fromJson(jsonData);
-        JsonConvert.fromJsonAsT<SPClassLogInfoEntity>(jsonData);
+        CSClassApplicaion.csProLogOpenInfo =
+            // CSClassLogInfoEntity.fromJson(jsonData);
+        JsonConvert.fromJsonAsT<CSClassLogInfoEntity>(jsonData);
       }
     });
-    await SPClassApplicaion.spFunInitUserState();
+    await CSClassApplicaion.csMethodInitUserState();
     if (Platform.isAndroid) {
-      spFunInitAndroid();
+      csMethodInitAndroid();
     }
     if (Platform.isIOS) {
-      spFunGetSydidCache();
+      csMethodGetSydidCache();
     }
     return;
   }
 
-  void spFunInitOneLogin() {
+  void csMethodInitOneLogin() {
     // 初始化一键登录
 //    jverify.setup(appKey: 'c79807ca5d4fd2a554e7ad1d',channel: "devloper-default");
   }
 
   /// 监听网络状态
-  Future<Null> spFunInitConnectivity() async {
+  Future<Null> csMethodInitConnectivity() async {
     //平台消息可能会失败，因此我们使用Try/Catch PlatformException。
     // try {
     //   _connectivity.checkConnectivity().then((result){
-    //     spFunSetWifiName(result);
+    //     csMethodSetWifiName(result);
     //   });
     //   _connectivity.getWifiBSSID().then((reslut){
     //     if(reslut!=null&&reslut.isNotEmpty){
-    //       SPClassApplicaion.spProMacAddress=reslut;
+    //       CSClassApplicaion.csProMacAddress=reslut;
     //     }
     //   });
     // }  catch (e) {
     // }
     //
     // _connectivity.onConnectivityChanged.listen((ConnectivityResult result) {
-    //   spFunSetWifiName(result);
+    //   csMethodSetWifiName(result);
     // });
   }
 
-  void spFunSetWifiName(ConnectivityResult result) {
+  void csMethodSetWifiName(ConnectivityResult result) {
     // switch(result){
     //   case ConnectivityResult.mobile:
     //   case ConnectivityResult.none:
-    //     SPClassApplicaion.spProWifiName="";
+    //     CSClassApplicaion.csProWifiName="";
     //     break;
     //   case ConnectivityResult.wifi:
     //     _connectivity.getWifiName().then((wifiName){
     //       if(wifiName!=null){
-    //         SPClassApplicaion.spProWifiName=wifiName;
+    //         CSClassApplicaion.csProWifiName=wifiName;
     //       }
-    //       SPClassLogUtils.spFunPrintLog("connectionStatus: ${SPClassApplicaion.spProWifiName.toString()}");
+    //       CSClassLogUtils.csMethodPrintLog("connectionStatus: ${CSClassApplicaion.csProWifiName.toString()}");
     //     });
     //     break;
     // }
     //
     // _connectivity.getWifiBSSID().then((reslut){
     //   if(reslut!=null&&reslut.isNotEmpty){
-    //     SPClassApplicaion.spProMacAddress=reslut;
+    //     CSClassApplicaion.csProMacAddress=reslut;
     //   }
     // });
   }
 
-  Future<void> spFunInitPush() async {
+  Future<void> csMethodInitPush() async {
 
     // 推送
     if (Platform.isIOS) {
-      SPClassApplicaion.spProJPush = JPush();
-      SPClassApplicaion.spProJPush?.setup(
+      CSClassApplicaion.csProJPush = JPush();
+      CSClassApplicaion.csProJPush?.setup(
         appKey:'c79807ca5d4fd2a554e7ad1d',
         channel: "theChannel",
         production: true,
         debug: true,
       );
-      SPClassApplicaion.spProJPush?.applyPushAuthority(
+      CSClassApplicaion.csProJPush?.applyPushAuthority(
           const NotificationSettingsIOS(sound: true, alert: true, badge: true));
     } else {
-      SPClassApplicaion.spProJPush = JPush();
-      SPClassApplicaion.spProJPush?.setup(
+      CSClassApplicaion.csProJPush = JPush();
+      CSClassApplicaion.csProJPush?.setup(
         appKey: 'c79807ca5d4fd2a554e7ad1d',
         channel: "theChannel",
         production: true,
@@ -212,126 +212,126 @@ class _SplashScreenState extends State<SplashScreen> {
     }
   }
 
-  spFunInitWx() async {
+  csMethodInitWx() async {
     fluwx.registerWxApi(
       appId: ChannelId == "2" ? "wx3968d1915829705d" : "wx3968d1915829705d",
       universalLink: "https://api.gz583.com/hongsheng/",
     );
   }
 
-  Future spFunInitAndroid() async {
-    spFunGetSydidCache();
-    spFunInitData();
+  Future csMethodInitAndroid() async {
+    csMethodGetSydidCache();
+    csMethodInitData();
   }
 
-  void spFunGetSydidCache() async {
+  void csMethodGetSydidCache() async {
     if (Platform.isAndroid) {
       String documentsPath = await FlutterToolUtil.getExternalStorage();
-      String appIdPath = SPClassApplicaion.spProAndroidAppId == "100"
+      String appIdPath = CSClassApplicaion.csProAndroidAppId == "100"
           ? '/wbs/wbs.txt'
-          : ("/wbs/" + SPClassApplicaion.spProAndroidAppId + "/wbs.txt");
+          : ("/wbs/" + CSClassApplicaion.csProAndroidAppId + "/wbs.txt");
       File file = new File(documentsPath + appIdPath);
       bool exists = await file.exists();
       if (exists) {
         String wbs = await file.readAsString();
         String encryptedString = AesUtils.decryptAes(wbs);
-        SPClassApplicaion.spProSydid = encryptedString;
+        CSClassApplicaion.csProSydid = encryptedString;
       } else {
-        if (SPClassApplicaion.spProLogOpenInfo != null) {
-          SPClassApplicaion.spProSydid =
-              SPClassApplicaion.spProLogOpenInfo!.sydid!;
+        if (CSClassApplicaion.csProLogOpenInfo != null) {
+          CSClassApplicaion.csProSydid =
+              CSClassApplicaion.csProLogOpenInfo!.sydid!;
         }
       }
     }
 
     if (Platform.isIOS) {
-      SPClassApplicaion.spProSydid = await FlutterToolUtil.getKeyChainSyDid;
+      CSClassApplicaion.csProSydid = await FlutterToolUtil.getKeyChainSyDid;
     }
-    spFunInitData();
+    csMethodInitData();
   }
 
-  void spFunInitData() async {
-    SPClassApplicaion.spProPackageInfo = await PackageInfo.fromPlatform();
+  void csMethodInitData() async {
+    CSClassApplicaion.csProPackageInfo = await PackageInfo.fromPlatform();
     if (Platform.isAndroid) {
-      SPClassNetConfig.androidInfo =
-          await SPClassNetConfig.spProDeviceInfo.androidInfo;
+      CSClassNetConfig.androidInfo =
+          await CSClassNetConfig.csProDeviceInfo.androidInfo;
       try {
-        SPClassApplicaion.spProImei = await SharedPreferences.getInstance()
-            .then((sp) => sp.getString(SPClassSharedPreferencesKeys.KEY_IMEI)!);
-        if (SPClassApplicaion.spProImei == null ||
-            SPClassApplicaion.spProImei.contains("Denied")) {
-          SPClassApplicaion.spProImei = "";
+        CSClassApplicaion.csProImei = await SharedPreferences.getInstance()
+            .then((sp) => sp.getString(CSClassSharedPreferencesKeys.KEY_IMEI)!);
+        if (CSClassApplicaion.csProImei == null ||
+            CSClassApplicaion.csProImei.contains("Denied")) {
+          CSClassApplicaion.csProImei = "";
         }
-        SPClassApplicaion.spProDeviceName = SPClassNetConfig.androidInfo!.model;
+        CSClassApplicaion.csProDeviceName = CSClassNetConfig.androidInfo!.model;
       } catch (e) {}
     } else if (Platform.isIOS) {
-      SPClassNetConfig.spProIosDeviceInfo =
-          await SPClassNetConfig.spProDeviceInfo.iosInfo;
-      SPClassApplicaion.spProDeviceName = SPClassIphoneDevices()
-          .spFunDevicesString(
-              SPClassNetConfig.spProIosDeviceInfo!.utsname.machine);
+      CSClassNetConfig.csProIosDeviceInfo =
+          await CSClassNetConfig.csProDeviceInfo.iosInfo;
+      CSClassApplicaion.csProDeviceName = CSClassIphoneDevices()
+          .csMethodDevicesString(
+              CSClassNetConfig.csProIosDeviceInfo!.utsname.machine);
     }
-    spFunDoLogOpen();
+    csMethodDoLogOpen();
 
-    if (spFunIsLogin()) {
-      spFunDoLogin(SPClassApplicaion.spProUserLoginInfo!.spProAutoLoginStr!);
+    if (csMethodIsLogin()) {
+      csMethodDoLogin(CSClassApplicaion.csProUserLoginInfo!.csProAutoLoginStr!);
     }
 
-    spFunDomainJs(null);
+    csMethodDomainJs(null);
   }
 
-  void spFunDoLogOpen() {
-    if (SPClassApplicaion.spProLogOpenInfo == null) {
-      spFunInitMenuList();
+  void csMethodDoLogOpen() {
+    if (CSClassApplicaion.csProLogOpenInfo == null) {
+      csMethodInitMenuList();
     }
 
-    SPClassApiManager.spFunGetInstance()
-        .spFunConfReward<SPClassConfRewardEntity>(
-            spProCallBack: SPClassHttpCallBack(
-                spProOnSuccess: (value) {
-                  SPClassApplicaion.spProConfReward = value;
+    CSClassApiManager.csMethodGetInstance()
+        .csMethodConfReward<CSClassConfRewardEntity>(
+            csProCallBack: CSClassHttpCallBack(
+                csProOnSuccess: (value) {
+                  CSClassApplicaion.csProConfReward = value;
                 },
                 onError: (e) {},
-                spProOnProgress: (v) {}));
-    SPClassApiManager.spFunGetInstance().spFunLogOpen<SPClassBaseModelEntity>(
+                csProOnProgress: (v) {}));
+    CSClassApiManager.csMethodGetInstance().csMethodLogOpen<CSClassBaseModelEntity>(
         needSydid: "1",
-        spProCallBack: SPClassHttpCallBack(
-            spProOnSuccess: (result) async {
-              var logOpen= JsonConvert.fromJsonAsT<SPClassLogInfoEntity>(result.data);
-              // var logOpen = SPClassLogInfoEntity.fromJson(result.data);
-              print('显示的内容：${logOpen.spProMenuList}');
-              SPClassApplicaion.spProLogOpenInfo = logOpen;
+        csProCallBack: CSClassHttpCallBack(
+            csProOnSuccess: (result) async {
+              var logOpen= JsonConvert.fromJsonAsT<CSClassLogInfoEntity>(result.data);
+              // var logOpen = CSClassLogInfoEntity.fromJson(result.data);
+              print('显示的内容：${logOpen.csProMenuList}');
+              CSClassApplicaion.csProLogOpenInfo = logOpen;
               var md5Code = md5.convert(utf8.encode(AppId)).toString();
               if (Platform.isAndroid) {
                 if (result.data["app_sign"] == md5Code) {
-                  if(logOpen.spProMenuList!.isNotEmpty){
-                    SPClassApplicaion.spProShowMenuList = logOpen.spProMenuList!;
+                  if(logOpen.csProMenuList!.isNotEmpty){
+                    CSClassApplicaion.csProShowMenuList = logOpen.csProMenuList!;
                     SharedPreferences.getInstance().then((sp) => sp.setString(
-                        SPClassSharedPreferencesKeys.KEY_LOG_JSON,
+                        CSClassSharedPreferencesKeys.KEY_LOG_JSON,
                         jsonEncode(result.data)));
                   }
                 } else {
-                  spFunInitMenuList();
+                  csMethodInitMenuList();
                 }
               }else{
                 //ios
-                if(result.data['app_sign']!=md5.convert(utf8.encode(SPClassApplicaion.spProIOSAppId)).toString()){
-                  SPClassApplicaion.spProShowMenuList =["home","shop","pk","match","expert","info","match_analyse","bcw_data",];
+                if(result.data['app_sign']!=md5.convert(utf8.encode(CSClassApplicaion.csProIOSAppId)).toString()){
+                  CSClassApplicaion.csProShowMenuList =["home","shop","pk","match","expert","info","match_analyse","bcw_data",];
                 }else{
-                  if(logOpen.spProMenuList!.isNotEmpty){
-                    SPClassApplicaion.spProShowMenuList = logOpen.spProMenuList!;
+                  if(logOpen.csProMenuList!.isNotEmpty){
+                    CSClassApplicaion.csProShowMenuList = logOpen.csProMenuList!;
                     SharedPreferences.getInstance().then((sp) => sp.setString(
-                        SPClassSharedPreferencesKeys.KEY_LOG_JSON,
+                        CSClassSharedPreferencesKeys.KEY_LOG_JSON,
                         jsonEncode(result.data)));
                   }
 
                 }
               }
 
-              if (SPClassApplicaion.spProSydid == logOpen.sydid!) {
+              if (CSClassApplicaion.csProSydid == logOpen.sydid!) {
                 return;
               }
-              SPClassApplicaion.spProSydid = logOpen.sydid!;
+              CSClassApplicaion.csProSydid = logOpen.sydid!;
               if (Platform.isAndroid) {
                 try {
                   String encryptedString = AesUtils.encryptAes(logOpen.sydid!);
@@ -339,61 +339,61 @@ class _SplashScreenState extends State<SplashScreen> {
                     String documentsPath =
                         await FlutterToolUtil.getExternalStorage();
                     String appIdPath =
-                        SPClassApplicaion.spProAndroidAppId == "100"
+                        CSClassApplicaion.csProAndroidAppId == "100"
                             ? '/wbs/wbs.txt'
                             : ("/wbs/" +
-                                SPClassApplicaion.spProAndroidAppId +
+                                CSClassApplicaion.csProAndroidAppId +
                                 "/wbs.txt");
                     File file = new File(documentsPath + appIdPath);
                     if (!file.existsSync()) {
                       file.createSync(recursive: true);
                     }
-                    spFunWriteToFile(file, encryptedString);
+                    csMethodWriteToFile(file, encryptedString);
                   }
                 } on PlatformException {}
               }
               if (Platform.isIOS) {
-                FlutterToolUtil.saveKeyChainSyDiy(SPClassApplicaion.spProSydid);
+                FlutterToolUtil.saveKeyChainSyDiy(CSClassApplicaion.csProSydid);
               }
             },
             onError: (e) {},
-            spProOnProgress: (v) {}));
+            csProOnProgress: (v) {}));
   }
 
-  void spFunInitMenuList() {
+  void csMethodInitMenuList() {
     var channels = ["1", "2", "7", "5", "6", "4", "13", '9'];
-    if (channels.contains(SPClassApplicaion.spProChannelId)) {
-      SPClassApplicaion.spProShowMenuList = ["circle", "match"];
+    if (channels.contains(CSClassApplicaion.csProChannelId)) {
+      CSClassApplicaion.csProShowMenuList = ["circle", "match"];
     }
   }
 
-  void spFunWriteToFile(File file, String notes) async {
+  void csMethodWriteToFile(File file, String notes) async {
     await file.writeAsString(notes);
   }
 
-  void spFunDomainJs(String? autoString) async {
-    SPClassApiManager.spFunGetInstance().spFunDomainJs(
-        spProCallBack: SPClassHttpCallBack(
-            spProOnSuccess: (result) {
-              SPClassApplicaion.spProJsMap = result.data;
+  void csMethodDomainJs(String? autoString) async {
+    CSClassApiManager.csMethodGetInstance().csMethodDomainJs(
+        csProCallBack: CSClassHttpCallBack(
+            csProOnSuccess: (result) {
+              CSClassApplicaion.csProJsMap = result.data;
             },
             onError: (e) {},
-            spProOnProgress: (v) {}));
+            csProOnProgress: (v) {}));
   }
 
-  void spFunDoLogin(String autoString) {
-    SPClassApiManager.spFunGetInstance().spFunUserAuoLogin(
-        spProAutoLoginStr: autoString,
-        spProCallBack: SPClassHttpCallBack(
-            spProOnSuccess: (result) {
-              SPClassApplicaion.spProUserLoginInfo = result;
-              SPClassApplicaion.spFunSaveUserState();
+  void csMethodDoLogin(String autoString) {
+    CSClassApiManager.csMethodGetInstance().csMethodUserAuoLogin(
+        csProAutoLoginStr: autoString,
+        csProCallBack: CSClassHttpCallBack(
+            csProOnSuccess: (result) {
+              CSClassApplicaion.csProUserLoginInfo = result;
+              CSClassApplicaion.csMethodSaveUserState();
             },
             onError: (error) {
               if (error.code == "401") {
-                SPClassApplicaion.spFunClearUserState();
+                CSClassApplicaion.csMethodClearUserState();
               }
             },
-            spProOnProgress: (v) {}));
+            csProOnProgress: (v) {}));
   }
 }

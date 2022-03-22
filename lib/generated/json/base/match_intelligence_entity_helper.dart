@@ -1,38 +1,38 @@
 
-import 'package:changshengh5/model/SPClassMatchIntelligenceEntity.dart';
+import 'package:changshengh5/model/CSClassMatchIntelligenceEntity.dart';
 
-matchIntelligenceEntityFromJson(SPClassMatchIntelligenceEntity data, Map<String, dynamic> json) {
+matchIntelligenceEntityFromJson(CSClassMatchIntelligenceEntity data, Map<String, dynamic> json) {
 	if (json['match_intelligence'] != null) {
-		data.spProMatchIntelligence = new SPClassMatchIntelligenceMatchIntelligence().fromJson(json['match_intelligence']);
+		data.csProMatchIntelligence = new CSClassMatchIntelligenceMatchIntelligence().fromJson(json['match_intelligence']);
 	}
 	return data;
 }
 
-Map<String, dynamic> matchIntelligenceEntityToJson(SPClassMatchIntelligenceEntity entity) {
+Map<String, dynamic> matchIntelligenceEntityToJson(CSClassMatchIntelligenceEntity entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
-	if (entity.spProMatchIntelligence != null) {
-		data['match_intelligence'] = entity.spProMatchIntelligence?.toJson();
+	if (entity.csProMatchIntelligence != null) {
+		data['match_intelligence'] = entity.csProMatchIntelligence?.toJson();
 	}
 	return data;
 }
 
-matchIntelligenceMatchIntelligenceFromJson(SPClassMatchIntelligenceMatchIntelligence data, Map<String, dynamic> json) {
+matchIntelligenceMatchIntelligenceFromJson(CSClassMatchIntelligenceMatchIntelligence data, Map<String, dynamic> json) {
 	if (json['1'] != null) {
 		data.one = [];
 		(json['1'] as List).forEach((v) {
-			data.one?.add(new SPClassMatchIntelligenceMatchIntelligenceItem().fromJson(v));
+			data.one?.add(new CSClassMatchIntelligenceMatchIntelligenceItem().fromJson(v));
 		});
 	}
 	if (json['2'] != null) {
 		data.two = [];
 		(json['2'] as List).forEach((v) {
-			data.two?.add(new SPClassMatchIntelligenceMatchIntelligenceItem().fromJson(v));
+			data.two?.add(new CSClassMatchIntelligenceMatchIntelligenceItem().fromJson(v));
 		});
 	}
 	return data;
 }
 
-Map<String, dynamic> matchIntelligenceMatchIntelligenceToJson(SPClassMatchIntelligenceMatchIntelligence entity) {
+Map<String, dynamic> matchIntelligenceMatchIntelligenceToJson(CSClassMatchIntelligenceMatchIntelligence entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	if (entity.one != null) {
 		data['1'] =  entity.one?.map((v) => v.toJson()).toList();
@@ -43,7 +43,7 @@ Map<String, dynamic> matchIntelligenceMatchIntelligenceToJson(SPClassMatchIntell
 	return data;
 }
 
-matchIntelligenceMatchIntelligenceItemFromJson(SPClassMatchIntelligenceMatchIntelligenceItem data, Map<String, dynamic> json) {
+matchIntelligenceMatchIntelligenceItemFromJson(CSClassMatchIntelligenceMatchIntelligenceItem data, Map<String, dynamic> json) {
 	if (json['information'] != null) {
 		data.information = json['information']?.toString();
 	}
@@ -51,15 +51,15 @@ matchIntelligenceMatchIntelligenceItemFromJson(SPClassMatchIntelligenceMatchInte
 		data.status = json['status']?.toString();
 	}
 	if (json['which_team'] != null) {
-		data.spProWhichTeam = json['which_team']?.toString();
+		data.csProWhichTeam = json['which_team']?.toString();
 	}
 	return data;
 }
 
-Map<String, dynamic> matchIntelligenceMatchIntelligenceItemToJson(SPClassMatchIntelligenceMatchIntelligenceItem entity) {
+Map<String, dynamic> matchIntelligenceMatchIntelligenceItemToJson(CSClassMatchIntelligenceMatchIntelligenceItem entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	data['information'] = entity.information;
 	data['status'] = entity.status;
-	data['which_team'] = entity.spProWhichTeam;
+	data['which_team'] = entity.csProWhichTeam;
 	return data;
 }

@@ -1,38 +1,38 @@
 
-import 'package:changshengh5/model/SPClassMatchLineupPlayerEntity.dart';
+import 'package:changshengh5/model/CSClassMatchLineupPlayerEntity.dart';
 
-matchLineupPlayerEntityFromJson(SPClassMatchLineupPlayerEntity data, Map<String, dynamic> json) {
+matchLineupPlayerEntityFromJson(CSClassMatchLineupPlayerEntity data, Map<String, dynamic> json) {
 	if (json["match_lineup_player"] != null) {
-		data.spProMatchLineupPlayer = new SPClassMatchLineupPlayerMatchLineupPlayer().fromJson(json["match_lineup_player"]);
+		data.csProMatchLineupPlayer = new CSClassMatchLineupPlayerMatchLineupPlayer().fromJson(json["match_lineup_player"]);
 	}
 	return data;
 }
 
-Map<String, dynamic> matchLineupPlayerEntityToJson(SPClassMatchLineupPlayerEntity entity) {
+Map<String, dynamic> matchLineupPlayerEntityToJson(CSClassMatchLineupPlayerEntity entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
-	if (entity.spProMatchLineupPlayer != null) {
-		data["match_lineup_player"] = entity.spProMatchLineupPlayer?.toJson();
+	if (entity.csProMatchLineupPlayer != null) {
+		data["match_lineup_player"] = entity.csProMatchLineupPlayer?.toJson();
 	}
 	return data;
 }
 
-matchLineupPlayerMatchLineupPlayerFromJson(SPClassMatchLineupPlayerMatchLineupPlayer data, Map<String, dynamic> json) {
+matchLineupPlayerMatchLineupPlayerFromJson(CSClassMatchLineupPlayerMatchLineupPlayer data, Map<String, dynamic> json) {
 	if (json["1"] != null) {
 		data.one = [];
 		(json["1"] as List).forEach((v) {
-			data.one?.add(new SPClassMatchLineupPlayerMatchLineupPlayerItem().fromJson(v));
+			data.one?.add(new CSClassMatchLineupPlayerMatchLineupPlayerItem().fromJson(v));
 		});
 	}
 	if (json["2"] != null) {
 		data.two = [];
 		(json["2"] as List).forEach((v) {
-			data.two?.add(new SPClassMatchLineupPlayerMatchLineupPlayerItem().fromJson(v));
+			data.two?.add(new CSClassMatchLineupPlayerMatchLineupPlayerItem().fromJson(v));
 		});
 	}
 	return data;
 }
 
-Map<String, dynamic> matchLineupPlayerMatchLineupPlayerToJson(SPClassMatchLineupPlayerMatchLineupPlayer entity) {
+Map<String, dynamic> matchLineupPlayerMatchLineupPlayerToJson(CSClassMatchLineupPlayerMatchLineupPlayer entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	if (entity.one != null) {
 		data["1"] =  entity.one?.map((v) => v.toJson()).toList();
@@ -43,35 +43,35 @@ Map<String, dynamic> matchLineupPlayerMatchLineupPlayerToJson(SPClassMatchLineup
 	return data;
 }
 
-matchLineupPlayerMatchLineupPlayerItemFromJson(SPClassMatchLineupPlayerMatchLineupPlayerItem data, Map<String, dynamic> json) {
+matchLineupPlayerMatchLineupPlayerItemFromJson(CSClassMatchLineupPlayerMatchLineupPlayerItem data, Map<String, dynamic> json) {
 	if (json["player_name"] != null) {
-		data.spProPlayerName = json["player_name"]?.toString();
+		data.csProPlayerName = json["player_name"]?.toString();
 	}
 	if (json["avatar"] != null) {
 		data.avatar = json["avatar"]?.toString();
 	}
 	if (json["shirt_number"] != null) {
-		data.spProShirtNumber = json["shirt_number"]?.toString();
+		data.csProShirtNumber = json["shirt_number"]?.toString();
 	}
 	if (json["which_team"] != null) {
-		data.spProWhichTeam = json["which_team"]?.toString();
+		data.csProWhichTeam = json["which_team"]?.toString();
 	}
 	if (json["is_regular"] != null) {
-		data.spProIsRegular = json["is_regular"]?.toString();
+		data.csProIsRegular = json["is_regular"]?.toString();
 	}
 	if (json["seq_num"] != null) {
-		data.spProSeqNum = json["seq_num"]?.toString();
+		data.csProSeqNum = json["seq_num"]?.toString();
 	}
 	return data;
 }
 
-Map<String, dynamic> matchLineupPlayerMatchLineupPlayerItemToJson(SPClassMatchLineupPlayerMatchLineupPlayerItem entity) {
+Map<String, dynamic> matchLineupPlayerMatchLineupPlayerItemToJson(CSClassMatchLineupPlayerMatchLineupPlayerItem entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
-	data["player_name"] = entity.spProPlayerName;
+	data["player_name"] = entity.csProPlayerName;
 	data["avatar"] = entity.avatar;
-	data["shirt_number"] = entity.spProShirtNumber;
-	data["which_team"] = entity.spProWhichTeam;
-	data["is_regular"] = entity.spProIsRegular;
-	data["seq_num"] = entity.spProSeqNum;
+	data["shirt_number"] = entity.csProShirtNumber;
+	data["which_team"] = entity.csProWhichTeam;
+	data["is_regular"] = entity.csProIsRegular;
+	data["seq_num"] = entity.csProSeqNum;
 	return data;
 }

@@ -1,7 +1,7 @@
-import 'package:changshengh5/utils/SPClassCommonMethods.dart';
-import 'package:changshengh5/utils/SPClassImageUtil.dart';
-import 'package:changshengh5/utils/SPClassNavigatorUtils.dart';
-import 'package:changshengh5/widgets/SPClassToolBar.dart';
+import 'package:changshengh5/utils/CSClassCommonMethods.dart';
+import 'package:changshengh5/utils/CSClassImageUtil.dart';
+import 'package:changshengh5/utils/CSClassNavigatorUtils.dart';
+import 'package:changshengh5/widgets/CSClassToolBar.dart';
 import 'package:flutter/material.dart';
 
 import 'ProductDetail.dart';
@@ -19,7 +19,7 @@ class _SpecialAreaState extends State<SpecialArea> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SPClassToolBar(
+      appBar: CSClassToolBar(
         context,
         title: widget.title??'',
       ),
@@ -48,7 +48,7 @@ class _SpecialAreaState extends State<SpecialArea> {
             Map data = list[index];
             return GestureDetector(
               onTap: () {
-                SPClassNavigatorUtils.spFunPushRoute(
+                CSClassNavigatorUtils.csMethodPushRoute(
                     context,
                     ProductDetail(
                       data: data,
@@ -70,7 +70,7 @@ class _SpecialAreaState extends State<SpecialArea> {
                       child: Container(
                         height: width(156),
                         child: Image.asset(
-                          SPClassImageUtil.spFunGetShopImagePath('${data['image']}-1'),
+                          CSClassImageUtil.csMethodGetShopImagePath('${data['image']}-1'),
                         ),
                       ),
                     ),

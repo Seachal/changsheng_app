@@ -1,15 +1,15 @@
-import 'package:changshengh5/api/SPClassApiManager.dart';
-import 'package:changshengh5/api/SPClassHttpCallBack.dart';
-import 'package:changshengh5/app/SPClassApplicaion.dart';
-import 'package:changshengh5/app/SPClassGlobalNotification.dart';
-import 'package:changshengh5/model/SPClassUserLoginInfo.dart';
+import 'package:changshengh5/api/CSClassApiManager.dart';
+import 'package:changshengh5/api/CSClassHttpCallBack.dart';
+import 'package:changshengh5/app/CSClassApplicaion.dart';
+import 'package:changshengh5/app/CSClassGlobalNotification.dart';
+import 'package:changshengh5/model/CSClassUserLoginInfo.dart';
 import 'package:changshengh5/pages/dialogs/agreement_page.dart';
-import 'package:changshengh5/utils/SPClassCommonMethods.dart';
-import 'package:changshengh5/utils/SPClassImageUtil.dart';
-import 'package:changshengh5/utils/SPClassNavigatorUtils.dart';
-import 'package:changshengh5/utils/SPClassToastUtils.dart';
+import 'package:changshengh5/utils/CSClassCommonMethods.dart';
+import 'package:changshengh5/utils/CSClassImageUtil.dart';
+import 'package:changshengh5/utils/CSClassNavigatorUtils.dart';
+import 'package:changshengh5/utils/CSClassToastUtils.dart';
 import 'package:changshengh5/utils/colors.dart';
-import 'package:changshengh5/widgets/SPClassToolBar.dart';
+import 'package:changshengh5/widgets/CSClassToolBar.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -17,7 +17,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:video_player/video_player.dart';
 
-import 'SPClassVideoPhoneLoginPage.dart';
+import 'CSClassVideoPhoneLoginPage.dart';
 
 
 class PasswordLogin extends StatefulWidget {
@@ -27,16 +27,16 @@ class PasswordLogin extends StatefulWidget {
 }
 
 class _PasswordLoginState extends State<PasswordLogin> {
-  String spProPhoneNum = "";
-  String spProPhonePwd = "";
+  String csProPhoneNum = "";
+  String csProPhonePwd = "";
   bool isAgree = false; //是否同意协议
-  bool spProIsShowPassWord = false;
+  bool csProIsShowPassWord = false;
   late VideoPlayerController _videoPlayerController;
   late TextEditingController _textEditingController;
 
   @override
   void initState() {
-    _textEditingController = TextEditingController(text: spProPhoneNum);
+    _textEditingController = TextEditingController(text: csProPhoneNum);
 
     _videoPlayerController =
     VideoPlayerController.asset('assets/video/video_login.m4v')
@@ -69,8 +69,8 @@ class _PasswordLoginState extends State<PasswordLogin> {
                     height: MediaQuery.of(context).size.height)),
             Container(
               child: Image.asset(
-                SPClassImageUtil
-                    .spFunGetImagePath(
+                CSClassImageUtil
+                    .csMethodGetImagePath(
                     'login_bg'),
                 fit: BoxFit.cover,
                 width: MediaQuery.of(context).size.width,
@@ -80,9 +80,9 @@ class _PasswordLoginState extends State<PasswordLogin> {
             Container(
               child: Column(
                 children: <Widget>[
-                  SPClassToolBar(
+                  CSClassToolBar(
                     context,
-                    spProBgColor: Colors.transparent,
+                    csProBgColor: Colors.transparent,
                     iconColor: 0xFFFFFFFF,
                     actions: <Widget>[],
                   ),
@@ -130,7 +130,7 @@ class _PasswordLoginState extends State<PasswordLogin> {
                                           //               .alphabetic)),
                                           // ),
                                           Image.asset(
-                                            SPClassImageUtil.spFunGetImagePath("phone"),
+                                            CSClassImageUtil.csMethodGetImagePath("phone"),
                                             width: width(24),
                                           ),
                                           SizedBox(
@@ -161,7 +161,7 @@ class _PasswordLoginState extends State<PasswordLogin> {
                                                       11) //限制长度
                                                 ],
                                                 onChanged: (value) {
-                                                  spProPhoneNum = value;
+                                                  csProPhoneNum = value;
                                                 },
                                               ))
                                         ],
@@ -182,7 +182,7 @@ class _PasswordLoginState extends State<PasswordLogin> {
                                       child: Row(
                                         children: <Widget>[
                                           Image.asset(
-                                            SPClassImageUtil.spFunGetImagePath("password"),
+                                            CSClassImageUtil.csMethodGetImagePath("password"),
                                             width: width(24),
                                           ),
                                           SizedBox(
@@ -191,7 +191,7 @@ class _PasswordLoginState extends State<PasswordLogin> {
                                           Expanded(
                                               child: TextField(
                                                 obscureText:
-                                                !spProIsShowPassWord,
+                                                !csProIsShowPassWord,
                                                 textAlign: TextAlign.left,
                                                 maxLines: 1,
                                                 style: TextStyle(
@@ -210,12 +210,12 @@ class _PasswordLoginState extends State<PasswordLogin> {
                                                         right: width(24)),
                                                     icon: Image
                                                         .asset(
-                                                      !spProIsShowPassWord
-                                                          ? SPClassImageUtil
-                                                          .spFunGetImagePath(
+                                                      !csProIsShowPassWord
+                                                          ? CSClassImageUtil
+                                                          .csMethodGetImagePath(
                                                           'ic_login_uneye')
-                                                          : SPClassImageUtil
-                                                          .spFunGetImagePath(
+                                                          : CSClassImageUtil
+                                                          .csMethodGetImagePath(
                                                           'ic_eye_pwd'),
                                                       fit: BoxFit.contain,
                                                       color: Colors.white,
@@ -224,14 +224,14 @@ class _PasswordLoginState extends State<PasswordLogin> {
                                                     ),
                                                     onPressed: () =>
                                                         setState(() {
-                                                          spProIsShowPassWord =
-                                                          !spProIsShowPassWord;
+                                                          csProIsShowPassWord =
+                                                          !csProIsShowPassWord;
                                                         }),
                                                   ),
                                                 ),
                                                 onChanged: (value) {
                                                   setState(() {
-                                                    spProPhonePwd = value;
+                                                    csProPhonePwd = value;
                                                   });
                                                 },
                                               ))
@@ -244,9 +244,9 @@ class _PasswordLoginState extends State<PasswordLogin> {
                                           margin:
                                           EdgeInsets.only(top: height(25)),
                                           decoration: BoxDecoration(
-                                              color: spProPhoneNum.length == 11&&spProPhonePwd.isNotEmpty
+                                              color: csProPhoneNum.length == 11&&csProPhonePwd.isNotEmpty
                                                   ?MyColors.main1:Colors.transparent,
-                                              border:Border.all(color: spProPhoneNum.length == 11&&spProPhonePwd.isNotEmpty
+                                              border:Border.all(color: csProPhoneNum.length == 11&&csProPhonePwd.isNotEmpty
                                                   ?MyColors.main1:MyColors.grey_66,width: 0.5),
                                               borderRadius:
                                               BorderRadius.circular(400)),
@@ -255,60 +255,60 @@ class _PasswordLoginState extends State<PasswordLogin> {
                                           child: Text(
                                             "登录",
                                             style: TextStyle(
-                                                color:spProPhoneNum.length == 11&&spProPhonePwd.isNotEmpty
+                                                color:csProPhoneNum.length == 11&&csProPhonePwd.isNotEmpty
                                                     ?MyColors.white:MyColors.grey_66,
                                                 fontSize: sp(16)),
                                           ),
                                         ),
                                         onTap: () {
-                                          if (spProPhoneNum.length != 11) {
-                                            SPClassToastUtils.spFunShowToast(
+                                          if (csProPhoneNum.length != 11) {
+                                            CSClassToastUtils.csMethodShowToast(
                                                 msg: "请输入正确11位手机号码!");
                                             return;
                                           }
 
-                                          if (spProPhonePwd.isEmpty) {
-                                            SPClassToastUtils.spFunShowToast(
+                                          if (csProPhonePwd.isEmpty) {
+                                            CSClassToastUtils.csMethodShowToast(
                                                 msg: "请输入密码");
                                             return;
                                           }
                                           if(!isAgree){
-                                            SPClassToastUtils.spFunShowToast(
+                                            CSClassToastUtils.csMethodShowToast(
                                                 msg: "请阅读并勾选 用户协议 和 隐私政策 ");
                                             return;
                                           }
-                                          SPClassApiManager().spFunUserLogin(
+                                          CSClassApiManager().csMethodUserLogin(
                                               queryParameters: {
-                                                "username": spProPhoneNum
+                                                "username": csProPhoneNum
                                               },
-                                              spProBodyParameters: {
-                                                "pwd": spProPhonePwd
+                                              csProBodyParameters: {
+                                                "pwd": csProPhonePwd
                                               },
                                               context: context,
-                                              spProCallBack:
-                                              SPClassHttpCallBack<
-                                                  SPClassUserLoginInfo>(
-                                                  spProOnSuccess:
+                                              csProCallBack:
+                                              CSClassHttpCallBack<
+                                                  CSClassUserLoginInfo>(
+                                                  csProOnSuccess:
                                                       (loginInfo) {
-                                                    SPClassApplicaion
-                                                        .spProUserLoginInfo =
+                                                    CSClassApplicaion
+                                                        .csProUserLoginInfo =
                                                         loginInfo;
-                                                    SPClassApplicaion
-                                                        .spFunSaveUserState();
-                                                    SPClassApplicaion
-                                                        .spFunInitUserState();
-                                                    SPClassApplicaion
-                                                        .spFunGetUserInfo();
-                                                    SPClassGlobalNotification
-                                                        .spFunGetInstance()
-                                                        ?.spFunInitWebSocket();
-                                                    SPClassApplicaion
-                                                        .spFunSavePushToken();
-                                                    SPClassApplicaion
-                                                        .spProEventBus
+                                                    CSClassApplicaion
+                                                        .csMethodSaveUserState();
+                                                    CSClassApplicaion
+                                                        .csMethodInitUserState();
+                                                    CSClassApplicaion
+                                                        .csMethodGetUserInfo();
+                                                    CSClassGlobalNotification
+                                                        .csMethodGetInstance()
+                                                        ?.csMethodInitWebSocket();
+                                                    CSClassApplicaion
+                                                        .csMethodSavePushToken();
+                                                    CSClassApplicaion
+                                                        .csProEventBus
                                                         .fire("login:gamelist");
-                                                    SPClassNavigatorUtils.spFunPopAll(context);
-                                                  },onError: (v){},spProOnProgress: (v){}
+                                                    CSClassNavigatorUtils.csMethodPopAll(context);
+                                                  },onError: (v){},csProOnProgress: (v){}
                                                   )
                                           );}),
                                     Container(
@@ -326,13 +326,13 @@ class _PasswordLoginState extends State<PasswordLogin> {
                                           ),
                                         ),
                                         onTap: () {
-                                          SPClassNavigatorUtils
-                                              .spFunPushRoute(
+                                          CSClassNavigatorUtils
+                                              .csMethodPushRoute(
                                               context,
-                                              SPClassVideoPhoneLoginPage(
-                                                spProVideoPlayerController:
+                                              CSClassVideoPhoneLoginPage(
+                                                csProVideoPlayerController:
                                                 _videoPlayerController,
-                                                spProPhoneType: 1,
+                                                csProPhoneType: 1,
                                               ));
                                         },
                                       ),
@@ -354,8 +354,8 @@ class _PasswordLoginState extends State<PasswordLogin> {
                                             child: Container(
                                               padding: EdgeInsets.only(right: width(8),top: width(2),bottom: width(2)),
                                               child:  Image.asset(
-                                                SPClassImageUtil
-                                                    .spFunGetImagePath(
+                                                CSClassImageUtil
+                                                    .csMethodGetImagePath(
                                                     isAgree?'select':'select_un'),
                                                 fit: BoxFit.contain,
                                                 width: width(13),
@@ -371,21 +371,21 @@ class _PasswordLoginState extends State<PasswordLogin> {
                                                       color: Color.fromRGBO(255, 255, 255, 0.8)
                                                   ),
                                                   text: "登录即代表同意" +
-                                                      SPClassApplicaion.spProAppName,
+                                                      CSClassApplicaion.csProAppName,
                                                   children: <TextSpan>[
                                                     TextSpan(
                                                         text: "《用户协议》",
                                                         recognizer:
                                                         new TapGestureRecognizer()
                                                           ..onTap = () {
-                                                            SPClassNavigatorUtils.spFunPushRoute(context,  AgreementPage(title:"用户协议",));
-                                                            // SPClassNavigatorUtils
-                                                            //     .spFunPushRoute(
+                                                            CSClassNavigatorUtils.csMethodPushRoute(context,  AgreementPage(title:"用户协议",));
+                                                            // CSClassNavigatorUtils
+                                                            //     .csMethodPushRoute(
                                                             //     context,
-                                                            //     SPClassWebPage(
+                                                            //     CSClassWebPage(
                                                             //       "",
                                                             //       "用户协议",
-                                                            //       spProLocalFile: "assets/html/useragreement.html",
+                                                            //       csProLocalFile: "assets/html/useragreement.html",
                                                             //     ));
                                                           }),
                                                     TextSpan(text: "和"),
@@ -394,15 +394,15 @@ class _PasswordLoginState extends State<PasswordLogin> {
                                                         recognizer:
                                                         new TapGestureRecognizer()
                                                           ..onTap = () {
-                                                            SPClassNavigatorUtils.spFunPushRoute(context,  AgreementPage(title:"隐私协议",));
+                                                            CSClassNavigatorUtils.csMethodPushRoute(context,  AgreementPage(title:"隐私协议",));
 
-                                                            // SPClassNavigatorUtils
-                                                            //     .spFunPushRoute(
+                                                            // CSClassNavigatorUtils
+                                                            //     .csMethodPushRoute(
                                                             //     context,
-                                                            //     SPClassWebPage(
+                                                            //     CSClassWebPage(
                                                             //         "",
                                                             //         "隐私协议",
-                                                            //         spProLocalFile:
+                                                            //         csProLocalFile:
                                                             //         "assets/html/privacy_score.html"));
                                                           }),
                                                   ]),

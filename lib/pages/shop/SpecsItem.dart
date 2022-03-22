@@ -2,9 +2,9 @@ import 'dart:convert';
 
 
 import 'package:changshengh5/utils/LocalStorage.dart';
-import 'package:changshengh5/utils/SPClassCommonMethods.dart';
-import 'package:changshengh5/utils/SPClassImageUtil.dart';
-import 'package:changshengh5/utils/SPClassToastUtils.dart';
+import 'package:changshengh5/utils/CSClassCommonMethods.dart';
+import 'package:changshengh5/utils/CSClassImageUtil.dart';
+import 'package:changshengh5/utils/CSClassToastUtils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -50,7 +50,7 @@ class _SpecsItemState extends State<SpecsItem> {
                     Navigator.pop(context);
                   },
                   child: Image.asset(
-                    SPClassImageUtil.spFunGetImagePath('close',),
+                    CSClassImageUtil.csMethodGetImagePath('close',),
                     width: width(15),
                   ),
                 )
@@ -59,7 +59,7 @@ class _SpecsItemState extends State<SpecsItem> {
             Row(
               children: <Widget>[
                 Image.asset(
-                  SPClassImageUtil.spFunGetShopImagePath('${widget.data!['image']}-1'),
+                  CSClassImageUtil.csMethodGetShopImagePath('${widget.data!['image']}-1'),
                   height: width(108),
                 ),
                 SizedBox(width: width(10),),
@@ -217,7 +217,7 @@ class _SpecsItemState extends State<SpecsItem> {
                       shopCarList.add(widget.data);
                       LocalStorage.save('shopCarList', jsonEncode(shopCarList));
                       Navigator.pop(context);
-                      SPClassToastUtils.spFunShowToast(msg: "加入购物车成功");
+                      CSClassToastUtils.csMethodShowToast(msg: "加入购物车成功");
                     },
                     child: Container(
                       padding: EdgeInsets.symmetric(vertical: width(10)),

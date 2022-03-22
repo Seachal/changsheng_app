@@ -1,32 +1,32 @@
 
-import 'package:changshengh5/model/SPClassMatchTrendEntity.dart';
+import 'package:changshengh5/model/CSClassMatchTrendEntity.dart';
 
-matchTrendEntityFromJson(SPClassMatchTrendEntity data, Map<String, dynamic> json) {
+matchTrendEntityFromJson(CSClassMatchTrendEntity data, Map<String, dynamic> json) {
 	if (json["match_trend"] != null) {
-		data.spProMatchTrend = new SPClassMatchTrendMatchTrend().fromJson(json["match_trend"]);
+		data.csProMatchTrend = new CSClassMatchTrendMatchTrend().fromJson(json["match_trend"]);
 	}
 	return data;
 }
 
-Map<String, dynamic> matchTrendEntityToJson(SPClassMatchTrendEntity entity) {
+Map<String, dynamic> matchTrendEntityToJson(CSClassMatchTrendEntity entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
-	if (entity.spProMatchTrend != null) {
-		data["match_trend"] = entity.spProMatchTrend?.toJson();
+	if (entity.csProMatchTrend != null) {
+		data["match_trend"] = entity.csProMatchTrend?.toJson();
 	}
 	return data;
 }
 
-matchTrendMatchTrendFromJson(SPClassMatchTrendMatchTrend data, Map<String, dynamic> json) {
+matchTrendMatchTrendFromJson(CSClassMatchTrendMatchTrend data, Map<String, dynamic> json) {
 	if (json["1"] != null) {
-		data.one = new SPClassMatchTrendMatchTrendLoad().fromJson(json["1"]);
+		data.one = new CSClassMatchTrendMatchTrendLoad().fromJson(json["1"]);
 	}
 	if (json["2"] != null) {
-		data.two = new SPClassMatchTrendMatchTrendLoad().fromJson(json["2"]);
+		data.two = new CSClassMatchTrendMatchTrendLoad().fromJson(json["2"]);
 	}
 	return data;
 }
 
-Map<String, dynamic> matchTrendMatchTrendToJson(SPClassMatchTrendMatchTrend entity) {
+Map<String, dynamic> matchTrendMatchTrendToJson(CSClassMatchTrendMatchTrend entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	if (entity.one != null) {
 		data["1"] = entity.one?.toJson();
@@ -37,29 +37,29 @@ Map<String, dynamic> matchTrendMatchTrendToJson(SPClassMatchTrendMatchTrend enti
 	return data;
 }
 
-matchTrendMatchTrendLoadFromJson(SPClassMatchTrendMatchTrendLoad data, Map<String, dynamic> json) {
+matchTrendMatchTrendLoadFromJson(CSClassMatchTrendMatchTrendLoad data, Map<String, dynamic> json) {
 	if (json["总榜"] != null) {
 		data.zon = [];
 		(json["总榜"] as List).forEach((v) {
-			data.zon?.add(new SPClassMatchTrendMatchTrendItem().fromJson(v));
+			data.zon?.add(new CSClassMatchTrendMatchTrendItem().fromJson(v));
 		});
 	}
 	if (json["主场"] != null) {
 		data.zhu = [];
 		(json["主场"] as List).forEach((v) {
-			data.zhu?.add(new SPClassMatchTrendMatchTrendItem().fromJson(v));
+			data.zhu?.add(new CSClassMatchTrendMatchTrendItem().fromJson(v));
 		});
 	}
 	if (json["客场"] != null) {
 		data.ke = [];
 		(json["客场"] as List).forEach((v) {
-			data.ke?.add(new SPClassMatchTrendMatchTrendItem().fromJson(v));
+			data.ke?.add(new CSClassMatchTrendMatchTrendItem().fromJson(v));
 		});
 	}
 	return data;
 }
 
-Map<String, dynamic> matchTrendMatchTrendLoadToJson(SPClassMatchTrendMatchTrendLoad entity) {
+Map<String, dynamic> matchTrendMatchTrendLoadToJson(CSClassMatchTrendMatchTrendLoad entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	if (entity.zon != null) {
 		data["总榜"] =  entity.zon?.map((v) => v.toJson()).toList();
@@ -73,59 +73,59 @@ Map<String, dynamic> matchTrendMatchTrendLoadToJson(SPClassMatchTrendMatchTrendL
 	return data;
 }
 
-matchTrendMatchTrendItemFromJson(SPClassMatchTrendMatchTrendItem data, Map<String, dynamic> json) {
+matchTrendMatchTrendItemFromJson(CSClassMatchTrendMatchTrendItem data, Map<String, dynamic> json) {
 	if (json["guess_match_id"] != null) {
-		data.spProGuessMatchId = json["guess_match_id"]?.toString();
+		data.csProGuessMatchId = json["guess_match_id"]?.toString();
 	}
 	if (json["type"] != null) {
 		data.type = json["type"]?.toString();
 	}
 	if (json["match_num"] != null) {
-		data.spProMatchNum = json["match_num"]?.toString();
+		data.csProMatchNum = json["match_num"]?.toString();
 	}
 	if (json["win_num"] != null) {
-		data.spProWinNum = json["win_num"]?.toString();
+		data.csProWinNum = json["win_num"]?.toString();
 	}
 	if (json["draw_num"] != null) {
-		data.spProDrawNum = json["draw_num"]?.toString();
+		data.csProDrawNum = json["draw_num"]?.toString();
 	}
 	if (json["lose_num"] != null) {
-		data.spProLoseNum = json["lose_num"]?.toString();
+		data.csProLoseNum = json["lose_num"]?.toString();
 	}
 	if (json["win_rate"] != null) {
-		data.spProWinRate = json["win_rate"]?.toString();
+		data.csProWinRate = json["win_rate"]?.toString();
 	}
 	if (json["big_num"] != null) {
-		data.spProBigNum = json["big_num"]?.toString();
+		data.csProBigNum = json["big_num"]?.toString();
 	}
 	if (json["big_rate"] != null) {
-		data.spProBigRate = json["big_rate"]?.toString();
+		data.csProBigRate = json["big_rate"]?.toString();
 	}
 	if (json["small_num"] != null) {
-		data.spProSmallNum = json["small_num"]?.toString();
+		data.csProSmallNum = json["small_num"]?.toString();
 	}
 	if (json["small_rate"] != null) {
-		data.spProSmallRate = json["small_rate"]?.toString();
+		data.csProSmallRate = json["small_rate"]?.toString();
 	}
 	if (json["which_team"] != null) {
-		data.spProWhichTeam = json["which_team"]?.toString();
+		data.csProWhichTeam = json["which_team"]?.toString();
 	}
 	return data;
 }
 
-Map<String, dynamic> matchTrendMatchTrendItemToJson(SPClassMatchTrendMatchTrendItem entity) {
+Map<String, dynamic> matchTrendMatchTrendItemToJson(CSClassMatchTrendMatchTrendItem entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
-	data["guess_match_id"] = entity.spProGuessMatchId;
+	data["guess_match_id"] = entity.csProGuessMatchId;
 	data["type"] = entity.type;
-	data["match_num"] = entity.spProMatchNum;
-	data["win_num"] = entity.spProWinNum;
-	data["draw_num"] = entity.spProDrawNum;
-	data["lose_num"] = entity.spProLoseNum;
-	data["win_rate"] = entity.spProWinRate;
-	data["big_num"] = entity.spProBigNum;
-	data["big_rate"] = entity.spProBigRate;
-	data["small_num"] = entity.spProSmallNum;
-	data["small_rate"] = entity.spProSmallRate;
-	data["which_team"] = entity.spProWhichTeam;
+	data["match_num"] = entity.csProMatchNum;
+	data["win_num"] = entity.csProWinNum;
+	data["draw_num"] = entity.csProDrawNum;
+	data["lose_num"] = entity.csProLoseNum;
+	data["win_rate"] = entity.csProWinRate;
+	data["big_num"] = entity.csProBigNum;
+	data["big_rate"] = entity.csProBigRate;
+	data["small_num"] = entity.csProSmallNum;
+	data["small_rate"] = entity.csProSmallRate;
+	data["which_team"] = entity.csProWhichTeam;
 	return data;
 }

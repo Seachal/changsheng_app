@@ -1,15 +1,15 @@
 
-import 'package:changshengh5/model/SPClassPlayerStatListEntity.dart';
+import 'package:changshengh5/model/CSClassPlayerStatListEntity.dart';
 
-playerStatListEntityFromJson(SPClassPlayerStatListEntity data, Map<String, dynamic> json) {
+playerStatListEntityFromJson(CSClassPlayerStatListEntity data, Map<String, dynamic> json) {
 	if (json['has_data'] != null) {
-		data.spProHasData = json['has_data'];
+		data.csProHasData = json['has_data'];
 	}
 	if (json['player_stat_list'] != null) {
-		data.spProPlayerStatList = new SPClassPlayerStatListPlayerStatList().fromJson(json['player_stat_list']);
+		data.csProPlayerStatList = new CSClassPlayerStatListPlayerStatList().fromJson(json['player_stat_list']);
 	}
 	if (json['best_player_list'] != null) {
-		data.spProBestPlayerList = new SPClassPlayerStatListBestPlayerList().fromJson(json['best_player_list']);
+		data.csProBestPlayerList = new CSClassPlayerStatListBestPlayerList().fromJson(json['best_player_list']);
 	}
 	if (json['sum'] != null) {
 		data.sum = new PlayerStatListSum().fromJson(json['sum']);
@@ -17,14 +17,14 @@ playerStatListEntityFromJson(SPClassPlayerStatListEntity data, Map<String, dynam
 	return data;
 }
 
-Map<String, dynamic> playerStatListEntityToJson(SPClassPlayerStatListEntity entity) {
+Map<String, dynamic> playerStatListEntityToJson(CSClassPlayerStatListEntity entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
-	data['has_data'] = entity.spProHasData;
-	if (entity.spProPlayerStatList != null) {
-		data['player_stat_list'] = entity.spProPlayerStatList?.toJson();
+	data['has_data'] = entity.csProHasData;
+	if (entity.csProPlayerStatList != null) {
+		data['player_stat_list'] = entity.csProPlayerStatList?.toJson();
 	}
-	if (entity.spProBestPlayerList != null) {
-		data['best_player_list'] = entity.spProBestPlayerList?.toJson();
+	if (entity.csProBestPlayerList != null) {
+		data['best_player_list'] = entity.csProBestPlayerList?.toJson();
 	}
 	if (entity.sum != null) {
 		data['sum'] = entity.sum?.toJson();
@@ -32,23 +32,23 @@ Map<String, dynamic> playerStatListEntityToJson(SPClassPlayerStatListEntity enti
 	return data;
 }
 
-playerStatListPlayerStatListFromJson(SPClassPlayerStatListPlayerStatList data, Map<String, dynamic> json) {
+playerStatListPlayerStatListFromJson(CSClassPlayerStatListPlayerStatList data, Map<String, dynamic> json) {
 	if (json['1'] != null) {
 		data.one = [];
 		(json['1'] as List).forEach((v) {
-			data.one?.add(new SPClassPlayerStatListPlayerStatListItem().fromJson(v));
+			data.one?.add(new CSClassPlayerStatListPlayerStatListItem().fromJson(v));
 		});
 	}
 	if (json['2'] != null) {
 		data.two =[];
 		(json['2'] as List).forEach((v) {
-			data.two?.add(new SPClassPlayerStatListPlayerStatListItem().fromJson(v));
+			data.two?.add(new CSClassPlayerStatListPlayerStatListItem().fromJson(v));
 		});
 	}
 	return data;
 }
 
-Map<String, dynamic> playerStatListPlayerStatListToJson(SPClassPlayerStatListPlayerStatList entity) {
+Map<String, dynamic> playerStatListPlayerStatListToJson(CSClassPlayerStatListPlayerStatList entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	if (entity.one != null) {
 		data['1'] =  entity.one?.map((v) => v.toJson()).toList();
@@ -59,21 +59,21 @@ Map<String, dynamic> playerStatListPlayerStatListToJson(SPClassPlayerStatListPla
 	return data;
 }
 
-playerStatListPlayerStatListItemFromJson(SPClassPlayerStatListPlayerStatListItem data, Map<String, dynamic> json) {
+playerStatListPlayerStatListItemFromJson(CSClassPlayerStatListPlayerStatListItem data, Map<String, dynamic> json) {
 	if (json['guess_match_id'] != null) {
-		data.spProGuessMatchId = json['guess_match_id']?.toString();
+		data.csProGuessMatchId = json['guess_match_id']?.toString();
 	}
 	if (json['shirt_number'] != null) {
-		data.spProShirtNumber = json['shirt_number']?.toString();
+		data.csProShirtNumber = json['shirt_number']?.toString();
 	}
 	if (json['player_name'] != null) {
-		data.spProPlayerName = json['player_name']?.toString();
+		data.csProPlayerName = json['player_name']?.toString();
 	}
 	if (json['which_team'] != null) {
-		data.spProWhichTeam = json['which_team']?.toString();
+		data.csProWhichTeam = json['which_team']?.toString();
 	}
 	if (json['is_regular'] != null) {
-		data.spProIsRegular = json['is_regular']?.toString();
+		data.csProIsRegular = json['is_regular']?.toString();
 	}
 	if (json['score'] != null) {
 		data.score = json['score']?.toString();
@@ -82,10 +82,10 @@ playerStatListPlayerStatListItemFromJson(SPClassPlayerStatListPlayerStatListItem
 		data.shot = json['shot']?.toString();
 	}
 	if (json['three_point'] != null) {
-		data.spProThreePoint = json['three_point']?.toString();
+		data.csProThreePoint = json['three_point']?.toString();
 	}
 	if (json['free_throw'] != null) {
-		data.spProFreeThrow = json['free_throw']?.toString();
+		data.csProFreeThrow = json['free_throw']?.toString();
 	}
 	if (json['rebound'] != null) {
 		data.rebound = json['rebound']?.toString();
@@ -97,7 +97,7 @@ playerStatListPlayerStatListItemFromJson(SPClassPlayerStatListPlayerStatListItem
 		data.steal = json['steal']?.toString();
 	}
 	if (json['block_shot'] != null) {
-		data.spProBlockShot = json['block_shot']?.toString();
+		data.csProBlockShot = json['block_shot']?.toString();
 	}
 	if (json['turnover'] != null) {
 		data.turnover = json['turnover']?.toString();
@@ -106,43 +106,43 @@ playerStatListPlayerStatListItemFromJson(SPClassPlayerStatListPlayerStatListItem
 		data.foul = json['foul']?.toString();
 	}
 	if (json['playing_time'] != null) {
-		data.spProPlayingTime = json['playing_time']?.toString();
+		data.csProPlayingTime = json['playing_time']?.toString();
 	}
 	return data;
 }
 
-Map<String, dynamic> playerStatListPlayerStatListItemToJson(SPClassPlayerStatListPlayerStatListItem entity) {
+Map<String, dynamic> playerStatListPlayerStatListItemToJson(CSClassPlayerStatListPlayerStatListItem entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
-	data['guess_match_id'] = entity.spProGuessMatchId;
-	data['shirt_number'] = entity.spProShirtNumber;
-	data['player_name'] = entity.spProPlayerName;
-	data['which_team'] = entity.spProWhichTeam;
-	data['is_regular'] = entity.spProIsRegular;
+	data['guess_match_id'] = entity.csProGuessMatchId;
+	data['shirt_number'] = entity.csProShirtNumber;
+	data['player_name'] = entity.csProPlayerName;
+	data['which_team'] = entity.csProWhichTeam;
+	data['is_regular'] = entity.csProIsRegular;
 	data['score'] = entity.score;
 	data['shot'] = entity.shot;
-	data['three_point'] = entity.spProThreePoint;
-	data['free_throw'] = entity.spProFreeThrow;
+	data['three_point'] = entity.csProThreePoint;
+	data['free_throw'] = entity.csProFreeThrow;
 	data['rebound'] = entity.rebound;
 	data['assist'] = entity.assist;
 	data['steal'] = entity.steal;
-	data['block_shot'] = entity.spProBlockShot;
+	data['block_shot'] = entity.csProBlockShot;
 	data['turnover'] = entity.turnover;
 	data['foul'] = entity.foul;
-	data['playing_time'] = entity.spProPlayingTime;
+	data['playing_time'] = entity.csProPlayingTime;
 	return data;
 }
 
-playerStatListBestPlayerListFromJson(SPClassPlayerStatListBestPlayerList data, Map<String, dynamic> json) {
+playerStatListBestPlayerListFromJson(CSClassPlayerStatListBestPlayerList data, Map<String, dynamic> json) {
 	if (json['1'] != null) {
-		data.oen = new SPClassPlayerStatListBestPlayerListItem().fromJson(json['1']);
+		data.oen = new CSClassPlayerStatListBestPlayerListItem().fromJson(json['1']);
 	}
 	if (json['2'] != null) {
-		data.two = new SPClassPlayerStatListBestPlayerListItem().fromJson(json['2']);
+		data.two = new CSClassPlayerStatListBestPlayerListItem().fromJson(json['2']);
 	}
 	return data;
 }
 
-Map<String, dynamic> playerStatListBestPlayerListToJson(SPClassPlayerStatListBestPlayerList entity) {
+Map<String, dynamic> playerStatListBestPlayerListToJson(CSClassPlayerStatListBestPlayerList entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	if (entity.oen != null) {
 		data['1'] = entity.oen?.toJson();
@@ -153,20 +153,20 @@ Map<String, dynamic> playerStatListBestPlayerListToJson(SPClassPlayerStatListBes
 	return data;
 }
 
-playerStatListBestPlayerListItemFromJson(SPClassPlayerStatListBestPlayerListItem data, Map<String, dynamic> json) {
+playerStatListBestPlayerListItemFromJson(CSClassPlayerStatListBestPlayerListItem data, Map<String, dynamic> json) {
 	if (json['score'] != null) {
-		data.score = new SPClassPlayerStatListBestPlayerListScore().fromJson(json['score']);
+		data.score = new CSClassPlayerStatListBestPlayerListScore().fromJson(json['score']);
 	}
 	if (json['rebound'] != null) {
-		data.rebound = new SPClassPlayerStatListBestPlayerListRebound().fromJson(json['rebound']);
+		data.rebound = new CSClassPlayerStatListBestPlayerListRebound().fromJson(json['rebound']);
 	}
 	if (json['assist'] != null) {
-		data.assist = new SPClassPlayerStatListBestPlayerListAssist().fromJson(json['assist']);
+		data.assist = new CSClassPlayerStatListBestPlayerListAssist().fromJson(json['assist']);
 	}
 	return data;
 }
 
-Map<String, dynamic> playerStatListBestPlayerListItemToJson(SPClassPlayerStatListBestPlayerListItem entity) {
+Map<String, dynamic> playerStatListBestPlayerListItemToJson(CSClassPlayerStatListBestPlayerListItem entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	if (entity.score != null) {
 		data['score'] = entity.score?.toJson();
@@ -180,54 +180,54 @@ Map<String, dynamic> playerStatListBestPlayerListItemToJson(SPClassPlayerStatLis
 	return data;
 }
 
-playerStatListBestPlayerListScoreFromJson(SPClassPlayerStatListBestPlayerListScore data, Map<String, dynamic> json) {
+playerStatListBestPlayerListScoreFromJson(CSClassPlayerStatListBestPlayerListScore data, Map<String, dynamic> json) {
 	if (json['score'] != null) {
 		data.score = json['score']?.toString();
 	}
 	if (json['player_name'] != null) {
-		data.spProPlayerName = json['player_name']?.toString();
+		data.csProPlayerName = json['player_name']?.toString();
 	}
 	return data;
 }
 
-Map<String, dynamic> playerStatListBestPlayerListScoreToJson(SPClassPlayerStatListBestPlayerListScore entity) {
+Map<String, dynamic> playerStatListBestPlayerListScoreToJson(CSClassPlayerStatListBestPlayerListScore entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	data['score'] = entity.score;
-	data['player_name'] = entity.spProPlayerName;
+	data['player_name'] = entity.csProPlayerName;
 	return data;
 }
 
-playerStatListBestPlayerListReboundFromJson(SPClassPlayerStatListBestPlayerListRebound data, Map<String, dynamic> json) {
+playerStatListBestPlayerListReboundFromJson(CSClassPlayerStatListBestPlayerListRebound data, Map<String, dynamic> json) {
 	if (json['rebound'] != null) {
 		data.rebound = json['rebound']?.toString();
 	}
 	if (json['player_name'] != null) {
-		data.spProPlayerName = json['player_name']?.toString();
+		data.csProPlayerName = json['player_name']?.toString();
 	}
 	return data;
 }
 
-Map<String, dynamic> playerStatListBestPlayerListReboundToJson(SPClassPlayerStatListBestPlayerListRebound entity) {
+Map<String, dynamic> playerStatListBestPlayerListReboundToJson(CSClassPlayerStatListBestPlayerListRebound entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	data['rebound'] = entity.rebound;
-	data['player_name'] = entity.spProPlayerName;
+	data['player_name'] = entity.csProPlayerName;
 	return data;
 }
 
-playerStatListBestPlayerListAssistFromJson(SPClassPlayerStatListBestPlayerListAssist data, Map<String, dynamic> json) {
+playerStatListBestPlayerListAssistFromJson(CSClassPlayerStatListBestPlayerListAssist data, Map<String, dynamic> json) {
 	if (json['assist'] != null) {
 		data.assist = json['assist']?.toString();
 	}
 	if (json['player_name'] != null) {
-		data.spProPlayerName = json['player_name']?.toString();
+		data.csProPlayerName = json['player_name']?.toString();
 	}
 	return data;
 }
 
-Map<String, dynamic> playerStatListBestPlayerListAssistToJson(SPClassPlayerStatListBestPlayerListAssist entity) {
+Map<String, dynamic> playerStatListBestPlayerListAssistToJson(CSClassPlayerStatListBestPlayerListAssist entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	data['assist'] = entity.assist;
-	data['player_name'] = entity.spProPlayerName;
+	data['player_name'] = entity.csProPlayerName;
 	return data;
 }
 
@@ -256,38 +256,38 @@ playerStatListSumItemFromJson(PlayerStatListSumItem data, Map<String, dynamic> j
 	if (json['score'] != null) {
 		data.score = json['score']?.toInt();
 	}
-	if (json['spProProgressScore'] != null) {
-		data.spProProgressScore = json['spProProgressScore']?.toDouble();
+	if (json['csProProgressScore'] != null) {
+		data.csProProgressScore = json['csProProgressScore']?.toDouble();
 	}
 	if (json['rebound'] != null) {
 		data.rebound = json['rebound']?.toInt();
 	}
-	if (json['spProProgressRebound'] != null) {
-		data.spProProgressRebound = json['spProProgressRebound']?.toDouble();
+	if (json['csProProgressRebound'] != null) {
+		data.csProProgressRebound = json['csProProgressRebound']?.toDouble();
 	}
 	if (json['assist'] != null) {
 		data.assist = json['assist']?.toInt();
 	}
-	if (json['spProProgressAssist'] != null) {
-		data.spProProgressAssist = json['spProProgressAssist']?.toDouble();
+	if (json['csProProgressAssist'] != null) {
+		data.csProProgressAssist = json['csProProgressAssist']?.toDouble();
 	}
 	if (json['block_shot'] != null) {
-		data.spProBlockShot = json['block_shot']?.toInt();
+		data.csProBlockShot = json['block_shot']?.toInt();
 	}
-	if (json['spProProgressBlockShot'] != null) {
-		data.spProProgressBlockShot = json['spProProgressBlockShot']?.toDouble();
+	if (json['csProProgressBlockShot'] != null) {
+		data.csProProgressBlockShot = json['csProProgressBlockShot']?.toDouble();
 	}
 	if (json['steal'] != null) {
 		data.steal = json['steal']?.toInt();
 	}
-	if (json['spProProgressSteal'] != null) {
-		data.spProProgressSteal = json['spProProgressSteal']?.toDouble();
+	if (json['csProProgressSteal'] != null) {
+		data.csProProgressSteal = json['csProProgressSteal']?.toDouble();
 	}
 	if (json['turnover'] != null) {
 		data.turnover = json['turnover']?.toInt();
 	}
-	if (json['spProProgressTurnover'] != null) {
-		data.spProProgressTurnover = json['spProProgressTurnover']?.toDouble();
+	if (json['csProProgressTurnover'] != null) {
+		data.csProProgressTurnover = json['csProProgressTurnover']?.toDouble();
 	}
 	return data;
 }
@@ -295,16 +295,16 @@ playerStatListSumItemFromJson(PlayerStatListSumItem data, Map<String, dynamic> j
 Map<String, dynamic> playerStatListSumItemToJson(PlayerStatListSumItem entity) {
 	final Map<String, dynamic> data = new Map<String, dynamic>();
 	data['score'] = entity.score;
-	data['spProProgressScore'] = entity.spProProgressScore;
+	data['csProProgressScore'] = entity.csProProgressScore;
 	data['rebound'] = entity.rebound;
-	data['spProProgressRebound'] = entity.spProProgressRebound;
+	data['csProProgressRebound'] = entity.csProProgressRebound;
 	data['assist'] = entity.assist;
-	data['spProProgressAssist'] = entity.spProProgressAssist;
-	data['block_shot'] = entity.spProBlockShot;
-	data['spProProgressBlockShot'] = entity.spProProgressBlockShot;
+	data['csProProgressAssist'] = entity.csProProgressAssist;
+	data['block_shot'] = entity.csProBlockShot;
+	data['csProProgressBlockShot'] = entity.csProProgressBlockShot;
 	data['steal'] = entity.steal;
-	data['spProProgressSteal'] = entity.spProProgressSteal;
+	data['csProProgressSteal'] = entity.csProProgressSteal;
 	data['turnover'] = entity.turnover;
-	data['spProProgressTurnover'] = entity.spProProgressTurnover;
+	data['csProProgressTurnover'] = entity.csProProgressTurnover;
 	return data;
 }

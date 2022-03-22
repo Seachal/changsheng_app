@@ -1,12 +1,12 @@
 import 'package:changshengh5/splash_screen.dart';
 import 'package:changshengh5/utils/LocalStorage.dart';
-import 'package:changshengh5/utils/SPClassToastUtils.dart';
+import 'package:changshengh5/utils/CSClassToastUtils.dart';
 import 'package:changshengh5/utils/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'app/SPClassApplicaion.dart';
+import 'app/CSClassApplicaion.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,13 +22,13 @@ class MyApp extends StatefulWidget {
 
 
 class MyAppState extends State<MyApp> {
-  var spProPopTimer= DateTime.now();
+  var csProPopTimer= DateTime.now();
 
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: SPClassApplicaion.spProAppName,
+        title: CSClassApplicaion.csProAppName,
         theme: ThemeData(
           fontFamily: '',
           brightness: Brightness.light,
@@ -54,12 +54,12 @@ class MyAppState extends State<MyApp> {
           child: WillPopScope(
             child:  Scaffold(body:SplashScreen()),
             onWillPop: () async{
-              if(DateTime.now().difference(spProPopTimer).inSeconds>3){
-                SPClassToastUtils.spFunShowToast(msg: "再按一次退出");
+              if(DateTime.now().difference(csProPopTimer).inSeconds>3){
+                CSClassToastUtils.csMethodShowToast(msg: "再按一次退出");
               }else{
                 return true;
               }
-              spProPopTimer=DateTime.now();
+              csProPopTimer=DateTime.now();
               return false;
             },
           ),

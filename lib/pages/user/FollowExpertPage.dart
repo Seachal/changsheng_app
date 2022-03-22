@@ -1,7 +1,7 @@
 import 'package:changshengh5/utils/colors.dart';
-import 'package:changshengh5/widgets/SPClassToolBar.dart';
+import 'package:changshengh5/widgets/CSClassToolBar.dart';
 import 'package:flutter/material.dart';
-import 'SPClassMyFollowExpertPage.dart';
+import 'CSClassMyFollowExpertPage.dart';
 
 class FollowExpertPage extends StatefulWidget {
   const FollowExpertPage({Key? key}) : super(key: key);
@@ -14,13 +14,13 @@ class _FollowExpertPageState extends State<FollowExpertPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SPClassToolBar(
+      appBar: CSClassToolBar(
         context,
         title:"我的关注",
-        spProBgColor: MyColors.main1,
+        csProBgColor: MyColors.main1,
         iconColor: 0xFFFFFFFF,
       ),
-      body: SPClassMyFollowExpertPage(),
+      body: CSClassMyFollowExpertPage(),
     );
   }
 }
