@@ -1,6 +1,7 @@
 
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:changshengh5/api/SPClassApiManager.dart';
 import 'package:changshengh5/api/SPClassHttpCallBack.dart';
@@ -220,7 +221,8 @@ class SPClassGlobalNotification {
   }
 
   spFunPlayAudio(String type) async {
-     var fileName="";
+    if(Platform.isAndroid){
+      var fileName="";
       if (type=="half"){
         fileName="assets/audio/audio_prompt.mp3";
       }  else if (type=="over"){
@@ -228,9 +230,11 @@ class SPClassGlobalNotification {
       }else{
         fileName="assets/audio/audio_prompt.mp3";
       }
-    SPClassPathUtils.spFunGetFilePathFromAsset(fileName).then((value){
-      AudioPlayer().play(value,isLocal: true);
-    });
+      SPClassPathUtils.spFunGetFilePathFromAsset(fileName).then((value){
+        AudioPlayer().play(value,isLocal: true);
+      });
+    }
+
 
   }
 
