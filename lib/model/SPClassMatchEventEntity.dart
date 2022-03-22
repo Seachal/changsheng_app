@@ -4,6 +4,8 @@ import 'package:changshengh5/generated/json/base/json_convert_content.dart';
 
 import 'SPClassTextLiveListEntity.dart';
 
+
+
 class SPClassMatchEventEntity with JsonConvert {
   List<SPClassMatchEventMatchEventItem> ?spProMatchEvent;
   SPClassTextLiveListGuessMatch ?spProGuessMatch;

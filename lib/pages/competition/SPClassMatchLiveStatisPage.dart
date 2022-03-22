@@ -86,6 +86,7 @@ class SPClassMatchLiveStatisPageState extends State<SPClassMatchLiveStatisPage> 
         spProCallBack: SPClassHttpCallBack(
         spProOnSuccess: (result) async {
           spProIsLoading=false;
+
           var matchStatListEntity= JsonConvert.fromJsonAsT<SPClassMatchStatListEntity>(result.data);
           var spProMatchLineupEntity= JsonConvert.fromJsonAsT<SPClassMatchLineupEntity>(result.data);
           var spProMatchLineupPlayerEntity= JsonConvert.fromJsonAsT<SPClassMatchLineupPlayerEntity>(result.data);
@@ -93,11 +94,11 @@ class SPClassMatchLiveStatisPageState extends State<SPClassMatchLiveStatisPage> 
           var matchIntelligenceEntity= JsonConvert.fromJsonAsT<SPClassMatchIntelligenceEntity>(result.data);
 
 
-          if(matchIntelligenceEntity?.spProMatchIntelligence!=null&&matchIntelligenceEntity?.spProMatchIntelligence!.one!=null){
-            spProMatchIntelligenceItemOne=matchIntelligenceEntity?.spProMatchIntelligence!.one![0];
+          if(matchIntelligenceEntity.spProMatchIntelligence!=null&&matchIntelligenceEntity.spProMatchIntelligence!.one!=null){
+            spProMatchIntelligenceItemOne=matchIntelligenceEntity.spProMatchIntelligence!.one![0];
           }
-          if(matchIntelligenceEntity?.spProMatchIntelligence!=null&&matchIntelligenceEntity?.spProMatchIntelligence!.two!=null){
-            spProMatchIntelligenceItemTwo=matchIntelligenceEntity?.spProMatchIntelligence!.two![0];
+          if(matchIntelligenceEntity.spProMatchIntelligence!=null&&matchIntelligenceEntity.spProMatchIntelligence!.two!=null){
+            spProMatchIntelligenceItemTwo=matchIntelligenceEntity.spProMatchIntelligence!.two![0];
           }
 
           if(matchStatListEntity!=null&&matchStatListEntity.spProMatchStat!=null){
@@ -1324,7 +1325,7 @@ class SPClassMatchLiveStatisPageState extends State<SPClassMatchLiveStatisPage> 
     }
     SPClassApiManager.spFunGetInstance().spFunMatchEvent<SPClassMatchEventEntity>(context: context,spProGuessMatchId:widget.spProGuessInfo!.spProGuessMatchId,refSeqNum: refSeqNum,spProCallBack: SPClassHttpCallBack(
         spProOnSuccess: (result) async{
-          spProIsLoading=false;
+                  spProIsLoading=false;
           if(result.spProMatchEvent!=null&&result.spProMatchEvent!.length>0){
             spProOrgMatchEventList.addAll(result.spProMatchEvent!);
           }else{
@@ -1369,9 +1370,8 @@ class SPClassMatchLiveStatisPageState extends State<SPClassMatchLiveStatisPage> 
 
   String spFunFindMatchStat(String type, int i) {
 
-
     var item= spProMatchStatList.firstWhere((item) =>(item.spProStatType==type),orElse:()=> SPClassMatchStatListMatchStat());
-    if(item!=null){
+    if(item!=null&&item.spProStatType!=null){
       if(i==1){
         return item.spProTeamOneVal!;
       }
@@ -1387,7 +1387,7 @@ class SPClassMatchLiveStatisPageState extends State<SPClassMatchLiveStatisPage> 
 
 
     var item= spProMatchStatList.firstWhere((item) =>(item.spProStatType==type),orElse:()=>SPClassMatchStatListMatchStat() );
-    if(item!=null){
+    if(item!=null&&item.spProStatType!=null){
       if(i==1){
         if(item.spProTeamOneVal=="0"){
           return 0;

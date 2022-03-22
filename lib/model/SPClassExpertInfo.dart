@@ -17,7 +17,7 @@ class SPClassExpertInfo {
   String ?spProGoodAtLeagues;
   String ?spProCurrentRedNum;
   String ?spProRecentProfitSum;
-
+  List ?spProExpertLeaguesRecent;
 
 
   SPClassExpertInfo({json}){
@@ -43,6 +43,6 @@ class SPClassExpertInfo {
     spProFollowerNum = json["follower_num"]?.toString();
     spProCurrentRedNum = json["current_red_num"].toString();
     spProIsFollowing = int.parse(json["is_following"].toString())==1 ? true:false;
-
+    spProExpertLeaguesRecent =json["expert_leagues_recent"].toList();
   }
 }

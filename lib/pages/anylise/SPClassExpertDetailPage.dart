@@ -40,12 +40,17 @@ class SPClassExpertDetailPageState extends State<SPClassExpertDetailPage> with T
   List<SPClassChartData> spProChartData=[];
   List<int> ?spProDates;
   Container ?spProChartsCon;
-  List tabBarList = ['全部','亚洲杯','世锦赛','世锦赛',];
+  List tabBarList = ['全部',];
   TabController ?_controller;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    if(widget.info!.spProExpertLeaguesRecent!.isNotEmpty){
+      for (var e in widget.info!.spProExpertLeaguesRecent!) {
+        tabBarList.add(e['league_name']);
+      }
+    }
     _controller = TabController(length:tabBarList.length,vsync: this);
     spFunGetRecentReport();
     spFunOnRefreshSelf();
@@ -265,38 +270,23 @@ class SPClassExpertDetailPageState extends State<SPClassExpertDetailPage> with T
               Expanded(
                 child: ListView(
                   scrollDirection: Axis.horizontal,
-                  children: <Widget>[
-                    Column(
+                  children: tabBarList.map((e){
+                    return Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Container(
+                       e=='全部'?SizedBox(): Container(
                           margin: EdgeInsets.only(left: width(8)),
                           alignment: Alignment.center,
-                          child: Text('亚洲杯',style: TextStyle(color: MyColors.main1,fontSize: sp(12)),),
+                          child: Text(e,style: TextStyle(color: MyColors.main1,fontSize: sp(12)),),
                           padding: EdgeInsets.symmetric(horizontal: width(8)),
                           decoration: BoxDecoration(
-                            color: Color(0xFFF1F8FE),
-                            borderRadius: BorderRadius.circular(width(9))
+                              color: Color(0xFFF1F8FE),
+                              borderRadius: BorderRadius.circular(width(9))
                           ),
                         )
                       ],
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Container(
-                          margin: EdgeInsets.only(left: width(8)),
-                          alignment: Alignment.center,
-                          child: Text('亚洲杯',style: TextStyle(color: MyColors.main1,fontSize: sp(12)),),
-                          padding: EdgeInsets.symmetric(horizontal: width(8)),
-                          decoration: BoxDecoration(
-                            color: Color(0xFFF1F8FE),
-                            borderRadius: BorderRadius.circular(width(9))
-                          ),
-                        )
-                      ],
-                    ),
-                  ],
+                    );
+                  }).toList(),
                 ),
               )
             ],
@@ -339,21 +329,33 @@ class SPClassExpertDetailPageState extends State<SPClassExpertDetailPage> with T
               unselectedLabelColor: MyColors.grey_66,
               indicatorColor: MyColors.main1,
               unselectedLabelStyle:TextStyle(fontSize: sp(15),),
-              isScrollable: false,
-              indicatorSize:TabBarIndicatorSize.label,
+              isScrollable: true,
+              indicatorSize:TabBarIndicatorSize.tab,
               labelStyle: TextStyle(fontSize: sp(15),
                 fontWeight: FontWeight.bold,),
               indicatorPadding: EdgeInsets.symmetric(horizontal: width(6)),
               controller:_controller,
               tabs: tabBarList.map((key) {
-                return Tab(
-                  text: key,
+                return Container(
+                  margin: EdgeInsets.symmetric(horizontal: width(10)),
+                  child: Tab(
+                    text: key,
+                  ),
                 );
               }).toList(),
             ),
           ),
-          spProChartData.isEmpty? SizedBox():
-          spFunBuildCharts(),
+          // spProChartData.isEmpty? SizedBox():
+          // spFunBuildCharts(),
+          spProChartData.isEmpty? SizedBox(): Container(
+            height:width(150),
+            child: TabBarView(
+              controller: _controller,
+              children: tabBarList.map((e) {
+                      return spFunBuildCharts(e=='全部'?spProChartData:spFunGetLeagueRecent(widget.info!.spProExpertLeaguesRecent![tabBarList.indexOf(e)-1]['recent10']));
+              }).toList(),
+            ),
+          ),
           SizedBox(height: 7,),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -555,53 +557,116 @@ class SPClassExpertDetailPageState extends State<SPClassExpertDetailPage> with T
 
   }
 
-  spFunBuildCharts() {
+  List<SPClassChartData> spFunGetLeagueRecent(String? recent10){
+    if(recent10==null){
+      return [];
+    }
+    List<SPClassChartData> data=[];
+    List list=  SPClassMatchDataUtils.spFunCalcDateCount(recent10);
+    list.sort((left,right)=>right.compareTo(left));
+    list.forEach((item){
+      data.add(SPClassChartData((SPClassMatchDataUtils.spFunCalcCorrectRateByDate(recent10,item)*100).roundToDouble(),"近"+
+          "${item.toString()}"+
+          "场"));
+    });
+    if(data.length==1){
+      data.add(SPClassChartData(data[0].y,""));
 
-     spProChartsCon ??= Container(
-         height:width(150),
-         child:SfCartesianChart(
-           plotAreaBorderWidth: 0,
-           onTooltipRender: (TooltipArgs args) {
-             final NumberFormat format = NumberFormat.decimalPattern();
-             var text=  format.format(args.dataPoints![args.pointIndex!.toInt()].y).toString();
-             SPClassLogUtils.spFunPrintLog("text：${text.toString()}");
-           },
-           title: ChartTitle(text: ""),
-           legend: Legend(
-               isVisible: false,
-               overflowMode: LegendItemOverflowMode.wrap),
-           primaryXAxis: CategoryAxis(
-                labelStyle:TextStyle(fontSize: sp(12)),
-               labelPlacement: LabelPlacement.onTicks,
-               majorGridLines: MajorGridLines(width: 0.4)),
-           primaryYAxis: NumericAxis(
-               maximum: 100,
-               labelFormat: '{value}%',
-               interval: 25,
-               axisLine: AxisLine(width: 0),
-               labelStyle: TextStyle(fontSize: sp(12)),
-               majorTickLines: MajorTickLines(color: Colors.transparent)),
-           series: <AreaSeries<SPClassChartData, String>>[
-             AreaSeries<SPClassChartData, String>(
-                 animationDuration: 2500,
-                 enableTooltip: true,
-                 gradient:LinearGradient(colors:[Colors.white.withOpacity(0.5),Colors.red.withOpacity(0.5)],begin: Alignment.bottomCenter,end: Alignment.topCenter),
-                 dataSource: spProChartData,
-                 borderColor: Colors.red,
-                 borderWidth: 1,
-                 xValueMapper: (SPClassChartData sales, _) => sales.x,
-                 yValueMapper: (SPClassChartData sales, _) => sales.y,
-                 name: "近期胜率",
-                 markerSettings: MarkerSettings(
-                     isVisible: true, color:Colors.red,borderColor: Colors.white)),
+    }
+    return data;
+  }
+
+  Widget spFunBuildCharts(List<SPClassChartData> data) {
+    return Container(
+      height:width(150),
+      child:SfCartesianChart(
+        plotAreaBorderWidth: 0,
+        margin: EdgeInsets.only(right: 20,top: 10,bottom: 10),
+        onTooltipRender: (TooltipArgs args) {
+          final NumberFormat format = NumberFormat.decimalPattern();
+          var text=  format.format(args.dataPoints![args.pointIndex!.toInt()].y).toString();
+          SPClassLogUtils.spFunPrintLog("text：${text.toString()}");
+        },
+        title: ChartTitle(text: ""),
+        legend: Legend(
+            isVisible: false,
+            overflowMode: LegendItemOverflowMode.wrap),
+        primaryXAxis: CategoryAxis(
+            labelStyle:TextStyle(fontSize: sp(12)),
+            labelPlacement: LabelPlacement.onTicks,
+            majorGridLines: MajorGridLines(width: 0.4)),
+        primaryYAxis: NumericAxis(
+            maximum: 100,
+            labelFormat: '{value}%',
+            interval: 25,
+            axisLine: AxisLine(width: 0),
+            labelStyle: TextStyle(fontSize: sp(12)),
+            majorTickLines: MajorTickLines(color: Colors.transparent)),
+        series: <AreaSeries<SPClassChartData, String>>[
+          AreaSeries<SPClassChartData, String>(
+              animationDuration: 2500,
+              enableTooltip: true,
+              gradient:LinearGradient(colors:[Colors.white.withOpacity(0.5),Colors.red.withOpacity(0.5)],begin: Alignment.bottomCenter,end: Alignment.topCenter),
+              dataSource: data,
+              borderColor: Colors.red,
+              borderWidth: 1,
+              xValueMapper: (SPClassChartData sales, _) => sales.x,
+              yValueMapper: (SPClassChartData sales, _) => sales.y,
+              name: "近期胜率",
+              markerSettings: MarkerSettings(
+                  isVisible: true, color:Colors.red,borderColor: Colors.white)),
 
 
-           ],
-           tooltipBehavior: TooltipBehavior(enable: true,color: Colors.red,borderColor:Colors.cyan ),
-         ),
+        ],
+        tooltipBehavior: TooltipBehavior(enable: true,color: Colors.red,borderColor:Colors.cyan ),
+      ),
 
-       );
-     return spProChartsCon;
+    );
+     // spProChartsCon ??= Container(
+     //     height:width(150),
+     //     child:SfCartesianChart(
+     //       plotAreaBorderWidth: 0,
+     //       onTooltipRender: (TooltipArgs args) {
+     //         final NumberFormat format = NumberFormat.decimalPattern();
+     //         var text=  format.format(args.dataPoints![args.pointIndex!.toInt()].y).toString();
+     //         SPClassLogUtils.spFunPrintLog("text：${text.toString()}");
+     //       },
+     //       title: ChartTitle(text: ""),
+     //       legend: Legend(
+     //           isVisible: false,
+     //           overflowMode: LegendItemOverflowMode.wrap),
+     //       primaryXAxis: CategoryAxis(
+     //            labelStyle:TextStyle(fontSize: sp(12)),
+     //           labelPlacement: LabelPlacement.onTicks,
+     //           majorGridLines: MajorGridLines(width: 0.4)),
+     //       primaryYAxis: NumericAxis(
+     //           maximum: 100,
+     //           labelFormat: '{value}%',
+     //           interval: 25,
+     //           axisLine: AxisLine(width: 0),
+     //           labelStyle: TextStyle(fontSize: sp(12)),
+     //           majorTickLines: MajorTickLines(color: Colors.transparent)),
+     //       series: <AreaSeries<SPClassChartData, String>>[
+     //         AreaSeries<SPClassChartData, String>(
+     //             animationDuration: 2500,
+     //             enableTooltip: true,
+     //             gradient:LinearGradient(colors:[Colors.white.withOpacity(0.5),Colors.red.withOpacity(0.5)],begin: Alignment.bottomCenter,end: Alignment.topCenter),
+     //             dataSource: spProChartData,
+     //             borderColor: Colors.red,
+     //             borderWidth: 1,
+     //             xValueMapper: (SPClassChartData sales, _) => sales.x,
+     //             yValueMapper: (SPClassChartData sales, _) => sales.y,
+     //             name: "近期胜率",
+     //             markerSettings: MarkerSettings(
+     //                 isVisible: true, color:Colors.red,borderColor: Colors.white)),
+     //
+     //
+     //       ],
+     //       tooltipBehavior: TooltipBehavior(enable: true,color: Colors.red,borderColor:Colors.cyan ),
+     //     ),
+     //
+     //   );
+     // return spProChartsCon;
   }
 
 

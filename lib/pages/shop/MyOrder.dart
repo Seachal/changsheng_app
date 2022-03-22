@@ -77,7 +77,6 @@ class _MyOrderState extends State<MyOrder> with TickerProviderStateMixin{
     return SingleChildScrollView(
       child: Column(
         children: list.map((e) {
-          print('哈哈哈：$e');
           List list =e;
           return Container(
             color: Colors.white,

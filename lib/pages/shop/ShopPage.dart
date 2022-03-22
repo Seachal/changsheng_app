@@ -832,7 +832,6 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
         children: shopTypeList.map((e) {
           return GestureDetector(
             onTap: (){
-              print('哈哈哈：${e['data']}');
               Navigator.push(
                   context,
                   MaterialPageRoute(

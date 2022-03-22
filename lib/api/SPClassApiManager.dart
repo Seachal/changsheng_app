@@ -17,6 +17,7 @@ import 'package:changshengh5/model/SPClassGuessMatchInfo.dart';
 import 'package:changshengh5/model/SPClassIncomeReport.dart';
 import 'package:changshengh5/model/SPClassLeagueFilter.dart';
 import 'package:changshengh5/model/SPClassListEntity.dart';
+import 'package:changshengh5/model/SPClassMatchEventEntity.dart';
 import 'package:changshengh5/model/SPClassOddsHistoryListEntity.dart';
 import 'package:changshengh5/model/SPClassSchemeDetailEntity.dart';
 import 'package:changshengh5/model/SPClassSchemeGuessMatch2.dart';
@@ -502,7 +503,7 @@ class SPClassApiManager extends SPClassBaseApi{
 //     spFunGet<T>(url: TEXT_LIVE,queryParameters:{"guess_match_id":spProGuessMatchId,"ref_seq_num":refSeqNum},spProCallBack: spProCallBack,isToast: false,spProIsLoading: false,isBaseParams: true,context: context,isTimeOut: true );
 //   }
   spFunMatchEvent<T>({SPClassHttpCallBack<T>? spProCallBack,BuildContext? context,String? spProGuessMatchId,String? refSeqNum}){
-    spFunGet<T>(url: MATCH_EVENT,queryParameters:{"guess_match_id":spProGuessMatchId,"ref_seq_num":refSeqNum},spProCallBack: spProCallBack,isToast: false,spProIsLoading: false,isBaseParams: true,context: context,isTimeOut: true );
+    spFunGet<T>(jsonObject:SPClassMatchEventEntity(),url: MATCH_EVENT,queryParameters:{"guess_match_id":spProGuessMatchId,"ref_seq_num":refSeqNum},spProCallBack: spProCallBack,isToast: false,spProIsLoading: false,isBaseParams: true,context: context,isTimeOut: true );
   }
 //   spFunGetLeagueDay<T>({SPClassHttpCallBack<T> spProCallBack,BuildContext context,String reportDate,String spProMatchType,String spProIsLottery:""}){
 //     spFunGet<T>(jsonObject: new SPClassLeagueFilter(),url: GET_LEAGUE_DAY,queryParameters:{"report_date":reportDate,"match_type":spProMatchType,"is_lottery":spProIsLottery,},spProCallBack: spProCallBack,isToast: true,spProIsLoading: true,isBaseParams: true,context: context );

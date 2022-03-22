@@ -126,7 +126,8 @@ class _SplashScreenState extends State<SplashScreen> {
       if (logInfoJson != null) {
         var jsonData = json.decode(logInfoJson);
         SPClassApplicaion.spProLogOpenInfo =
-            SPClassLogInfoEntity.fromJson(jsonData);
+            // SPClassLogInfoEntity.fromJson(jsonData);
+        JsonConvert.fromJsonAsT<SPClassLogInfoEntity>(jsonData);
       }
     });
     await SPClassApplicaion.spFunInitUserState();
@@ -296,8 +297,8 @@ class _SplashScreenState extends State<SplashScreen> {
         needSydid: "1",
         spProCallBack: SPClassHttpCallBack(
             spProOnSuccess: (result) async {
-              // var logOpen= JsonConvert.fromJsonAsT<SPClassLogInfoEntity>(result.data);
-              var logOpen = SPClassLogInfoEntity.fromJson(result.data);
+              var logOpen= JsonConvert.fromJsonAsT<SPClassLogInfoEntity>(result.data);
+              // var logOpen = SPClassLogInfoEntity.fromJson(result.data);
               print('显示的内容：${logOpen.spProMenuList}');
               SPClassApplicaion.spProLogOpenInfo = logOpen;
               var md5Code = md5.convert(utf8.encode(AppId)).toString();

@@ -245,7 +245,6 @@ class SPClassSearchExpertPageState extends State<SPClassSearchExpertPage>{
   }
 
   spFunOnSearchExpert({bool? showToast,bool  spProIsLoading:true}){
-    print('哈哈哈');
     if(spProSearchKey.isEmpty){
       return;
     }
