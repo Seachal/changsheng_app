@@ -16,6 +16,8 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SPClassMatchListSettingPage extends StatefulWidget{
+  final int index; //0 足球  1篮球
+  const SPClassMatchListSettingPage({Key? key, this.index=0}) : super(key: key);
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -147,7 +149,7 @@ class SPClassMatchListSettingPageState extends State<SPClassMatchListSettingPage
 
             Visibility(
               child: SizedBox(height: height(10),),
-              visible: true//SPClassHomePageState.spProHomeMatchType=="足球",
+              visible: widget.index==0,
             ),
 
             Visibility(
@@ -264,7 +266,7 @@ class SPClassMatchListSettingPageState extends State<SPClassMatchListSettingPage
                   );
                 }).toList(),
               ),
-              visible: true//SPClassHomePageState.spProHomeMatchType=="足球",
+              visible: widget.index==0,
             ),
 
 
@@ -324,7 +326,7 @@ class SPClassMatchListSettingPageState extends State<SPClassMatchListSettingPage
                   ],
                 ),
               ),
-              visible: true//SPClassHomePageState.spProHomeMatchType=="足球",
+              visible: widget.index==0,
             ),
             Visibility(
               child:    Container(
@@ -383,7 +385,7 @@ class SPClassMatchListSettingPageState extends State<SPClassMatchListSettingPage
                   ],
                 ),
               ),
-              visible: true//SPClassHomePageState.spProHomeMatchType=="足球"&&Platform.isAndroid,
+              visible: widget.index==0,
             ),
 
           ],

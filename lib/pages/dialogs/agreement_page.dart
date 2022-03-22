@@ -1,3 +1,4 @@
+import 'package:changshengh5/widgets/SPClassToolBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_html/flutter_html.dart';
@@ -25,10 +26,8 @@ class _AgreementPageState extends State<AgreementPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title!,style: TextStyle(color: Colors.white),),
-        centerTitle: true,
-      ),
+      appBar: SPClassToolBar(
+        context,title: widget.title,),
 
       body: SingleChildScrollView(
         child: Container(

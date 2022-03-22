@@ -1020,6 +1020,7 @@ class SPClassSchemeDetailPageState extends State<SPClassSchemeDetailPage> {
   }
 
   Widget guessItem({String? text1,String? value1,String? text2,String? value2,String? text3,String? value3,String? supportWhich,String? supportWhich2,String? whichWin}){
+    print('哈哈哈${whichWin}');
     return Row(
       children: <Widget>[
         Expanded(
@@ -1137,14 +1138,6 @@ class SPClassSchemeDetailPageState extends State<SPClassSchemeDetailPage> {
                           Text("$value3",style: TextStyle(fontSize: sp(12),color:(widget.spProSchemeDetail.scheme!.spProSupportWhich=="2")? Colors.white :Color(0xFF303133)),),
 
                         ],
-                      ),
-                    ),
-                    Positioned(
-                      bottom: 0,
-                      right: 0,
-                      child: Image.asset(
-                        (whichWin=="2")? SPClassImageUtil.spFunGetImagePath("ic_select_lab"):"",
-                        width: width(18),
                       ),
                     ),
                   ],

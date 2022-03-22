@@ -679,7 +679,8 @@ class SPClassMatchAnylizePageState extends State<SPClassMatchAnylizePage>
                                 ),
 
                           ///能力指数
-                          Container(
+                          Visibility(
+                            child: Container(
                             child: Column(
                               children: <Widget>[
                                 Row(
@@ -689,12 +690,12 @@ class SPClassMatchAnylizePageState extends State<SPClassMatchAnylizePage>
                                       width: width(62),
                                       child: Text(
                                         (spFunGetMatchAllPointsScore(1, "全部") +
-                                                spFunGetMatchAllPointsScore(
-                                                    1, "同主客") +
-                                                spFunAvgWinOrLose25Score(
-                                                    true, 1) +
-                                                spFunAvgWinOrLose25Score(
-                                                    false, 1))
+                                            spFunGetMatchAllPointsScore(
+                                                1, "同主客") +
+                                            spFunAvgWinOrLose25Score(
+                                                true, 1) +
+                                            spFunAvgWinOrLose25Score(
+                                                false, 1))
                                             .toStringAsFixed(0),
                                         style: TextStyle(
                                             fontSize: sp(12),
@@ -709,13 +710,13 @@ class SPClassMatchAnylizePageState extends State<SPClassMatchAnylizePage>
                                         children: <Widget>[
                                           Expanded(
                                             flex: (spFunGetMatchAllPointsScore(
-                                                        1, "全部") +
-                                                    spFunGetMatchAllPointsScore(
-                                                        1, "同主客") +
-                                                    spFunAvgWinOrLose25Score(
-                                                        true, 1) +
-                                                    spFunAvgWinOrLose25Score(
-                                                        false, 1))
+                                                1, "全部") +
+                                                spFunGetMatchAllPointsScore(
+                                                    1, "同主客") +
+                                                spFunAvgWinOrLose25Score(
+                                                    true, 1) +
+                                                spFunAvgWinOrLose25Score(
+                                                    false, 1))
                                                 .toInt(),
                                             child: Container(
                                               margin: EdgeInsets.only(right: 2),
@@ -723,30 +724,30 @@ class SPClassMatchAnylizePageState extends State<SPClassMatchAnylizePage>
                                               decoration: BoxDecoration(
                                                   color: MyColors.main1,
                                                   borderRadius:
-                                                      BorderRadius.horizontal(
-                                                          left: Radius.circular(
-                                                              300))),
+                                                  BorderRadius.horizontal(
+                                                      left: Radius.circular(
+                                                          300))),
                                               height: width(7),
                                             ),
                                           ),
                                           Expanded(
                                             flex: (spFunGetMatchAllPointsScore(
-                                                        2, "全部") +
-                                                    spFunGetMatchAllPointsScore(
-                                                        2, "同主客") +
-                                                    spFunAvgWinOrLose25Score(
-                                                        true, 2) +
-                                                    spFunAvgWinOrLose25Score(
-                                                        false, 2))
+                                                2, "全部") +
+                                                spFunGetMatchAllPointsScore(
+                                                    2, "同主客") +
+                                                spFunAvgWinOrLose25Score(
+                                                    true, 2) +
+                                                spFunAvgWinOrLose25Score(
+                                                    false, 2))
                                                 .toInt(),
                                             child: Container(
                                               decoration: BoxDecoration(
                                                   color: Color(0xFFFF5F40),
                                                   borderRadius:
-                                                      BorderRadius.horizontal(
-                                                          right:
-                                                              Radius.circular(
-                                                                  300))),
+                                                  BorderRadius.horizontal(
+                                                      right:
+                                                      Radius.circular(
+                                                          300))),
                                               alignment: Alignment.center,
                                               height: width(7),
                                             ),
@@ -762,12 +763,12 @@ class SPClassMatchAnylizePageState extends State<SPClassMatchAnylizePage>
                                       width: width(62),
                                       child: Text(
                                         (spFunGetMatchAllPointsScore(2, "全部") +
-                                                spFunGetMatchAllPointsScore(
-                                                    2, "同主客") +
-                                                spFunAvgWinOrLose25Score(
-                                                    true, 2) +
-                                                spFunAvgWinOrLose25Score(
-                                                    false, 2))
+                                            spFunGetMatchAllPointsScore(
+                                                2, "同主客") +
+                                            spFunAvgWinOrLose25Score(
+                                                true, 2) +
+                                            spFunAvgWinOrLose25Score(
+                                                false, 2))
                                             .toStringAsFixed(0),
                                         style: TextStyle(
                                             fontSize: sp(12),
@@ -786,192 +787,228 @@ class SPClassMatchAnylizePageState extends State<SPClassMatchAnylizePage>
                               ],
                             ),
                           ),
+                            visible: !((spFunGetMatchAllPointsScore(1, "全部") +
+                                spFunGetMatchAllPointsScore(
+                                    1, "同主客") +
+                                spFunAvgWinOrLose25Score(
+                                    true, 1) +
+                                spFunAvgWinOrLose25Score(
+                                    false, 1))==0&&(spFunGetMatchAllPointsScore(2, "全部") +
+                                spFunGetMatchAllPointsScore(
+                                    2, "同主客") +
+                                spFunAvgWinOrLose25Score(
+                                    true, 2) +
+                                spFunAvgWinOrLose25Score(
+                                    false, 2))==0), 
+                          ),
+                          
 
                           ///场均进球
-                          Container(
-                            child: Column(
-                              children: <Widget>[
-                                Row(
-                                  children: <Widget>[
-                                    Container(
-                                      alignment: Alignment.centerRight,
-                                      width: width(62),
-                                      child: Text(
-                                        sprintf("%s", [
-                                          SPClassStringUtils.spFunSqlitZero(
-                                              spFunAvgWinOrLoseScoreOne(true)
-                                                  .toStringAsFixed(2))
-                                        ]),
-                                        style: TextStyle(
-                                            fontSize: sp(12),
-                                            color: Color(0xFF333333)),
+                          Visibility(
+                            child: Container(
+                              child: Column(
+                                children: <Widget>[
+                                  Row(
+                                    children: <Widget>[
+                                      Container(
+                                        alignment: Alignment.centerRight,
+                                        width: width(62),
+                                        child: Text(
+                                          sprintf("%s", [
+                                            SPClassStringUtils.spFunSqlitZero(
+                                                spFunAvgWinOrLoseScoreOne(true)
+                                                    .toStringAsFixed(2))
+                                          ]),
+                                          style: TextStyle(
+                                              fontSize: sp(12),
+                                              color: Color(0xFF333333)),
+                                        ),
                                       ),
-                                    ),
-                                    SizedBox(
-                                      width: width(8),
-                                    ),
-                                    Expanded(
-                                      child: Row(
-                                        children: <Widget>[
-                                          Expanded(
-                                            flex: (spFunAvgWinOrLoseScoreOne(
-                                                        true) *
-                                                    100)
-                                                .toInt(),
-                                            child: Container(
-                                              margin: EdgeInsets.only(right: 2),
-                                              alignment: Alignment.center,
-                                              decoration: BoxDecoration(
-                                                  color: MyColors.main1,
-                                                  borderRadius:
-                                                      BorderRadius.horizontal(
-                                                          left: Radius.circular(
-                                                              300))),
-                                              height: width(7),
+                                      SizedBox(
+                                        width: width(8),
+                                      ),
+                                      Expanded(
+                                        child: Row(
+                                          children: <Widget>[
+                                            Expanded(
+                                              flex: (spFunAvgWinOrLoseScoreOne(
+                                                  true) *
+                                                  100)
+                                                  .toInt(),
+                                              child: Container(
+                                                margin: EdgeInsets.only(right: 2),
+                                                alignment: Alignment.center,
+                                                decoration: BoxDecoration(
+                                                    color: MyColors.main1,
+                                                    borderRadius:
+                                                    BorderRadius.horizontal(
+                                                        left: Radius.circular(
+                                                            300))),
+                                                height: width(7),
+                                              ),
                                             ),
-                                          ),
-                                          Expanded(
-                                            flex: (spFunAvgWinOrLoseScoreTwo(
-                                                        true) *
-                                                    100)
-                                                .toInt(),
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                  color: Color(0xFFFF5F40),
-                                                  borderRadius:
-                                                      BorderRadius.horizontal(
-                                                          right:
-                                                              Radius.circular(
-                                                                  300))),
-                                              alignment: Alignment.center,
-                                              height: width(7),
+                                            Expanded(
+                                              flex: (spFunAvgWinOrLoseScoreTwo(
+                                                  true) *
+                                                  100)
+                                                  .toInt(),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                    color: Color(0xFFFF5F40),
+                                                    borderRadius:
+                                                    BorderRadius.horizontal(
+                                                        right:
+                                                        Radius.circular(
+                                                            300))),
+                                                alignment: Alignment.center,
+                                                height: width(7),
+                                              ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                    SizedBox(
-                                      width: width(8),
-                                    ),
-                                    Container(
-                                      alignment: Alignment.centerLeft,
-                                      width: width(62),
-                                      child: Text(
-                                        sprintf("%s", [
-                                          SPClassStringUtils.spFunSqlitZero(
-                                              spFunAvgWinOrLoseScoreTwo(true)
-                                                  .toStringAsFixed(2))
-                                        ]),
-                                        style: TextStyle(
-                                            fontSize: sp(12),
-                                            color: Color(0xFF333333)),
+                                      SizedBox(
+                                        width: width(8),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                Text(
-                                  widget.type == 0 ? "场均进球" : "场均得分",
-                                  style: TextStyle(fontSize: sp(12)),
-                                ),
-                                SizedBox(
-                                  height: width(8),
-                                ),
-                              ],
+                                      Container(
+                                        alignment: Alignment.centerLeft,
+                                        width: width(62),
+                                        child: Text(
+                                          sprintf("%s", [
+                                            SPClassStringUtils.spFunSqlitZero(
+                                                spFunAvgWinOrLoseScoreTwo(true)
+                                                    .toStringAsFixed(2))
+                                          ]),
+                                          style: TextStyle(
+                                              fontSize: sp(12),
+                                              color: Color(0xFF333333)),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Text(
+                                    widget.type == 0 ? "场均进球" : "场均得分",
+                                    style: TextStyle(fontSize: sp(12)),
+                                  ),
+                                  SizedBox(
+                                    height: width(8),
+                                  ),
+                                ],
+                              ),
                             ),
+                            visible:!(SPClassStringUtils.spFunSqlitZero(
+                                spFunAvgWinOrLoseScoreOne(true)
+                                    .toStringAsFixed(2))==''&&SPClassStringUtils.spFunSqlitZero(
+                                spFunAvgWinOrLoseScoreTwo(true)
+                                    .toStringAsFixed(2))==''),
                           ),
 
+
                           ///场均失球
-                          Container(
-                            child: Column(
-                              children: <Widget>[
-                                Row(
+                            Visibility(
+                              child:Container(
+                                child: Column(
                                   children: <Widget>[
-                                    Container(
-                                      alignment: Alignment.centerRight,
-                                      width: width(62),
-                                      child: Text(
-                                        sprintf("%s", [
-                                          SPClassStringUtils.spFunSqlitZero(
-                                              spFunAvgWinOrLoseScoreOne(false)
-                                                  .toStringAsFixed(2))
-                                        ]),
-                                        style: TextStyle(
-                                            fontSize: sp(12),
-                                            color: Color(0xFF333333)),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: width(8),
-                                    ),
-                                    Expanded(
-                                      child: Row(
-                                        children: <Widget>[
-                                          Expanded(
-                                            flex: (spFunAvgWinOrLoseScoreTwo(
-                                                        false) *
+                                    Row(
+                                      children: <Widget>[
+                                        Container(
+                                          alignment: Alignment.centerRight,
+                                          width: width(62),
+                                          child: Text(
+                                            sprintf("%s", [
+                                              SPClassStringUtils.spFunSqlitZero(
+                                                  spFunAvgWinOrLoseScoreOne(false)
+                                                      .toStringAsFixed(2))
+                                            ]),
+                                            style: TextStyle(
+                                                fontSize: sp(12),
+                                                color: Color(0xFF333333)),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: width(8),
+                                        ),
+                                        Expanded(
+                                          child: Row(
+                                            children: <Widget>[
+                                              Expanded(
+                                                flex: (spFunAvgWinOrLoseScoreTwo(
+                                                    false) *
                                                     100)
-                                                .toInt(),
-                                            child: Container(
-                                              margin: EdgeInsets.only(right: 2),
-                                              alignment: Alignment.center,
-                                              decoration: BoxDecoration(
-                                                  color: MyColors.main1,
-                                                  borderRadius:
+                                                    .toInt(),
+                                                child: Container(
+                                                  margin: EdgeInsets.only(right: 2),
+                                                  alignment: Alignment.center,
+                                                  decoration: BoxDecoration(
+                                                      color: MyColors.main1,
+                                                      borderRadius:
                                                       BorderRadius.horizontal(
                                                           left: Radius.circular(
                                                               300))),
-                                              height: width(7),
-                                            ),
-                                          ),
-                                          Expanded(
-                                            flex: (spFunAvgWinOrLoseScoreOne(
-                                                        false) *
+                                                  height: width(7),
+                                                ),
+                                              ),
+                                              Expanded(
+                                                flex: (spFunAvgWinOrLoseScoreOne(
+                                                    false) *
                                                     100)
-                                                .toInt(),
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                  color: Color(0xFFFF5F40),
-                                                  borderRadius:
+                                                    .toInt(),
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                      color: Color(0xFFFF5F40),
+                                                      borderRadius:
                                                       BorderRadius.horizontal(
                                                           right:
-                                                              Radius.circular(
-                                                                  300))),
-                                              alignment: Alignment.center,
-                                              height: width(7),
-                                            ),
+                                                          Radius.circular(
+                                                              300))),
+                                                  alignment: Alignment.center,
+                                                  height: width(7),
+                                                ),
+                                              ),
+                                            ],
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                        SizedBox(
+                                          width: width(8),
+                                        ),
+                                        Container(
+                                          alignment: Alignment.centerLeft,
+                                          width: width(62),
+                                          child: Text(
+                                            sprintf("%s", [
+                                              SPClassStringUtils.spFunSqlitZero(
+                                                  spFunAvgWinOrLoseScoreTwo(false)
+                                                      .toStringAsFixed(2))
+                                            ]),
+                                            style: TextStyle(
+                                                fontSize: sp(12),
+                                                color: Color(0xFF333333)),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Text(
+                                      widget.type == 0 ? "场均失球" : "场均失分",
+                                      style: TextStyle(fontSize: sp(12)),
                                     ),
                                     SizedBox(
-                                      width: width(8),
-                                    ),
-                                    Container(
-                                      alignment: Alignment.centerLeft,
-                                      width: width(62),
-                                      child: Text(
-                                        sprintf("%s", [
-                                          SPClassStringUtils.spFunSqlitZero(
-                                              spFunAvgWinOrLoseScoreTwo(false)
-                                                  .toStringAsFixed(2))
-                                        ]),
-                                        style: TextStyle(
-                                            fontSize: sp(12),
-                                            color: Color(0xFF333333)),
-                                      ),
+                                      height: width(8),
                                     ),
                                   ],
                                 ),
-                                Text(
-                                  widget.type == 0 ? "场均失球" : "场均失分",
-                                  style: TextStyle(fontSize: sp(12)),
-                                ),
-                                SizedBox(
-                                  height: width(8),
-                                ),
-                              ],
+                              ),
+                              visible:!(SPClassStringUtils.spFunSqlitZero(
+                                  spFunAvgWinOrLoseScoreOne(false)
+                                      .toStringAsFixed(2))==''&&SPClassStringUtils.spFunSqlitZero(
+                                  spFunAvgWinOrLoseScoreTwo(!(SPClassStringUtils.spFunSqlitZero(
+                                      spFunAvgWinOrLoseScoreOne(true)
+                                          .toStringAsFixed(2))==''&&SPClassStringUtils.spFunSqlitZero(
+                                      spFunAvgWinOrLoseScoreTwo(true)
+                                          .toStringAsFixed(2))==''))
+                                      .toStringAsFixed(2))=='')
                             ),
-                          ),
+
+
                           myDivider(),
                         ],
                       ),

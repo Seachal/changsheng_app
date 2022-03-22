@@ -352,13 +352,14 @@ class SPClassBallHeaderWidgetState extends State<SPClassBallHeaderWidget>
                 ? 0.0
                 : (widget.spProRefreshIndicatorExtent! - _floatBackDistance)
                 : null,
-            bottom: !isVertical
-                ? 0.0
-                : !isReverse
-                ? _floatBackDistance == null
-                ? 0.0
-                : (widget.spProRefreshIndicatorExtent! - _floatBackDistance)
-                : null,
+            bottom: 0,
+            // !isVertical
+            //     ? 0.0
+            //     : !isReverse
+            //     ? _floatBackDistance == null
+            //     ? 0.0
+            //     : (widget.spProRefreshIndicatorExtent! - _floatBackDistance)
+            //     : null,
             left: isVertical
                 ? 0.0
                 : isReverse
@@ -424,12 +425,14 @@ class SPClassBallHeaderWidgetState extends State<SPClassBallHeaderWidget>
         // padding: EdgeInsets.only(
         //   right: 10.0,
         // ),
-        child: (widget.spProRefreshState == RefreshMode.refresh ||
+        child:
+        (widget.spProRefreshState == RefreshMode.refresh ||
             widget.spProRefreshState == RefreshMode.armed) &&
             !widget.noMore!
             ?
         AnimationImagePage(width: width(50),height: width(50),)
-            :Image.asset(
+            :
+        Image.asset(
           'assets/animationImages/足球动效_00007.png',
           width: width(50),
           height: width(50),

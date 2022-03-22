@@ -85,7 +85,7 @@ class SPClassCompetitionHomePageState extends State<SPClassCompetitionHomePage> 
             ),
             onPressed: (){
               if(spFunIsLogin(context: context)){
-                SPClassNavigatorUtils.spFunPushRoute(context,SPClassMatchListSettingPage());
+                SPClassNavigatorUtils.spFunPushRoute(context,SPClassMatchListSettingPage(index: spProIndex,));
               }
             },
           ),
