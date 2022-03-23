@@ -1020,7 +1020,7 @@ class CSClassSchemeDetailPageState extends State<CSClassSchemeDetailPage> {
   }
 
   Widget guessItem({String? text1,String? value1,String? text2,String? value2,String? text3,String? value3,String? supportWhich,String? supportWhich2,String? whichWin}){
-    print('哈哈哈${whichWin}');
+    print('方案详情：$whichWin  value1 $value1  value2 $value2  value3 $value3  supportWhich $supportWhich  supportWhich2$supportWhich2');
     return Row(
       children: <Widget>[
         Expanded(
@@ -1047,7 +1047,7 @@ class CSClassSchemeDetailPageState extends State<CSClassSchemeDetailPage> {
                   ),
                 ),
               ),
-              (supportWhich=="1"||supportWhich2=="1")?Container(
+              (supportWhich=="1")?Container(
                 width: width(27),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
@@ -1086,13 +1086,13 @@ class CSClassSchemeDetailPageState extends State<CSClassSchemeDetailPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
-                      Text('$text2',style: TextStyle(fontSize: sp(12),color:(supportWhich=="0"||supportWhich2=="0")? Colors.white : Color(0xFF303133)),),
-                      Text('$value2',style: TextStyle(fontSize: sp(12),color:(supportWhich=="0"||supportWhich2=="0")? Colors.white : Color(0xFF303133)),),
+                      Text('$text2',style: TextStyle(fontSize: sp(12),color:(supportWhich=="0")? Colors.white : Color(0xFF303133)),),
+                      Text('$value2',style: TextStyle(fontSize: sp(12),color:(supportWhich=="0")? Colors.white : Color(0xFF303133)),),
                     ],
                   ),
                 ),
               ),
-              (supportWhich=="0"||supportWhich2=="0")?Container(
+              (supportWhich=="0")?Container(
                 width: width(27),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
@@ -1121,7 +1121,7 @@ class CSClassSchemeDetailPageState extends State<CSClassSchemeDetailPage> {
                 height: width(43),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                    color: (supportWhich=="2"||supportWhich2=="2")?MyColors.main1:Color(0xFFF2F2F2),
+                    color: (supportWhich=="2")?MyColors.main1:Color(0xFFF2F2F2),
                     borderRadius: BorderRadius.all(Radius.circular(4))
                 ),
                 child: Stack(
@@ -1143,7 +1143,7 @@ class CSClassSchemeDetailPageState extends State<CSClassSchemeDetailPage> {
                   ],
                 ),
               ),
-              (supportWhich=="2"||supportWhich2=="2")?Container(
+              (supportWhich=="2")?Container(
                 width: width(27),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(

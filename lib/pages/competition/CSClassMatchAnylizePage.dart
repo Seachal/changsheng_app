@@ -801,8 +801,6 @@ class CSClassMatchAnylizePageState extends State<CSClassMatchAnylizePage>
                                 csMethodAvgWinOrLose25Score(
                                     false, 2))==0), 
                           ),
-                          
-
                           ///场均进球
                           Visibility(
                             child: Container(
@@ -898,9 +896,9 @@ class CSClassMatchAnylizePageState extends State<CSClassMatchAnylizePage>
                             ),
                             visible:!(CSClassStringUtils.csMethodSqlitZero(
                                 csMethodAvgWinOrLoseScoreOne(true)
-                                    .toStringAsFixed(2))==''&&CSClassStringUtils.csMethodSqlitZero(
+                                    .toStringAsFixed(2))=='0'&&CSClassStringUtils.csMethodSqlitZero(
                                 csMethodAvgWinOrLoseScoreTwo(true)
-                                    .toStringAsFixed(2))==''),
+                                    .toStringAsFixed(2))=='0'),
                           ),
 
 
@@ -999,13 +997,9 @@ class CSClassMatchAnylizePageState extends State<CSClassMatchAnylizePage>
                               ),
                               visible:!(CSClassStringUtils.csMethodSqlitZero(
                                   csMethodAvgWinOrLoseScoreOne(false)
-                                      .toStringAsFixed(2))==''&&CSClassStringUtils.csMethodSqlitZero(
-                                  csMethodAvgWinOrLoseScoreTwo(!(CSClassStringUtils.csMethodSqlitZero(
-                                      csMethodAvgWinOrLoseScoreOne(true)
-                                          .toStringAsFixed(2))==''&&CSClassStringUtils.csMethodSqlitZero(
-                                      csMethodAvgWinOrLoseScoreTwo(true)
-                                          .toStringAsFixed(2))==''))
-                                      .toStringAsFixed(2))=='')
+                                      .toStringAsFixed(2))=='0'&&CSClassStringUtils.csMethodSqlitZero(
+                                  csMethodAvgWinOrLoseScoreTwo(false)
+                                      .toStringAsFixed(2))=='0')
                             ),
 
 
