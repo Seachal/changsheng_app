@@ -1047,14 +1047,14 @@ class CSClassSchemeDetailPageState extends State<CSClassSchemeDetailPage> {
                   ),
                 ),
               ),
-              (supportWhich=="1")?Container(
+              (supportWhich=="1"||supportWhich2=="1")?Container(
                 width: width(27),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                    color: Color(0xFFFFB44D),
+                    color:supportWhich=="1"? Color(0xFFFFB44D):Color(0xFFFF6A4C),
                     borderRadius: BorderRadius.only(topLeft: Radius.circular(width(4)),bottomRight:Radius.circular(width(4)), )
                 ),
-                child: Text('主推',style: TextStyle(fontSize: sp(10),color: Colors.white),),
+                child: Text(supportWhich=="1"?'主推':'次推',style: TextStyle(fontSize: sp(10),color: Colors.white),),
               ):Container(),
               (whichWin=="1")? Positioned(
                 bottom: 0,
@@ -1079,7 +1079,7 @@ class CSClassSchemeDetailPageState extends State<CSClassSchemeDetailPage> {
                   height: width(43),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                      color: Color(0xFFF2F2F2),
+                      color: (supportWhich=="0")?MyColors.main1:Color(0xFFF2F2F2),
                       borderRadius: BorderRadius.all(Radius.circular(4))
                   ),
                   child: Column(
@@ -1092,14 +1092,14 @@ class CSClassSchemeDetailPageState extends State<CSClassSchemeDetailPage> {
                   ),
                 ),
               ),
-              (supportWhich=="0")?Container(
+              (supportWhich=="0"||supportWhich2=="0")?Container(
                 width: width(27),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                    color: Color(0xFFFFB44D),
+                    color:supportWhich=="0"? Color(0xFFFFB44D):Color(0xFFFF6A4C),
                     borderRadius: BorderRadius.only(topLeft: Radius.circular(width(4)),bottomRight:Radius.circular(width(4)), )
                 ),
-                child: Text('主推',style: TextStyle(fontSize: sp(10),color: Colors.white),),
+                child: Text(supportWhich=="0"?'主推':'次推',style: TextStyle(fontSize: sp(10),color: Colors.white),),
               ):Container(),
               (whichWin=="0")? Positioned(
                 bottom: 0,
@@ -1143,14 +1143,14 @@ class CSClassSchemeDetailPageState extends State<CSClassSchemeDetailPage> {
                   ],
                 ),
               ),
-              (supportWhich=="2")?Container(
+              (supportWhich=="2"||supportWhich2=='2')?Container(
                 width: width(27),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: Color(0xFFFFB44D),
+                  color:supportWhich=="2"? Color(0xFFFFB44D):Color(0xFFFF6A4C),
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(width(4)),bottomRight:Radius.circular(width(4)), )
                 ),
-                child: Text('主推',style: TextStyle(fontSize: sp(10),color: Colors.white),),
+                child: Text(supportWhich=="2"?'主推':'次推',style: TextStyle(fontSize: sp(10),color: Colors.white),),
               ):Container(),
               (whichWin=="2")? Positioned(
                 bottom: 0,
