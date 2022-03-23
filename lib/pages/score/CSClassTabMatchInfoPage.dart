@@ -27,7 +27,7 @@ class CSClassTabMatchInfoPage extends StatefulWidget {
 class CSClassTabMatchInfoPageState extends  State<CSClassTabMatchInfoPage> with TickerProviderStateMixin{
   TabController ?csProTabController;
   List<CSClassMatchDateList> views=[];
-  var csProTabTitle =["全部","热门",/*"即时",*/"赛果","赛程","关注"];
+  var csProTabTitle =["全部","热门",/*"即时",*/"赛程","赛果","关注"];
   var csProReFreshTime;
   static int csProReTime=30;
    int follow = 0;
@@ -40,8 +40,8 @@ class CSClassTabMatchInfoPageState extends  State<CSClassTabMatchInfoPage> with 
     views.add(CSClassMatchDateList(status: "all",csProMatchType:widget.csProMatchType));
     views.add(CSClassMatchDateList(status: "all",csProMatchType:widget.csProMatchType,isHot: true,));
     // views.add(CSClassMatchDateList(status: "in_progress",csProMatchType:widget.csProMatchType));
-    views.add(CSClassMatchDateList(status: "over",csProMatchType:widget.csProMatchType,));
     views.add(CSClassMatchDateList(status: "not_started",csProMatchType:widget.csProMatchType));
+    views.add(CSClassMatchDateList(status: "over",csProMatchType:widget.csProMatchType,));
     views.add(CSClassMatchDateList(status: "my_collected",csProMatchType:widget.csProMatchType));
     csProTabController=TabController(length: csProTabTitle.length,vsync: this,);
     csProTabController?.addListener((){
@@ -56,10 +56,10 @@ class CSClassTabMatchInfoPageState extends  State<CSClassTabMatchInfoPage> with 
            CSClassApiManager.csMethodGetInstance().csMethodLogAppEvent(csProEventName: "${match_key}_match_list",);
            break;
         case 2:
-          CSClassApiManager.csMethodGetInstance().csMethodLogAppEvent(csProEventName: "${match_key}_ended_match",);
+          CSClassApiManager.csMethodGetInstance().csMethodLogAppEvent(csProEventName: "${match_key}_not_started_match",);
           break;
         case 3:
-          CSClassApiManager.csMethodGetInstance().csMethodLogAppEvent(csProEventName: "${match_key}_not_started_match",);
+          CSClassApiManager.csMethodGetInstance().csMethodLogAppEvent(csProEventName: "${match_key}_ended_match",);
           break;
       }
     });
