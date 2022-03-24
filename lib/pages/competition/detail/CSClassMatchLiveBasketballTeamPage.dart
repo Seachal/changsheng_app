@@ -401,7 +401,7 @@ class CSClassMatchLiveBasketballTeamPageState extends State<CSClassMatchLiveBask
                                     children: <Widget>[
                                       Container(
                                         child: ( widget.csProGuessInfo.csProIconUrlOne!.isEmpty)? Image.asset(
-                                          CSClassImageUtil.csMethodGetImagePath("ic_team_two"),
+                                          CSClassImageUtil.csMethodGetImagePath("cs_away_team"),
                                           width: width(20),
                                         ):Image.network(
                                           widget.csProGuessInfo.csProIconUrlOne!,
@@ -424,7 +424,7 @@ class CSClassMatchLiveBasketballTeamPageState extends State<CSClassMatchLiveBask
                                       SizedBox(width: 4,),
                                       Container(
                                         child: ( widget.csProGuessInfo.csProIconUrlTwo!.isEmpty)? Image.asset(
-                                          CSClassImageUtil.csMethodGetImagePath("ic_team_one"),
+                                          CSClassImageUtil.csMethodGetImagePath("cs_home_team"),
                                           width: width(20),
                                         ):Image.network(
                                           widget.csProGuessInfo.csProIconUrlTwo!,
@@ -737,7 +737,7 @@ class CSClassMatchLiveBasketballTeamPageState extends State<CSClassMatchLiveBask
                                     children: <Widget>[
                                       Container(
                                         child: ( widget.csProGuessInfo.csProIconUrlOne!.isEmpty)? Image.asset(
-                                          CSClassImageUtil.csMethodGetImagePath("ic_team_two"),
+                                          CSClassImageUtil.csMethodGetImagePath("cs_away_team"),
                                           width: width(20),
                                         ):Image.network(
                                           widget.csProGuessInfo.csProIconUrlOne!,
@@ -760,7 +760,7 @@ class CSClassMatchLiveBasketballTeamPageState extends State<CSClassMatchLiveBask
                                       SizedBox(width: 4,),
                                       Container(
                                         child: ( widget.csProGuessInfo.csProIconUrlTwo!.isEmpty)? Image.asset(
-                                          CSClassImageUtil.csMethodGetImagePath("ic_team_one"),
+                                          CSClassImageUtil.csMethodGetImagePath("cs_home_team"),
                                           width: width(20),
                                         ):Image.network(
                                           widget.csProGuessInfo.csProIconUrlTwo!,
@@ -1359,7 +1359,7 @@ class CSClassMatchLiveBasketballTeamPageState extends State<CSClassMatchLiveBask
                               children: <Widget>[
                                 Container(
                                   child: ( widget.csProGuessInfo.csProIconUrlOne!.isEmpty)? Image.asset(
-                                    CSClassImageUtil.csMethodGetImagePath("ic_team_one"),
+                                    CSClassImageUtil.csMethodGetImagePath("cs_home_team"),
                                     width: width(20),
                                   ):Image.network(
                                     widget.csProGuessInfo.csProIconUrlOne!,
@@ -1520,7 +1520,7 @@ class CSClassMatchLiveBasketballTeamPageState extends State<CSClassMatchLiveBask
                               children: <Widget>[
                                 Container(
                                   child: ( widget.csProGuessInfo.csProIconUrlTwo!.isEmpty)? Image.asset(
-                                    CSClassImageUtil.csMethodGetImagePath("ic_team_two"),
+                                    CSClassImageUtil.csMethodGetImagePath("cs_away_team"),
                                     width: width(20),
                                   ):Image.network(
                                     widget.csProGuessInfo.csProIconUrlTwo!,
@@ -1752,7 +1752,7 @@ class CSClassMatchLiveBasketballTeamPageState extends State<CSClassMatchLiveBask
                                 Expanded(child: Row(
                                   children: <Widget>[
                                     ( widget.csProGuessInfo.csProIconUrlOne!.isEmpty)? Image.asset(
-                                      CSClassImageUtil.csMethodGetImagePath("ic_team_one"),
+                                      CSClassImageUtil.csMethodGetImagePath("cs_home_team"),
                                       width: width(20),
                                     ):Image.network(
                                       widget.csProGuessInfo.csProIconUrlOne!,
@@ -1769,7 +1769,7 @@ class CSClassMatchLiveBasketballTeamPageState extends State<CSClassMatchLiveBask
                                     Text(widget.csProGuessInfo.csProTeamTwo!,style: TextStyle(fontSize: sp(12)),),
                                     SizedBox(width: 5,),
                                     ( widget.csProGuessInfo.csProIconUrlTwo!.isEmpty)? Image.asset(
-                                      CSClassImageUtil.csMethodGetImagePath("ic_team_two"),
+                                      CSClassImageUtil.csMethodGetImagePath("cs_away_team"),
                                       width: width(20),
                                     ):Image.network(
                                       widget.csProGuessInfo.csProIconUrlTwo!,
@@ -2022,7 +2022,7 @@ class CSClassMatchLiveBasketballTeamPageState extends State<CSClassMatchLiveBask
                                 Expanded(child: Row(
                                   children: <Widget>[
                                     ( widget.csProGuessInfo.csProIconUrlOne!.isEmpty)? Image.asset(
-                                      CSClassImageUtil.csMethodGetImagePath("ic_team_one"),
+                                      CSClassImageUtil.csMethodGetImagePath("cs_home_team"),
                                       width: width(20),
                                     ):Image.network(
                                       widget.csProGuessInfo.csProIconUrlOne!,
@@ -2085,7 +2085,7 @@ class CSClassMatchLiveBasketballTeamPageState extends State<CSClassMatchLiveBask
                                 Expanded(child: Row(
                                   children: <Widget>[
                                     ( widget.csProGuessInfo.csProIconUrlTwo!.isEmpty)? Image.asset(
-                                      CSClassImageUtil.csMethodGetImagePath("ic_team_two"),
+                                      CSClassImageUtil.csMethodGetImagePath("cs_away_team"),
                                       width: width(20),
                                     ):Image.network(
                                       widget.csProGuessInfo.csProIconUrlTwo!,

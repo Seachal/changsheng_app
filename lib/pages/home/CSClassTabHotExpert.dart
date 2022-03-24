@@ -46,7 +46,7 @@ class CSClassTabHotExpertState extends State<CSClassTabHotExpert> with TickerPro
     // TODO: implement build
     return  Container(
       color: Colors.white,
-      margin: EdgeInsets.only(top: width(18),/*left: width(10),right: width(10),*/bottom:  width(8)),
+      margin: EdgeInsets.only(top: width(16),/*left: width(10),right: width(10),*/),
       child: Column(
         children: <Widget>[
           Container(

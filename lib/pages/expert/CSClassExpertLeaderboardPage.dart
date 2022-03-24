@@ -235,12 +235,12 @@ class CSClassExpertLeaderboardPageState extends State<CSClassExpertLeaderboardPa
                             color: Colors.white,
                             border: Border(bottom: BorderSide(width: 0.4,color: Colors.grey[300]!))
                         ),
-                        height: height(53),
+                        height: height(46),
                         child: Row(
                           children: <Widget>[
                             Container(
-                              width: width(50),
-                              height: height(53),
+                              width: width(46),
+                              height: height(46),
                               alignment: Alignment.center,
                               child: (index<3&&index>=0) ?
                               buildMedal(index+1):Text((index+1).toString(),style: TextStyle(fontSize: sp(17),color: MyColors.grey_33),),
@@ -257,19 +257,19 @@ class CSClassExpertLeaderboardPageState extends State<CSClassExpertLeaderboardPa
                                       child:  ClipOval(
                                         child:( item.csProAvatarUrl==null||item.csProAvatarUrl!.isEmpty)? Image.asset(
                                           CSClassImageUtil.csMethodGetImagePath("ic_default_avater"),
-                                          width: width(46),
-                                          height: width(46),
+                                          width: width(40),
+                                          height: width(40),
                                         ):Image.network(
                                           item.csProAvatarUrl!,
-                                          width: width(46),
-                                          height: width(46),
+                                          width: width(40),
+                                          height: width(40),
                                           fit: BoxFit.fill,
                                         ),
                                       ),
                                     ),
-                                    SizedBox(width: width(8),),
+                                    SizedBox(width: width(6),),
                                     Expanded(
-                                      child:Text(item.csProNickName!,style: TextStyle(fontSize: sp(17),color: Color(0xFF333333)),maxLines: 1,overflow: TextOverflow.ellipsis,),
+                                      child:Text(item.csProNickName!,style: TextStyle(fontSize: sp(14),color: Color(0xFF333333)),maxLines: 1,overflow: TextOverflow.ellipsis,),
                                     ),
                                   ],
                                 ),
@@ -415,7 +415,7 @@ class CSClassExpertLeaderboardPageState extends State<CSClassExpertLeaderboardPa
    buildMedal(int ranking) {
      return Image.asset(
        CSClassImageUtil.csMethodGetImagePath(ranking==1? "ic_leaderbord_one":(ranking==2? "ic_leaderbord_two":"ic_leaderbord_three")),
-       width: width(31),
+       width: width(30),
      );
 
    }

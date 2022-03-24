@@ -113,7 +113,7 @@ class CSClassHomeRangkingListState extends State<CSClassHomeRangkingList> with A
                   Positioned(
                     left: 0,
                     right: 0,
-                    bottom: -width(8),
+                    bottom: -width(10),
                     child: Container(
                       alignment: Alignment.center,
                       width: width(46),
@@ -144,7 +144,7 @@ class CSClassHomeRangkingListState extends State<CSClassHomeRangkingList> with A
                   )
                 ],
               ),
-              SizedBox(height:width(8),),
+              SizedBox(height:width(10),),
               Text("${expertItem.csProNickName}",style: TextStyle(fontSize: sp(11),color: MyColors.grey_99),maxLines: 1,overflow: TextOverflow.ellipsis,textAlign: TextAlign.center,)
             ],
           ),

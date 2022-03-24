@@ -629,7 +629,7 @@ class CSClassSchemeDetailPageState extends State<CSClassSchemeDetailPage> {
                   children: <Widget>[
                     widget.csProSchemeDetail.csProGuessMatch!.csProIconUrlOne!.isEmpty ?
                     Image.asset(
-                      CSClassImageUtil.csMethodGetImagePath("ic_team_one"),
+                      CSClassImageUtil.csMethodGetImagePath("cs_home_team"),
                       fit: BoxFit.cover,
                       width: width(54),
                       height: width(54),
@@ -680,7 +680,7 @@ class CSClassSchemeDetailPageState extends State<CSClassSchemeDetailPage> {
                   children: <Widget>[
                     widget.csProSchemeDetail.csProGuessMatch!.csProIconUrlTwo!.isEmpty ?
                     Image.asset(
-                      CSClassImageUtil.csMethodGetImagePath("ic_team_two"),
+                      CSClassImageUtil.csMethodGetImagePath("cs_away_team"),
                       fit: BoxFit.cover,
                       width: width(54),
                       height: width(54),

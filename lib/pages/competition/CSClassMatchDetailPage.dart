@@ -261,7 +261,7 @@ class CSClassMatchDetailPageState extends State<CSClassMatchDetailPage> with Tic
                       child:  ClipRRect(
                         borderRadius: BorderRadius.circular(500),
                         child:( widget.csProSportMatch!.csProIconUrlOne!.isEmpty)? Image.asset(
-                          CSClassImageUtil.csMethodGetImagePath("ic_team_one"),
+                          CSClassImageUtil.csMethodGetImagePath("cs_home_team"),
                           width: width(16),
                         ):Image.network(
                           widget.csProSportMatch!.csProIconUrlOne!,
@@ -305,7 +305,7 @@ class CSClassMatchDetailPageState extends State<CSClassMatchDetailPage> with Tic
                       child:  ClipRRect(
                         borderRadius: BorderRadius.circular(500),
                         child:( widget.csProSportMatch!.csProIconUrlTwo!.isEmpty)? Image.asset(
-                          CSClassImageUtil.csMethodGetImagePath("ic_team_two"),
+                          CSClassImageUtil.csMethodGetImagePath("cs_away_team"),
                           fit: BoxFit.fitWidth,
                           width: width(16),
                         ):Image.network(
@@ -362,7 +362,7 @@ class CSClassMatchDetailPageState extends State<CSClassMatchDetailPage> with Tic
                                       color: Colors.white,
                                       borderRadius: BorderRadius.circular(500)),
                                   child:CSClassImageUtil.csMethodNetWordImage(
-                                      placeholder: "ic_team_one",
+                                      placeholder: "cs_home_team",
                                       url: widget.csProSportMatch!.csProIconUrlOne!,
                                       width: width(40),
                                       height:  width(40)),
@@ -448,7 +448,7 @@ class CSClassMatchDetailPageState extends State<CSClassMatchDetailPage> with Tic
                                       color: Colors.white,
                                       borderRadius: BorderRadius.circular(500)),
                                   child:CSClassImageUtil.csMethodNetWordImage(
-                                      placeholder: "ic_team_two",
+                                      placeholder: "cs_away_team",
                                       url: widget.csProSportMatch!.csProIconUrlTwo!,
                                       width: width(40),
                                       height:  width(40)),
@@ -485,7 +485,7 @@ class CSClassMatchDetailPageState extends State<CSClassMatchDetailPage> with Tic
             ),
             bottom: PreferredSize(
               child: Container(
-                height: height(37),
+                height: width(37),
                 decoration: BoxDecoration(
                     color: Colors.white,
                     border: Border(bottom: BorderSide(width: 0.4,color: Color(0xFFCCCCCC)))

@@ -37,8 +37,8 @@ class CSClassSchemeItemView extends StatelessWidget {
         padding: EdgeInsets.only(
             left: width(13),
             right: width(13),
-            top: width(12),
-            bottom: width(12)),
+            top: width(6),
+            bottom: width(6)),
         decoration: BoxDecoration(
             color: Colors.white,
             border: Border(
@@ -348,7 +348,7 @@ class CSClassSchemeItemView extends StatelessWidget {
                         text: item.title,
                         style: TextStyle(
                           color: Color(0xFF333333),
-                          fontSize: sp(15),
+                          fontSize: sp(14),
                         ),
                       ),
                     ),
@@ -420,7 +420,8 @@ class CSClassSchemeItemView extends StatelessWidget {
                       Text(
                         item.csProLeagueName!,
                         style: TextStyle(
-                            fontSize: sp(11), color: MyColors.grey_99),
+                            fontSize: sp(11), color:CSClassMatchDataUtils
+                            .csMethodLeagueNameColor(item.csProLeagueName!)),
                       ),
                     ],
                   ),
@@ -438,20 +439,21 @@ class CSClassSchemeItemView extends StatelessWidget {
                           CSClassStringUtils.csMethodMaxLength(item.csProTeamOne!,
                               length: 5),
                           style: TextStyle(
-                              fontSize: sp(11), color: MyColors.grey_66),
+                              fontSize: sp(12), color: MyColors.grey_33),
                           maxLines: 1,
                         ),
                         Text(
                           " VS ",
                           style: TextStyle(
-                              fontSize: sp(13), color: Color(0xFF999999)),
+                            height: 1.6,
+                              fontSize: sp(10), color: MyColors.grey_33),
                           maxLines: 1,
                         ),
                         Text(
                           CSClassStringUtils.csMethodMaxLength(item.csProTeamTwo!,
                               length: 5),
                           style: TextStyle(
-                              fontSize: sp(11), color: MyColors.grey_66),
+                              fontSize: sp(12), color: MyColors.grey_33),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                         ),

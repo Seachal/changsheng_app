@@ -164,7 +164,7 @@ class HomeDetailPageState extends State<HomeDetailPage> with
                 SliverToBoxAdapter(
                   child: Container(
                     color: Color(0xFFF2F2F2),
-                    height: width(8),
+                    height: width(4),
                   ),
                 ),
               ];
@@ -184,7 +184,7 @@ class HomeDetailPageState extends State<HomeDetailPage> with
                     key: csProKeyTopTitle,
                     padding: EdgeInsets.only(
                         left: width(13), right: width(13)),
-                    height: width(42),
+                    height: width(37),
                     decoration: BoxDecoration(
                         border: Border(
                             bottom: BorderSide(
@@ -328,7 +328,7 @@ class HomeDetailPageState extends State<HomeDetailPage> with
                                 children: <Widget>[
                                   (data.csProIconUrlOne!.isNotEmpty)? CachedNetworkImage(imageUrl: data.csProIconUrlOne!,width: width(17),):
                                   Image.asset(
-                                    CSClassImageUtil.csMethodGetImagePath("ic_team_one"),
+                                    CSClassImageUtil.csMethodGetImagePath("cs_home_team"),
                                     width: width(17),
                                   ),
                                   SizedBox(width: 5),
@@ -344,7 +344,7 @@ class HomeDetailPageState extends State<HomeDetailPage> with
                                   // (data.csProIconUrlTwo!.isNotEmpty)? Image.network(data.csProIconUrlTwo!,width: width(17),):
                                   (data.csProIconUrlTwo!.isNotEmpty)? CachedNetworkImage(imageUrl: data.csProIconUrlTwo!,width: width(17),):
                                   Image.asset(
-                                    CSClassImageUtil.csMethodGetImagePath("ic_team_two"),
+                                    CSClassImageUtil.csMethodGetImagePath("cs_away_team"),
                                     width: width(17),
                                   ),
                                   SizedBox(width: 5),
@@ -376,7 +376,7 @@ class HomeDetailPageState extends State<HomeDetailPage> with
                           // (data.csProIconUrlOne!.isNotEmpty)? Image.network(data.csProIconUrlOne!,width: width(17),):
                           (data.csProIconUrlOne!.isNotEmpty)? CachedNetworkImage(imageUrl: data.csProIconUrlOne!,width: width(17),):
                           Image.asset(
-                            CSClassImageUtil.csMethodGetImagePath("ic_team_one"),
+                            CSClassImageUtil.csMethodGetImagePath("cs_home_team"),
                             width: width(17),
                           ),
                           SizedBox(width: 5),
@@ -393,7 +393,7 @@ class HomeDetailPageState extends State<HomeDetailPage> with
                           // (data.csProIconUrlTwo!.isNotEmpty)? Image.network(data.csProIconUrlTwo!,width: width(17),):
                           (data.csProIconUrlTwo!.isNotEmpty)? CachedNetworkImage(imageUrl: data.csProIconUrlTwo!,width: width(17),):
                           Image.asset(
-                            CSClassImageUtil.csMethodGetImagePath("ic_team_two"),
+                            CSClassImageUtil.csMethodGetImagePath("cs_away_team"),
                             width: width(17),
                           ),
                           SizedBox(width: 5),
