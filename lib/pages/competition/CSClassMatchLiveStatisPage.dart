@@ -217,7 +217,7 @@ class CSClassMatchLiveStatisPageState extends State<CSClassMatchLiveStatisPage> 
                         width: width(4),
                         height: width(15),
                         decoration: BoxDecoration(
-                            color: MyColors.main1,
+                            color: MyColors.main2,
                             borderRadius: BorderRadius.circular(width(2))
                         ),
                       ),
@@ -246,7 +246,7 @@ class CSClassMatchLiveStatisPageState extends State<CSClassMatchLiveStatisPage> 
                         width: width(4),
                         height: width(15),
                         decoration: BoxDecoration(
-                            color: Color(0xFFFF6A4D),
+                            color: MyColors.main1,
                             borderRadius: BorderRadius.circular(width(2))
                         ),
                       ),
@@ -305,8 +305,8 @@ class CSClassMatchLiveStatisPageState extends State<CSClassMatchLiveStatisPage> 
                             PieSeries<CSClassChartDoughnutData, String>(
                               explode: true,
                               dataSource: [
-                                CSClassChartDoughnutData(double.tryParse(csMethodFindMatchStat("进攻",1)),color: MyColors.main1),
-                                CSClassChartDoughnutData(double.tryParse(csMethodFindMatchStat("进攻",2)),color: Color(0xFFFF5F40)),
+                                CSClassChartDoughnutData(double.tryParse(csMethodFindMatchStat("进攻",1)),color: MyColors.main2),
+                                CSClassChartDoughnutData(double.tryParse(csMethodFindMatchStat("进攻",2)),color: MyColors.main1,),
                               ],
                               xValueMapper: (CSClassChartDoughnutData data, _) => "",
                               yValueMapper: (CSClassChartDoughnutData data, _) => data.percenter,
@@ -385,7 +385,7 @@ class CSClassMatchLiveStatisPageState extends State<CSClassMatchLiveStatisPage> 
                               margin: EdgeInsets.only(right: width(4)),
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
-                                  color: MyColors.main1,
+                                  color: MyColors.main2,
                                   borderRadius: BorderRadius.horizontal(left:Radius.circular(300) )
                               ),
                               height: width(7),
@@ -395,7 +395,7 @@ class CSClassMatchLiveStatisPageState extends State<CSClassMatchLiveStatisPage> 
                             flex:int.parse(csMethodFindMatchStat("控球率",2).replaceAll("%", "")),
                             child: Container(
                               decoration: BoxDecoration(
-                                  color: Color(0xFFFF5F40),
+                                  color: MyColors.main1,
                                   borderRadius: BorderRadius.horizontal(right:Radius.circular(300) )
                               ),
                               alignment: Alignment.center,
@@ -444,7 +444,7 @@ class CSClassMatchLiveStatisPageState extends State<CSClassMatchLiveStatisPage> 
                               margin: EdgeInsets.only(right: width(4)),
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
-                                  color: MyColors.main1,
+                                  color: MyColors.main2,
                                   borderRadius: BorderRadius.horizontal(left:Radius.circular(300) )
                               ),
                               height: width(7),
@@ -454,7 +454,7 @@ class CSClassMatchLiveStatisPageState extends State<CSClassMatchLiveStatisPage> 
                             flex:int.parse(csMethodFindMatchStat("半场控球率",2).replaceAll("%", "")),
                             child: Container(
                               decoration: BoxDecoration(
-                                  color: Color(0xFFFF5F40),
+                                  color: MyColors.main1,
                                   borderRadius: BorderRadius.horizontal(right:Radius.circular(300) )
                               ),
                               alignment: Alignment.center,
@@ -503,7 +503,7 @@ class CSClassMatchLiveStatisPageState extends State<CSClassMatchLiveStatisPage> 
                               margin: EdgeInsets.only(right: width(4)),
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
-                                  color: MyColors.main1,
+                                  color: MyColors.main2,
                                   borderRadius: BorderRadius.horizontal(left:Radius.circular(300) )
                               ),
                               height: width(7),
@@ -513,7 +513,7 @@ class CSClassMatchLiveStatisPageState extends State<CSClassMatchLiveStatisPage> 
                             flex:int.parse(csMethodFindMatchStat("射门",2))-int.parse(csMethodFindMatchStat("射门不中",2)),
                             child: Container(
                               decoration: BoxDecoration(
-                                  color: Color(0xFFFF5F40),
+                                  color: MyColors.main1,
                                   borderRadius: BorderRadius.horizontal(right:Radius.circular(300) )
                               ),
                               alignment: Alignment.center,
@@ -562,7 +562,7 @@ class CSClassMatchLiveStatisPageState extends State<CSClassMatchLiveStatisPage> 
                               margin: EdgeInsets.only(right: width(4)),
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
-                                  color: MyColors.main1,
+                                  color: MyColors.main2,
                                   borderRadius: BorderRadius.horizontal(left:Radius.circular(300) )
                               ),
                               height: width(7),
@@ -572,7 +572,7 @@ class CSClassMatchLiveStatisPageState extends State<CSClassMatchLiveStatisPage> 
                             flex:int.parse(csMethodFindMatchStat("射门",2),),
                             child: Container(
                               decoration: BoxDecoration(
-                                  color: Color(0xFFFF5F40),
+                                  color:MyColors.main1,
                                   borderRadius: BorderRadius.horizontal(right:Radius.circular(300) )
                               ),
                               alignment: Alignment.center,
