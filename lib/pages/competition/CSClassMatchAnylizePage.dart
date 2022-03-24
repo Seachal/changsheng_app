@@ -2462,7 +2462,7 @@ class CSClassMatchAnylizePageState extends State<CSClassMatchAnylizePage>
                                                                 dataSource: [
                                                                   CSClassChartDoughnutData(csMethodGetMatchCount(csMethodGetHistoryOneList(csProHistoryOneKey), 1)*1.0,color: Color(0xFFFF6A4D)),
                                                                   CSClassChartDoughnutData(csMethodGetMatchCount(csMethodGetHistoryOneList(csProHistoryOneKey), 2)*1.0,color: Color(0xFF5FB349)),
-                                                                  CSClassChartDoughnutData(csMethodGetMatchCount(csMethodGetHistoryOneList(csProHistoryOneKey), 0)*1.0,color: Color(0xFF333333)),
+                                                                  CSClassChartDoughnutData(csMethodGetMatchCount(csMethodGetHistoryOneList(csProHistoryOneKey), 0)*1.0,color: Colors.blue),
 
                                                                 ],
                                                                 xValueMapper:
@@ -3813,13 +3813,15 @@ class CSClassMatchAnylizePageState extends State<CSClassMatchAnylizePage>
                               item.csProScoreTwo!,
                           style: TextStyle(
                               fontSize:
-                              sp(11),
+                              sp(12),
                               color:
-                              csMethodGetResultColor(
-                                  item,winTeam: team),
-                              fontWeight:
-                              FontWeight
-                                  .bold),
+                               MyColors.grey_33,
+                              // csMethodGetResultColor(
+                              //     item,winTeam: team),
+                              // fontWeight:
+                              // FontWeight
+                              //     .bold
+                          ),
                           maxLines: 1,
                           overflow:
                           TextOverflow

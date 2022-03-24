@@ -39,7 +39,10 @@ class _ProductDetailState extends State<ProductDetail> {
         title: '商品详情',
       ),
       backgroundColor: Colors.white,
-      bottomNavigationBar: bottomBtn(),
+      bottomNavigationBar: SafeArea(
+        bottom: true,
+        child: bottomBtn(),
+      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
