@@ -989,7 +989,7 @@ class CSClassMatchAnylizePageState extends State<CSClassMatchAnylizePage>
                                             children: <Widget>[
                                               Expanded(
                                                 flex:
-                                                    (csMethodAvgWinOrLoseScoreTwo(
+                                                    (csMethodAvgWinOrLoseScoreOne(
                                                                 false) *
                                                             100)
                                                         .toInt(),
@@ -1009,7 +1009,7 @@ class CSClassMatchAnylizePageState extends State<CSClassMatchAnylizePage>
                                               ),
                                               Expanded(
                                                 flex:
-                                                    (csMethodAvgWinOrLoseScoreOne(
+                                                    (csMethodAvgWinOrLoseScoreTwo(
                                                                 false) *
                                                             100)
                                                         .toInt(),
