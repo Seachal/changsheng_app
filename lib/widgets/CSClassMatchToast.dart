@@ -103,7 +103,7 @@ class CSClassMatchToast {
             ),
           ),
 
-          Image.asset(CSClassImageUtil.csMethodGetImagePath((_match?.csProNoticeType=="red_card") ?  "ic_alert_red_ball":"ic_alert_ball"),width: width(33),),
+          Image.asset(CSClassImageUtil.csMethodGetImagePath((_match?.csProNoticeType=="red_card") ?  "cs_alert_red_ball":"cs_alert_ball"),width: width(33),),
           SizedBox(width: width(12),),
           Expanded(
             child: Row(

@@ -111,7 +111,7 @@ class CSClassBottomPickAndSearchListState extends State<CSClassBottomPickAndSear
                  child: Row(
                    children: <Widget>[
                      Image.asset(
-                       CSClassImageUtil.csMethodGetImagePath("ic_search"),
+                       CSClassImageUtil.csMethodGetImagePath("cs_search"),
                        width: width(16),
                        color: Color(0xFFDDDDDD),
                      ),

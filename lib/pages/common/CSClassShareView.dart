@@ -82,7 +82,7 @@ class CSClassShareViewState extends State<CSClassShareView>{
                    children: <Widget>[
 
                      Image.asset(
-                       CSClassImageUtil.csMethodGetImagePath("ic_wx_share"),
+                       CSClassImageUtil.csMethodGetImagePath("cs_wx_share"),
                        fit: BoxFit.contain,
                        width: height(34),
                        height: height(34),
@@ -123,7 +123,7 @@ class CSClassShareViewState extends State<CSClassShareView>{
                    children: <Widget>[
 
                      Image.asset(
-                       CSClassImageUtil.csMethodGetImagePath("ic_wx_share"),
+                       CSClassImageUtil.csMethodGetImagePath("cs_wx_share"),
                        fit: BoxFit.contain,
                        width: height(34),
                        height: height(34),
@@ -146,7 +146,7 @@ class CSClassShareViewState extends State<CSClassShareView>{
                          widget.csProPageUrl!,
                          title:widget.title!,
                          description: widget.csProDesContent,
-                          thumbnail: WeChatImage.asset(CSClassImageUtil.csMethodGetImagePath("ic_fxtu",format: ".png")),
+                          thumbnail: WeChatImage.asset(CSClassImageUtil.csMethodGetImagePath("cs_fxtu",format: ".png")),
                          scene: WeChatScene.SESSION,
                        )).whenComplete((){
                      CSClassApiManager.csMethodGetInstance().csMethodLogAppShare();
@@ -161,7 +161,7 @@ class CSClassShareViewState extends State<CSClassShareView>{
                  child: Column(
                    children: <Widget>[
                      Image.asset(
-                       CSClassImageUtil.csMethodGetImagePath('ic_wx_firend'),
+                       CSClassImageUtil.csMethodGetImagePath('cs_wx_firend'),
                        fit: BoxFit.contain,
                        width: height(34),
                        height: height(34),
@@ -183,7 +183,7 @@ class CSClassShareViewState extends State<CSClassShareView>{
                          widget.csProPageUrl!,
                          title:widget.title!,
                          description: widget.csProDesContent,
-                         thumbnail: WeChatImage.asset(CSClassImageUtil.csMethodGetImagePath("ic_fxtu",format: ".png")),
+                         thumbnail: WeChatImage.asset(CSClassImageUtil.csMethodGetImagePath("cs_fxtu",format: ".png")),
                          scene: WeChatScene.TIMELINE,
                        )).whenComplete((){
                      CSClassApiManager.csMethodGetInstance().csMethodLogAppShare();
@@ -199,7 +199,7 @@ class CSClassShareViewState extends State<CSClassShareView>{
                     children: <Widget>[
 
                       Image.asset(
-                        CSClassImageUtil.csMethodGetImagePath('ic_link_share'),
+                        CSClassImageUtil.csMethodGetImagePath('cs_link_share'),
                         fit: BoxFit.contain,
                         width: height(34),
                         height: height(34),

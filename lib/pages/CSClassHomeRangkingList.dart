@@ -99,7 +99,7 @@ class CSClassHomeRangkingListState extends State<CSClassHomeRangkingList> with A
                     child:  ClipRRect(
                       borderRadius: BorderRadius.circular(200),
                       child:( expertItem.csProAvatarUrl==null||expertItem.csProAvatarUrl!.isEmpty)? Image.asset(
-                        CSClassImageUtil.csMethodGetImagePath("ic_default_avater"),
+                        CSClassImageUtil.csMethodGetImagePath("cs_default_avater"),
                         width: width(46),
                         height: width(46),
                       ):Image.network(

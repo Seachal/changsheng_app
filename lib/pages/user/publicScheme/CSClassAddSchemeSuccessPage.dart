@@ -23,7 +23,7 @@ class CSClassAddSchemeSuccessPage extends StatelessWidget {
         child: Column(
           children: <Widget>[
                 SizedBox(height:width(112),width: MediaQuery.of(context).size.width,),
-                Image.asset(CSClassImageUtil.csMethodGetImagePath("ic_success_scheme"),width:width(54) ,),
+                Image.asset(CSClassImageUtil.csMethodGetImagePath("cs_success_scheme"),width:width(54) ,),
                  SizedBox(height:width(29),width: MediaQuery.of(context).size.width,),
 
                 Text("您的方案提交成功，我们将在24小时内进行审核"+

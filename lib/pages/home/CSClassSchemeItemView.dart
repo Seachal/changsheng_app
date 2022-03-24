@@ -58,7 +58,7 @@ class CSClassSchemeItemView extends StatelessWidget {
                                 item.expert!.csProAvatarUrl!.isEmpty)
                             ? Image.asset(
                                 CSClassImageUtil.csMethodGetImagePath(
-                                    "ic_default_avater"),
+                                    "cs_default_avater"),
                                 width: width(40),
                                 height: width(40),
                               )

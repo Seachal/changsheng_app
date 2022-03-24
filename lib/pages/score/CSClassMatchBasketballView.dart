@@ -182,7 +182,7 @@ class CSClassMatchBasketballViewState extends State<CSClassMatchBasketballView>{
                 Row(
                   children: <Widget>[
                     Text(widget.csProMatchItem.csProSchemeNum!+"观点",style: TextStyle(color: Color(0xFF24AAF0),fontSize: sp(12)),),
-                    Image.asset(CSClassImageUtil.csMethodGetImagePath("ic_btn_right"),
+                    Image.asset(CSClassImageUtil.csMethodGetImagePath("cs_btn_right"),
                         height: width(7),
                         color: Color(0xFF24AAF0)
                     ),
@@ -195,7 +195,7 @@ class CSClassMatchBasketballViewState extends State<CSClassMatchBasketballView>{
                     padding: EdgeInsets.only(left: width(37),top: width(8),bottom: width(4)),
                     alignment: Alignment.center,
                     child:  Image.asset(
-                      CSClassImageUtil.csMethodGetImagePath('ic_btn_score_colloect'),
+                      CSClassImageUtil.csMethodGetImagePath('cs_btn_score_colloect'),
                       width: width(16),
                       color: widget.csProMatchItem.collected=="1" ? MyColors.main1:Colors.grey[300],
                     ),

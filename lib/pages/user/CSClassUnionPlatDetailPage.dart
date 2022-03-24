@@ -158,7 +158,7 @@ class CSClassUnionPlatDetailPageState extends State<CSClassUnionPlatDetailPage> 
                         child: Row(
                           children: <Widget>[
                             Image.asset(
-                              CSClassImageUtil.csMethodGetImagePath("ic_pay_wx"),
+                              CSClassImageUtil.csMethodGetImagePath("cs_pay_wx"),
                               width: width(37),
                               height: width(37),
                             ),
@@ -179,7 +179,7 @@ class CSClassUnionPlatDetailPageState extends State<CSClassUnionPlatDetailPage> 
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: <Widget>[
                                   Image.asset(
-                                    csProPayType=="weixin"? CSClassImageUtil.csMethodGetImagePath("ic_select"):CSClassImageUtil.csMethodGetImagePath("ic_un_select"),
+                                    csProPayType=="weixin"? CSClassImageUtil.csMethodGetImagePath("cs_select"):CSClassImageUtil.csMethodGetImagePath("cs_un_select"),
                                     width: width(15),
                                     height: width(15),
                                   ),
@@ -208,7 +208,7 @@ class CSClassUnionPlatDetailPageState extends State<CSClassUnionPlatDetailPage> 
                         child: Row(
                           children: <Widget>[
                             Image.asset(
-                              CSClassImageUtil.csMethodGetImagePath("ic_pay_alipay"),
+                              CSClassImageUtil.csMethodGetImagePath("cs_pay_alipay"),
                               width: width(37),
                               height: width(37),
                             ),
@@ -229,7 +229,7 @@ class CSClassUnionPlatDetailPageState extends State<CSClassUnionPlatDetailPage> 
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: <Widget>[
                                   Image.asset(
-                                    csProPayType=="alipay"? CSClassImageUtil.csMethodGetImagePath("ic_select"):CSClassImageUtil.csMethodGetImagePath("ic_un_select"),
+                                    csProPayType=="alipay"? CSClassImageUtil.csMethodGetImagePath("cs_select"):CSClassImageUtil.csMethodGetImagePath("cs_un_select"),
                                     width: width(15),
                                     height: width(15),
                                   ),

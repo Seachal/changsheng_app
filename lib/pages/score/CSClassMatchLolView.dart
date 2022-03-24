@@ -179,7 +179,7 @@ class CSClassMatchLolViewState extends State<CSClassMatchLolView> {
                             widget.csProMatchItem.corner!.isNotEmpty
                                 ? Image.asset(
                                     CSClassImageUtil.csMethodGetImagePath(
-                                        "ic_coner_score"),
+                                        "cs_coner_score"),
                                     width: width(11),
                                   )
                                 : SizedBox(),
@@ -200,7 +200,7 @@ class CSClassMatchLolViewState extends State<CSClassMatchLolView> {
                                     CSClassMatchDataUtils.csMethodShowLive(
                                         widget.csProMatchItem.status!))
                                 ? CSClassImageUtil.csMethodGetImagePath(
-                                    "ic_match_live")
+                                    "cs_match_live")
                                 : "",
                             width: width(15),
                           ),
@@ -212,7 +212,7 @@ class CSClassMatchLolViewState extends State<CSClassMatchLolView> {
                               alignment: Alignment.center,
                               child: Image.asset(
                                 CSClassImageUtil.csMethodGetImagePath(
-                                    'ic_btn_score_colloect'),
+                                    'cs_btn_score_colloect'),
                                 width: width(16),
                                 color: widget.csProMatchItem.collected == "1"
                                     ? null
@@ -357,7 +357,7 @@ class CSClassMatchLolViewState extends State<CSClassMatchLolView> {
                               widget.csProMatchItem.csProIconUrlOne!)
                           ? Image.asset(
                               CSClassImageUtil.csMethodGetImagePath(
-                                  "ic_lol_match"),
+                                  "cs_lol_match"),
                               height: width(15),
                             )
                           : Image.network(
@@ -485,7 +485,7 @@ class CSClassMatchLolViewState extends State<CSClassMatchLolView> {
                               widget.csProMatchItem.csProIconUrlTwo!)
                           ? Image.asset(
                               CSClassImageUtil.csMethodGetImagePath(
-                                  "ic_lol_match"),
+                                  "cs_lol_match"),
                               height: width(15),
                             )
                           : Image.network(

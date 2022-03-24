@@ -202,7 +202,7 @@ class CSClassUserPageState extends State<CSClassUserPage>
                                               .csProAvatarUrl.isEmpty)
                                       ? Image.asset(
                                           CSClassImageUtil.csMethodGetImagePath(
-                                              "ic_default_avater"),
+                                              "cs_default_avater"),
                                           width: width(46),
                                           height: width(46),
                                         )
@@ -372,7 +372,7 @@ class CSClassUserPageState extends State<CSClassUserPage>
                                         children: <Widget>[
                                           Image.asset(
                                               CSClassImageUtil.csMethodGetImagePath(
-                                                  "ic_user_" +
+                                                  "cs_user_" +
                                                       "${csProMyTitleImages[index]}"),
                                               width: width(36)),
                                           Text(
@@ -436,7 +436,7 @@ class CSClassUserPageState extends State<CSClassUserPage>
                                       children: <Widget>[
                                         Image.asset(
                                             CSClassImageUtil.csMethodGetImagePath(
-                                                "ic_user_" +
+                                                "cs_user_" +
                                                     "${csProOtherImages[index]}"),
                                             width: width(31)),
                                         Text(
@@ -457,7 +457,7 @@ class CSClassUserPageState extends State<CSClassUserPage>
                                         child: Image.asset(
                                           CSClassImageUtil
                                               .csMethodGetImagePath(
-                                              "ic_anim_invite"),
+                                              "cs_anim_invite"),
                                           fit: BoxFit.fitHeight,
                                           height: width(20),
                                         ),

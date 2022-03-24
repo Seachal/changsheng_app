@@ -218,7 +218,7 @@ class CSClassSchemeDetailPageState extends State<CSClassSchemeDetailPage> {
                                                             crossAxisAlignment: CrossAxisAlignment.center,
                                                             mainAxisAlignment: MainAxisAlignment.center,
                                                             children: <Widget>[
-                                                              Image.asset(CSClassImageUtil.csMethodGetImagePath("ic_compain"),width: width(17),color: Color(0xFF999999)),
+                                                              Image.asset(CSClassImageUtil.csMethodGetImagePath("cs_compain"),width: width(17),color: Color(0xFF999999)),
                                                               SizedBox(width: width(3),),
                                                               Text("举报",style: TextStyle(fontSize: sp(12),color: Color(0xFF999999)))]),
                                                         onTap: (){
@@ -238,9 +238,9 @@ class CSClassSchemeDetailPageState extends State<CSClassSchemeDetailPage> {
                                             top: 10,
                                             right:  width(13) ,
                                             child: Image.asset(
-                                              (widget.csProSchemeDetail.scheme!.csProIsWin=="1")? CSClassImageUtil.csMethodGetImagePath("ic_result_red"):
-                                              (widget.csProSchemeDetail.scheme!.csProIsWin=="0")? CSClassImageUtil.csMethodGetImagePath("ic_result_hei"):
-                                              (widget.csProSchemeDetail.scheme!.csProIsWin=="2")? CSClassImageUtil.csMethodGetImagePath("ic_result_zou"):"",
+                                              (widget.csProSchemeDetail.scheme!.csProIsWin=="1")? CSClassImageUtil.csMethodGetImagePath("cs_result_red"):
+                                              (widget.csProSchemeDetail.scheme!.csProIsWin=="0")? CSClassImageUtil.csMethodGetImagePath("cs_result_hei"):
+                                              (widget.csProSchemeDetail.scheme!.csProIsWin=="2")? CSClassImageUtil.csMethodGetImagePath("cs_result_zou"):"",
                                               width: width(40),
                                             ),
                                           ),
@@ -304,9 +304,9 @@ class CSClassSchemeDetailPageState extends State<CSClassSchemeDetailPage> {
                 child: Image.asset(
                   widget.csProSchemeDetail.scheme!.collected == "1"
                       ? CSClassImageUtil.csMethodGetImagePath(
-                      'ic_match_favorite')
+                      'cs_match_favorite')
                       : CSClassImageUtil.csMethodGetImagePath(
-                      'ic_match_un_favorite'),
+                      'cs_match_un_favorite'),
                   width: width(23),
                   color:
                   widget.csProSchemeDetail.scheme!.collected ==
@@ -364,7 +364,7 @@ class CSClassSchemeDetailPageState extends State<CSClassSchemeDetailPage> {
                     left: width(16), right: width(15)),
                 child: Image.asset(
                   CSClassImageUtil.csMethodGetImagePath(
-                      "ic_sheme_sahre"),
+                      "cs_sheme_sahre"),
                   width: width(23),
                 ),
               ),
@@ -439,7 +439,7 @@ class CSClassSchemeDetailPageState extends State<CSClassSchemeDetailPage> {
                       .expert!.csProAvatarUrl!.isEmpty)
                   ? Image.asset(
                 CSClassImageUtil.csMethodGetImagePath(
-                    "ic_default_avater"),
+                    "cs_default_avater"),
                 width: width(46),
                 height: width(46),
               )
@@ -849,7 +849,7 @@ class CSClassSchemeDetailPageState extends State<CSClassSchemeDetailPage> {
                 //   top: 0,
                 //   left: 0,
                 //   child: Image.asset(
-                //     (widget.csProSchemeDetail.scheme.csProCanReturn) ? CSClassImageUtil.csMethodGetImagePath("ic_can_return"):"",
+                //     (widget.csProSchemeDetail.scheme.csProCanReturn) ? CSClassImageUtil.csMethodGetImagePath("cs_can_return"):"",
                 //     width: width(37),
                 //   ),
                 // ),
@@ -1060,7 +1060,7 @@ class CSClassSchemeDetailPageState extends State<CSClassSchemeDetailPage> {
                 bottom: 0,
                 right: 0,
                 child: Image.asset(
-                  CSClassImageUtil.csMethodGetImagePath("ic_select_lab"),
+                  CSClassImageUtil.csMethodGetImagePath("cs_select_lab"),
                   width: width(18),
                 ),
               ):Container(),
@@ -1105,7 +1105,7 @@ class CSClassSchemeDetailPageState extends State<CSClassSchemeDetailPage> {
                 bottom: 0,
                 right: 0,
                 child: Image.asset(
-                  CSClassImageUtil.csMethodGetImagePath("ic_select_lab"),
+                  CSClassImageUtil.csMethodGetImagePath("cs_select_lab"),
                   width: width(18),
                 ),
               ):Container(),
@@ -1156,7 +1156,7 @@ class CSClassSchemeDetailPageState extends State<CSClassSchemeDetailPage> {
                 bottom: 0,
                 right: 0,
                 child: Image.asset(
-                  CSClassImageUtil.csMethodGetImagePath("ic_select_lab"),
+                  CSClassImageUtil.csMethodGetImagePath("cs_select_lab"),
                   width: width(18),
                 ),
               ):Container(),

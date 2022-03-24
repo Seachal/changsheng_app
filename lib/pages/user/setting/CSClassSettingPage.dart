@@ -67,7 +67,7 @@ class CSClassSettingPageState extends State<CSClassSettingPage> {
                               )),
                         ),
                         Image.asset(
-                          CSClassImageUtil.csMethodGetImagePath("ic_btn_right"),
+                          CSClassImageUtil.csMethodGetImagePath("cs_btn_right"),
                           width: width(11),
                         ),
                         SizedBox(
@@ -111,7 +111,7 @@ class CSClassSettingPageState extends State<CSClassSettingPage> {
                               )),
                         ),
                         Image.asset(
-                          CSClassImageUtil.csMethodGetImagePath("ic_btn_right"),
+                          CSClassImageUtil.csMethodGetImagePath("cs_btn_right"),
                           width: width(11),
                         ),
                         SizedBox(

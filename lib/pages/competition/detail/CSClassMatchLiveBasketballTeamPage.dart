@@ -376,7 +376,7 @@ class CSClassMatchLiveBasketballTeamPageState extends State<CSClassMatchLiveBask
                             child: Container(
                               padding: EdgeInsets.all(width(5)),
                               child:  Image.asset(
-                                csProShowBest? CSClassImageUtil.csMethodGetImagePath("ic_down_arrow"):CSClassImageUtil.csMethodGetImagePath("ic_up_arrow"),
+                                csProShowBest? CSClassImageUtil.csMethodGetImagePath("cs_down_arrow"):CSClassImageUtil.csMethodGetImagePath("cs_up_arrow"),
                                 width: width(13),
                               ),
                             ),
@@ -457,7 +457,7 @@ class CSClassMatchLiveBasketballTeamPageState extends State<CSClassMatchLiveBask
                                           children: <Widget>[
                                             Container(
                                               child:  Image.asset(
-                                                CSClassImageUtil.csMethodGetImagePath("ic_basketball_one_team"),
+                                                CSClassImageUtil.csMethodGetImagePath("cs_basketball_one_team"),
                                                 width: width(20),
                                               ),
                                             ),
@@ -498,7 +498,7 @@ class CSClassMatchLiveBasketballTeamPageState extends State<CSClassMatchLiveBask
 
                                             Container(
                                               child:  Image.asset(
-                                                CSClassImageUtil.csMethodGetImagePath("ic_basketball_two_team"),
+                                                CSClassImageUtil.csMethodGetImagePath("cs_basketball_two_team"),
                                                 width: width(20),
                                               ),
                                             ),
@@ -530,7 +530,7 @@ class CSClassMatchLiveBasketballTeamPageState extends State<CSClassMatchLiveBask
                                           children: <Widget>[
                                             Container(
                                               child:  Image.asset(
-                                                CSClassImageUtil.csMethodGetImagePath("ic_basketball_one_team"),
+                                                CSClassImageUtil.csMethodGetImagePath("cs_basketball_one_team"),
                                                 width: width(20),
                                               ),
                                             ),
@@ -569,7 +569,7 @@ class CSClassMatchLiveBasketballTeamPageState extends State<CSClassMatchLiveBask
                                             SizedBox(width: 4,),
                                             Container(
                                               child:  Image.asset(
-                                                CSClassImageUtil.csMethodGetImagePath("ic_basketball_two_team"),
+                                                CSClassImageUtil.csMethodGetImagePath("cs_basketball_two_team"),
                                                 width: width(20),
                                               ),
                                             ),
@@ -597,7 +597,7 @@ class CSClassMatchLiveBasketballTeamPageState extends State<CSClassMatchLiveBask
                                           children: <Widget>[
                                             Container(
                                               child:  Image.asset(
-                                                CSClassImageUtil.csMethodGetImagePath("ic_basketball_one_team"),
+                                                CSClassImageUtil.csMethodGetImagePath("cs_basketball_one_team"),
                                                 width: width(20),
                                               ),
                                             ),
@@ -636,7 +636,7 @@ class CSClassMatchLiveBasketballTeamPageState extends State<CSClassMatchLiveBask
 
                                             Container(
                                               child:  Image.asset(
-                                                CSClassImageUtil.csMethodGetImagePath("ic_basketball_two_team"),
+                                                CSClassImageUtil.csMethodGetImagePath("cs_basketball_two_team"),
                                                 width: width(20),
                                               ),
                                             ),
@@ -712,7 +712,7 @@ class CSClassMatchLiveBasketballTeamPageState extends State<CSClassMatchLiveBask
                             child: Container(
                               padding: EdgeInsets.all(width(5)),
                               child:  Image.asset(
-                                csProShowTeamDate? CSClassImageUtil.csMethodGetImagePath("ic_down_arrow"):CSClassImageUtil.csMethodGetImagePath("ic_up_arrow"),
+                                csProShowTeamDate? CSClassImageUtil.csMethodGetImagePath("cs_down_arrow"):CSClassImageUtil.csMethodGetImagePath("cs_up_arrow"),
                                 width: width(13),
                               ),
                             ),
@@ -1336,7 +1336,7 @@ class CSClassMatchLiveBasketballTeamPageState extends State<CSClassMatchLiveBask
                             child: Container(
                               padding: EdgeInsets.all(width(5)),
                               child:  Image.asset(
-                                csProShowPlayerDate? CSClassImageUtil.csMethodGetImagePath("ic_down_arrow"):CSClassImageUtil.csMethodGetImagePath("ic_up_arrow"),
+                                csProShowPlayerDate? CSClassImageUtil.csMethodGetImagePath("cs_down_arrow"):CSClassImageUtil.csMethodGetImagePath("cs_up_arrow"),
                                 width: width(13),
                               ),
                             ),
@@ -1729,7 +1729,7 @@ class CSClassMatchLiveBasketballTeamPageState extends State<CSClassMatchLiveBask
                             child: Container(
                               padding: EdgeInsets.all(width(5)),
                               child:  Image.asset(
-                                csProShowTeam? CSClassImageUtil.csMethodGetImagePath("ic_down_arrow"):CSClassImageUtil.csMethodGetImagePath("ic_up_arrow"),
+                                csProShowTeam? CSClassImageUtil.csMethodGetImagePath("cs_down_arrow"):CSClassImageUtil.csMethodGetImagePath("cs_up_arrow"),
                                 width: width(13),
                               ),
                             ),
@@ -1981,7 +1981,7 @@ class CSClassMatchLiveBasketballTeamPageState extends State<CSClassMatchLiveBask
                             child: Container(
                               padding: EdgeInsets.all(width(5)),
                               child:  Image.asset(
-                                csProShowJury? CSClassImageUtil.csMethodGetImagePath("ic_down_arrow"):CSClassImageUtil.csMethodGetImagePath("ic_up_arrow"),
+                                csProShowJury? CSClassImageUtil.csMethodGetImagePath("cs_down_arrow"):CSClassImageUtil.csMethodGetImagePath("cs_up_arrow"),
                                 width: width(13),
                               ),
                             ),

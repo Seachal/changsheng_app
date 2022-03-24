@@ -213,10 +213,10 @@ class _PasswordLoginState extends State<PasswordLogin> {
                                                       !csProIsShowPassWord
                                                           ? CSClassImageUtil
                                                           .csMethodGetImagePath(
-                                                          'ic_login_uneye')
+                                                          'cs_login_uneye')
                                                           : CSClassImageUtil
                                                           .csMethodGetImagePath(
-                                                          'ic_eye_pwd'),
+                                                          'cs_eye_pwd'),
                                                       fit: BoxFit.contain,
                                                       color: Colors.white,
                                                       width: width(18),

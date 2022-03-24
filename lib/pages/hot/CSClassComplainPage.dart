@@ -80,7 +80,7 @@ class CSClassComplainPageState extends State<CSClassComplainPage>{
                         children: <Widget>[
                           Text(ComplainList[index],style: TextStyle(fontSize: sp(15),color: Colors.black),),
                           Expanded(child: SizedBox()),
-                          Image.asset(CSClassImageUtil.csMethodGetImagePath(index==SelectIndex? "ic_select":"ic_seleect_un"), width: width(15)),
+                          Image.asset(CSClassImageUtil.csMethodGetImagePath(index==SelectIndex? "cs_select":"cs_seleect_un"), width: width(15)),
 
                         ],
                       ),

@@ -442,13 +442,13 @@ class CSClassBallHeaderWidgetState extends State<CSClassBallHeaderWidget>
         //   alignment: Alignment.center,
         //   child:
         //   Image.asset(
-        //     CSClassImageUtil.csMethodGetImagePath('ic_ball_loadding'),
+        //     CSClassImageUtil.csMethodGetImagePath('cs_ball_loadding'),
         //     width:  width(20),
         //   ) ,
         // )
         //     :
         // Image.asset(
-        //   !widget.success ?CSClassImageUtil.csMethodGetImagePath("ic_ball_loadding_fail"):CSClassImageUtil.csMethodGetImagePath("ic_ball_loadding"),
+        //   !widget.success ?CSClassImageUtil.csMethodGetImagePath("cs_ball_loadding_fail"):CSClassImageUtil.csMethodGetImagePath("cs_ball_loadding"),
         //   width: width(20),
         // ),
       ),

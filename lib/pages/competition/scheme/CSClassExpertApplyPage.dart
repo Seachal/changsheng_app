@@ -105,7 +105,7 @@ class CSClassExpertApplyPageState  extends State<CSClassExpertApplyPage>{
                     Row(
                       children: <Widget>[
                         Image.asset(
-                          CSClassImageUtil.csMethodGetImagePath("ic_edit_content"),
+                          CSClassImageUtil.csMethodGetImagePath("cs_edit_content"),
                           fit: BoxFit.contain,
                           width: width(18),
                         ),
@@ -173,7 +173,7 @@ class CSClassExpertApplyPageState  extends State<CSClassExpertApplyPage>{
                     //             ],
                     //           ),
                     //         ),
-                    //         Image.asset(CSClassImageUtil.csMethodGetImagePath("ic_btn_right"),
+                    //         Image.asset(CSClassImageUtil.csMethodGetImagePath("cs_btn_right"),
                     //           width: width(11),
                     //         ),
                     //       ],
@@ -204,7 +204,7 @@ class CSClassExpertApplyPageState  extends State<CSClassExpertApplyPage>{
                     Row(
                       children: <Widget>[
                         Image.asset(
-                          CSClassImageUtil.csMethodGetImagePath("ic_login_account"),
+                          CSClassImageUtil.csMethodGetImagePath("cs_login_account"),
                           fit: BoxFit.contain,
                           width: width(18),
                         ),
@@ -281,7 +281,7 @@ class CSClassExpertApplyPageState  extends State<CSClassExpertApplyPage>{
               //       Row(
               //         children: <Widget>[
               //           Image.asset(
-              //             CSClassImageUtil.csMethodGetImagePath("ic_login_account"),
+              //             CSClassImageUtil.csMethodGetImagePath("cs_login_account"),
               //             fit: BoxFit.contain,
               //             width: width(18),
               //           ),
@@ -327,7 +327,7 @@ class CSClassExpertApplyPageState  extends State<CSClassExpertApplyPage>{
               //       Row(
               //         children: <Widget>[
               //           Image.asset(
-              //             CSClassImageUtil.csMethodGetImagePath("ic_user_id_num"),
+              //             CSClassImageUtil.csMethodGetImagePath("cs_user_id_num"),
               //             fit: BoxFit.contain,
               //             width: width(18),
               //           ),
@@ -369,7 +369,7 @@ class CSClassExpertApplyPageState  extends State<CSClassExpertApplyPage>{
                     Row(
                       children: <Widget>[
                         Image.asset(
-                          CSClassImageUtil.csMethodGetImagePath("ic_user_id_num"),
+                          CSClassImageUtil.csMethodGetImagePath("cs_user_id_num"),
                           fit: BoxFit.contain,
                           width: width(18),
                         ),
@@ -398,7 +398,7 @@ class CSClassExpertApplyPageState  extends State<CSClassExpertApplyPage>{
                                   ),
                                   alignment: Alignment.center,
                                   child: csProFrontFile==null?Image.asset(
-                                    CSClassImageUtil.csMethodGetImagePath("ic_add_pic"),
+                                    CSClassImageUtil.csMethodGetImagePath("cs_add_pic"),
                                     fit: BoxFit.contain,
                                     width: width(18),
                                   ):Image.file(
@@ -433,7 +433,7 @@ class CSClassExpertApplyPageState  extends State<CSClassExpertApplyPage>{
                                   ),
                                   alignment: Alignment.center,
                                   child: csProBackFile==null?Image.asset(
-                                    CSClassImageUtil.csMethodGetImagePath("ic_add_pic"),
+                                    CSClassImageUtil.csMethodGetImagePath("cs_add_pic"),
                                     fit: BoxFit.contain,
                                     width: width(18),
                                   ):Image.file(
@@ -478,7 +478,7 @@ class CSClassExpertApplyPageState  extends State<CSClassExpertApplyPage>{
         //       Row(
         //         children: <Widget>[
         //           Image.asset(
-        //             CSClassImageUtil.csMethodGetImagePath("ic_edit_content"),
+        //             CSClassImageUtil.csMethodGetImagePath("cs_edit_content"),
         //             fit: BoxFit.contain,
         //             width: width(18),
         //           ),
@@ -523,7 +523,7 @@ class CSClassExpertApplyPageState  extends State<CSClassExpertApplyPage>{
               //       Row(
               //         children: <Widget>[
               //           Image.asset(
-              //             CSClassImageUtil.csMethodGetImagePath("ic_login_account"),
+              //             CSClassImageUtil.csMethodGetImagePath("cs_login_account"),
               //             fit: BoxFit.contain,
               //             width: width(18),
               //           ),
@@ -568,7 +568,7 @@ class CSClassExpertApplyPageState  extends State<CSClassExpertApplyPage>{
                     Row(
                       children: <Widget>[
                         Image.asset(
-                          CSClassImageUtil.csMethodGetImagePath("ic_login_account"),
+                          CSClassImageUtil.csMethodGetImagePath("cs_login_account"),
 
                           fit: BoxFit.contain,
                           width: width(18),
@@ -665,7 +665,7 @@ class CSClassExpertApplyPageState  extends State<CSClassExpertApplyPage>{
               //       Row(
               //         children: <Widget>[
               //           Image.asset(
-              //             CSClassImageUtil.csMethodGetImagePath("ic_login_account"),
+              //             CSClassImageUtil.csMethodGetImagePath("cs_login_account"),
               //             fit: BoxFit.contain,
               //             width: width(18),
               //           ),

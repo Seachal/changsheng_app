@@ -61,7 +61,7 @@ class CSClassSearchExpertPageState extends State<CSClassSearchExpertPage>{
                 Container(
                   color: Colors.white,
                   child: Image.asset(
-                    CSClassImageUtil.csMethodGetImagePath("ic_search"),
+                    CSClassImageUtil.csMethodGetImagePath("cs_search"),
                     width: width(16),
                     color: Color(0xFFDDDDDD),
                   ),
@@ -156,7 +156,7 @@ class CSClassSearchExpertPageState extends State<CSClassSearchExpertPage>{
                         ClipRRect(
                           borderRadius: BorderRadius.circular(200),
                           child:( item.csProAvatarUrl==null||item.csProAvatarUrl!.isEmpty)? Image.asset(
-                            CSClassImageUtil.csMethodGetImagePath("ic_default_avater"),
+                            CSClassImageUtil.csMethodGetImagePath("cs_default_avater"),
                             width: width(46),
                             height: width(46),
                           ):Image.network(

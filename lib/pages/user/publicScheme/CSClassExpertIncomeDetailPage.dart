@@ -186,7 +186,7 @@ class CSClassExpertIncomeDetailPageState extends State<CSClassExpertIncomeDetail
                                   child: Center(
                                     child:(item.csProVerifyStatus =="-1")?
                                     Image.asset(
-                                      CSClassImageUtil.csMethodGetImagePath("ic_scheme_exption",),
+                                      CSClassImageUtil.csMethodGetImagePath("cs_scheme_exption",),
                                       width: width(19),):
                                     Container(
                                       padding: EdgeInsets.symmetric(vertical:width(3)),

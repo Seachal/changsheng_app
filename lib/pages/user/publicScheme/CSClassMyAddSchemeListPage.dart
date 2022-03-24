@@ -82,8 +82,8 @@ class CSClassMyAddSchemeListPageState extends State<CSClassMyAddSchemeListPage> 
                           right:  width(13) ,
                           top:width(10),
                           child: Image.asset(
-                            (schemeItem.csProVerifyStatus=="0")? CSClassImageUtil.csMethodGetImagePath("ic_verify_ing"):
-                            (schemeItem.csProVerifyStatus=="-1")? CSClassImageUtil.csMethodGetImagePath("ic_verify_bad"): "",
+                            (schemeItem.csProVerifyStatus=="0")? CSClassImageUtil.csMethodGetImagePath("cs_verify_ing"):
+                            (schemeItem.csProVerifyStatus=="-1")? CSClassImageUtil.csMethodGetImagePath("cs_verify_bad"): "",
                             width: width(46),
                           ),
                         ),
@@ -91,9 +91,9 @@ class CSClassMyAddSchemeListPageState extends State<CSClassMyAddSchemeListPage> 
                           top: 10,
                           right:  width(13) ,
                           child: Image.asset(
-                            (schemeItem.csProIsWin=="1")? CSClassImageUtil.csMethodGetImagePath("ic_result_red"):
-                            (schemeItem.csProIsWin=="0")? CSClassImageUtil.csMethodGetImagePath("ic_result_hei"):
-                            (schemeItem.csProIsWin=="2")? CSClassImageUtil.csMethodGetImagePath("ic_result_zou"):"",
+                            (schemeItem.csProIsWin=="1")? CSClassImageUtil.csMethodGetImagePath("cs_result_red"):
+                            (schemeItem.csProIsWin=="0")? CSClassImageUtil.csMethodGetImagePath("cs_result_hei"):
+                            (schemeItem.csProIsWin=="2")? CSClassImageUtil.csMethodGetImagePath("cs_result_zou"):"",
                             width: width(46),
                           ),
                         ),

@@ -80,7 +80,7 @@ class CSClassFollowSchemeListPageState extends State<CSClassFollowSchemeListPage
                             child:!csProShowEdit? SizedBox(): Row(
                               children: <Widget>[
                                 SizedBox(width: width(10),),
-                                Image.asset(CSClassImageUtil.csMethodGetImagePath("ic_check_box"), width: width(18),color:schemeItem.check?  MyColors.main1: Color(0xFFCCCCCC)),
+                                Image.asset(CSClassImageUtil.csMethodGetImagePath("cs_check_box"), width: width(18),color:schemeItem.check?  MyColors.main1: Color(0xFFCCCCCC)),
                                 SizedBox(width: width(5),),
                               ],
                             ),

@@ -101,7 +101,7 @@ class _ShopCarState extends State<ShopCar> {
 
             },
             child: Image.asset(
-              CSClassImageUtil.csMethodGetImagePath(selectIdList.contains(data['shopCarId'])?'ic_select':'ic_seleect_un',), //ic_seleect_un
+              CSClassImageUtil.csMethodGetImagePath(selectIdList.contains(data['shopCarId'])?'cs_select_circular':'cs_seleect_un',), //cs_seleect_un
               height: width(23),
             ),
           ),
@@ -214,7 +214,7 @@ class _ShopCarState extends State<ShopCar> {
               });
             },
             child: Image.asset(
-              CSClassImageUtil.csMethodGetImagePath(isSelectAll?'ic_select':'ic_seleect_un',),
+              CSClassImageUtil.csMethodGetImagePath(isSelectAll?'cs_select_circular':'cs_seleect_un',),
               height: width(23),
             ),
           ),
@@ -275,7 +275,7 @@ class _ShopCarState extends State<ShopCar> {
               });
             },
             child: Image.asset(
-              CSClassImageUtil.csMethodGetImagePath(isSelectAll?'ic_select':'ic_seleect_un',),
+              CSClassImageUtil.csMethodGetImagePath(isSelectAll?'cs_select_circular':'cs_seleect_un',),
               height: width(23),
             ),
           ),

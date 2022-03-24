@@ -48,7 +48,7 @@ class CSClassForcecastRuluDialogState extends State<CSClassForcecastRuluDialog>{
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     SizedBox(height: width(20),),
-                    Image.asset(CSClassImageUtil.csMethodGetImagePath("ic_title_rule_price_draw"),width: width(150),),
+                    Image.asset(CSClassImageUtil.csMethodGetImagePath("cs_title_rule_price_draw"),width: width(150),),
                     SizedBox(height: width(10),),
                     ListView.builder(
                         shrinkWrap: true,

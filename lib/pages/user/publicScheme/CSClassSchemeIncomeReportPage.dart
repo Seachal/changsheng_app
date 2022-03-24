@@ -98,7 +98,7 @@ class CSClassSchemeIncomeReportPageState extends State<CSClassSchemeIncomeReport
                          child: Row(
                            children: <Widget>[
                              Text("订单明细",style: TextStyle(fontSize: sp(11),color:Color(0xFF888888) ),),
-                             CSClassEncryptImage.asset(CSClassImageUtil.csMethodGetImagePath("ic_btn_right"),
+                             CSClassEncryptImage.asset(CSClassImageUtil.csMethodGetImagePath("cs_btn_right"),
                                width: width(11),
                              ),
                            ],

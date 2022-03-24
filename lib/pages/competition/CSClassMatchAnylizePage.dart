@@ -221,8 +221,8 @@ class CSClassMatchAnylizePageState extends State<CSClassMatchAnylizePage>
                                                       csProForecastInfo!
                                                               .csProSupportWhich ==
                                                           "1")
-                                                  ? "ic_forecast_gooded"
-                                                  : "ic_forecast_good"),
+                                                  ? "cs_forecast_gooded"
+                                                  : "cs_forecast_good"),
                                           width: width(16),
                                         ),
                                       ),
@@ -300,8 +300,8 @@ class CSClassMatchAnylizePageState extends State<CSClassMatchAnylizePage>
                                                       csProForecastInfo!
                                                               .csProSupportWhich ==
                                                           "0")
-                                                  ? "ic_forecast_gooded"
-                                                  : "ic_forecast_good"),
+                                                  ? "cs_forecast_gooded"
+                                                  : "cs_forecast_good"),
                                           width: width(16),
                                         ),
                                       ),
@@ -379,8 +379,8 @@ class CSClassMatchAnylizePageState extends State<CSClassMatchAnylizePage>
                                                       csProForecastInfo!
                                                               .csProSupportWhich ==
                                                           "2")
-                                                  ? "ic_forecast_gooded"
-                                                  : "ic_forecast_good"),
+                                                  ? "cs_forecast_gooded"
+                                                  : "cs_forecast_good"),
                                           width: width(16),
                                         ),
                                       ),
@@ -1216,8 +1216,8 @@ class CSClassMatchAnylizePageState extends State<CSClassMatchAnylizePage>
                                     child: Image.asset(
                                       CSClassImageUtil.csMethodGetImagePath(
                                           isShowjifen
-                                              ? 'ic_down_arrow'
-                                              : 'ic_up_arrow'),
+                                              ? 'cs_down_arrow'
+                                              : 'cs_up_arrow'),
                                       width: width(14),
                                     ),
                                   ),
@@ -1591,8 +1591,8 @@ class CSClassMatchAnylizePageState extends State<CSClassMatchAnylizePage>
                                   child: Image.asset(
                                     CSClassImageUtil.csMethodGetImagePath(
                                         isShowHistory
-                                            ? 'ic_down_arrow'
-                                            : 'ic_up_arrow'),
+                                            ? 'cs_down_arrow'
+                                            : 'cs_up_arrow'),
                                     width: width(14),
                                   ),
                                 ),
@@ -2116,7 +2116,7 @@ class CSClassMatchAnylizePageState extends State<CSClassMatchAnylizePage>
                                           SizedBox(width: width(4),),
                                           Image.asset(
                                             CSClassImageUtil.csMethodGetImagePath(
-                                                'ic_up_arrow'),
+                                                'cs_up_arrow'),
                                             width: width(12),color: Color(0xFF1B8DE0),
                                           ),
                                         ],
@@ -2281,8 +2281,8 @@ class CSClassMatchAnylizePageState extends State<CSClassMatchAnylizePage>
                                         child: Image.asset(
                                           CSClassImageUtil.csMethodGetImagePath(
                                               isShowjinqiOne
-                                                  ? 'ic_down_arrow'
-                                                  : 'ic_up_arrow'),
+                                                  ? 'cs_down_arrow'
+                                                  : 'cs_up_arrow'),
                                           width: width(14),
                                         ),
                                       ),
@@ -2733,7 +2733,7 @@ class CSClassMatchAnylizePageState extends State<CSClassMatchAnylizePage>
                                                 SizedBox(width: width(4),),
                                                 Image.asset(
                                                   CSClassImageUtil.csMethodGetImagePath(
-                                                      'ic_up_arrow'),
+                                                      'cs_up_arrow'),
                                                   width: width(12),color: Color(0xFF1B8DE0),
                                                 ),
                                               ],
@@ -2857,8 +2857,8 @@ class CSClassMatchAnylizePageState extends State<CSClassMatchAnylizePage>
                                       child: Image.asset(
                                         CSClassImageUtil.csMethodGetImagePath(
                                             isShowjinqiTwo
-                                                ? 'ic_down_arrow'
-                                                : 'ic_up_arrow'),
+                                                ? 'cs_down_arrow'
+                                                : 'cs_up_arrow'),
                                         width: width(14),
                                       ),
                                     ),
@@ -3166,7 +3166,7 @@ class CSClassMatchAnylizePageState extends State<CSClassMatchAnylizePage>
                                               SizedBox(width: width(4),),
                                               Image.asset(
                                                 CSClassImageUtil.csMethodGetImagePath(
-                                                    'ic_up_arrow'),
+                                                    'cs_up_arrow'),
                                                 width: width(12),color: Color(0xFF1B8DE0),
                                               ),
                                             ],
@@ -3245,8 +3245,8 @@ class CSClassMatchAnylizePageState extends State<CSClassMatchAnylizePage>
                                   child: Image.asset(
                                     CSClassImageUtil.csMethodGetImagePath(
                                         isShowFuture
-                                            ? 'ic_down_arrow'
-                                            : 'ic_up_arrow'),
+                                            ? 'cs_down_arrow'
+                                            : 'cs_up_arrow'),
                                     width: width(14),
                                   ),
                                 ),

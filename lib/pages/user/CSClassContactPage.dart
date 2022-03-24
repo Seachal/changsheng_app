@@ -101,7 +101,7 @@ class  CSClassContactPageState extends State<CSClassContactPage>
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Text("去微信添加",style: TextStyle(fontSize: sp(17),color: Theme.of(context).primaryColor),textAlign: TextAlign.justify,),
-                  Image.asset(CSClassImageUtil.csMethodGetImagePath("ic_btn_right",),
+                  Image.asset(CSClassImageUtil.csMethodGetImagePath("cs_btn_right",),
                     width: width(12),
                     color: MyColors.main1,
                   ),

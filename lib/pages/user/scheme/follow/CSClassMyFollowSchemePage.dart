@@ -117,7 +117,7 @@ class CSClassMyFollowSchemePageState extends State<CSClassMyFollowSchemePage> wi
                 behavior: HitTestBehavior.opaque,
                 child: Row(
                   children: <Widget>[
-                    Image.asset(CSClassImageUtil.csMethodGetImagePath("ic_check_box"), width: width(18),color:csProSelectAll?  MyColors.main1: Color(0xFFCCCCCC)),
+                    Image.asset(CSClassImageUtil.csMethodGetImagePath("cs_check_box"), width: width(18),color:csProSelectAll?  MyColors.main1: Color(0xFFCCCCCC)),
                     SizedBox(width: width(3),),
                     Text("全选",style: TextStyle(fontSize: sp(14),color:csProSelectAll?  MyColors.main1: Color(0xFF333333)),maxLines: 1,overflow: TextOverflow.ellipsis,),
                   ],

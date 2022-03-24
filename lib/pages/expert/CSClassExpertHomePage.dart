@@ -100,7 +100,7 @@ class CSClassExpertHomePageState extends State<CSClassExpertHomePage> with Ticke
                   margin: EdgeInsets.only(right: width(20)),
                   child: GestureDetector(
                     child: Image.asset(
-                      CSClassImageUtil.csMethodGetImagePath("ic_search"),
+                      CSClassImageUtil.csMethodGetImagePath("cs_search"),
                       width: width(16),
                       fit: BoxFit.fitWidth,
                       color: Colors.white,

@@ -79,7 +79,7 @@ class CSClassCompetitionHomePageState extends State<CSClassCompetitionHomePage> 
           leading: IconButton(
             padding: EdgeInsets.zero,
             icon: Image.asset(
-              CSClassImageUtil.csMethodGetImagePath('ic_match_setting'),
+              CSClassImageUtil.csMethodGetImagePath('cs_match_setting'),
               width: width(19),
               color: Colors.white,
             ),
@@ -110,7 +110,7 @@ class CSClassCompetitionHomePageState extends State<CSClassCompetitionHomePage> 
             csProHiddenFilter?  SizedBox():IconButton(
               padding: EdgeInsets.zero,
               icon: Image.asset(
-                CSClassImageUtil.csMethodGetImagePath('ic_filter'),
+                CSClassImageUtil.csMethodGetImagePath('cs_filter'),
                 width: width(19),
                 color: Colors.white,
               ),

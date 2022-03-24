@@ -41,7 +41,7 @@ class CSClassMatchLiveStatisPageState extends State<CSClassMatchLiveStatisPage> 
   List<CSClassMatchStatListMatchStat> csProMatchStatList= [];//技术统计
   List<CSClassMatchEventMatchEventItem> csProMatchEventList= []; //比赛事件
   List<CSClassMatchEventMatchEventItem> csProOrgMatchEventList= []; //比赛事件
-  var csProEventImages=["ic_football_jin","ic_football_dq","ic_football_wl","ic_football_dqsb","ic_football_jiao","ic_football_h1p","ic_football_hp","ic_football_hr","ic_football_lhbh",];
+  var csProEventImages=["cs_football_jin","cs_football_dq","cs_football_wl","cs_football_dqsb","cs_football_jiao","cs_football_h1p","cs_football_hp","cs_football_hr","cs_football_lhbh",];
   var csProEventTitles=["入球","点球","乌龙","射失点球","角球","黄牌","红牌","换人","两黄变红"];
 
   Timer ?csProTimer;
@@ -266,21 +266,21 @@ class CSClassMatchLiveStatisPageState extends State<CSClassMatchLiveStatisPage> 
                   children: <Widget>[
                     Column(
                       children: <Widget>[
-                        Image.asset(CSClassImageUtil.csMethodGetImagePath("ic_football_h1p"),width: width(17),),
+                        Image.asset(CSClassImageUtil.csMethodGetImagePath("cs_football_h1p"),width: width(17),),
                         Text(csMethodFindMatchStat("黄牌",1),style: TextStyle(fontSize: sp(12)),)
                       ],
                     ),
                     SizedBox(width: width(5),),
                     Column(
                       children: <Widget>[
-                        Image.asset(CSClassImageUtil.csMethodGetImagePath("ic_football_hp"),width: width(17),),
+                        Image.asset(CSClassImageUtil.csMethodGetImagePath("cs_football_hp"),width: width(17),),
                         Text(csMethodFindMatchStat("红牌",1),style: TextStyle(fontSize: sp(12)),)
                       ],
                     ),
                     SizedBox(width: width(5),),
                     Column(
                       children: <Widget>[
-                        Image.asset(CSClassImageUtil.csMethodGetImagePath("ic_football_jiao"),width: width(17),),
+                        Image.asset(CSClassImageUtil.csMethodGetImagePath("cs_football_jiao"),width: width(17),),
                         Text(csMethodFindMatchStat("角球",1),style: TextStyle(fontSize: sp(12)),)
                       ],
                     ),
@@ -335,21 +335,21 @@ class CSClassMatchLiveStatisPageState extends State<CSClassMatchLiveStatisPage> 
                   children: <Widget>[
                     Column(
                       children: <Widget>[
-                        Image.asset(CSClassImageUtil.csMethodGetImagePath("ic_football_jiao"),width: width(17),),
+                        Image.asset(CSClassImageUtil.csMethodGetImagePath("cs_football_jiao"),width: width(17),),
                         Text(csMethodFindMatchStat("角球",2),style: TextStyle(fontSize: sp(12)),)
                       ],
                     ),
                     SizedBox(width: width(5),),
                     Column(
                       children: <Widget>[
-                        Image.asset(CSClassImageUtil.csMethodGetImagePath("ic_football_hp"),width: width(17),),
+                        Image.asset(CSClassImageUtil.csMethodGetImagePath("cs_football_hp"),width: width(17),),
                         Text(csMethodFindMatchStat("红牌",2),style: TextStyle(fontSize: sp(12)),)
                       ],
                     ),
                     SizedBox(width: width(5),),
                     Column(
                       children: <Widget>[
-                        Image.asset(CSClassImageUtil.csMethodGetImagePath("ic_football_h1p"),width: width(17),),
+                        Image.asset(CSClassImageUtil.csMethodGetImagePath("cs_football_h1p"),width: width(17),),
                         Text(csMethodFindMatchStat("黄牌",2),style: TextStyle(fontSize: sp(12)),)
                       ],
                     )
@@ -742,7 +742,7 @@ class CSClassMatchLiveStatisPageState extends State<CSClassMatchLiveStatisPage> 
                     child: Container(
                       padding: EdgeInsets.all(width(5)),
                       child:  Image.asset(
-                        csProShowTeam? CSClassImageUtil.csMethodGetImagePath("ic_down_arrow"):CSClassImageUtil.csMethodGetImagePath("ic_up_arrow"),
+                        csProShowTeam? CSClassImageUtil.csMethodGetImagePath("cs_down_arrow"):CSClassImageUtil.csMethodGetImagePath("cs_up_arrow"),
                         width: width(13),
                       ),
                     ),
@@ -985,7 +985,7 @@ class CSClassMatchLiveStatisPageState extends State<CSClassMatchLiveStatisPage> 
                     child: Container(
                       padding: EdgeInsets.all(width(5)),
                       child:  Image.asset(
-                        csProShowJury? CSClassImageUtil.csMethodGetImagePath("ic_down_arrow"):CSClassImageUtil.csMethodGetImagePath("ic_up_arrow"),
+                        csProShowJury? CSClassImageUtil.csMethodGetImagePath("cs_down_arrow"):CSClassImageUtil.csMethodGetImagePath("cs_up_arrow"),
                         width: width(13),
                       ),
                     ),
@@ -1252,7 +1252,7 @@ class CSClassMatchLiveStatisPageState extends State<CSClassMatchLiveStatisPage> 
     var fisrtItem=CSClassMatchEventMatchEventItem()
       ..content="大家好，欢迎来到常胜体育观看本场直播，比赛即将开始"
       ..time="-"
-      ..csProEventImage="ic_match_live_whistle";
+      ..csProEventImage="cs_match_live_whistle";
     eventList.add(fisrtItem);
 
     if(widget.csProGuessInfo!.status=="over"){
@@ -1265,7 +1265,7 @@ class CSClassMatchLiveStatisPageState extends State<CSClassMatchLiveStatisPage> 
             ]
         )
         ..time="-"
-        ..csProEventImage="ic_match_live_whistle"
+        ..csProEventImage="cs_match_live_whistle"
         ..csProTeamOneScore=widget.csProGuessInfo!.csProScoreOne!
         ..csProTeamTwoScore=widget.csProGuessInfo!.csProScoreTwo!;
       eventList.insert(0,endItem);
@@ -1586,11 +1586,11 @@ class CSClassMatchLiveStatisPageState extends State<CSClassMatchLiveStatisPage> 
     views.add(Image.asset(CSClassImageUtil.csMethodGetImagePath("bg_football_place"),height: width(217),fit: BoxFit.fitHeight,));
     views.add(Positioned(
       left: width(10),
-      child:Image.asset(CSClassImageUtil.csMethodGetImagePath("ic_footer_one"),width: width(18)),
+      child:Image.asset(CSClassImageUtil.csMethodGetImagePath("cs_footer_one"),width: width(18)),
     ));
     views.add( Positioned(
       right: width(10),
-      child:Image.asset(CSClassImageUtil.csMethodGetImagePath("ic_footer_two"),width: width(18)),
+      child:Image.asset(CSClassImageUtil.csMethodGetImagePath("cs_footer_two"),width: width(18)),
     ));
     views.add(Positioned(
       left: width(10),
@@ -1608,7 +1608,7 @@ class CSClassMatchLiveStatisPageState extends State<CSClassMatchLiveStatisPage> 
       child: Container(
           width: width(110),
           height: width(163),
-          child: csMethodBuildLineUpTeamRow(csProMatchLineupEntity!.csProMatchLineup![0].csProTeamOneLineup,"ic_footer_one")),
+          child: csMethodBuildLineUpTeamRow(csProMatchLineupEntity!.csProMatchLineup![0].csProTeamOneLineup,"cs_footer_one")),
     ),
     );
     views.add(Positioned(
@@ -1616,7 +1616,7 @@ class CSClassMatchLiveStatisPageState extends State<CSClassMatchLiveStatisPage> 
       child: Container(
           width: width(110),
           height: width(163),
-          child: csMethodBuildLineUpTeamRow(csMethodReverseString(csProMatchLineupEntity!.csProMatchLineup![0].csProTeamTwoLineup!),"ic_footer_two")),
+          child: csMethodBuildLineUpTeamRow(csMethodReverseString(csProMatchLineupEntity!.csProMatchLineup![0].csProTeamTwoLineup!),"cs_footer_two")),
     ),
     );
 

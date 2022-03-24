@@ -97,13 +97,13 @@ class CSClassUserInfoPageState extends State<CSClassUserInfoPage>
                                 height: 46,
                               ):
                               Image.asset(
-                                CSClassImageUtil.csMethodGetImagePath("ic_default_avater"),
+                                CSClassImageUtil.csMethodGetImagePath("cs_default_avater"),
                                 width: 46,
                                 height: 46,
                               ),
                             ),
                           ),
-                           Image.asset(CSClassImageUtil.csMethodGetImagePath("ic_btn_right"),
+                           Image.asset(CSClassImageUtil.csMethodGetImagePath("cs_btn_right"),
                              width: width(11),
                            ),                         ],
                        ),
@@ -145,9 +145,9 @@ class CSClassUserInfoPageState extends State<CSClassUserInfoPage>
                           children: <Widget>[
                             Text(CSClassApplicaion.csProUserInfo!.csProNickName,style: TextStyle(fontSize:sp(14),color: Color(0xFF333333) ),),
 
-                            CSClassApplicaion.csProUserInfo?.csProLockNickName=="1" ? Image.asset(CSClassImageUtil.csMethodGetImagePath("ic_btn_right"),
+                            CSClassApplicaion.csProUserInfo?.csProLockNickName=="1" ? Image.asset(CSClassImageUtil.csMethodGetImagePath("cs_btn_right"),
                               width: width(11),
-                            ):Image.asset(CSClassImageUtil.csMethodGetImagePath("ic_btn_right"),
+                            ):Image.asset(CSClassImageUtil.csMethodGetImagePath("cs_btn_right"),
                               width: width(11),
                             ),
                           ],
@@ -182,7 +182,7 @@ class CSClassUserInfoPageState extends State<CSClassUserInfoPage>
                           children: <Widget>[
                             Text(CSClassApplicaion.csProUserInfo?.gender=="unknown"?  "未知":CSClassApplicaion.csProUserInfo!.gender=="male"? "男":"女",style: TextStyle(fontSize:sp(14),color: Color(0xFF333333) ),),
 
-                            Image.asset(CSClassImageUtil.csMethodGetImagePath("ic_btn_right"),
+                            Image.asset(CSClassImageUtil.csMethodGetImagePath("cs_btn_right"),
                               width: width(11),
                             ),                          ],
                         ),
@@ -220,7 +220,7 @@ class CSClassUserInfoPageState extends State<CSClassUserInfoPage>
                           children: <Widget>[
                             Text(CSClassApplicaion.csProUserInfo!.birthday,style: TextStyle(fontSize:sp(14),color: Color(0xFF333333) ),),
 
-                            Image.asset(CSClassImageUtil.csMethodGetImagePath("ic_btn_right"),
+                            Image.asset(CSClassImageUtil.csMethodGetImagePath("cs_btn_right"),
                               width: width(11),
                             ),                          ],
                         ),

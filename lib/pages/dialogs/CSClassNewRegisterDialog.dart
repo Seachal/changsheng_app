@@ -44,7 +44,7 @@ class CSClassNewRegisterDialogState extends State<CSClassNewRegisterDialog>{
                 alignment: Alignment.centerRight,
                 padding: EdgeInsets.only(bottom: width(23)),
                 child: Image.asset(
-                  CSClassImageUtil.csMethodGetImagePath("ic_close"),
+                  CSClassImageUtil.csMethodGetImagePath("cs_close"),
                   width: width(23),
                 ),
               ),

@@ -616,7 +616,7 @@ class CSClassVideoLoginPageState extends State<CSClassVideoLoginPage>
                                             child: Image.asset(
                                               CSClassImageUtil
                                                   .csMethodGetImagePath(
-                                                      'ic_wx_login'),
+                                                      'cs_wx_login'),
                                               fit: BoxFit.contain,
                                               color: Colors.white,
                                               width: width(40),
@@ -659,7 +659,7 @@ class CSClassVideoLoginPageState extends State<CSClassVideoLoginPage>
 //                                             child: Image.asset(
 //                                               CSClassImageUtil
 //                                                   .csMethodGetImagePath(
-//                                                   'ic_apple_login'),
+//                                                   'cs_apple_login'),
 //                                               fit: BoxFit.contain,
 //                                               color: Colors.white,
 //                                               width: width(40),
@@ -701,10 +701,10 @@ class CSClassVideoLoginPageState extends State<CSClassVideoLoginPage>
                                               csProLoginType == 1
                                                   ? CSClassImageUtil
                                                       .csMethodGetImagePath(
-                                                          'ic_code_login')
+                                                          'cs_code_login')
                                                   : CSClassImageUtil
                                                       .csMethodGetImagePath(
-                                                          'ic_pwd_login'),
+                                                          'cs_pwd_login'),
                                               fit: BoxFit.contain,
                                               color: Colors.white,
                                               width: width(40),

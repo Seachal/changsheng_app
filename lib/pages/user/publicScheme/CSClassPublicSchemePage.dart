@@ -870,7 +870,7 @@ class CSClassPublicSchemePageState extends State<CSClassPublicSchemePage> {
                                   ),
                                   Image.asset(
                                     CSClassImageUtil.csMethodGetImagePath(
-                                      "ic_up_arrow",
+                                      "cs_up_arrow",
                                     ),
                                     width: width(13),
                                   )

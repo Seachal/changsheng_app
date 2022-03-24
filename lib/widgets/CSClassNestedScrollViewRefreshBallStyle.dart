@@ -485,11 +485,11 @@ class CSClassNestedScrollViewRefreshBallStyleState
                   //   turns: csProControllerLoading,
                   //   alignment: Alignment.center,
                   //   child:CSClassEncryptImage.asset(
-                  //     CSClassImageUtil.csMethodGetImagePath('ic_ball_loadding'),
+                  //     CSClassImageUtil.csMethodGetImagePath('cs_ball_loadding'),
                   //     width:  height(24),
                   //   ) ,
                   // ):CSClassEncryptImage.asset(
-                  //   CSClassImageUtil.csMethodGetImagePath("ic_ball_loadding"),
+                  //   CSClassImageUtil.csMethodGetImagePath("cs_ball_loadding"),
                   //   width: height(24),
                   // ),
                 ),

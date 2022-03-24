@@ -44,7 +44,7 @@ class CSClassWithdrawIncomeTipDialogState extends State<CSClassWithdrawIncomeTip
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       SizedBox(height: width(20),),
-                      Image.asset(CSClassImageUtil.csMethodGetImagePath("ic_success_scheme"),width:width(54) ,),
+                      Image.asset(CSClassImageUtil.csMethodGetImagePath("cs_success_scheme"),width:width(54) ,),
                       SizedBox(height:width(29),width: MediaQuery.of(context).size.width,),
 
                       Text("提现申请已提交",style: TextStyle(fontSize: sp(16),color: Color(0xFF333333)),textAlign: TextAlign.center,),

@@ -151,7 +151,7 @@ class CSClassMatchFootballViewState extends State<CSClassMatchFootballView> {
                             widget.csProMatchItem!.corner!.isNotEmpty
                                 ? Image.asset(
                               CSClassImageUtil.csMethodGetImagePath(
-                                  "ic_coner_score"),
+                                  "cs_coner_score"),
                               width: width(12),
                             )
                                 : SizedBox(),
@@ -198,7 +198,7 @@ class CSClassMatchFootballViewState extends State<CSClassMatchFootballView> {
                         ),
                         Image.asset(
                             CSClassImageUtil.csMethodGetImagePath(
-                                "ic_btn_right"),
+                                "cs_btn_right"),
                             height: width(7),
                             color: Color(0xFF24AAF0)),
                         SizedBox(
@@ -239,7 +239,7 @@ class CSClassMatchFootballViewState extends State<CSClassMatchFootballView> {
                     alignment: Alignment.center,
                     child: Image.asset(
                       CSClassImageUtil.csMethodGetImagePath(
-                          'ic_btn_score_colloect'),
+                          'cs_btn_score_colloect'),
                       width: width(16),
                       color: widget.csProMatchItem!.collected! == "1"
                           ? MyColors.main1
@@ -522,7 +522,7 @@ class CSClassMatchFootballViewState extends State<CSClassMatchFootballView> {
                                       width: width(15),
                                       child: Image.asset(
                                         CSClassImageUtil.csMethodGetImagePath(
-                                            "ic_match_live"),
+                                            "cs_match_live"),
                                         width: width(15),
                                       ),
                                     )

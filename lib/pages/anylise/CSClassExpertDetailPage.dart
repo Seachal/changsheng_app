@@ -146,7 +146,7 @@ class CSClassExpertDetailPageState extends State<CSClassExpertDetailPage> with T
                         widget.info!.csProAvatarUrl!.isEmpty)
                         ? Image.asset(
                       CSClassImageUtil.csMethodGetImagePath(
-                          "ic_default_avater"),
+                          "cs_default_avater"),
                       width: width(46),
                       height: width(46),
                     )
@@ -504,9 +504,9 @@ class CSClassExpertDetailPageState extends State<CSClassExpertDetailPage> with T
                       top: 10,
                       right:  width(13) ,
                       child: Image.asset(
-                        (item.csProIsWin=="1")? CSClassImageUtil.csMethodGetImagePath("ic_result_red"):
-                        (item.csProIsWin=="0")? CSClassImageUtil.csMethodGetImagePath("ic_result_hei"):
-                        (item.csProIsWin=="2")? CSClassImageUtil.csMethodGetImagePath("ic_result_zou"):"",
+                        (item.csProIsWin=="1")? CSClassImageUtil.csMethodGetImagePath("cs_result_red"):
+                        (item.csProIsWin=="0")? CSClassImageUtil.csMethodGetImagePath("cs_result_hei"):
+                        (item.csProIsWin=="2")? CSClassImageUtil.csMethodGetImagePath("cs_result_zou"):"",
                         width: width(40),
                       ),
                     ),

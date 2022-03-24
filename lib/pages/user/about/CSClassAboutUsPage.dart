@@ -61,7 +61,7 @@ class CSClassAboutUsPageState extends State<CSClassAboutUsPage>{
                 child: Container(
                   alignment: Alignment.bottomCenter,
                   width: MediaQuery.of(context).size.width,
-                  child: Image.asset(CSClassImageUtil.csMethodGetImagePath("ic_app_logo"),
+                  child: Image.asset(CSClassImageUtil.csMethodGetImagePath("cs_app_logo"),
                     width: width(93),
                   ),
                 ),
@@ -111,7 +111,7 @@ class CSClassAboutUsPageState extends State<CSClassAboutUsPage>{
                           ],
                         ),
                       ),
-                      Image.asset(CSClassImageUtil.csMethodGetImagePath("ic_btn_right"),
+                      Image.asset(CSClassImageUtil.csMethodGetImagePath("cs_btn_right"),
                         width: width(11),
                       ),
                       SizedBox(width: width(10),)

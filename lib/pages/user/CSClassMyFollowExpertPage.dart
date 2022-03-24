@@ -254,7 +254,7 @@ class CSClassMyFollowExpertPageState extends State<CSClassMyFollowExpertPage> {
                                 item.csProAvatarUrl!.isEmpty)
                             ? Image.asset(
                                 CSClassImageUtil.csMethodGetImagePath(
-                                    "ic_default_avater"),
+                                    "cs_default_avater"),
                                 width: width(46),
                                 height: width(46),
                               )

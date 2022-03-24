@@ -462,7 +462,7 @@ class CSClassOddsPageState extends State<CSClassOddsPage>
                                   child: Container(
                                     padding: EdgeInsets.only(right: width(15)),
                                     child: Image.asset(
-                                      CSClassImageUtil.csMethodGetImagePath("ic_close"),
+                                      CSClassImageUtil.csMethodGetImagePath("cs_close"),
                                       width: width(17),
                                     ),
                                   ),
@@ -578,7 +578,7 @@ class CSClassOddsPageState extends State<CSClassOddsPage>
                                           Container(
                                             margin: EdgeInsets.only(right: width(16)),
                                             child: Image.asset(
-                                              CSClassImageUtil.csMethodGetImagePath('ic_btn_right'),
+                                              CSClassImageUtil.csMethodGetImagePath('cs_btn_right'),
                                               width: width(10),
                                             ),
                                           )

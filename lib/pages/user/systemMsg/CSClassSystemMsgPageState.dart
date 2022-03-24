@@ -95,7 +95,7 @@ class CSClassSystemMsgPageState extends State<CSClassSystemMsgPage>{
                             Container(
                               margin: EdgeInsets.all(width(4)),
                               child: Image.asset(
-                                CSClassImageUtil.csMethodGetImagePath("ic_sysmgs"),
+                                CSClassImageUtil.csMethodGetImagePath("cs_sysmgs"),
                                 width: width(23),
                                 height: width(23),
                               ),

@@ -80,7 +80,7 @@ class CSClassMatchListSettingPageState extends State<CSClassMatchListSettingPage
                     Expanded(child: SizedBox(),),
                     Text(csProMatchShowType==0 ? "按时间排序":"按联赛排序",style: TextStyle(color: Color(0xFFA7A7A7),fontSize: sp(12),fontWeight: FontWeight.w500),),
                     SizedBox(width: width(5),),
-                    Image.asset(CSClassImageUtil.csMethodGetImagePath("ic_btn_right"),
+                    Image.asset(CSClassImageUtil.csMethodGetImagePath("cs_btn_right"),
                       width: width(11),
                     ),
 
@@ -120,7 +120,7 @@ class CSClassMatchListSettingPageState extends State<CSClassMatchListSettingPage
                     Expanded(child: SizedBox(),),
                     Text(csProPromptScoreTitle[csProPromptScoreIndex],style: TextStyle(color: Color(0xFFA7A7A7),fontSize: sp(12),fontWeight: FontWeight.w500),),
                     SizedBox(width: width(5),),
-                    Image.asset(CSClassImageUtil.csMethodGetImagePath("ic_btn_right"),
+                    Image.asset(CSClassImageUtil.csMethodGetImagePath("cs_btn_right"),
                       width: width(11),
                     ),
 
@@ -196,7 +196,7 @@ class CSClassMatchListSettingPageState extends State<CSClassMatchListSettingPage
                               behavior: HitTestBehavior.opaque,
                               child: Row(
                                 children: <Widget>[
-                                  Image.asset(CSClassImageUtil.csMethodGetImagePath(list!.contains("audio")? "ic_select":"ic_seleect_un"), width: width(15)),
+                                  Image.asset(CSClassImageUtil.csMethodGetImagePath(list!.contains("audio")? "cs_select_circular":"cs_seleect_un"), width: width(15)),
                                   SizedBox(width: width(5),),
                                   Text("声音",style: TextStyle(fontSize: sp(13),color: Colors.black),)
                                 ],
@@ -218,7 +218,7 @@ class CSClassMatchListSettingPageState extends State<CSClassMatchListSettingPage
                               behavior: HitTestBehavior.opaque,
                               child: Row(
                                 children: <Widget>[
-                                  Image.asset(CSClassImageUtil.csMethodGetImagePath(list.contains("vibrate")?  "ic_select":"ic_seleect_un"), width: width(15)),
+                                  Image.asset(CSClassImageUtil.csMethodGetImagePath(list.contains("vibrate")?  "cs_select_circular":"cs_seleect_un"), width: width(15)),
                                   SizedBox(width: width(5),),
                                   Text("震动",style: TextStyle(fontSize: sp(13),color: Colors.black),)
 
@@ -240,7 +240,7 @@ class CSClassMatchListSettingPageState extends State<CSClassMatchListSettingPage
                               behavior: HitTestBehavior.opaque,
                               child: Row(
                                 children: <Widget>[
-                                  Image.asset(CSClassImageUtil.csMethodGetImagePath(list.contains("alert")?  "ic_select":"ic_seleect_un"), width: width(15)),
+                                  Image.asset(CSClassImageUtil.csMethodGetImagePath(list.contains("alert")?  "cs_select_circular":"cs_seleect_un"), width: width(15)),
                                   SizedBox(width: width(5),),
                                   Text("弹窗",style: TextStyle(fontSize: sp(13),color: Colors.black),)
 

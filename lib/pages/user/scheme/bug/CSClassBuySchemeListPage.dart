@@ -88,9 +88,9 @@ class CSClassBuySchemeListPageState extends State<CSClassBuySchemeListPage>{
                                 top: 10,
                                 right:  width(13) ,
                                 child: Image.asset(
-                                  (schemeItem.csProIsWin=="1")? CSClassImageUtil.csMethodGetImagePath("ic_result_red"):
-                                  (schemeItem.csProIsWin=="0")? CSClassImageUtil.csMethodGetImagePath("ic_result_hei"):
-                                  (schemeItem.csProIsWin=="2")? CSClassImageUtil.csMethodGetImagePath("ic_result_zou"):"",
+                                  (schemeItem.csProIsWin=="1")? CSClassImageUtil.csMethodGetImagePath("cs_result_red"):
+                                  (schemeItem.csProIsWin=="0")? CSClassImageUtil.csMethodGetImagePath("cs_result_hei"):
+                                  (schemeItem.csProIsWin=="2")? CSClassImageUtil.csMethodGetImagePath("cs_result_zou"):"",
                                   width: width(40),
                                 ),
                               ),

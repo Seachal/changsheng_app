@@ -71,7 +71,7 @@ class CSClassSplashPageState extends State<CSClassSplashPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Image.asset(
-                      CSClassImageUtil.csMethodGetImagePath("ic_app_logo"),
+                      CSClassImageUtil.csMethodGetImagePath("cs_app_logo"),
                       width: width(40),
                     ),
                     SizedBox(

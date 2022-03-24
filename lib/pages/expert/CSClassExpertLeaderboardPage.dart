@@ -256,7 +256,7 @@ class CSClassExpertLeaderboardPageState extends State<CSClassExpertLeaderboardPa
                                           borderRadius: BorderRadius.circular(150)),
                                       child:  ClipOval(
                                         child:( item.csProAvatarUrl==null||item.csProAvatarUrl!.isEmpty)? Image.asset(
-                                          CSClassImageUtil.csMethodGetImagePath("ic_default_avater"),
+                                          CSClassImageUtil.csMethodGetImagePath("cs_default_avater"),
                                           width: width(40),
                                           height: width(40),
                                         ):Image.network(
@@ -414,7 +414,7 @@ class CSClassExpertLeaderboardPageState extends State<CSClassExpertLeaderboardPa
 
    buildMedal(int ranking) {
      return Image.asset(
-       CSClassImageUtil.csMethodGetImagePath(ranking==1? "ic_leaderbord_one":(ranking==2? "ic_leaderbord_two":"ic_leaderbord_three")),
+       CSClassImageUtil.csMethodGetImagePath(ranking==1? "cs_leaderbord_one":(ranking==2? "cs_leaderbord_two":"cs_leaderbord_three")),
        width: width(30),
      );
 

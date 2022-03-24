@@ -79,13 +79,13 @@ class CSClassLoadingBallState extends State<CSClassLoadingBall> with SingleTicke
             //   turns: csProController,
             //   alignment: Alignment.center,
             //   child:Image.asset(
-            //     CSClassImageUtil.csMethodGetImagePath('ic_common_loading'),
+            //     CSClassImageUtil.csMethodGetImagePath('cs_common_loading'),
             //     width:  width(45),
             //   ) ,
             // ),
             // SizedBox(height: 5,),
             // Image.asset(
-            //   CSClassImageUtil.csMethodGetImagePath('ic_ball_shadow'),
+            //   CSClassImageUtil.csMethodGetImagePath('cs_ball_shadow'),
             //   width:  width(21),
             // ),
             // SizedBox(height: 5,),

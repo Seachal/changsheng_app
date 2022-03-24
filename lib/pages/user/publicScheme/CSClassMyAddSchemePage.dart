@@ -44,7 +44,7 @@ class CSClassMyAddSchemePageState extends State<CSClassMyAddSchemePage> with Tic
             child: Row(
               children: <Widget>[
 
-                // CSClassEncryptImage.asset(CSClassImageUtil.csMethodGetImagePath("ic_shceme_public"),width: width(14),),
+                // CSClassEncryptImage.asset(CSClassImageUtil.csMethodGetImagePath("cs_shceme_public"),width: width(14),),
                 SizedBox(width: width(3),),
                 Text("去发布",style: TextStyle(color: Colors.white,fontSize: sp(13)),),
                 SizedBox(width:width(15) ,),
@@ -95,7 +95,7 @@ class CSClassMyAddSchemePageState extends State<CSClassMyAddSchemePage> with Tic
                        //      behavior: HitTestBehavior.opaque,
                        //      child: Container(
                        //        padding: EdgeInsets.all(3),
-                       //        child: CSClassEncryptImage.asset(CSClassImageUtil.csMethodGetImagePath("ic_rulu_tip"),width: width(12),),
+                       //        child: CSClassEncryptImage.asset(CSClassImageUtil.csMethodGetImagePath("cs_rulu_tip"),width: width(12),),
                        //      ),
                        //      onTap: (){
                        //        showDialog(context: context,child: CSClassAddSchemeRuleTipDialog(callback: (){

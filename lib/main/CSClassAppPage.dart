@@ -214,36 +214,36 @@ class CSClassAppPageState extends State<CSClassAppPage>
     if(CSClassApplicaion.csProShowMenuList.contains("home")){
       // csProPageList.add(CSClassHomePage());
       csProPageList.add(HomePage());
-      tabs.add(CSClassQNavTab( csProTabText: "推荐",csProTabImage:CSClassImageUtil.csMethodGetImagePath("ic_homepage")));
+      tabs.add(CSClassQNavTab( csProTabText: "推荐",csProTabImage:CSClassImageUtil.csMethodGetImagePath("cs_homepage")));
     }
     if(CSClassApplicaion.csProShowMenuList.contains("shop")){
 
       csProPageList.add(ShopPage());
-      tabs.add(CSClassQNavTab( csProTabText: "商城",csProTabImage:CSClassImageUtil.csMethodGetImagePath("ic_shopPage")));
+      tabs.add(CSClassQNavTab( csProTabText: "商城",csProTabImage:CSClassImageUtil.csMethodGetImagePath("cs_shopPage")));
     }
     if(CSClassApplicaion.csProShowMenuList.contains("match")){
       csProPageList.add(CSClassCompetitionHomePage());
-      tabs.add(CSClassQNavTab( csProTabText: "比分",csProTabImage:CSClassImageUtil.csMethodGetImagePath("ic_score")),);
+      tabs.add(CSClassQNavTab( csProTabText: "比分",csProTabImage:CSClassImageUtil.csMethodGetImagePath("cs_score")),);
     }
 
 //    if(CSClassApplicaion.csProShowMenuList.contains("circle")){
 //      csProPageList.add(Container());
 //      // csProPageList.add(CSClassHotHomePage());
-//      tabs.add(CSClassQNavTab( csProTabText: "热门",csProTabImage:CSClassImageUtil.csMethodGetImagePath("ic_tab_hot")));
+//      tabs.add(CSClassQNavTab( csProTabText: "热门",csProTabImage:CSClassImageUtil.csMethodGetImagePath("cs_tab_hot")));
 //    }
     if(CSClassApplicaion.csProShowMenuList.contains("expert")){
       csProPageList.add(CSClassExpertHomePage());
-        tabs.add(CSClassQNavTab( csProTabText: "专家",csProTabImage:CSClassImageUtil.csMethodGetImagePath("ic_match")));
+        tabs.add(CSClassQNavTab( csProTabText: "专家",csProTabImage:CSClassImageUtil.csMethodGetImagePath("cs_match")));
         csProExpertIndex=csProPageList.length-1;
     }
 
     if(CSClassApplicaion.csProShowMenuList.contains("game")&&CSClassApplicaion.csProDEBUG == true){
       csProPageList.add(Container());
       // csProPageList.add(CSClassGamePage());
-      tabs.add(CSClassQNavTab(csProTabText: '游戏',csProTabImage:CSClassImageUtil.csMethodGetImagePath("ic_game")));
+      tabs.add(CSClassQNavTab(csProTabText: '游戏',csProTabImage:CSClassImageUtil.csMethodGetImagePath("cs_game")));
     }
        csProPageList.add(CSClassUserPage());
-       tabs.add(CSClassQNavTab(csProTabText: "我的",csProTabImage:CSClassImageUtil.csMethodGetImagePath("ic_tab_user"),badge:csMethodIsLogin()? int.parse(CSClassApplicaion.csProUserLoginInfo!.csProUnreadMsgNum!):0));
+       tabs.add(CSClassQNavTab(csProTabText: "我的",csProTabImage:CSClassImageUtil.csMethodGetImagePath("cs_tab_user"),badge:csMethodIsLogin()? int.parse(CSClassApplicaion.csProUserLoginInfo!.csProUnreadMsgNum!):0));
 
       CSClassApplicaion.csProEventBus.on<String>().listen((event) {
       if(event=="tab:expert"){
