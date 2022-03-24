@@ -3660,17 +3660,16 @@ class CSClassMatchAnylizePageState extends State<CSClassMatchAnylizePage>
               mainAxisAlignment:
               MainAxisAlignment.center,
               children: <Widget>[
-                Expanded(
-                  child: Container(
-                    alignment:
-                    Alignment.center,
-                    child: Text(
-                      "赛事日期",
-                      style: TextStyle(
-                          fontSize: sp(11),
-                          color: Color(
-                              0xFF303133)),
-                    ),
+                Container(
+                  width: width(70),
+                  alignment:
+                  Alignment.center,
+                  child: Text(
+                    "赛事日期",
+                    style: TextStyle(
+                        fontSize: sp(11),
+                        color: Color(
+                            0xFF303133)),
                   ),
                 ),
                 Expanded(
@@ -3757,32 +3756,30 @@ class CSClassMatchAnylizePageState extends State<CSClassMatchAnylizePage>
                     MainAxisAlignment
                         .center,
                     children: <Widget>[
-                      SizedBox(width: width(12),),
-                      Expanded(
-                        child: Container(
-                          alignment:
-                          Alignment
-                              .center,
-                          child: Text(
-                            sprintf(
-                                "%s%s%s",
-                                [
-                                  CSClassDateUtils.csMethodDateFormatByString(
-                                      item.csProMatchDate!,
-                                      "yyyy.M.dd"),
-                                  "\n",
-                                  item.csProLeagueName,
-                                ]),
-                            style:
-                            TextStyle(
-                              fontSize:
-                              sp(11),
-                              color: MyColors.grey_33,
-                            ),
-                            textAlign:
-                            TextAlign
-                                .center,
+                      Container(
+                        width: width(70),
+                        alignment:
+                        Alignment
+                            .center,
+                        child: Text(
+                          sprintf(
+                              "%s%s%s",
+                              [
+                                CSClassDateUtils.csMethodDateFormatByString(
+                                    item.csProMatchDate!,
+                                    "yyyy.M.dd"),
+                                "\n",
+                                item.csProLeagueName,
+                              ]),
+                          style:
+                          TextStyle(
+                            fontSize:
+                            sp(11),
+                            color: MyColors.grey_33,
                           ),
+                          textAlign:
+                          TextAlign
+                              .center,
                         ),
                       ),
                       Expanded(

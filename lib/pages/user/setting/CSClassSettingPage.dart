@@ -198,25 +198,28 @@ class CSClassSettingPageState extends State<CSClassSettingPage> {
           ),
         ),
       ),
-      bottomNavigationBar: GestureDetector(
-        child: Container(
-          color: Color(0xFFF2F2F2),
-          height: width(46),
-          alignment: Alignment.center,
-          child: Text(
-            "退出",
-            style: TextStyle(
-                fontSize: sp(17),
-                color: MyColors.red),
+      bottomNavigationBar: SafeArea(
+        bottom: true,
+        child: GestureDetector(
+          child: Container(
+            color: Color(0xFFF2F2F2),
+            height: width(46),
+            alignment: Alignment.center,
+            child: Text(
+              "退出",
+              style: TextStyle(
+                  fontSize: sp(17),
+                  color: MyColors.red),
+            ),
           ),
+          onTap: () {
+            CSClassApplicaion.csMethodClearUserState();
+            CSClassApplicaion.csProEventBus.fire("login:gameout");
+            CSClassApplicaion.csProEventBus.fire("login:gamelist");
+            CSClassApplicaion.csProEventBus.fire("login:out");
+            CSClassNavigatorUtils.csMethodPopAll(context);
+          },
         ),
-        onTap: () {
-          CSClassApplicaion.csMethodClearUserState();
-          CSClassApplicaion.csProEventBus.fire("login:gameout");
-          CSClassApplicaion.csProEventBus.fire("login:gamelist");
-          CSClassApplicaion.csProEventBus.fire("login:out");
-          CSClassNavigatorUtils.csMethodPopAll(context);
-        },
       ),
     );
   }
