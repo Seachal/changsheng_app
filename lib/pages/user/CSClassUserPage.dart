@@ -111,6 +111,12 @@ class CSClassUserPageState extends State<CSClassUserPage>
       csProOtherImages.remove("order");
       csProOtherTitles.remove("我的订单");
     }
+    if (!CSClassApplicaion.csProShowMenuList.contains("pay")) {
+      csProOtherImages.remove("new");
+      csProOtherTitles.remove("新人福利");
+      csProMyTitles.remove("已购方案");
+      csProMyTitleImages.remove("bug");
+    }
 
 
 

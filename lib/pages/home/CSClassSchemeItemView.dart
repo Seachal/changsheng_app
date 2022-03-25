@@ -463,7 +463,7 @@ class CSClassSchemeItemView extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.only(right: width(8)),
                     child: (item.csProIsOver == "1" ||
-                            item.csProIsBought == "1")
+                            item.csProIsBought == "1"||!CSClassApplicaion.csProShowMenuList.contains("pay"))
                         ? Text(
                             '查看',
                             style: TextStyle(

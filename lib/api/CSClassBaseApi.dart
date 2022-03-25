@@ -180,10 +180,10 @@ class CSClassBaseApi{
           if(CSClassApplicaion.csProEncrypt){
             data["data"] = json.decode( AesUtils.encryptAes(data["data"]));
           }
-          print('请求url：${httpManager.options.baseUrl}$url');
-          print('请求参数：$queryParameters');
-          print('请求参数body：$csProBodyParameters');
-          print('返回数据：${data}');
+//          print('请求url：${httpManager.options.baseUrl}$url');
+//          print('请求参数：$queryParameters');
+//          print('请求参数body：$csProBodyParameters');
+//          print('返回数据：${data}');
           result=CSClassBaseModelEntity.formJson(data);
           result.csMethodGetObject<T>(object: jsonObject);
           if(result.code=="401"){

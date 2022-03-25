@@ -327,7 +327,7 @@ class CSClassMatchDetailPageState extends State<CSClassMatchDetailPage> with Tic
               ],
             ) :Text("${widget.csProSportMatch!.csProLeagueName!}",style: TextStyle(color: Colors.white,fontSize: sp(18)),),
             forceElevated: innerBoxIsScrolled,
-            expandedHeight: width(203)+MediaQuery.of(context).padding.bottom,
+            expandedHeight: width(190)+MediaQuery.of(context).padding.bottom,
             flexibleSpace:   FlexibleSpaceBar(
               collapseMode: CollapseMode.pin,
               background: Stack(
